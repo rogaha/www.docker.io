@@ -1,5 +1,5 @@
 {% extends 'community.html' %}
-{% block title %}Community{% endblock %}
+{% block title %}Community - {% endblock %}
 {% block meta-description %}An open source project to pack, ship and run any application as a lightweight container{% endblock %}
 {% block meta-keywords %}Docker, linux containers, PaaS, dotCloud, introduction, about, community{% endblock %}
 

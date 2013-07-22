@@ -1,6 +1,6 @@
 {% extends 'the-whole-story.html' %}
 {% load static %}
-{% block title %} About Docker {% endblock %}
+{% block title %}The whole story - {% endblock %}
 {% block meta-description %}An open source project to pack, ship and run any application as a lightweight container{% endblock %}
 {% block meta-keywords %}Docker, linux containers, PaaS, dotCloud, introduction, about, how it works{% endblock %}
 

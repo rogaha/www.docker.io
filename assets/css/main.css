@@ -148,9 +148,8 @@ div.alert.alert-block {
 }
 footer,
 .footer {
-  margin-top: 10px;
+  margin-top: 160px;
   margin-bottom: 10px;
-  border-top: 2px solid black;
 }
 footer .ligaturesymbols,
 .footer .ligaturesymbols {
@@ -170,7 +169,7 @@ footer .ligaturesymbols a,
 .footer-landscape-image {
   background-image: url('../img/website-footer.svg');
   background-repeat: repeat-x;
-  height: 300px;
+  height: 190px;
 }
 #top {
   background-color: #71afc0;
