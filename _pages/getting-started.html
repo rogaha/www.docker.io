@@ -1,7 +1,6 @@
-{% extends 'base.html' %}
-{% load navactive %}{% load markdown_deux_tags %}
-{% block page_js %}
+{% extends 'base.html' %}{% load markdown_deux_tags %}
 
+{% block page_js %}
 <script type='text/javascript'>
 function addAnchors(){
     //loop through all your headers
@@ -14,18 +13,10 @@ function addAnchors(){
 }
 
 $(document).ready(addAnchors);
-
 </script>
-{% endblock %}
-
-
-{% block title %}
-
-{% endblock title %}
-
+{% endblock page_js %}
 
 {% block content %}
-
 
 <div class="container">
 <div class="row" >
@@ -40,15 +31,26 @@ $(document).ready(addAnchors);
 <div class="row" >
     <div class="span12 paper">
         <div id="" class="span8 offset2">
-
             {% markdown %}{% block copy_introduction %}
             {% endblock %}{% endmarkdown %}
 
+            {# This is where the table of contents will show up#}
+            <ul id="box-anchors" class="table-of-contents">
+            </ul>
+
+            {% markdown %}{% block copy_install %}
+            {% endblock %}{% endmarkdown %}
+
+            {% markdown %}{% block copy_hello_world %}
+            {% endblock %}{% endmarkdown %}
+
+            {% markdown %}{% block copy_user_guides %}
+            {% endblock %}{% endmarkdown %}
 
         </div>
     </div>
 </div>
-</div>
 
+</div>
 
 {% endblock %}

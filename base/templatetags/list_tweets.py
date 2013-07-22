@@ -1,7 +1,7 @@
 __author__ = 'thatcher'
 
 from django import template
-from base.utils2 import TwitterClient
+from base.utils import TwitterClient
 import json
 from django.core.cache import get_cache
 
@@ -71,18 +71,19 @@ class TweetNode(template.Node):
 
             # for tweet in tweets:
             html += """
-            <div class="tweet">
-                <img src="{}">
-                <span class="handle">@{}</span>
-                <span class="username">({})</span>
-                <span class="text">{}</span>
+            <div class="tweet" onClick="window.open('http://twitter.com/{2}/status/{4}/')" >
+                <img src="{0}">
+                <span class="username">{1}</span>
+                <span class="handle"><a href="https://twitter.com/{2}" title="users twitter page">@{2}</a></span>
+                <p><span class="text">{3}</span></p>
             </div>
 
             """.format(
                 data['user']['profile_image_url'].encode('utf-8').strip(),
-                data['user']['screen_name'].encode('utf-8').strip(),
                 data['user']['name'].encode('utf-8').strip(),
-                data['text'].encode('utf-8').strip()
+                data['user']['screen_name'].encode('utf-8').strip(),
+                data['text'].encode('utf-8').strip(),
+                data['id']
                 # "text"
             )
         return html

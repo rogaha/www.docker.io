@@ -52,6 +52,7 @@ div[class*='span'] {
 .paper {
   background-color: white;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 .copy-headline {
   margin-top: 20px;
@@ -161,7 +162,6 @@ footer .ligaturesymbols a,
   color: black;
 }
 .footer-landscape {
-  background-color: #71afc0;
   position: relative;
   bottom: 0;
   left: 0;
@@ -170,7 +170,7 @@ footer .ligaturesymbols a,
 .footer-landscape-image {
   background-image: url('../img/website-footer.svg');
   background-repeat: repeat-x;
-  height: 200px;
+  height: 300px;
 }
 #top {
   background-color: #71afc0;
@@ -190,8 +190,6 @@ footer .ligaturesymbols a,
 }
 .tweets-block {
   height: 220px;
-  background-color: white;
-  border: 1px #394d54 solid;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -201,11 +199,11 @@ footer .ligaturesymbols a,
   height: 80px;
   display: block;
   float: left;
-  padding: 3px;
+  padding: 4px;
 }
 .tweets-block .tweet img {
   float: left;
-  margin: 0 5px 5px 0;
+  margin: 3px 8px 8px 0;
   width: 48px;
   height: 48px;
 }
@@ -214,6 +212,17 @@ footer .ligaturesymbols a,
 }
 .tweets-block .tweet .username {
   clear: right;
+}
+.tweet:hover {
+  background-color: #d8d8d8;
+}
+.show-more-tweets {
+  position: relative;
+  float: right;
+  border: 2px dotted red !important;
+  background-color: cadetblue;
+  height: 20px;
+  width: 80px;
 }
 .tweet-surface {
   width: 5000px;

@@ -8,7 +8,7 @@ from datetime import datetime
 from forms import NewsSubscribeForm
 from django.http import HttpResponseRedirect
 # from .utils import get_app_auth_twitter
-from utils2 import TwitterClient
+from utils import TwitterClient
 import json
 from django.core.cache import cache
 

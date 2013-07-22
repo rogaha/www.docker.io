@@ -1,4 +1,4 @@
-{% extends 'base_www.html' %}
+{% extends 'base.html' %}
 {% load markdown_deux_tags %}{% load staticfiles %}
 
 
@@ -32,7 +32,7 @@
 
     <div class="row" >
         <div class="span12 text-center action-button">
-            <button class="btn btn-large btn-primary primary-action-button">Get started!</button>
+            <a href="{% url 'getting_started' %}" class="btn btn-large btn-primary primary-action-button" title="getting started">Get started!</a>
         </div>
     </div>
 
@@ -43,6 +43,7 @@
             <div class="tweet-surface">
             {% block tweets %}{% endblock %}
             </div>
+            <div id="show-more-tweets" >more</div>
         </div>
     </div>
 
