@@ -74,7 +74,7 @@ class TweetNode(template.Node):
             <div class="tweet" onClick="window.open('http://twitter.com/{2}/status/{4}/')" >
                 <img src="{0}">
                 <span class="username">{1}</span>
-                <span class="handle"><a href="https://twitter.com/{2}" title="users twitter page">@{2}</a></span>
+                <span class="handle" ><a onClick="window.open('http://twitter.com/{2}'); event.preventDefault();" href="https://twitter.com/{2}/" title="users twitter page">@{2}</a></span>
                 <p><span class="text">{3}</span></p>
             </div>
 

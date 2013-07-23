@@ -76,28 +76,24 @@
 <div class="footer-landscape"  >
     <div class="footer-landscape-image" >
 
-<!-- footer -->
-<div class="container">
-    <div class="row" >
-        <div class="span12 footer">
-            <div class="span8 tbox">
-                Docker and the Docker index are projects by <a href="http://dotcloud.com">dotCloud</a>
-            </div>
+        <!-- footer -->
+        <div class="container">
+            <div class="row" >
+                <div class="span12 footer">
+                    <div class="span8 tbox">
+                        Docker is an open source project, sponsored by  <a href="http://dotcloud.com">dotCloud</a>, under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE" title="Docker licence, hosted in the Github repository">apache 2.0 licence</a>
+                    </div>
 
-            <div class="span4 tbox textright social links">
-                <a class="twitter" href="http://twitter.com/getdocker">Twitter</a>
-                <a class="github" href="https://github.com/dotcloud/docker/">GitHub</a>
+                    <div class="span4 tbox textright social links">
+                        <a class="twitter" href="http://twitter.com/getdocker">Twitter</a>
+                        <a class="github" href="https://github.com/dotcloud/docker/">GitHub</a>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- end of footer -->
     </div>
-</div>
-<!-- end of footer -->
 
-
-
-
-{#        <img id="footer-landscape" src="{% static 'img/website-footer.svg' %}">#}
-    </div>
 </div>
 
 
@@ -106,20 +102,14 @@
     // Function to make the sticky header possible
     var shiftWindow = function() {
         scrollBy(0, -80);
-        console.log("window shifted")
     };
+
     window.addEventListener("hashchange", shiftWindow);
 
-    function loadShift() {
+    $(window).load(function() {
         if (window.location.hash) {
-            console.log("window has hash");
             shiftWindow();
         }
-    }
-
-    $(window).load(function() {
-        loadShift();
-        console.log("late loadshift");
     });
 
 </script>

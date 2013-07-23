@@ -143,6 +143,9 @@ form .fielddd input {
 form .error {
   color: #a30000;
 }
+form [type=submit] {
+  margin-top: -8px;
+}
 div.alert.alert-block {
   margin-bottom: 15px;
 }
@@ -169,7 +172,7 @@ footer .ligaturesymbols a,
 .footer-landscape-image {
   background-image: url('../img/website-footer.svg');
   background-repeat: repeat-x;
-  height: 190px;
+  height: 250px;
 }
 #top {
   background-color: #71afc0;
@@ -187,53 +190,88 @@ footer .ligaturesymbols a,
 .copy-introduction {
   margin-top: 15px;
 }
-.tweets-block {
+.tweets-container {
   height: 220px;
   overflow-x: scroll;
   overflow-y: hidden;
 }
-.tweets-block .tweet {
+.tweets-container .tweet {
   margin: 5px;
-  width: 300px;
+  width: 290px;
   height: 80px;
   display: block;
   float: left;
   padding: 4px;
 }
-.tweets-block .tweet img {
+.tweets-container .tweet img {
   float: left;
   margin: 3px 8px 8px 0;
   width: 48px;
   height: 48px;
 }
-.tweets-block .tweet .handle {
+.tweets-container .tweet .handle {
   font-weight: bold;
 }
-.tweets-block .tweet .username {
+.tweets-container .tweet .username {
   clear: right;
 }
 .tweet:hover {
   background-color: #d8d8d8;
 }
-.show-more-tweets {
+.tweets-block {
   position: relative;
-  float: right;
-  border: 2px dotted red !important;
-  background-color: cadetblue;
-  height: 20px;
-  width: 80px;
+}
+.tweet-navigator {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 18px;
+}
+.tweet-navigator:hover {
+  background-color: rgba(155, 155, 155, 0.15);
+}
+.tweet-navigator-left {
+  display: none;
+  left: 0;
+  margin-left: -18px;
+}
+.tweet-navigator-left.shadow {
+  box-shadow: 5px 0 5px #DDD;
+}
+.tweet-navigator-right {
+  right: 0;
+  margin-right: -18px;
+  box-shadow: -3px 0 2px #bbbbbb;
+}
+.vertical-middle {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: 80px;
 }
 .tweet-surface {
-  width: 5000px;
+  width: 4600px;
   height: 200px;
 }
-.primary-action-button {
+.primary-action-button,
+.secondary-action-button {
   border-radius: 0px;
   padding: 17px 30px 17px 30px ;
-  background: #394D54;
+  background: #394d54;
 }
 .primary-action-button:hover {
   background: #333333 !important;
+}
+.secondary-action-button {
+  background: #628591;
+}
+.secondary-action-button:hover {
+  background: #7e9da8;
 }
 button:hover {
   background-color: white;
@@ -242,11 +280,11 @@ button:hover {
   padding: 10px;
 }
 .copy-introduction {
-  font-size: 16px;
+  font-size: 17px;
 }
-/*
+/* ******************************
  For the about page
-*/
+****************************** */
 .table {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -266,4 +304,31 @@ button:hover {
 }
 .striped-table tbody tr:nth-child(odd) {
   background-color: rgba(0, 103, 177, 0.14);
+}
+.slideshare-presentation {
+  box-shadow: 1px 2px 15px #888888;
+  margin-bottom: 15px;
+}
+/* ******************************
+ For the getting started page
+****************************** */
+.option-chooser-blocks {
+  position: relative;
+  margin-left: -8px;
+}
+.option-chooser-blocks li {
+  list-style-type: none;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+  background-color: #eaeaea;
+  border: 2px solid #b0c0bf;
+  margin: 6px;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.option-chooser-blocks li:hover {
+  background-color: #d1d1d1;
 }
