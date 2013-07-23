@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% load markdown_deux_tags %}{% load staticfiles %}
+{% block page_js %}
+<script src="{% static 'js/vendor/jquery.scrollTo-min.js' %}"></script>
+<script type="text/javascript">
 
+    function moveRight() {
+        $('#tweets-container').scrollTo( '+=620px', 300 );
+    }
+    function moveLeft() {
+        $('#tweets-container').scrollTo( '-=620px', 300 );
+    }
+    function showLeftShadow() {
+        $('.tweet-navigator-left').addClass('shadow').show();
+
+
+    }
+
+    $('document').ready(function() {
+        $('.tweet-navigator-right').click(moveRight);
+        $('.tweet-navigator-left').click(moveLeft);
+
+        $('#tweets-container').scroll(showLeftShadow);
+    })
+
+</script>
+
+{% endblock %}
 
 {% block content %}
 
@@ -32,18 +57,24 @@
 
     <div class="row" >
         <div class="span12 text-center action-button">
+            <a href="{% url 'about' %}" class="btn btn-large btn-primary secondary-action-button" title="getting started">Learn more</a>
             <a href="{% url 'getting_started' %}" class="btn btn-large btn-primary primary-action-button" title="getting started">Get started!</a>
         </div>
     </div>
 
 
     <div class="row" >
+
         <h3>What people are saying about us:</h3>
-        <div class="span12 tweets-block">
-            <div class="tweet-surface">
-            {% block tweets %}{% endblock %}
+
+        <div id="tweets-block" class="span12 tweets-block">
+            <div id="" class="tweet-navigator tweet-navigator-left" ><img src="{% static 'img/arrow left.svg' %}" class="vertical-middle"></div>
+            <div id="" class="tweet-navigator tweet-navigator-right" ><img src="{% static 'img/arrow right.svg' %}" class="vertical-middle"> </div>
+            <div id="tweets-container" class="tweets-container">
+                <div id="tweet-surface" class="tweet-surface">
+                    {% block tweets %}{% endblock %}
+                </div>
             </div>
-            <div id="show-more-tweets" >more</div>
         </div>
     </div>
 
@@ -51,10 +82,24 @@
         <div class="span6 block_updates copy_news">
             {% markdown %}{% block copy_news %}Placeholder for content
             {% endblock %}{% endmarkdown %}
+
+{# ToDo: Re-enable form #}
+{#            <h3>Stay up to date, join our mailinglist</h3>#}
+{#            <p>If you leave your email address here we will add you to our mailing list and send you low-frequency updates#}
+{#            about new releases and other important updates.</p>#}
+{##}
+{#            <form name="email_subscribe" action="{% url 'email_thanks' %}" method="POST">#}
+{#                {% csrf_token %}#}
+{#                {{ form.email }}#}
+{##}
+{#            <input type="submit">#}
+{#        </form>#}
         </div>
         <div class="span6 block_updates copy_community">
             {% markdown %}{% block copy_community %}Placeholder for content
             {% endblock %}{% endmarkdown %}
+
+
         </div>
     </div>
 
@@ -62,11 +107,6 @@
 </div> <!-- end container -->
 
 
-{#<form name="email_subscribe" action="{% url 'email_thanks' %}" method="POST">#}
-{#    {% csrf_token %}#}
-{#    {{ form }}#}
-{#    <input type="submit">#}
-{#</form>#}
 
 
 {% endblock content %}

@@ -1,10 +1,8 @@
 {% extends 'about.html' %}
 {% load static %}
-{% block title %}About Docker -{% endblock %}
-{% block meta-description %}An open source project to pack, ship and run any application as a lightweight container{% endblock %}
-{% block meta-keywords %}Docker, linux containers, PaaS, dotCloud, introduction, about, how it works{% endblock %}
-
-
+{% block title %}About Docker - {% endblock %}
+{% block meta-description %}Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application. The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal, OpenStack clusters, public clouds and more.{% endblock %}
+{% block meta-keywords %}Docker, linux containers, lxc, PaaS, dotCloud, introduction, about, how it works{% endblock %}
 
 {% block copy_headline %}
 # Learn what Docker is all about #
@@ -24,13 +22,13 @@ Common use cases for Docker include:
 *   Automated testing and continuous integration/deployment
 *   Deploying and scaling web apps, databases and backend services
 
-## Learn what docker is all about.
+## Learn what docker is all about
 
 The following presentation explains what Docker is in laymen terms and then goes into more detail what makes Docker
     special and different from virtual machines.
 
 <iframe class="slideshare-presentation" src="http://www.slideshare.net/slideshow/embed_code/24441742" width="630" height="393" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
-This presentation is also <a href="{% url 'the-whole-story' %}" title="the whole story">available as an indexed html-page</a>
+<a href="{% url 'the-whole-story' %}" title="Read the whole story in html format">Read the full story</a>
 
 {% endblock %}

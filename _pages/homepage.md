@@ -1,9 +1,9 @@
 {% extends 'homepage.html' %}
 {% load list_tweets %}{% load static %}
 
-{% block title %}Homepage {% endblock %}
-{% block meta-description %}An open source project to pack, ship and run any application as a lightweight container{% endblock %}
-{% block meta-keywords %}Docker, linux containers, PaaS, dotCloud, introduction, about, homepage{% endblock %}
+{% block title %}Homepage - {% endblock %}
+{% block meta-description %}Docker: An open source project to pack, ship and run any application as a lightweight container{% endblock %}
+{% block meta-keywords %}Docker, linux containers, lxc, PaaS, dotCloud{% endblock %}
 
 {% block copy_headline %}
 
@@ -13,16 +13,14 @@
 
 
 {% block copy_introduction %}
-
-Docker is an open-source project which allows you to easily create lightweight, portable, self-sufficient containers
-    from your application. The same container that a developer builds and tests on a laptop can run at scale, in
-    production, on VMs, bare metal servers, OpenStack clusters, public instances, or combinations of the above.
-    <span class="read-more"><a href="{% url 'about' %}" title="About Docker">Read more -></a></span>
+Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application.
+    The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal,
+    OpenStack clusters, public clouds and more. <span class="read-more"><a href="{% url 'about' %}" title="About Docker">Read more -></a></span>
 {% endblock %}
 
 
 {% block copy_news %}
-## Latest updates
+### Latest updates
 
 #### Jul 18 • Docker 0.5 Released
 We've released version 0.5. Amongst other things, this release containes External Volumes, Advanced Networking and
@@ -43,12 +41,15 @@ Sam Alba presents an article about the integration of Docker in OpenStack's clou
 
 
 {% block copy_community %}
-## From the community
+### Community events
 
 #### Upcoming Meetup • Jul 30:
-Come to our July Meetup in San Francisco to hear representatives from **EBay**, **Mailgun (Rackspace)** and **Mozilla**
+Come to our July Meetup in San Francisco to hear representatives from **EBay**, **Mailgun (Rackspace)** and **CloudFlare**
     discuss how they are using Docker.
     <span class="read-more"><a href="http://www.meetup.com/Docker-meetups/">go to meetup -></a></span>
+
+<img src="{% static 'img/news/logos-combined.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
+
 
 #### Our previous hackday • Jun 11:
 At our last day there was an impressive turnout and there was lots of talk about packing and using Docker in various

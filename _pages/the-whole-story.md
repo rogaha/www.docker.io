@@ -1,9 +1,8 @@
 {% extends 'the-whole-story.html' %}
 {% load static %}
 {% block title %}The whole story - {% endblock %}
-{% block meta-description %}An open source project to pack, ship and run any application as a lightweight container{% endblock %}
-{% block meta-keywords %}Docker, linux containers, PaaS, dotCloud, introduction, about, how it works{% endblock %}
-
+{% block meta-description %}Docker is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere. Learn more.{% endblock %}
+{% block meta-keywords %}Docker, linux containers, lxc, containers, how it works{% endblock %}
 
 
 {% block copy_headline %}
@@ -13,7 +12,7 @@
 {% block copy_introduction %}
 ## About Docker
 
-Docker  is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere.
+Docker is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere.
 
 Docker containers can encapsulate any payload, and will run consistently on and between virtually any server. The same container that a developer builds and tests on a laptop will run at scale, in production, on VMs, bare-metal servers, OpenStack clusters, public instances, or combinations of the above.
 
@@ -376,7 +375,6 @@ The Docker project is hosted on GitHub. [Click here to visit the repository](htt
 ### Contribute to the docker community
 
 Head on over to our [community]({% url 'community' %}) page
-
 
 {% endblock %}
 

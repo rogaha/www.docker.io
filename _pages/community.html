@@ -3,9 +3,23 @@
 
 
 {% block title %}
-
 {% endblock title %}
 
+
+{% block page_js %}
+<script type='text/javascript'>
+function addAnchors(){
+    //loop through all your headers
+    $.each($('h2'),function(index,value){
+        //append the text of your header to a list item in a div, linking to an anchor we will create on the next line
+        $('#box-anchors').append('<li><a href="#anchor-'+index+'">'+$(this).html()+'</a></li>');
+        //add an a tag to the header with a sequential name
+        $(this).html('<span id="anchor-'+index+'">'+$(this).html()+'</span>');
+    });
+}
+$(document).ready(addAnchors);
+</script>
+{% endblock page_js %}
 
 
 
@@ -24,6 +38,14 @@
 <div class="row" >
     <div class="span12 paper">
         <div id="" class="span8 offset2">
+
+            {% markdown %}{% block copy_introduction %}
+                <h1>Placeholder for content</h1>
+            {% endblock %}{% endmarkdown %}
+
+            {# This is where the table of contents will show up#}
+            <ul id="box-anchors" class="table-of-contents">
+            </ul>
 
             {% markdown %}{% block copy_1 %}
                 <h1>Placeholder for content</h1>

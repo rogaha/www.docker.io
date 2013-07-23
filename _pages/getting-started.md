@@ -1,6 +1,6 @@
 {% extends 'getting-started.html' %}
-{% block meta-description %}An open source project to pack, ship and run any application as a lightweight container{% endblock %}
-{% block meta-keywords %}Docker, linux containers, PaaS, dotCloud, introduction, about, getting started{% endblock %}
+{% block meta-description %}Start using Docker in minutes and build awesome applications with the tutorials{% endblock %}
+{% block meta-keywords %}Docker, Installation, install docker, download docker{% endblock %}
 {% block title %}Getting Started - {% endblock %}
 
 
@@ -18,7 +18,26 @@ There are only a few steps you need to take to run Docker, but you have a couple
 
 {% endblock %}
 
+{#{% block copy_install %}#}
+{##}
+{##}
+{#{% endblock %}#}
+
+
 {% block copy_install %}
+
+{### Installation#}
+{##}
+{#<ul class="option-chooser-blocks">#}
+{#    <li>Ubuntu linux</li>#}
+{#    <li>From binaries</li>#}
+{#    <li>Mac, Linux</li>#}
+{#    <li>Windows</li>#}
+{#    <li>Amazon EC2</li>#}
+{#    <li>Rackspace Cloud</li>#}
+{#    <li>Arch Linux</li>#}
+{#    <br style="clear: both">#}
+{#</ul>#}
 
 ## Installing on Ubuntu
 
@@ -75,7 +94,6 @@ You can also run an interactive shell session inside the container
 
 This command create an interactive shell in a base container. And you will be able to use this shell just like
     you would any other linux machine or virtual machine.
-
 
 {% endblock %}
 
