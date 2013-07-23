@@ -244,5 +244,6 @@ GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-6096819-11'
 # http://www.google.com/support/analyticshelp/bin/answer.py?answer=1205784&topic=1282106
 GOOGLE_ANALYTICS_SITE_SPEED = True
 
-ALLOWED_HOSTS = ['docker.io'] # need to set to real prod value.
-MAILCHIMP_API_KEY = SECRET_KEY = os.environ['MAILCHIMP_API_KEY']
+ALLOWED_HOSTS = ['.docker.io', '.dotcloud.com'] # need to set to real prod value.
+# ALLOWED_HOSTS = ['*'] # need to set to real prod value.
+MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']

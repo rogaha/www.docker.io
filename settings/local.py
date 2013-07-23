@@ -1,6 +1,10 @@
 
 from settings.base import *
 
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -12,3 +16,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+
+# Allowed hosts gives a 500 if not set to the right domain and debug is not set to True
+ALLOWED_HOSTS = ['localhost', 'thatcher.local']
