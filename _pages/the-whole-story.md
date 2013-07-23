@@ -42,7 +42,8 @@ This sets up the possibility for:
 *   Adverse interactions between different services and "dependency hell"
 *   Challenges in rapidly migrating and scaling across different hardware*   The impossibility of managing a matrix of multiple different services deployed across multiple different types of hardware
 
-<img src="{% static 'img/about/??.jpg' %}" title="The Challenge of Multiple Stacks and Multiple Hardware Environments.">
+<img src="{% static 'img/about/the_challenge.jpg' %}" title="The Challenge of Multiple Stacks and Multiple Hardware Environments.">
+
 
 Figure 2: The Challenge of Multiple Stacks and Multiple Hardware Environments
 
@@ -197,6 +198,8 @@ Docker makes it easy to build, modify, publish, search, and run containers. The 
 
 Containers can be found in a Docker Registry (either public or private), using Docker Search. Containers can be pulled from the registry using Docker Pull and can be run, started, stopped, etc. using Docker Run commands. Notably, the target of a run command can be your own servers, public instances, or a combination. 
 
+<img src="{% static 'img/about/docker_functions.jpg' %}" title="Basic Docker Functions">
+
 Figure 8: Basic Docker Functions
 
 For a full list of functions, please go to: [http://docs.docker.io/en/latest/commandline/](http://docs.docker.io/en/latest/commandline/)
@@ -214,6 +217,8 @@ This differs significantly from traditional VMs. Traditional, hardware virtualiz
 
 The picture below captures the difference
 
+<img src="{% static 'img/about/docker_vm.jpg' %}" title="Containers vs. Traditional VMs">
+
 Figure 9: Containers vs. Traditional VMs
 
 Since all of the containers share the same operating system (and, where appropriate, binaries and libraries), they are significantly smaller than VMs, making it possible to store 100s of VMs on a physical host (versus a strictly limited number of VMs). In addition, since they utilize the host operating system, restarting a VM does not mean restarting or rebooting the operating system. Thus, containers are much more portable and much more efficient for many use cases.
@@ -226,9 +231,13 @@ If you want to run several copies of the same application on a host, you do not 
 
 Finally, if you make a modification of the application, you need only copy the differences.
 
+<img src="{% static 'img/about/docker_lightweight.jpg' %}" title="Mechanism to make Docker containers Lightweight">
+
 Figure 10: Mechanism to Make Docker Containers Lightweight
 
 This not only makes it efficient to store and run containers, it also makes it extremely easy to update applications. As shown in the next figure, updating a container only requires applying the differences.
+
+<img src="{% static 'img/about/modifying_updating.jpg' %}" title="Modifying and updating containers">
 
 Figure 11: Modfiying and Updating Containers
 

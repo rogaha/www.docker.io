@@ -102,7 +102,7 @@ This command create an interactive shell in a base container. And you will be ab
 ## What can you build?
 
 These are just two example of what people have already build some cool stuff with Docker. For the full list, head
-    over to the [community page](http://localhost:8008/community/#anchor-3)
+    over to the [community page]({% url 'community' %}#anchor-3)
 
 * #### [Redis in Docker](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
     John Costa explains how to use Docker to package Redis, an open source database.

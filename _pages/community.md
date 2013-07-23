@@ -30,8 +30,7 @@ There are several ways to get in touch:
 * All our development and decisions are made out in the open on [Github](github.com/dotcloud/docker)
 * Get help on using Docker by asking on [Stackoverflow]()
 * Star or Watch the Project on [GitHub](http://github.com/dotcloud/docker)
-* Follow Us on Twitter: @getdocker
-* And of course, tweet your tweets to twitter.com/getdocker
+* And of course, tweet your tweets to @getdocker [twitter.com/getdocker](http://twitter.com/getdocker/)
 
 ## Share
 

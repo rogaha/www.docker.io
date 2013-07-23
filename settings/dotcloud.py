@@ -3,7 +3,7 @@ from settings.base import *
 
 print "using dotcloud settings"
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 MEDIA_URL = '/media/'
