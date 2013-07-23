@@ -1,4 +1,4 @@
-{% extends 'homepage.html' %}
+﻿{% extends 'homepage.html' %}
 {% load list_tweets %}{% load static %}
 
 {% block title %}Homepage - {% endblock %}
@@ -22,22 +22,29 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
+#### Jul 22 • Ben Golub Joins as CEO
+Open source veteran Ben Golub joins as CEO to drive the docker vision forward.
+    <span class="read-more"><a href="http://blog.docker.io/2013/07/excited-to-be-joining-the-great-teams-at-dotcloud-docker-as-ceo/">read more -></a></span>
+
 #### Jul 18 • Docker 0.5 Released
 We've released version 0.5. Amongst other things, this release containes External Volumes, Advanced Networking and
     support for an Self Hosted Registry,
     <span class="read-more"><a href="http://blog.docker.io/2013/07/docker-0-5-0-external-volumes-advanced-networking-self-hosted-registry/">read more -></a></span>
 
-#### Jul 11 • Featuring awesome projects:
+#### Jul 11 • Featuring awesome projects
 Everyday the Docker community is building awesome tools and projects with and for Docker. We want to share some of these with you.
     <span class="read-more"><a href="http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/">read more -></a></span>
 
-#### Jun 6 • Docker in Openstack:
+#### Jun 25 • dotCloud and Docker join the Linux Foundation
+By joining the foundation, we are excited to support the amazing open source contributions that have come before us, and support those yet to come!
+    <span class="read-more"><a href="http://blog.docker.io/2013/06/dotcloud-and-docker-join-the-linux-foundation/">read more -></a></span>
+
+#### Jun 6 • Docker in Openstack
 Sam Alba presents an article about the integration of Docker in OpenStack's cloud computing platform: NOVA. This integration
     allows users of OpenStack to seamlessly create Docker containers from the interface they are already using.
     <span class="read-more"><a href="http://blog.docker.io/2013/06/openstack-docker-manage-linux-containers-with-nova/">read more -></a></span>
 
 {% endblock %}
-
 
 
 {% block copy_community %}

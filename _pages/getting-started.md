@@ -99,18 +99,15 @@ This command create an interactive shell in a base container. And you will be ab
 
 {% block copy_user_guides %}
 
-## Contributed guides
+## What can you build?
 
-A number of people have done great guides on how to setup and use Docker in various situations
+These are just two example of what people have already build some cool stuff with Docker. For the full list, head
+    over to the [community page](http://localhost:8008/community/#anchor-3)
 
-* #### [Installing docker on Rackspace cloud](http://blog.docker.io/2013/05/running-docker-on-rackspace/)
-    A detailed tutorial on setting up Rackspace for Docker
+* #### [Redis in Docker](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
+    John Costa explains how to use Docker to package Redis, an open source database.
 
-* #### [Installing docker on digital ocean](http://blog.docker.io/2013/06/running-docker-on-digital-ocean-with-ubuntu/)
-    A detailed tutorial on settin put Digitial Ocean for Docker
-
-* #### [Getting docker to run on Linode](http://nick.stinemat.es/#docker-on-linode)
-    A detailed guide for setting up Linode for Docker
-
+* #### [Memcached as a service, using Docker](http://www.slideshare.net/julienbarbier42/building-a-saas-using-docker)
+    Julien Barbier writes about how to build your own SaaS, with memcached a a proof-of-concept example.
 
 {% endblock %}
