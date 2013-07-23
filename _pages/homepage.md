@@ -22,7 +22,7 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
-#### Jul 22 • Ben Golub Joins as CEO
+#### Jul 23 • Ben Golub Joins as CEO
 Open source veteran Ben Golub joins as CEO to drive the docker vision forward.
     <span class="read-more"><a href="http://blog.docker.io/2013/07/excited-to-be-joining-the-great-teams-at-dotcloud-docker-as-ceo/">read more -></a></span>
 
