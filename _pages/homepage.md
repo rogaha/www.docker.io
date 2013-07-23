@@ -108,8 +108,6 @@ At our last day there was an impressive turnout and there was lots of talk about
 357972314660405249
 356280542892802050
 356763917625724928
-355890863261491200
-354224101574983681
 
 {% end_list_tweets %}
 
