@@ -1,7 +1,7 @@
 ﻿{% extends 'homepage.html' %}
 {% load list_tweets %}{% load static %}
 
-{% block title %}Homepage - {% endblock %}
+{% block title %}{% endblock %}
 {% block meta-description %}Docker: An open source project to pack, ship and run any application as a lightweight container{% endblock %}
 {% block meta-keywords %}Docker, linux containers, lxc, PaaS, dotCloud{% endblock %}
 
@@ -24,7 +24,7 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 
 #### Jul 23 • Ben Golub Joins as CEO
 Open source veteran Ben Golub joins as CEO to drive the docker vision forward.
-    <span class="read-more"><a href="http://blog.docker.io/2013/07/excited-to-be-joining-the-great-teams-at-dotcloud-docker-as-ceo/">read more -></a></span>
+    <span class="read-more"><a href="http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html">read more -></a></span>
 
 #### Jul 18 • Docker 0.5 Released
 We've released version 0.5. Amongst other things, this release containes External Volumes, Advanced Networking and
