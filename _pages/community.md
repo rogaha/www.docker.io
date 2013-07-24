@@ -1,4 +1,4 @@
-{% extends 'community.html' %}
+{% extends 'community.html' %}{% load staticfiles %}
 {% block title %}Community - {% endblock %}
 {% block meta-description %}Join the thousands of developers who are helping to lead the Docker revolution!{% endblock %}
 {% block meta-keywords %}Docker, community, cobntribute{% endblock %}
@@ -25,24 +25,54 @@ improve your skills, or give back.
 
 There are several ways to get in touch:
 
-* Join the discussion on IRC. We can be found in the #docker channel on chat.freenode.net
-* Discussions happen on our [google group](https://groups.google.com/forum/#!forum/docker-club)
-* All our development and decisions are made out in the open on [Github](github.com/dotcloud/docker)
-* Get help on using Docker by asking on [Stackoverflow]()
-* Star or Watch the Project on [GitHub](http://github.com/dotcloud/docker)
-* And of course, tweet your tweets to @getdocker [twitter.com/getdocker](http://twitter.com/getdocker/)
+<ul id="chooser-blocks" class="option-chooser-blocks">
+
+    <a id="block-irc" data-description="A lot of our talk goes on on our IRC channel. You can find us as #docker on irc.freenode.net"
+       href="https://botbot.me/freenode/docker/#"
+       target="_blank"><li>IRC (via BotBot)<img src="{% static 'img/community/IRC.png' %}"> </li></a>
+
+    <a data-description="Getting in touch and discussing features can best be done on the google group."
+       href="https://groups.google.com/forum/#!forum/docker-club"
+       target="_blank"><li>Google groups<img src="{% static 'img/community/google-groups.png' %}"> </li></a>
+
+    <a data-description="All development goes on in Github. It is a your destination to contribute, find and commit problems"
+        href="http://github.com/dotcloud/docker"
+        target="_blank"><li>Github<img src="{% static 'img/community/github.png' %}"> </li></a>
+
+    <a data-description="Ask questions about how to use Docker on Stack Overflow, so anyone can benefit from the answers"
+        href="http://stackoverflow.com/search?q=docker"
+        target="_blank"><li>Stackoverflow<img src="{% static 'img/community/stackoverflow.png' %}"> </li></a>
+
+    <a data-description="For general praise, and other chitter chatter tweet"
+        href="http://twitter.com/getdocker/"
+        target="_blank"><li>Twitter<img src="{% static 'img/community/twitter.png' %}"> </li></a>
+</ul>
+
+<strong><span id="description" class="">So many options!</span></strong>
+
+{#<iframe id="bbme" src="http://botbot.me/freenode/docker/" width="615" height="400"></iframe>#}
+{#<iframe src="https://kiwiirc.com/client/irc.freenode.net/#docker" style="border:0; width:100%; height:450px;"></iframe>#}
+
+{#<div class="botbot-button">#}
+{#    <img src="{% static 'img/community/botbot-white.svg' %}">#}
+{#    <span class="bbme-title">irc logs</span>#}
+{#</div>#}
 
 ## Share
 
 Sharing what you have built with Docker is a great way to help people understand the value of Docker. If you have
-    a great story to tell we will be happy to help you spread the word.
+    a great story to tell we'll be happy to help you spread the word.
 
 * Tell your story at a company tech talk, tweet (#docker.io, @getdocker)  present at your local user group, or submit a
     talk proposal to a conference or event about how you are using Docker
 * If you are using Docker,  in production, become a public reference like [these](http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/)
-* Write a tutorial  like [these](http://blog.docker.io/2013/06/14-great-tutorials-on-docker/)
+* Write a tutorial like [these](http://blog.docker.io/2013/06/14-great-tutorials-on-docker/)
+
+
 
 ### Come to (or organize) a meetup ###
+
+<img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px;">
 
 Docker meetups  are a great way to network, learn, share best practices, and have fun.
 
@@ -65,7 +95,7 @@ An Open Source project like Docker couldn’t exist without contributions from t
 * Review our roadmap on [GitHub](github.com/dotcloud/docker) and provide feedback
 * Consider [contributing](https://github.com/dotcloud/docker/blob/master/CONTRIBUTING.md).
 
-Like the program itself, we run the [**documentaion**](http://docs.docker.io) as an open source project. The sources are
+Like the program itself, we run the [**documentation**](http://docs.docker.io) as an open source project. The sources are
     available from the main [docker repository](https://github.com/dotcloud/docker/tree/master/docs) on Github, and we
     encourage you to make improvements, whether big or small, make a pull request.
 

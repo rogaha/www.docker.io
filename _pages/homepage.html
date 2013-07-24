@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load markdown_deux_tags %}{% load staticfiles %}
 {% block page_js %}
-<script src="{% static 'js/vendor/jquery.scrollTo-min.js' %}"></script>
+
 <script type="text/javascript">
 
     function moveRight() {
@@ -39,7 +39,7 @@
                 {% markdown %}{% block copy_headline %}Placeholder for content
                 {% endblock %}{% endmarkdown %}
 
-                <img id="main-image" src="{% static 'img/homepage-docker-logo.png' %}">
+                <img id="main-image" src="{% static 'img/homepage-docker-logo.png' %}" alt="Docker Logo" >
             </div>
         </div>
     </div>

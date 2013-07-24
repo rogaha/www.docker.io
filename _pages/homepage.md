@@ -22,6 +22,12 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
+#### Jul 23 • Press coverage from GigaOM, Reuters and Yahoo Finance
+
+[<img src="{% static 'img/homepage/gigaom.png' %}" alt="gigaom">](http://gigaom.com/2013/07/23/paas-pioneer-dotcloud-gets-new-ceo-in-industry-vet-ben-golub/)
+[<img src="{% static 'img/homepage/reuters.png' %}" alt="reuters">](http://www.reuters.com/article/2013/07/23/ca-dotcloud-idUSnBw235523a+100+BSW20130723)
+[<img src="{% static 'img/homepage/yahoo.png' %}" alt="yahoo finance">](http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html)
+
 #### Jul 23 • Ben Golub Joins as CEO
 Open source veteran Ben Golub joins as CEO to drive the docker vision forward.
     <span class="read-more"><a href="http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html">read more -></a></span>
@@ -55,7 +61,9 @@ Come to our July Meetup in San Francisco to hear representatives from **EBay**, 
     discuss how they are using Docker.
     <span class="read-more"><a href="http://www.meetup.com/Docker-meetups/">go to meetup -></a></span>
 
-<img src="{% static 'img/news/logos-combined.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
+<img src="{% static 'img/homepage/ebay.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
+<img src="{% static 'img/homepage/mailgun.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
+<img src="{% static 'img/homepage/cloudflare.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
 
 
 #### Our previous hackday • Jun 11:
@@ -63,7 +71,7 @@ At our last day there was an impressive turnout and there was lots of talk about
     ways.
 
 
-<img src="{% static 'img/news/hackday_june_2013_brighter_400px.png' %}" alt="picture of Docker hackday at dotCloud office">
+<img src="{% static 'img/homepage/hackday_june_2013_brighter_400px.png' %}" alt="picture of Docker hackday at dotCloud office">
 
 {% endblock %}
 

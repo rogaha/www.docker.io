@@ -339,9 +339,23 @@ footer, .footer {
   height: 250px;
 }
 
+.float-left {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
 
-// Styles for the homepage
-// ----------------------------------
+.float-right {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+
+/* ******************************
+ For the homepage
+****************************** */
+
 
 #top {
   background-color: @dockerBackgroundColor;
@@ -490,6 +504,13 @@ button:hover {
   font-size: 17px;
 }
 
+.copy_news img {
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+
 /* ******************************
  For the about page
 ****************************** */
@@ -538,7 +559,7 @@ button:hover {
   margin-left: -8px;
 
   img {
-    opacity:0.6;
+    opacity:0.8;
     height: 80px;
     width: 80px;
   }
@@ -570,3 +591,26 @@ button:hover {
   box-sizing: border-box;
 }
 
+
+/* ******************************
+ For the community page
+****************************** */
+
+.botbot-button {
+  background-color: #de6222;
+  padding: 4px;
+//  width: 200px;
+  height: 60px;
+
+  img {
+    height: 50px;
+    float: left;
+  }
+
+  .bbme-title {
+    font-size: larger;
+    color: white;
+
+  }
+
+}

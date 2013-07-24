@@ -17,7 +17,16 @@ function addAnchors(){
         $(this).html('<span id="anchor-'+index+'">'+$(this).html()+'</span>');
     });
 }
-$(document).ready(addAnchors);
+{#$('document').ready(addAnchors);#}
+
+$('document').ready(function() {
+    addAnchors();
+
+    $('#chooser-blocks a').hover(function() {
+        $('#description').html($(this).data("description"));
+    });
+})
+
 </script>
 {% endblock page_js %}
 

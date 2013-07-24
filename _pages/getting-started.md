@@ -13,9 +13,7 @@
 {% block copy_introduction %}
 
 # Start using Docker
-There are only a few steps you need to take to run Docker, but you have a couple of options, and which works best
-    depends on your environment. Shown below is only the main (recommended) installation path for Ubuntu Linux.
-    Other Installation paths can be found in the [installation documentation](http://docs.docker.io/en/latest/installation/).
+We try to make using Docker easy.
 
 {% endblock %}
 
@@ -30,9 +28,9 @@ There are only a few steps you need to take to run Docker, but you have a couple
 ## Installation
 
 There are several installation options. Our recommended installation path is for **Ubuntu linux**,
-    because Docker natively runs on Ubuntu and our installation package will do most of the work for you.
+    because we develop Docker on Ubuntu and our installation package will do most of the work for you.
 
-Mac, Windows and some Linux distributions cannot natively run Docker at this time so we help you setup a virtual
+Mac, Windows and some Linux distributions cannot natively run Docker at this time so we help you setup a
     Ubuntu virtual machine and run Docker inside of that.
 
 <ul class="option-chooser-blocks">
@@ -53,7 +51,7 @@ Mac, Windows and some Linux distributions cannot natively run Docker at this tim
 
 Now let's do some magic!
 
-    docker run base /bin/echo hello world
+    docker run ubuntu /bin/echo hello world
 
 This should output 'hello world'. Just one line? Yes, but a lot has happened..
 
@@ -72,10 +70,10 @@ Docker did all of the following
 
 You can also run an interactive shell session inside the container
 
-    docker run -i -t base /bin/bash
+    docker run -i -t ubuntu /bin/bash
 
-This command create an interactive shell in a base container. And you will be able to use this shell just like
-    you would any other linux machine or virtual machine.
+This command creates an interactive shell in a minimal ubuntu container. You will be able to use this shell just like
+    you would any other linux machine or virtual machine. Press Ctrl-D to exit the shell.
 
 {% endblock %}
 
@@ -83,7 +81,7 @@ This command create an interactive shell in a base container. And you will be ab
 
 ## What can you build?
 
-These are just two example of what people have already build some cool stuff with Docker. For the full list, head
+Here are just two examples of some cool stuff people have already built with Docker. For the full list, head
     over to the [community page]({% url 'community' %}#anchor-3)
 
 * #### [Redis in Docker](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
@@ -91,5 +89,6 @@ These are just two example of what people have already build some cool stuff wit
 
 * #### [Memcached as a service, using Docker](http://www.slideshare.net/julienbarbier42/building-a-saas-using-docker)
     Julien Barbier writes about how to build your own SaaS, with memcached a a proof-of-concept example.
+
 
 {% endblock %}

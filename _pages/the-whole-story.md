@@ -44,7 +44,6 @@ This sets up the possibility for:
 
 <img src="{% static 'img/about/the_challenge.jpg' %}" title="The Challenge of Multiple Stacks and Multiple Hardware Environments.">
 
-
 Figure 2: The Challenge of Multiple Stacks and Multiple Hardware Environments
 
 Or, viewed as a matrix, we can see that there is a huge number of combinations and permutations of applications/services and hardware environments that need to be considered every time an application is written or rewritten. This creates a difficult situation for both the developers who are writing applications and the folks in operations who are trying to create a scalable, secure, and highly performance operations environment.
@@ -61,7 +60,7 @@ Figure 4: Analogy: Shipping Pre-1960
 
 Fortunately, an answer was found in the form of a standard shipping container.  Any type of goods, from pistachios to Porsches, can be packaged inside a standard shipping container. The container can then be sealed, and not re-opened until it reaches its final destination. In between, the containers can be loaded and unloaded, stacked, transported, and efficiently moved over long distances. The transfer from ship to gantry crane to train to truck can be automated, without requiring a modification of the container. Many authors credit the shipping container with revolutionizing both transportation and world trade in general. Today, 18 million standard containers carry 90% of world trade.
 
-<img src="{% static 'img/about/standard_container.png' %}" title="Solution to Shipping Challenge Was a Standard Container.">
+<img src="{% static 'img/about/standard_container.jpg' %}" title="Solution to Shipping Challenge Was a Standard Container.">
 
 Figure 5: Solution to Shipping Challenge Was a Standard Container
 

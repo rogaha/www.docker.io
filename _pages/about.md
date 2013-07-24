@@ -31,4 +31,6 @@ The following presentation explains what Docker is in laymen terms and then goes
 
 <a href="{% url 'the-whole-story' %}" title="Read the whole story in html format">Read the full story</a>
 
+Or, if you want to give it a spin: <a href="{% url 'getting_started' %}" class="" title="getting started">Continue to get started -></a>
+
 {% endblock %}
