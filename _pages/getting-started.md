@@ -1,4 +1,5 @@
 {% extends 'getting-started.html' %}
+{% load static %}
 {% block meta-description %}Start using Docker in minutes and build awesome applications with the tutorials{% endblock %}
 {% block meta-keywords %}Docker, Installation, install docker, download docker{% endblock %}
 {% block title %}Getting Started - {% endblock %}
@@ -26,43 +27,24 @@ There are only a few steps you need to take to run Docker, but you have a couple
 
 {% block copy_install %}
 
-{### Installation#}
-{##}
-{#<ul class="option-chooser-blocks">#}
-{#    <li>Ubuntu linux</li>#}
-{#    <li>From binaries</li>#}
-{#    <li>Mac, Linux</li>#}
-{#    <li>Windows</li>#}
-{#    <li>Amazon EC2</li>#}
-{#    <li>Rackspace Cloud</li>#}
-{#    <li>Arch Linux</li>#}
-{#    <br style="clear: both">#}
-{#</ul>#}
+## Installation
 
-## Installing on Ubuntu
+There are several installation options. Our recommended installation path is for **Ubuntu linux**,
+    because Docker natively runs on Ubuntu and our installation package will do most of the work for you.
 
-### Requirements
+Mac, Windows and some Linux distributions cannot natively run Docker at this time so we help you setup a virtual
+    Ubuntu virtual machine and run Docker inside of that.
 
-* Ubuntu 12.04 (LTS) (64-bit)
-* *or* Ubuntu 12.10 (quantal) (64-bit)
-* The 3.8 Linux Kernel
-
-### Install dependencies
-
-This linux-image-extra package is needed on standard Ubuntu EC2 AMIs in order to install the aufs kernel module.
-
-    sudo apt-get install linux-image-extra-`uname -r`
-
-### Install Docker
-
-The following instructions will add the Ubuntu PPA (Personal Package Archive) sources to your apt sources list, update
-    and install. This may import a new GPG key. This will be shown as: (key 63561DC6: public key "Launchpad PPA for
-    dotcloud team" imported).
-
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:dotcloud/lxc-docker
-    sudo apt-get update
-    sudo apt-get install lxc-docker
+<ul class="option-chooser-blocks">
+    <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/" target="_blank"><li>Ubuntu linux <img src="{% static 'img/platform-logos/ubuntu.png' %}"> </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/binaries/" target="_blank"><li>From binaries <img src="{% static 'img/platform-logos/platform-02.png' %}"> </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/vagrant/" target="_blank"><li>Mac, Linux <img src="{% static 'img/platform-logos/platform-03.png' %}">  </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/windows/" target="_blank"><li>Windows <img src="{% static 'img/platform-logos/platform-04.png' %}"> </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/amazon/" target="_blank"><li>Amazon EC2 <img src="{% static 'img/platform-logos/platform-05.png' %}"> </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/rackspace/" target="_blank"><li>Rackspace <img src="{% static 'img/platform-logos/platform-06.png' %}"> </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/archlinux/" target="_blank"><li>Arch Linux <img src="{% static 'img/platform-logos/platform-07.png' %}"> </li></a>
+    <br style="clear: both">
+</ul>
 
 {% endblock %}
 

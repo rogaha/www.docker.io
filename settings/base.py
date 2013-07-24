@@ -244,6 +244,11 @@ GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-6096819-11'
 # http://www.google.com/support/analyticshelp/bin/answer.py?answer=1205784&topic=1282106
 GOOGLE_ANALYTICS_SITE_SPEED = True
 
+# allowed hosts is set to *, because otherwise the website othwersise is killed by the cloud ckeck
+# Besides, it would otherwise need to be set to .docker.io and *.amazonaws.com which would basically mean anyone
+# can set up a copy of this site anyways without making any changes.
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['.docker.io', '.dotcloud.com'] # need to set to real prod value.
-# ALLOWED_HOSTS = ['*'] # need to set to real prod value.
+
+
 MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
