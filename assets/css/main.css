@@ -352,6 +352,7 @@ button:hover {
   text-align: center;
   padding: 5px;
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 .option-chooser-blocks li:hover {
   background-color: #d1d1d1;
