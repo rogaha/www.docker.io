@@ -22,15 +22,12 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
-#### Jul 23 • Press coverage from GigaOM, Reuters and Yahoo Finance
+#### Jul 23 • Ben Golub Joins as CEO
+Open source veteran Ben Golub joins as CEO to drive the docker vision forward. Read more:
 
 [<img src="{% static 'img/homepage/gigaom.png' %}" alt="gigaom">](http://gigaom.com/2013/07/23/paas-pioneer-dotcloud-gets-new-ceo-in-industry-vet-ben-golub/)
 [<img src="{% static 'img/homepage/reuters.png' %}" alt="reuters">](http://www.reuters.com/article/2013/07/23/ca-dotcloud-idUSnBw235523a+100+BSW20130723)
 [<img src="{% static 'img/homepage/yahoo.png' %}" alt="yahoo finance">](http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html)
-
-#### Jul 23 • Ben Golub Joins as CEO
-Open source veteran Ben Golub joins as CEO to drive the docker vision forward.
-    <span class="read-more"><a href="http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html">read more -></a></span>
 
 #### Jul 18 • Docker 0.5 Released
 We've released version 0.5. Amongst other things, this release containes External Volumes, Advanced Networking and
@@ -84,8 +81,6 @@ At our last day there was an impressive turnout and there was lots of talk about
 
 
 {% block tweets %}
-
-
 {% list_tweets %}
 
 354781876730335233
@@ -118,6 +113,5 @@ At our last day there was an impressive turnout and there was lots of talk about
 356763917625724928
 
 {% end_list_tweets %}
-
 {% endblock %}
 
