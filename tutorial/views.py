@@ -40,6 +40,9 @@ def api(request):
     testing saving stuff on a users' session
     """
 
+    if not request.session.exists(request.session.session_key):
+        request.session.create()
+
     session = Session.objects.get(pk=request.session.session_key)
 
     try:

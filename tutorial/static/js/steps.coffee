@@ -302,6 +302,7 @@ buildfunction = (q) ->
     $('#instructions .text').html(_q.html)
     $('#instructions .assignment').html(_q.assignment)
     $('#tipShownText').html(_q.tip)
+    $('#commandShownText').html(_q.command_expected.join(' '))
 
     window.immediateCallback = (input, stop) ->
       if stop == true # prevent the next event from happening
@@ -397,13 +398,22 @@ $('#feedbackSubmit').click ->
 
 ## fullsize
 $('#fullSizeOpen').click ->
+  goFullScreen()
+
+@goFullScreen = () ->
   console.debug("going to fullsize mode")
-  $('#overlay').addClass('fullsize')
-  $('#main').addClass('fullsize')
-  $('#tutorialTop').addClass('fullsize')
+  $('.togglesize').removeClass('startsize').addClass('fullsize')
+
+  $('.hide-when-small').css({ display: 'inherit' })
+  $('.hide-when-full').css({ display: 'none' })
+
+#  $('#overlay').addClass('fullsize')
+#  $('#main').addClass('fullsize')
+#  $('#tutorialTop').addClass('fullsize')
   webterm.resize()
   data = { type: EVENT_TYPES.start }
   logEvent(data)
+
 
 ## leave fullsize
 $('#fullSizeClose').click ->
@@ -411,13 +421,25 @@ $('#fullSizeClose').click ->
 
 leaveFullSizeMode = () ->
   console.debug "leaving full-size mode"
-  $('#overlay').removeClass('fullsize')
-  $('#main').removeClass('fullsize')
-  $('#tutorialTop').removeClass('fullsize')
+
+  $('.togglesize').removeClass('fullsize').addClass('startsize')
+
+  $('.hide-when-small').css({ display: 'none' })
+  $('.hide-when-full').css({ display: 'inherit' })
+
+#  $('#overlay').removeClass('fullsize')
+#  $('#main').removeClass('fullsize')
+#  $('#tutorialTop').removeClass('fullsize')
   webterm.resize()
 
 ## click on tips
-$('#tips').click () ->
-  if not $('#tipHiddenText').hasClass('hidden')
-    $('#tipHiddenText').addClass("hidden").hide()
-    $('#tipShownText').hide().removeClass("hidden").fadeIn()
+#$('#tips').click () ->
+#  if not $('#tipHiddenText').hasClass('hidden')
+#    $('#tipHiddenText').addClass("hidden").hide()
+#    $('#tipShownText').hide().removeClass("hidden").fadeIn()
+
+## click on tips
+$('#command').click () ->
+  if not $('#commandHiddenText').hasClass('hidden')
+    $('#commandHiddenText').addClass("hidden").hide()
+    $('#commandShownText').hide().removeClass("hidden").fadeIn()

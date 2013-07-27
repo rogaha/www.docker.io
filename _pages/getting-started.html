@@ -40,6 +40,11 @@ $(document).ready(addAnchors);
             {% markdown %}{% block copy_install %}
             {% endblock %}{% endmarkdown %}
 
+            <h3>Interactive tutorial</h3>
+
+            {% include 'tutorial/snippet.html' %}
+
+
             {% markdown %}{% block copy_hello_world %}
             {% endblock %}{% endmarkdown %}
 

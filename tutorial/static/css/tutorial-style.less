@@ -1,6 +1,7 @@
 @informationblue: #008BB8;
 @tutorialTopHeight: 60px;
 @greySuperLight: #E7E7E7;
+@topBarHeight: 70px;
 
 
 .debug {
@@ -10,178 +11,32 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 1.6rem;
-}
-
-
-p { font-size: 16px; font-size: 1.6rem; }
-h1 { font-size: 2.2rem; }
-h2 { font-size: 2.0rem; font-weight: bold;}
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.2rem; }
-
-p {
-  margin-top: 0px;
-  margin-bottom: 5px;
-  line-height: 1.3em;
-}
-
-h1, h2, h3, h4{
-  margin-top: 5px;
-  margin-bottom: 7px;
-  color: #394D54;
-}
-
-h3, h4 {
-  color: @informationblue;
-//  margin-bottom: 5px;
-}
-
-
-#overlay {
-  position: relative;
-  width: 100%;
-  height: 600px;
-//  background-color: silver;
-//  border: 2px #008BB8 solid;
-}
-
-#overlay.fullsize {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-
-  // here we set a background color for the overlay, so the elements below don't shine through
-  background-color: white;
-
-}
-
-#main {
-  position: absolute;
-
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-//  margin-top: 40px;
-}
-
-#main.fullsize {
-  margin-top: 0px;
-  top: @tutorialTopHeight;
-}
-
-#tutorialTop {
-  display: none;
-  position: absolute;
-  height: @tutorialTopHeight;
-//  background-color: #faebd7;
-  left: 0;
-  right: 0;
-  width: 100%;
-
-  background-color: #394D54;
-//  .debug;
-}
-
-#tutorialTop.fullsize {
-  display: block;
-  img {
-    margin-bottom: -15px;
-    display: inline-block;
-  }
-  h1, h2 {
-    display: inline-block;
-    color: white;
+.tutorial {
+  p {
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
+    line-height: 1.3em;
   }
 
-  h1 {
-    font-size: 22px;
-    font-size: 2.2rem;
-//    color: #E7E7E8;
-    color: white;
-    font-weight: normal;
-  }
-}
-
-#left {
-  box-sizing: border-box;
-  width: 35%;
-
-  position: absolute;
-  display: block;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  overflow-y: scroll;
-//  text-overflow: ;
-//  .debug;
-}
-
-#instructions, #results, #actions, #tips {
-  padding: 5px 10px 0 10px;
-
-
-  .text, .assignment {
-    margin-left: 60px;
+  h1, h2, h3, h4{
+    margin-top: 5px;
+    margin-bottom: 7px;
+    color: #394D54;
   }
 
+  h2 {
+    font-size: 24px;
+  }
 
-//  .debug;
-}
-
-
-#instructions {
-//  .debug;
-  .assignment {
-    margin-top: 20px;
-    border: 2px grey solid;
-    padding: 15px;
-
+  h3, h4 {
+    color: @informationblue;
+  //  margin-bottom: 5px;
   }
 }
 
-#results {
-//  border: 1px red solid;
-}
-
-#actions {
-//  .debug;
-}
 
 
-#terminal {
-  box-sizing: border-box;
-
-  position: absolute;
-  display: block;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding-bottom: 65px;
-  left: 35%;
-//  margin: 5px; // go possible, but not used
-}
-
-#rightSide {}
-
-#tips .box {
+#command .box{
 //  .debug;
   border: 1px grey solid;
   border-radius: 5px;
@@ -192,12 +47,12 @@ h3, h4 {
 //  style="width: 100%; height: 100%"
 }
 
-#tipShownText{
+#commandShownText, #tipShownText {
     color: black !important;
     font-style: normal !important;
 }
 
-#tips .hidden {
+#command .hidden, #tips .hidden {
   display: none;
   visibility: hidden;
   height: 1px; width: 1px;
@@ -227,21 +82,220 @@ h3, h4 {
   right: 0;
   bottom: 0px;
   margin-bottom: 5px;
-//  width: 50%;
 
   input {
-//    font-size: 0.6em;
     margin: 5px;
     border-radius: 0px;
     position: relative;
     width: 400px;
     background-color: #dcdcdc;
-//    height: 30px;
   }
   button {
     margin: 5px 5px 5px 0;
     height: 30px;
   }
+}
+
+
+#actions button {
+  width: 45%;
+}
+
+
+//#tips {
+//  circle {
+//    fill: #008BB8;
+//  }
+//}
+
+
+
+/* styles for when it is not fullsize */
+
+
+//#overlay .hide-when-full {
+//  display: none;
+//}
+
+
+#overlay {
+  position: relative;
+  width: 100%;
+
+  &.startsize {
+    border: 3px solid #7fafc1;
+    height: 300px;
+    padding: 15px;
+  }
+
+  &.fullsize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+
+    // here we set a background color for the overlay, so the elements below don't shine through
+    background-color: white;
+    z-index: 1982;
+  }
+}
+
+
+#tutorialTop {
+
+  display: none;
+
+  position: absolute;
+  height: @topBarHeight;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #394D54;
+
+  img {
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+  h1, h2 {
+    display: inline-block;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  h1 {
+    font-size: 22px;
+//    font-size: 2.2rem;
+    color: white;
+    font-weight: normal;
+    margin-top: 20px;
+  }
+}
+
+
+
+#main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &.fullsize {
+//    margin-top: 0px;
+//    top: @topBarHeight;
+  }
+}
+
+#leftside {
+  &.fullsize {
+    box-sizing: border-box;
+    width: 35%;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin-top: @topBarHeight;
+    overflow-y: scroll;
+//    .debug;
+  }
+}
+
+#rightside {
+  margin-top: @topBarHeight;
+}
+
+
+#instructions, #results, #actions, #tips, #command {
+  padding: 5px 10px 0 10px;
+  .text, .assignment {
+    margin-left: 60px;
+  }
+}
+
+#instructions {
+  circle { fill: #FF8100; }
+}
+
+#results {
+  position: absolute;
+  z-index: 20;
+  background-color: @greySuperLight;
+  width: 400px;
+//  min-height: 130px;
+  padding: 10px;
+  position:absolute;
+  box-sizing: border-box;
+  right:0;
+  top: 0;
+  margin-top: @topBarHeight + 30px;
+
+  circle { fill: green; }
+
+  &.intermediate {
+    circle { fill: @informationblue }
+  }
+
+  button {
+    position: relative;
+    float: right;
+//    margin-bottom: 15px;
+  }
+}
+
+#instructions {
+//  .debug;
+  .assignment {
+    margin-top: 20px;
+    border: 2px grey solid;
+    padding: 15px;
+    padding-top: 5px;
+  }
+}
+
+
+
+
+#terminal {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  left: 35%;
+
+  &.smallsize {
+    margin: 10px;
+//    padding-bottom: 10px;
+  }
+
+  &.fullsize {
+    margin: 0;
+    margin-top: @topBarHeight;
+    padding-bottom: 65px;
+  }
+}
+
+
+#starttext {
+  width: 200px;
+  margin: 10px;
+}
+
+.hide-when-small {
+  display: none;
+}
+
+.hide-when-full {
+//  display: none;
 }
 
 .docker-btn {
@@ -301,52 +355,4 @@ h3, h4 {
   position: relative;
   float: right;
   margin: 10px;
-}
-
-#actions button {
-  width: 45%;
-}
-
-circle {
-  fill: @informationblue;
-}
-
-#tips {
-  circle {
-    fill: #008BB8;
-  }
-}
-
-#results {
-  circle { fill: green; }
-}
-
-#results.intermediate {
-  circle { fill: @informationblue }
-}
-
-#instructions {
-  circle { fill: #FF8100; }
-}
-
-#results {
-  position: absolute;
-  z-index: 20;
-  background-color: @greySuperLight;
-  width: 400px;
-//  min-height: 130px;
-  padding: 10px;
-  position:absolute;
-  box-sizing: border-box;
-  right:0;
-  top: 0;
-  margin-top: 50px;
-
-  button {
-    position: relative;
-    float: right;
-//    margin-bottom: 15px;
-
-  }
-
 }

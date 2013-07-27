@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^community/$', TemplateView.as_view(template_name='community.md'), name="community"),
     url(r'^gettingstarted/$', TemplateView.as_view(template_name='getting-started.md'), name="getting_started"),
 
+    # url(r'^gettingstarted/$', 'base.views.gettingstarted', name="getting_started"),
+
     url(r'^the-whole-story/$', TemplateView.as_view(template_name='the-whole-story.md'), name="the-whole-story"),
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
     url(r'^tutorial/', include('tutorial.urls')),
