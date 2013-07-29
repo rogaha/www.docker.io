@@ -92,7 +92,7 @@ An Open Source project like Docker couldn’t exist without contributions from t
     As of June 30, 2013, there are over 100 contributors and nearly 400 forks on the project.
 
 * Take a look at our [issues list](https://github.com/dotcloud/docker/issues?state=open) and consider submitting a patch
-* Review our roadmap on [GitHub](github.com/dotcloud/docker) and provide feedback
+* Review our roadmap on [GitHub](https://github.com/dotcloud/docker) and provide feedback
 * Consider [contributing](https://github.com/dotcloud/docker/blob/master/CONTRIBUTING.md).
 
 Like the program itself, we run the [**documentation**](http://docs.docker.io) as an open source project. The sources are
@@ -156,7 +156,7 @@ Docker is a powerful tool for many different use cases. Here are some great earl
 				Deploy Java Apps With Docker = Awesome
 			</td>
 			<td >
-				<a href="http://bit.ly/11BCvvux">http://bit.ly/11BCvvu</a>
+				<a href="http://bit.ly/11BCvvu">http://bit.ly/11BCvvu</a>
 			</td>
 		</tr>
 		<tr>
