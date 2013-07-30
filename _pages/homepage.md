@@ -19,9 +19,9 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% endblock %}
 
 {% block copy_today_only %}
-### Today only!
+### Docker Hackday Live - Today only!
 Today in our San Francisco office we are hosting the 6th Docker hackday, - our biggest ever. And we are expanding our
-    reach live, over the internet, using google hangouts on air. Expect talks, sessions and discussions.
+    reach live, over the internet, using google hangouts. Expect some great lightning talks.
 
 <a href="{% url 'live' %}" class="btn btn-large btn-primary secondary-action-button" title="TODAY only: Got to our live stream!">Go to our live stream page</a>
 
