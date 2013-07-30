@@ -135,8 +135,25 @@ do @myTerminal = ->
         else
           return true
       )
-
     return valid
+
+
+  Array.prototype.containsAllOfTheseParts = (inputArr) ->
+    ###
+    This function is like containsAllofThese, but also matches partial strings.
+    ###
+
+    me = this
+    if inputArr
+      valid = inputArr.every( (value) ->
+        for item in me
+          if item.match(value)
+            return true
+
+        return false
+      )
+    return valid
+
 
   parseInput = (inputs) ->
     command = inputs[1]
@@ -247,25 +264,44 @@ do @myTerminal = ->
       for dockerCommand, description of dockerCommands
         echo "[[b;#fff;]" + dockerCommand + "]" + description + ""
 
-    else if inputs[1] is "do"
-      term.push('do', {prompt: "do $ "})
-
-    # command ps
-    else if command is "ps"
-      if inputs.containsAllOfThese(['-a', '-l'])
-        echo ps_a_l
-      else
-        echo ps
-
     # Command commit
     else if inputs[1] is "commit"
-      if inputs[2] is '6982a9948422' and inputs[3]
+      if inputs[2] and inputs[3]
         util_slow_lines(term, commit_containerid, "", callback )
-      else if inputs[2] is '6982a9948422'
+      else if inputs[2]
         util_slow_lines(term, commit_containerid, "", callback )
         intermediateResults(0)
       else
         echo commit
+
+    else if inputs[1] is "do"
+      term.push('do', {prompt: "do $ "})
+
+    else if inputs[1] is "logo"
+      echo docker_logo
+
+    else if inputs[1] is "images"
+      echo images
+
+    else if inputs[1] is "inspect"
+      if inputs[2] and inputs[2].match('ef')
+        echo inspect_ping_container
+      else if inputs[2]
+        echo inspect_no_such_container(inputs[2])
+      else
+        echo inspect
+
+    # command ps
+    else if command is "ps"
+      if inputs.containsAllOfThese(['-l'])
+        echo ps_a_l
+      else
+        echo ps
+
+    else if inputs[1] is "push"
+      if inputs[2] is "learn/ping"
+        util_slow_lines(term, push_container_learn_ping, "", callback )
+        return
 
 
     # Command run
@@ -363,6 +399,11 @@ do @myTerminal = ->
     else if dockerCommands[inputs[1]]
       echo "#{inputs[1]} is a valid argument, but not implemented"
 
+    else
+      echo docker_cmd
+      for dockerCommand, description of dockerCommands
+        echo "[[b;#fff;]" + dockerCommand + "]" + description + ""
+
     # return empty value because otherwise coffeescript will return last var
     return
 
@@ -440,14 +481,87 @@ do @myTerminal = ->
     effb66b31edb
     """
 
+  images = \
+    """
+    learn/ping                      latest              a1dbb48ce764        2 hours ago         11.57 MB (virtual 143.1 MB)
+    """
+
+  inspect = \
+    """
+
+    Usage: docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]
+
+    Return low-level information on a container/image
+
+    """
+
+  inspect_no_such_container = (keyword) ->
+    """
+      Error: No such image: #{keyword}
+    """
+
+  inspect_ping_container = \
+  """
+  [2013/07/30 01:52:26 GET /v1.3/containers/efef/json
+  {
+    "ID": "efefdc74a1d5900d7d7a74740e5261c09f5f42b6dae58ded6a1fde1cde7f4ac5",
+    "Created": "2013-07-30T00:54:12.417119736Z",
+    "Path": "ping",
+    "Args": [
+        "www.google.com"
+    ],
+    "Config": {
+        "Hostname": "efefdc74a1d5",
+        "User": "",
+        "Memory": 0,
+        "MemorySwap": 0,
+        "CpuShares": 0,
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "PortSpecs": null,
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": null,
+        "Cmd": [
+            "ping",
+            "www.google.com"
+        ],
+        "Dns": null,
+        "Image": "learn/ping",
+        "Volumes": null,
+        "VolumesFrom": "",
+        "Entrypoint": null
+    },
+    "State": {
+        "Running": true,
+        "Pid": 22249,
+        "ExitCode": 0,
+        "StartedAt": "2013-07-30T00:54:12.424817715Z",
+        "Ghost": false
+    },
+    "Image": "a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158",
+    "NetworkSettings": {
+        "IPAddress": "172.16.42.6",
+        "IPPrefixLen": 24,
+        "Gateway": "172.16.42.1",
+        "Bridge": "docker0",
+        "PortMapping": {
+            "Tcp": {},
+            "Udp": {}
+        }
+    },
+    "SysInitPath": "/usr/bin/docker",
+    "ResolvConfPath": "/etc/resolv.conf",
+    "Volumes": {},
+    "VolumesRW": {}
+  """
+
   ps = \
     """
-    ID                  IMAGE                                  COMMAND                CREATED             STATUS              PORTS
-    e087bc23f8d5        dhrp/dockerbuilder-test-29414:latest   ping orange1.koffied   2 days ago          Up 2 days           49156->80
-    fca0152982a0        dhrp/dockerbuilder-test-02959:latest   ping orange1.koffied   2 days ago          Up 2 days
-    ebd8c2aaeed3        dhrp/dockerbuilder-test-02959:latest   ping orange1.koffied   2 days ago          Up 2 days
-    1a93e427d337        crosbymichael/dockerui:latest          /dockerui -e=http://   3 days ago          Up 3 days           49153->9000
-    880f3a93a0f7        dhrp/dockerbuilder-test-02959:latest   ping orange1.koffied   3 days ago          Up 3 days
+    ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS
+    efefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds
     """
 
   ps_a_l = \
@@ -486,6 +600,20 @@ do @myTerminal = ->
     Pulling image 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c (precise) from ubuntu
     Pulling image b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc (12.10) from ubuntu
     Pulling image 27cf784147099545 () from tutorial
+    """
+
+  push_container_learn_ping = \
+    """
+    The push refers to a repository [learn/ping] (len: 1)
+    Processing checksums
+    Sending image list
+    Pushing repository learn/ping (1 tags)
+    Pushing 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c
+    Image 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c already pushed, skipping
+    Pushing tags for rev [8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c] on {https://registry-1.docker.io/v1/repositories/learn/ping/tags/latest}
+    Pushing a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158
+    Pushing  11.5 MB/11.5 MB (100%)
+    Pushing tags for rev [a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158] on {https://registry-1.docker.io/v1/repositories/learn/ping/tags/latest}
     """
 
   run_cmd = \
@@ -675,6 +803,26 @@ do @myTerminal = ->
     Go version: go1.1
     """
 
+
+  docker_logo = \
+  '''
+
+                          ##        .
+                    ## ## ##       ==
+                 ## ## ## ##      ===
+             /""""""""""""""""\\\___/ ===
+        ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+             \\\______ o          __/
+               \\\    \\\        __/
+                \\\____\\\______/
+
+                |          |
+             __ |  __   __ | _  __   _
+            /  \\\| /  \\\ /   |/  / _\\\ |
+            \\\__/| \\\__/ \\\__ |\\\_ \\\__  |
+
+
+  '''
 
 
 return this

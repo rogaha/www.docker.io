@@ -10,7 +10,7 @@
 
 
 (function() {
-  var EVENT_TYPES, buildfunction, current_question, currentquestion, err, f, leaveFullSizeMode, logEvent, next, previous, q, question, questions, results, _i, _len;
+  var EVENT_TYPES, buildfunction, current_question, currentquestion, err, f, leaveFullSizeMode, logEvent, next, previous, q, question, questions, results, stateObj, _i, _len;
 
   this.webterm = $('#terminal').terminal(interpreter, basesettings);
 
@@ -30,6 +30,10 @@
     complete: "complete"
   };
 
+  stateObj = {
+    foo: "bar"
+  };
+
   current_question = 0;
 
   next = function() {
@@ -39,10 +43,11 @@
     questions[current_question]();
     results.clear();
     this.webterm.focus();
-    if (!$('#tipShownText').hasClass('hidden')) {
-      $('#tipShownText').addClass("hidden");
-      $('#tipHiddenText').removeClass("hidden").show();
+    if (!$('#commandShownText').hasClass('hidden')) {
+      $('#commandShownText').addClass("hidden");
+      $('#commandHiddenText').removeClass("hidden").show();
     }
+    history.pushState(stateObj, "", "#" + current_question);
     data = {
       'type': EVENT_TYPES.next
     };
@@ -87,8 +92,9 @@
         return $("#ajax").html(responseText);
       };
     } else {
-      callback = function(thankYouText) {
-        return results.set("Thank you for your feedback! We appreciate it!", true);
+      callback = function(responseText) {
+        results.set("Thank you for your feedback! We appreciate it!", true);
+        return $("#ajax").html(responseText);
       };
     }
     if (!data) {
@@ -110,22 +116,22 @@
 
   q.push({
     html: "<h2>Getting started</h2>\n<p>There are actually two programs, a Docker daemon, it manages al the containers, and the Docker client.\nThe client acts as a remote control on the daemon. On most systems, like in this emulation, both run on the\nsame host.</p>",
-    assignment: "<h2>Assignment</h2>\n<p>First of all, we want to check if docker is installed correctly and running</p>\n<p><em>docker version</em> will show the versions docker is running. If you get the version numbers, you know\nyou are all set.</p>",
+    assignment: "<h2>Assignment</h2>\n<p>Check which Docker version is running</p>\n<p>This will help you verify the daemon is running. If you see which version is running you know you are all set.</p>",
+    tip: "try typing `docker` to see the full list of accepted arguments",
     command_expected: ['docker', 'version'],
-    result: "<p>Well done! Let's move to the next assignment.</p>",
-    tip: "try typing `docker version`"
+    result: "<p>Well done! Let's move to the next assignment.</p>"
   });
 
   q.push({
     html: "<h2>Searching for images</h2>\n<p>The easiest way of getting started is to use a container image from someone else. Container images are\navailable on the docker index and can be found using <em>docker search</em></p>",
-    assignment: "<h2>Assignment</h2>\n<p>Please find for an image called tutorial</p>",
+    assignment: "<h2>Assignment</h2>\n<p>Please search for an image called tutorial</p>",
     command_expected: ['docker', 'search', 'tutorial'],
     result: "<p>You found it!</p>",
-    tip: "the format is `docker search &lt;imagename&gt;`"
+    tip: "the format is `docker search &lt;string&gt;`"
   });
 
   q.push({
-    html: "<h2>Downloading container images</h2>\n<p>Container images can be downloaded just as easily, using <em>docker pull.</em></p>\n<p>The name you specify is made up of two parts: the <em>username</em> and the <em>repository name</em>,\ndivided by a slash `/`.</p>\n<p>A group of special, trusted images can be retrieved by just their repository name. For example 'ubuntu'.</p>",
+    html: "<h2>Downloading container images</h2>\n<p>Container images can be downloaded just as easily, using <em>docker pull.</em></p>\n<p>The name you specify is made up of two parts: the <em>username</em> and the <em>repository name</em>,\ndivided by a slash `/`.</p>\n<p>A group of special, trusted images can be retrieved by just their repository name.</p>",
     assignment: "<h2>Assignment</h2>\n<p>Please download the tutorial image you have just found</p>",
     command_expected: ['docker', 'pull', 'learn/tutorial'],
     result: "<p>Cool. Look at the results. You'll see that docker has downloaded a number of layers. In Docker all images (except the base image) are made up of several cumulative layers.</p>",
@@ -133,16 +139,17 @@
   });
 
   q.push({
-    html: "<h2>Hello world from a container</h2>\n<p>You should think about containers as an operating system in a box, except they do not need to be started\nbefore you can run commands in them.<p>\n<p>Expect that you will be able to run the usual commands such as </p>\n<p>The command `docker run` takes two arguments. An image name, and the command you want to execute within that\nimage.</p>",
+    html: "<h2>Hello world from a container</h2>\n<p>You should think about containers as an operating system in a box, except they do not need to be booted\nbefore you can run commands in them. Instead, they are started <em>by</em> running a process in them. They\nalso stop as soon as the process completes<p>",
     assignment: "<h2>Assignment</h2>\n<p>Make our freshly loaded container image output \"hello world\"</p>",
     command_expected: ["docker", "run", "learn/tutorial", "echo"],
+    command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"'],
     result: "<p>Great! Hellooooo World!</p>",
     intermediateresults: ["<p>You seem to be almost there. Did you give the command `echo \"hello world\"` ", "<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"],
-    tip: "Start by looking at the results of `docker run` it tells you which arguments exist"
+    tip: " <p>The command `docker run` takes two arguments. An image name, and the command you want to execute within that\nimage.</p>"
   });
 
   q.push({
-    html: "<h2>Installing things in the container</h2>\n<p>Next we are going to install a simple program in the container. The image is based upon ubuntu, so we can run\n“apt-get install -y iputils-ping”. Docker will install this command in the container and exit, showing you the\ncontainer id.</p>",
+    html: "<h2>Installing things in the container</h2>\n<p>Next we are going to install a simple program in the container. The image is based upon ubuntu, so we give the command\n“apt-get install -y ping”. Docker will run this command in the container and exit when done.</p>",
     assignment: "<h2>Assignment</h2>\n<p>Install 'ping' inside of the container.</p>",
     command_expected: ["docker", "run", "learn/tutorial", "apt-get", "install", "-y", "ping"],
     result: "<p>That worked!</p>",
@@ -151,12 +158,13 @@
   });
 
   q.push({
-    html: "<h2>Save your changes</h2>\n<p>After you make changes (by running a command inside a container) you probably want to save those changes.\nThis will enable you to later start from this point (savepoint) onwards.</p>\n<p>With Docker the process of saving the state is called <em>committing</em>. Commit basically saves the difference\nbetween the old image and the new state. The result is a new layer.</p>\n<p>You can only save containers which are stopped.</p>",
-    assignment: "<h2>Assignment</h2>\n<p>Save (commit) the container you created by installing ping. Save it with the repository name `learn/ping` </p>",
+    html: "<h2>Save your changes</h2>\n<p>After you make changes (by running a command inside a container) you probably want to save those changes.\nThis will enable you to later start from this point (savepoint) onwards.</p>\n<p>With Docker, the process of saving the state is called <em>committing</em>. Commit basically saves the difference\nbetween the old image and the new state. The result is a new layer.</p>",
+    assignment: "<h2>Assignment</h2>\n<p>First use <em>docker ps -l</em> to find the ID of the container you created by installing ping.</p>\n<p>And then save (commit) this container with the repository name `learn/ping` </p>",
     command_expected: ["docker", "commit", 'learn/ping'],
+    command_show: ["docker", "commit", "6982a9948422", 'learn/ping'],
     result: "<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.\nYou will need it next.</p>",
     intermediateresults: ["You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with."],
-    tip: "<ul>\n<li>Don't forget to append the container id to commit</li>\n<li>You can find the container id by running ps -a -l again.</li>\n</ul>"
+    tip: "<ul>\n<li>Giving just 'docker commit' will show you the possible arguments.</li>\n<li>You don't need to copy the entire ID - as long your input identifies the image. Three or four characters\nis usually enough.</li>\n</ul>"
   });
 
   q.push({
@@ -169,9 +177,19 @@
   });
 
   q.push({
+    html: "<h2>Check your running image</h2>\n<p>You now have a running container. Let's see what is going on.</p>\n<p>Using <em>docker ps</em> we can see a list of all running containers, and using <em>docker inspect</em>\nwe can see all sorts of usefull information about this container.</p>",
+    assignment: "<h2>Assignment</h2>\n<p><em>Find the container id</em> of the running container, and then inspect the container using <em>docker inspect</em>.</p>\n",
+    command_expected: ["docker", "inspect", "efe"],
+    result: "<p>Success! Have a look at the output. You can see the ip-address, status and other information.</p>",
+    intermediateresults: ["You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with."],
+    tip: "<ul>\n<li>Remember you can use a partial match of the image id</li>\n</ul>"
+  });
+
+  q.push({
     html: "<h2>Push the image to the registry</h2>\n<p>Now you have verified that your new application container works as it should, you can share it.</p>\n<p>Docker comes with a complete image sharing service, you can push your image there for yourself and others\nto retrieve.</p>",
     assignment: "<h2>Assignment</h2>\n<p>Push your container image to the repository</p>\n",
     command_expected: ["docker", "push"],
+    command_show: ["docker", "push", "learn/ping"],
     result: "<p>Yeah! You are all done!</p>",
     intermediateresults: [" "],
     tip: "<ul>\n<li>Docker images will show you which images are currently on your host</li>\n<li>You can only push images to your own namespace.</li>\n<li>For this tutorial we assume you are already logged in as the 'learn' user..</li>\n</ul>"
@@ -201,7 +219,11 @@
       $('#instructions .text').html(_q.html);
       $('#instructions .assignment').html(_q.assignment);
       $('#tipShownText').html(_q.tip);
-      $('#commandShownText').html(_q.command_expected.join(' '));
+      if (_q.command_show) {
+        $('#commandShownText').html(_q.command_show.join(' '));
+      } else {
+        $('#commandShownText').html(_q.command_expected.join(' '));
+      }
       window.immediateCallback = function(input, stop) {
         var data, doNotExecute;
 
@@ -217,7 +239,7 @@
             'command': input.join(' '),
             'result': 'fail'
           };
-          if (input.containsAllOfThese(_q.command_expected)) {
+          if (input.containsAllOfTheseParts(_q.command_expected)) {
             data.result = 'success';
             results.set(_q.result);
             console.debug("contains match");

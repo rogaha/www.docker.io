@@ -26,6 +26,8 @@ EVENT_TYPES =
   complete: "complete"
 
 
+stateObj = { foo: "bar" };
+
 current_question = 0
 next = () ->
   current_question++
@@ -33,10 +35,11 @@ next = () ->
   results.clear()
   @webterm.focus()
 
-  if not $('#tipShownText').hasClass('hidden')
-    $('#tipShownText').addClass("hidden")
-    $('#tipHiddenText').removeClass("hidden").show()
+  if not $('#commandShownText').hasClass('hidden')
+    $('#commandShownText').addClass("hidden")
+    $('#commandHiddenText').removeClass("hidden").show()
 
+  history.pushState(stateObj, "", "#" + current_question);
   data = { 'type': EVENT_TYPES.next }
   logEvent(data)
   return
@@ -76,7 +79,10 @@ logEvent = (data, feedback) ->
     if not feedback
       callback = (responseText) -> $("#ajax").html(responseText)
     else
-      callback = (thankYouText) -> results.set("Thank you for your feedback! We appreciate it!", true)
+      callback = (responseText) ->
+        results.set("Thank you for your feedback! We appreciate it!", true)
+        $("#ajax").html(responseText)
+
     if not data then data = {type: EVENT_TYPES.none}
     data.question = current_question
 
@@ -102,13 +108,12 @@ html: """
       """
 assignment: """
       <h2>Assignment</h2>
-      <p>First of all, we want to check if docker is installed correctly and running</p>
-      <p><em>docker version</em> will show the versions docker is running. If you get the version numbers, you know
-      you are all set.</p>
+      <p>Check which Docker version is running</p>
+      <p>This will help you verify the daemon is running. If you see which version is running you know you are all set.</p>
       """
+tip: "try typing `docker` to see the full list of accepted arguments"
 command_expected: ['docker', 'version']
 result: """<p>Well done! Let's move to the next assignment.</p>"""
-tip: "try typing `docker version`"
 })
 
 q.push ({
@@ -119,11 +124,11 @@ html: """
       """
 assignment: """
       <h2>Assignment</h2>
-      <p>Please find for an image called tutorial</p>
+      <p>Please search for an image called tutorial</p>
       """
 command_expected: ['docker', 'search', 'tutorial']
 result: """<p>You found it!</p>"""
-tip: "the format is `docker search &lt;imagename&gt;`"
+tip: "the format is `docker search &lt;string&gt;`"
 })
 
 q.push ({
@@ -132,7 +137,7 @@ html: """
       <p>Container images can be downloaded just as easily, using <em>docker pull.</em></p>
       <p>The name you specify is made up of two parts: the <em>username</em> and the <em>repository name</em>,
       divided by a slash `/`.</p>
-      <p>A group of special, trusted images can be retrieved by just their repository name. For example 'ubuntu'.</p>
+      <p>A group of special, trusted images can be retrieved by just their repository name.</p>
       """
 assignment:
       """
@@ -148,31 +153,33 @@ tip: """Don't forget to pull the full name of the repository e.g. 'learn/tutoria
 q.push ({
 html: """
       <h2>Hello world from a container</h2>
-      <p>You should think about containers as an operating system in a box, except they do not need to be started
-      before you can run commands in them.<p>
-      <p>Expect that you will be able to run the usual commands such as </p>
-      <p>The command `docker run` takes two arguments. An image name, and the command you want to execute within that
-      image.</p>
+      <p>You should think about containers as an operating system in a box, except they do not need to be booted
+      before you can run commands in them. Instead, they are started <em>by</em> running a process in them. They
+      also stop as soon as the process completes<p>
       """
 assignment: """
       <h2>Assignment</h2>
       <p>Make our freshly loaded container image output "hello world"</p>
       """
 command_expected: ["docker", "run", "learn/tutorial", "echo"]
+command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"']
+
 result: """<p>Great! Hellooooo World!</p>"""
 intermediateresults: [
   """<p>You seem to be almost there. Did you give the command `echo "hello world"` """,
   """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
   ]
-tip: """Start by looking at the results of `docker run` it tells you which arguments exist"""
+tip: """
+     <p>The command `docker run` takes two arguments. An image name, and the command you want to execute within that
+    image.</p>
+    """
 })
 
 q.push ({
 html: """
       <h2>Installing things in the container</h2>
-      <p>Next we are going to install a simple program in the container. The image is based upon ubuntu, so we can run
-      “apt-get install -y iputils-ping”. Docker will install this command in the container and exit, showing you the
-      container id.</p>
+      <p>Next we are going to install a simple program in the container. The image is based upon ubuntu, so we give the command
+      “apt-get install -y ping”. Docker will run this command in the container and exit when done.</p>
       """
 assignment: """
       <h2>Assignment</h2>
@@ -192,22 +199,24 @@ html: """
       <h2>Save your changes</h2>
       <p>After you make changes (by running a command inside a container) you probably want to save those changes.
       This will enable you to later start from this point (savepoint) onwards.</p>
-      <p>With Docker the process of saving the state is called <em>committing</em>. Commit basically saves the difference
+      <p>With Docker, the process of saving the state is called <em>committing</em>. Commit basically saves the difference
       between the old image and the new state. The result is a new layer.</p>
-      <p>You can only save containers which are stopped.</p>
       """
 assignment: """
       <h2>Assignment</h2>
-      <p>Save (commit) the container you created by installing ping. Save it with the repository name `learn/ping` </p>
+      <p>First use <em>docker ps -l</em> to find the ID of the container you created by installing ping.</p>
+      <p>And then save (commit) this container with the repository name `learn/ping` </p>
       """
 command_expected: ["docker", "commit", 'learn/ping']
+command_show: ["docker", "commit", "6982a9948422", 'learn/ping']
 result: """<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.
         You will need it next.</p>"""
 intermediateresults: ["""You have not specified a repository name. This is not wrong, but giving your images a name
                       make them much easier to work with."""]
 tip: """<ul>
-     <li>Don't forget to append the container id to commit</li>
-     <li>You can find the container id by running ps -a -l again.</li>
+     <li>Giving just 'docker commit' will show you the possible arguments.</li>
+     <li>You don't need to copy the entire ID - as long your input identifies the image. Three or four characters
+     is usually enough.</li>
      </ul>"""
 })
 
@@ -236,6 +245,30 @@ tip: """<ul>
 
 
 
+
+q.push ({
+html: """
+      <h2>Check your running image</h2>
+      <p>You now have a running container. Let's see what is going on.</p>
+      <p>Using <em>docker ps</em> we can see a list of all running containers, and using <em>docker inspect</em>
+      we can see all sorts of usefull information about this container.</p>
+      """
+assignment: """
+      <h2>Assignment</h2>
+      <p><em>Find the container id</em> of the running container, and then inspect the container using <em>docker inspect</em>.</p>
+
+      """
+command_expected: ["docker", "inspect", "efe" ]
+result: """<p>Success! Have a look at the output. You can see the ip-address, status and other information.</p>"""
+intermediateresults: ["""You have not specified a repository name. This is not wrong, but giving your images a name
+                      make them much easier to work with."""]
+tip: """<ul>
+     <li>Remember you can use a partial match of the image id</li>
+     </ul>"""
+})
+
+
+
 q.push ({
 html: """
       <h2>Push the image to the registry</h2>
@@ -249,6 +282,7 @@ assignment: """
 
       """
 command_expected: ["docker", "push"]
+command_show: ["docker", "push", "learn/ping"]
 result: """<p>Yeah! You are all done!</p>"""
 intermediateresults: [""" """]
 tip: """<ul>
@@ -302,7 +336,10 @@ buildfunction = (q) ->
     $('#instructions .text').html(_q.html)
     $('#instructions .assignment').html(_q.assignment)
     $('#tipShownText').html(_q.tip)
-    $('#commandShownText').html(_q.command_expected.join(' '))
+    if _q.command_show
+      $('#commandShownText').html(_q.command_show.join(' '))
+    else
+      $('#commandShownText').html(_q.command_expected.join(' '))
 
     window.immediateCallback = (input, stop) ->
       if stop == true # prevent the next event from happening
@@ -327,7 +364,7 @@ buildfunction = (q) ->
 
 #        if Object.equal(input, _q.command_expected) # old
 
-        if input.containsAllOfThese(_q.command_expected)
+        if input.containsAllOfTheseParts(_q.command_expected)
           data.result = 'success'
 #
 #          parsed_input = @myTerminal.parseInput(input)

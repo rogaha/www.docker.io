@@ -293,7 +293,7 @@ Docker is a powerful tool for many different use cases. Here are some great earl
 				Deploy Java Apps With Docker = Awesome
 			</td>
 			<td >
-				<a href="http://bit.ly/11BCvvux">http://bit.ly/11BCvvu</a>
+				<a href="http://bit.ly/11BCvvu">http://bit.ly/11BCvvu</a>
 			</td>
 		</tr>
 		<tr>
