@@ -30,6 +30,10 @@ Today in our San Francisco office we are hosting the 6th Docker hackday, - our b
 {% block copy_news %}
 ### Latest updates
 
+#### Jul 28 • Techcrunch on Docker and "The Matrix of Hell"
+[<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="techcrunch">](http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/) The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud 
+<span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span>
+
 #### Jul 23 • Ben Golub Joins as CEO
 Open source veteran Ben Golub joins as CEO to drive the docker vision forward. Read more:
 
