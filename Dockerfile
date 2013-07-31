@@ -4,10 +4,9 @@
 # Right is granted to use this file and the website for 
 # testing purposes, but copyright is owned by dotcloud.
 
+from ubuntu:12.10
 
 maintainer Thatcher Peskens
-
-from ubuntu:12.10
  
 run apt-get install -y python-setuptools
 run easy_install pip
