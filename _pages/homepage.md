@@ -56,10 +56,10 @@ Sam Alba presents an article about the integration of Docker in OpenStack's clou
 {% block copy_community %}
 ### Community events
 
-#### Upcoming Meetup • Jul 30:
-Come to our July Meetup in San Francisco to hear representatives from **EBay**, **Mailgun (Rackspace)** and **CloudFlare**
-    discuss how they are using Docker.
-    <span class="read-more"><a href="http://www.meetup.com/Docker-meetups/">go to meetup -></a></span>
+#### Last Hackday • Jul 30 (past):
+Our hackday #6 was a success, with over 60 participants and, amongst others, great talks about how how people are using
+    it in**EBay**, **Mailgun (Rackspace)** and **CloudFlare**.
+    <span class="read-more disabled"><a href="{% url 'live' %}">watch sessions -></a></span>
 
 <img src="{% static 'img/homepage/ebay.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
 <img src="{% static 'img/homepage/mailgun.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
@@ -86,7 +86,31 @@ At our last day there was an impressive turnout and there was lots of talk about
 {% block tweets %}
 {% list_tweets %}
 
-354781876730335233
+{#Extra's since docker hackday #6#}
+{#362601233980211202#}
+{#362538212519981056#}
+362465372949069824
+{#362455829347176449#}
+362414011612008448
+362579117482323968
+362350303997210625
+{#362471730448572418#}
+362432830657150976
+362426814708203520
+362397723242135553
+362366694259294208
+{#362359971612078081#}
+{#362355578141556737#}
+{#362341799680946176#}
+{#362338537728782337#}
+362319091178029056
+{#362285886177677314#}
+362277568092704769
+362238819577245697
+362083256922935297
+
+{#As of July 19#}
+{#354781876730335233#}
 359360716584665088
 357948061202386946
 347003250299531264
@@ -95,25 +119,25 @@ At our last day there was an impressive turnout and there was lots of talk about
 348249053332647936
 348281405974925313
 354368422328541187
-354970275353329664
-355024956763021312
+{#354970275353329664#}
+{#355024956763021312#}
 354954990277758978
 355172662873567233
-355346670520770561
-355761264670162944
+{#355346670520770561#}
+{#355761264670162944#}
 355705492087119875
 355623162551083008
 355404525793841153
-355756267224047616
+{#355756267224047616#}
 355955060607430656
 354829574980378624
 354411184524500992
-354715613337354241
+{#354715613337354241#}
 355705492087119875
-355792575988371456
+{#355792575988371456#}
 357972314660405249
 356280542892802050
-356763917625724928
+{#356763917625724928#}
 
 {% end_list_tweets %}
 {% endblock %}
