@@ -27,7 +27,7 @@ Common use cases for Docker include:
 The following presentation explains what Docker is in laymen terms and then goes into more detail what makes Docker
     special and different from virtual machines.
 
-<iframe class="slideshare-presentation" src="http://www.slideshare.net/slideshow/embed_code/24441742" width="630" height="393" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="slideshare-presentation" src="https://www.slideshare.net/slideshow/embed_code/24441742" width="630" height="393" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <a href="{% url 'the-whole-story' %}" title="Read the whole story in html format">Read the full story</a>
 

@@ -15,7 +15,7 @@ register = template.Library()
 
 CONSUMER_KEY = 'aEtFq69wvzUAjlzwh9Tw'
 CONSUMER_SECRET = 'o6mcmOLtp35loXfUbRBOVpyfzenFdOSwBV3jd4MMFSM'
-TWITTER_TIMEOUT = 3600 * 24
+TWITTER_TIMEOUT = 3600 * 24 * 3
 
 
 

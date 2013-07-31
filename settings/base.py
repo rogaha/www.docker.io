@@ -250,5 +250,9 @@ GOOGLE_ANALYTICS_SITE_SPEED = True
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['.docker.io', '.dotcloud.com'] # need to set to real prod value.
 
-
-MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
+try:
+    MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
+except:
+    # Mailchimp will output a warning that it is not set.
+    print "warning: MAILCHIMP API KEY NOT SET IN ENVIRONMENT"
+    MAILCHIMP_API_KEY = "dummy-api-key"
