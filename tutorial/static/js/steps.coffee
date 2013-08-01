@@ -42,6 +42,9 @@ next = () ->
   history.pushState(stateObj, "", "#" + current_question);
   data = { 'type': EVENT_TYPES.next }
   logEvent(data)
+
+#  $('form *').focus(function(){ terminal.focus(false); });
+
   return
 
 
@@ -352,23 +355,16 @@ buildfunction = (q) ->
 
         data = { 'type': EVENT_TYPES.command, 'command': input.join(' '), 'result': 'fail' }
 
-
-#        if input.imageName && input.imageName == _q.imagenName
-#          console.debug("image correct")
-#
-#        if not input.switches.containsAllOfThese(_q.arguments)
-#          console.debug("image name incorrect")
-
-#        else if not input.arguments.containsAllOfThese(_q.arguments)
-#          console.debug("arguments incorrect")
-
-#        if Object.equal(input, _q.command_expected) # old
+        # Was like this:  if not input.switches.containsAllOfThese(_q.arguments)
 
         if input.containsAllOfTheseParts(_q.command_expected)
           data.result = 'success'
-#
-#          parsed_input = @myTerminal.parseInput(input)
-#          console.debug JSON.stringify(parsed_input, undefined, 2)
+
+          setTimeout( ( ->
+            @webterm.disable()
+            $('#buttonNext').focus()
+          ), 1000)
+
           results.set(_q.result)
           console.debug "contains match"
         else

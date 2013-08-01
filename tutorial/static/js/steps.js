@@ -241,6 +241,10 @@
           };
           if (input.containsAllOfTheseParts(_q.command_expected)) {
             data.result = 'success';
+            setTimeout((function() {
+              this.webterm.disable();
+              return $('#buttonNext').focus();
+            }), 1000);
             results.set(_q.result);
             console.debug("contains match");
           } else {

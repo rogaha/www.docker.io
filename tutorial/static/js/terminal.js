@@ -11,7 +11,7 @@
 
 (function() {
   (this.myTerminal = function() {
-    var bash, commit, commit_containerid, commit_id_does_not_exist, docker, dockerCommands, docker_cmd, docker_logo, images, inspect, inspect_no_such_container, inspect_ping_container, parseInput, ps, ps_a_l, pull, pull_no_results, pull_tutorial, pull_ubuntu, push_container_learn_ping, run_apt_get, run_apt_get_install_iputils_ping, run_cmd, run_image_wrong_command, run_learn_no_command, run_learn_tutorial_echo_hello_world, run_notfound, run_ping_www_google_com, run_switches, search, search_no_results, search_tutorial, search_ubuntu, util_slow_lines, version, wait;
+    var bash, commit, commit_containerid, commit_id_does_not_exist, docker, dockerCommands, docker_cmd, docker_logo, help, images, inspect, inspect_no_such_container, inspect_ping_container, parseInput, ps, ps_a_l, pull, pull_no_results, pull_tutorial, pull_ubuntu, push_container_learn_ping, run_apt_get, run_apt_get_install_iputils_ping, run_apt_get_install_unknown_package, run_cmd, run_image_wrong_command, run_learn_no_command, run_learn_tutorial_echo_hello_world, run_notfound, run_ping_www_google_com, run_switches, search, search_no_results, search_tutorial, search_ubuntu, util_slow_lines, version, wait;
 
     this.basesettings = {
       prompt: 'you@tutorial:~$ ',
@@ -79,15 +79,14 @@
       if (command === 'cd') {
         bash(term, inputs);
       }
-      if (command === 'exec') {
-        term.exec("docker run");
-      }
-      if (command === "help") {
-        term.error('printing help');
-        term.echo('[[b;#fff;]some text]');
-      }
       if (command === "docker") {
         docker(term, inputs);
+      }
+      if (command === "help") {
+        term.echo(help);
+      }
+      if (command === "ls") {
+        term.echo("This is an emulator, not a shell. Try following the instructions.");
       }
       if (command === "colors") {
         for (dockerCommand in dockerCommands) {
@@ -260,7 +259,7 @@
     */
 
     docker = function(term, inputs) {
-      var callback, command, commands, description, dockerCommand, echo, expected_switches, imagename, insert, keyword, parsed_input, result, swargs, switches;
+      var callback, command, commands, description, dockerCommand, echo, expected_switches, i, imagename, insert, keyword, parsed_input, result, swargs, switches;
 
       echo = term.echo;
       insert = term.insert;
@@ -329,18 +328,19 @@
             echo(run_learn_no_command);
             intermediateResults(0);
           } else if (commands[0] === "/bin/bash") {
-            echo(run_learn_tutorial_echo_hello_world);
+            echo(run_learn_tutorial_echo_hello_world(commands));
             intermediateResults(2);
           } else if (commands[0] === "echo") {
-            echo(run_learn_tutorial_echo_hello_world);
+            echo(run_learn_tutorial_echo_hello_world(commands));
           } else if (commands.containsAllOfThese(['apt-get', 'install', '-y', 'iputils-ping'])) {
             echo(run_apt_get_install_iputils_ping);
           } else if (commands.containsAllOfThese(['apt-get', 'install', 'iputils-ping'])) {
             echo(run_apt_get_install_iputils_ping);
-            intermediateResults(0);
           } else if (commands.containsAllOfThese(['apt-get', 'install', 'ping'])) {
             echo(run_apt_get_install_iputils_ping);
-            intermediateResults(0);
+          } else if (commands.containsAllOfThese(['apt-get', 'install'])) {
+            i = commands.length - 1;
+            echo(run_apt_get_install_unknown_package(commands[i]));
           } else if (commands[0] === "apt-get") {
             echo(run_apt_get);
           } else if (commands[0]) {
@@ -442,6 +442,7 @@
       return "2013/07/08 23:51:21 Error: No such container: " + keyword;
     };
     commit_containerid = "effb66b31edb";
+    help = "Docker tutorial \n\nThe Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard dockercommands. This terminal contains a limited docker and a limited shell emulator. Therefore some of the commandsyou would expect do not exist.\n\nJust follow the steps and questions. If you are stuck, click on the 'expected command' to see what the commandshould have been. Leave feedback if you find things confusing.    ";
     images = "learn/ping                      latest              a1dbb48ce764        2 hours ago         11.57 MB (virtual 143.1 MB)";
     inspect = "\nUsage: docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]\n\nReturn low-level information on a container/image\n";
     inspect_no_such_container = function(keyword) {
@@ -460,8 +461,22 @@
     run_cmd = "Usage: docker run [OPTIONS] IMAGE COMMAND [ARG...]\n\nRun a command in a new container\n\n-a=map[]: Attach to stdin, stdout or stderr.\n-c=0: CPU shares (relative weight)\n-d=false: Detached mode: leave the container running in the background\n-dns=[]: Set custom dns servers\n-e=[]: Set environment variables\n-h=\"\": Container host name\n-i=false: Keep stdin open even if not attached\n-m=0: Memory limit (in bytes)\n-p=[]: Expose a container's port to the host (use 'docker port' to see the actual mapping)\n-t=false: Allocate a pseudo-tty\n-u=\"\": Username or UID\n-v=map[]: Attach a data volume\n-volumes-from=\"\": Mount volumes from the specified container\n";
     run_apt_get = "apt 0.8.16~exp12ubuntu10 for amd64 compiled on Apr 20 2012 10:19:39\nUsage: apt-get [options] command\n       apt-get [options] install|remove pkg1 [pkg2 ...]\n       apt-get [options] source pkg1 [pkg2 ...]\n\napt-get is a simple command line interface for downloading and\ninstalling packages. The most frequently used commands are update\nand install.\n\nCommands:\n   update - Retrieve new lists of packages\n   upgrade - Perform an upgrade\n   install - Install new packages (pkg is libc6 not libc6.deb)\n   remove - Remove packages\n   autoremove - Remove automatically all unused packages\n   purge - Remove packages and config files\n   source - Download source archives\n   build-dep - Configure build-dependencies for source packages\n   dist-upgrade - Distribution upgrade, see apt-get(8)\n   dselect-upgrade - Follow dselect selections\n   clean - Erase downloaded archive files\n   autoclean - Erase old downloaded archive files\n   check - Verify that there are no broken dependencies\n   changelog - Download and display the changelog for the given package\n   download - Download the binary package into the current directory\n\nOptions:\n  -h  This help text.\n  -q  Loggable output - no progress indicator\n  -qq No output except for errors\n  -d  Download only - do NOT install or unpack archives\n  -s  No-act. Perform ordering simulation\n  -y  Assume Yes to all queries and do not prompt\n  -f  Attempt to correct a system with broken dependencies in place\n  -m  Attempt to continue if archives are unlocatable\n  -u  Show a list of upgraded packages as well\n  -b  Build the source package after fetching it\n  -V  Show verbose version numbers\n  -c=? Read this configuration file\n  -o=? Set an arbitrary configuration option, eg -o dir::cache=/tmp\nSee the apt-get(8), sources.list(5) and apt.conf(5) manual\npages for more information and options.\n                       This APT has Super Cow Powers.\n";
     run_apt_get_install_iputils_ping = "Reading package lists...\nBuilding dependency tree...\nThe following NEW packages will be installed:\n  iputils-ping\n0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 56.1 kB of archives.\nAfter this operation, 143 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu/ precise/main iputils-ping amd64 3:20101006-1ubuntu1 [56.1 kB]\ndebconf: delaying package configuration, since apt-utils is not installed\nFetched 56.1 kB in 1s (50.3 kB/s)\nSelecting previously unselected package iputils-ping.\n(Reading database ... 7545 files and directories currently installed.)\nUnpacking iputils-ping (from .../iputils-ping_3%3a20101006-1ubuntu1_amd64.deb) ...\nSetting up iputils-ping (3:20101006-1ubuntu1) ...";
+    run_apt_get_install_unknown_package = function(keyword) {
+      return "Reading package lists...\nBuilding dependency tree...\nE: Unable to locate package " + keyword;
+    };
     run_learn_no_command = "2013/07/02 02:00:59 Error: No command specified";
-    run_learn_tutorial_echo_hello_world = "hello world";
+    run_learn_tutorial_echo_hello_world = function(commands) {
+      var command, string, _i, _len, _ref;
+
+      string = "";
+      _ref = commands.slice(1);
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        command = _ref[_i];
+        command = command.replace('"', '');
+        string += "" + command + " ";
+      }
+      return string;
+    };
     run_image_wrong_command = function(keyword) {
       return "2013/07/08 23:13:30 Unable to locate " + keyword;
     };

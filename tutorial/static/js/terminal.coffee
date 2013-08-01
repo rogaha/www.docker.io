@@ -82,17 +82,14 @@ do @myTerminal = ->
     if command is 'cd'
       bash(term, inputs)
 
-    if command is 'exec'
-      term.exec (
-        "docker run"
-      )
-
-    if command is "help"
-      term.error 'printing help'
-      term.echo '[[b;#fff;]some text]'
-
     if command is "docker"
       docker(term, inputs)
+
+    if command is "help"
+      term.echo help
+
+    if command is "ls"
+      term.echo "This is an emulator, not a shell. Try following the instructions."
 
     if command is "colors"
       for dockerCommand, description of dockerCommands
@@ -217,7 +214,6 @@ do @myTerminal = ->
     foo(lines)
 
 
-
   wait = (term, time, dots) ->
     term.echo "starting to wait"
     interval_id = self.setInterval ( -> dots ? term.insert '.'), 500
@@ -340,18 +336,22 @@ do @myTerminal = ->
           echo run_learn_no_command
           intermediateResults(0)
         else if commands[0] is "/bin/bash"
-          echo run_learn_tutorial_echo_hello_world
+          echo run_learn_tutorial_echo_hello_world(commands)
           intermediateResults(2)
         else if commands[0] is "echo"
-          echo run_learn_tutorial_echo_hello_world
+          echo run_learn_tutorial_echo_hello_world(commands)
         else if commands.containsAllOfThese(['apt-get', 'install', '-y', 'iputils-ping'])
           echo run_apt_get_install_iputils_ping
         else if commands.containsAllOfThese(['apt-get', 'install', 'iputils-ping'])
           echo run_apt_get_install_iputils_ping
-          intermediateResults(0)
+#          intermediateResults(0)
         else if commands.containsAllOfThese(['apt-get', 'install', 'ping'])
           echo run_apt_get_install_iputils_ping
-          intermediateResults(0)
+#          intermediateResults(0)
+        else if commands.containsAllOfThese(['apt-get', 'install'])
+          i = commands.length - 1
+          echo run_apt_get_install_unknown_package( commands[i] )
+#          intermediateResults(0)
         else if commands[0] is "apt-get"
           echo run_apt_get
         else if commands[0]
@@ -480,6 +480,19 @@ do @myTerminal = ->
     """
     effb66b31edb
     """
+
+  help = \
+    "
+Docker tutorial \n
+\n
+The Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard docker
+commands. This terminal contains a limited docker and a limited shell emulator. Therefore some of the commands
+you would expect do not exist.\n
+\n
+Just follow the steps and questions. If you are stuck, click on the 'expected command' to see what the command
+should have been. Leave feedback if you find things confusing.
+
+    "
 
   images = \
     """
@@ -688,20 +701,27 @@ do @myTerminal = ->
 
   run_apt_get_install_iputils_ping = \
     """
-    Reading package lists...
-    Building dependency tree...
-    The following NEW packages will be installed:
-      iputils-ping
-    0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-    Need to get 56.1 kB of archives.
-    After this operation, 143 kB of additional disk space will be used.
-    Get:1 http://archive.ubuntu.com/ubuntu/ precise/main iputils-ping amd64 3:20101006-1ubuntu1 [56.1 kB]
-    debconf: delaying package configuration, since apt-utils is not installed
-    Fetched 56.1 kB in 1s (50.3 kB/s)
-    Selecting previously unselected package iputils-ping.
-    (Reading database ... 7545 files and directories currently installed.)
-    Unpacking iputils-ping (from .../iputils-ping_3%3a20101006-1ubuntu1_amd64.deb) ...
-    Setting up iputils-ping (3:20101006-1ubuntu1) ...
+      Reading package lists...
+      Building dependency tree...
+      The following NEW packages will be installed:
+        iputils-ping
+      0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+      Need to get 56.1 kB of archives.
+      After this operation, 143 kB of additional disk space will be used.
+      Get:1 http://archive.ubuntu.com/ubuntu/ precise/main iputils-ping amd64 3:20101006-1ubuntu1 [56.1 kB]
+      debconf: delaying package configuration, since apt-utils is not installed
+      Fetched 56.1 kB in 1s (50.3 kB/s)
+      Selecting previously unselected package iputils-ping.
+      (Reading database ... 7545 files and directories currently installed.)
+      Unpacking iputils-ping (from .../iputils-ping_3%3a20101006-1ubuntu1_amd64.deb) ...
+      Setting up iputils-ping (3:20101006-1ubuntu1) ...
+    """
+
+  run_apt_get_install_unknown_package = (keyword) ->
+    """
+      Reading package lists...
+      Building dependency tree...
+      E: Unable to locate package #{keyword}
     """
 
   run_learn_no_command = \
@@ -709,10 +729,13 @@ do @myTerminal = ->
     2013/07/02 02:00:59 Error: No command specified
     """
 
-  run_learn_tutorial_echo_hello_world = \
-    """
-    hello world
-    """
+  run_learn_tutorial_echo_hello_world = (commands) ->
+    string = ""
+    for command in commands[1..]
+      command = command.replace('"','');
+      string += ("#{command} ")
+    return string
+
 
   run_image_wrong_command = (keyword) ->
     """
