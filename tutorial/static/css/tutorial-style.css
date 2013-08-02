@@ -227,7 +227,7 @@ h4 {
   background: linear-gradient(to bottom, #008bb8 0%, #00617f 100%);
   /* W3C */
 
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#008bb8', endColorstr='#00617f', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008bb8', endColorstr='#00617f', GradientType=0);
   /* IE6-9 */
 
 }
@@ -255,7 +255,7 @@ h4 {
   background: linear-gradient(to bottom, #00617f 0%, #008bb8 100%);
   /* W3C */
 
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00617f', endColorstr='#008bb8', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00617f', endColorstr='#008bb8', GradientType=0);
   /* IE6-9 */
 
 }
@@ -282,7 +282,7 @@ h4 {
   background: linear-gradient(to bottom, #4f727c 0%, #89acb7 100%);
   /* W3C */
 
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#4f727c', endColorstr='#89acb7', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f727c', endColorstr='#89acb7', GradientType=0);
   /* IE6-9 */
 
 }
@@ -310,7 +310,6 @@ circle {
   fill: #FF8100;
 }
 #results {
-  position: absolute;
   z-index: 20;
   background-color: #e7e7e7;
   width: 400px;

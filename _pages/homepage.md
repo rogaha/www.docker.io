@@ -21,13 +21,6 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
-#### Jul 31 • Docker on Linux.com
-[<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/linux.com.jpg' %}" alt="Linux.com">](http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/) Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span>
-
-#### Jul 28 • Techcrunch on Docker and "The Matrix of Hell"
-[<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="techcrunch">](http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/) The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud 
-<span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span>
-
 #### Jul 23 • Ben Golub Joins as CEO
 Open source veteran Ben Golub joins as CEO to drive the docker vision forward. Read more:
 
@@ -53,6 +46,17 @@ Sam Alba presents an article about the integration of Docker in OpenStack's clou
     allows users of OpenStack to seamlessly create Docker containers from the interface they are already using.
     <span class="read-more"><a href="http://blog.docker.io/2013/06/openstack-docker-manage-linux-containers-with-nova/">read more -></a></span>
 
+
+### Docker in the news
+
+#### Jul 31 • Docker on Linux.com
+[<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/linux.com.jpg' %}" alt="Linux.com">](http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/) Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span>
+
+#### Jul 28 • Techcrunch on Docker and "The Matrix of Hell"
+[<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="techcrunch">](http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/) The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud
+<span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span>
+
+
 {% endblock %}
 
 
@@ -73,8 +77,9 @@ Our hackday #6 was a success, with over 60 participants and, amongst others, gre
 At our last day there was an impressive turnout and there was lots of talk about packing and using Docker in various
     ways.
 
-
 <img src="{% static 'img/homepage/hackday_june_2013_brighter_400px.png' %}" alt="picture of Docker hackday at dotCloud office">
+
+
 
 {% endblock %}
 
