@@ -297,31 +297,32 @@ tip: """<ul>
 
 
 
-q.push ({
-html: """
-      <h2>Interactive Shell</h2>
-      <p>Now, since Docker provides you with the equivalent of a complete operating system you are able to get
-      an interactive shell (tty) <em>inside</em> of the container.</p>
-      <p>Since we want a prompt in the container, we need to start the shell program in the container. </p>
-      <p>You may never have manually started it before, but a popular one typically lives at `/bin/bash`</p>
-      """
-assignment: """
-      <h2>Assignment</h2>
-      <p>Your goal is to run the tutorial container you have
-      just downloaded and get a shell inside of it.</p>
-      """
-command_expected: ["docker", "run", "-i", "-t", "learn/tutorial", "/bin/bash"]
-result: """<p>Great!! Now you have an interactive terminal</p>"""
-intermediateresults: [
-  """<p>You seem to be almost there. Did you use <em>-i and -t</em>?</p>""",
-  """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
-  """<p>You have the command right, but the shell exits immediately, before printing anything</p>
-      <p>You will need to attach your terminal to the containers' terminal.</p>
-  """
-  ]
-tip: """Start by looking at the results of `docker run`, it shows which arguments exist"""
-})
-
+#
+#q.push ({
+#html: """
+#      <h2>Interactive Shell</h2>
+#      <p>Now, since Docker provides you with the equivalent of a complete operating system you are able to get
+#      an interactive shell (tty) <em>inside</em> of the container.</p>
+#      <p>Since we want a prompt in the container, we need to start the shell program in the container. </p>
+#      <p>You may never have manually started it before, but a popular one typically lives at `/bin/bash`</p>
+#      """
+#assignment: """
+#      <h2>Assignment</h2>
+#      <p>Your goal is to run the tutorial container you have
+#      just downloaded and get a shell inside of it.</p>
+#      """
+#command_expected: ["docker", "run", "-i", "-t", "learn/tutorial", "/bin/bash"]
+#result: """<p>Great!! Now you have an interactive terminal</p>"""
+#intermediateresults: [
+#  """<p>You seem to be almost there. Did you use <em>-i and -t</em>?</p>""",
+#  """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
+#  """<p>You have the command right, but the shell exits immediately, before printing anything</p>
+#      <p>You will need to attach your terminal to the containers' terminal.</p>
+#  """
+#  ]
+#tip: """Start by looking at the results of `docker run`, it shows which arguments exist"""
+#})
+#
 
 
 

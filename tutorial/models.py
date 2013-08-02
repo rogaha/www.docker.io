@@ -6,6 +6,8 @@ from django.contrib.sessions.models import Session
 
 class TutorialUser(models.Model):
     session_key = models.CharField(max_length=80)
+    timestamp = models.DateTimeField(auto_now=True)
+    label = models.CharField(max_length=80)
 
     def __unicode__(self):
         return u"%s" % (self.id)

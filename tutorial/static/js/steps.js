@@ -195,15 +195,6 @@
     tip: "<ul>\n<li>Docker images will show you which images are currently on your host</li>\n<li>You can only push images to your own namespace.</li>\n<li>For this tutorial we assume you are already logged in as the 'learn' user..</li>\n</ul>"
   });
 
-  q.push({
-    html: "<h2>Interactive Shell</h2>\n<p>Now, since Docker provides you with the equivalent of a complete operating system you are able to get\nan interactive shell (tty) <em>inside</em> of the container.</p>\n<p>Since we want a prompt in the container, we need to start the shell program in the container. </p>\n<p>You may never have manually started it before, but a popular one typically lives at `/bin/bash`</p>",
-    assignment: "<h2>Assignment</h2>\n<p>Your goal is to run the tutorial container you have\njust downloaded and get a shell inside of it.</p>",
-    command_expected: ["docker", "run", "-i", "-t", "learn/tutorial", "/bin/bash"],
-    result: "<p>Great!! Now you have an interactive terminal</p>",
-    intermediateresults: ["<p>You seem to be almost there. Did you use <em>-i and -t</em>?</p>", "<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>", "<p>You have the command right, but the shell exits immediately, before printing anything</p>\n<p>You will need to attach your terminal to the containers' terminal.</p>"],
-    tip: "Start by looking at the results of `docker run`, it shows which arguments exist"
-  });
-
   /*
     Transform question objects into functions
   */
