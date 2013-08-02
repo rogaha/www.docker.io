@@ -21,6 +21,9 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
+#### Jul 31 • Docker on Linux.com
+[<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/linux.com.jpg' %}" alt="Linux.com">](http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/) Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span>
+
 #### Jul 28 • Techcrunch on Docker and "The Matrix of Hell"
 [<img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="techcrunch">](http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/) The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud 
 <span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span>
