@@ -83,7 +83,7 @@ Docker meetups are a great way to network, learn, share best practices, and have
 * <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
 * <a href="http://www.meetup.com/Docker-London/">London, UK</a>
 
-If you would like to organize a meetup in your city, <a href="https://twitter.com/docker/">Contact us</a>. We will be happy to help.
+If you would like to organize a meetup in your city, <a href="https://twitter.com/docker/">contact us</a>. We will be happy to help.
 
 ### Share or Create New Dockerized Apps ###
 There are over 1,000 cool, containerized applications in our public Index.
