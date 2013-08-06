@@ -63,23 +63,26 @@ Sam Alba presents an article about the integration of Docker in OpenStack's clou
 {% block copy_community %}
 ### Community events
 
-#### Last Hackday • Jul 30 (past):
+### Upcoming events
+#### Boston OpenStack Meetup • Aug 14
+<a href="https://twitter.com/golubbe" target="_blank">Ben Golub</a>, <a href="https://twitter.com/solomonstre" target="_blank">Solomon Hykes</a> and <a href="https://twitter.com/KenCochrane" target="_blank">Ken Cochrane</a> will be attending the next Boston OpenStak Meetup to talk about **Application Deployment on Openstack Using Containers and Docker** <a href="http://www.meetup.com/Openstack-Boston/events/131949152/" target="_blank">read more -></a>
+
+#### CoderCamp13 in Hamilton, Canada • Aug 14
+<a href="https://twitter.com/adr" target="_blank">John Fink</a> will talk about **<a href="http://docker.io">docker</a>, a lightweight virtual machine system implemented as a wrapper around Linux containers** <a href="http://codercamp.eventbrite.com/" target="_blank">read more -></a>
+
+#### New York Docker Meetup • Aug 21
+Join us for the first Docker Meetup in NYC <a href="http://www.meetup.com/Docker-meetups/events/131005192/" target="_blank">read more -></a>
+
+#### Our previous Hack Day • Jul 30 (past):
 Our hackday #6 was a success, with over 60 participants and, amongst others, great talks about how how people are using
-    it in**EBay**, **Mailgun (Rackspace)** and **CloudFlare**.
+    it in **EBay**, **Mailgun (Rackspace)** and **CloudFlare**.
     <span class="read-more disabled"><a href="{% url 'live' %}">watch sessions -></a></span>
 
 <img src="{% static 'img/homepage/ebay.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
 <img src="{% static 'img/homepage/mailgun.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
 <img src="{% static 'img/homepage/cloudflare.png' %}" title="logo's of EBay, Mailgun and CloudFlare">
 
-
-#### Our previous hackday • Jun 11:
-At our last day there was an impressive turnout and there was lots of talk about packing and using Docker in various
-    ways.
-
-<img src="{% static 'img/homepage/hackday_june_2013_brighter_400px.png' %}" alt="picture of Docker hackday at dotCloud office">
-
-
+<a href="/live"><img src="http://farm4.staticflickr.com/3763/9409768665_966d0c08d9.jpg" width="500" height="375" alt="Docker Hck Day #6"></a>
 
 {% endblock %}
 
