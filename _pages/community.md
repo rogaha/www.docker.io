@@ -69,14 +69,21 @@ Sharing what you have built with Docker is a great way to help people understand
 * Write a tutorial like [these](http://blog.docker.io/2013/06/14-great-tutorials-on-docker/)
 
 
-
 ### Come to (or organize) a meetup ###
 
 <img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px;">
 
-Docker meetups  are a great way to network, learn, share best practices, and have fun.
+Docker meetups are a great way to network, learn, share best practices, and have fun. These are the current active docker meetups:
 
-* Find or organize a [meetup](http://www.meetup.com/Docker-meetups/)
+#### USA
+* <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
+* <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
+
+#### Europe
+* <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
+* <a href="http://www.meetup.com/Docker-London/">London, UK</a>
+
+If you would like to organize a meetup in your city, <a href="https://twitter.com/docker/">Contact us</a>. We will be happy to help.
 
 ### Share or Create New Dockerized Apps ###
 There are over 1,000 cool, containerized applications in our public Index.
