@@ -21,6 +21,9 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
+#### Aug 6 • now @docker on Twitter
+This morning we changed our Twitter handle from getdocker to docker on twitter. So please tweet @docker now!
+
 #### Jul 23 • Ben Golub Joins as CEO
 Open source veteran Ben Golub joins as CEO to drive the docker vision forward. Read more:
 
