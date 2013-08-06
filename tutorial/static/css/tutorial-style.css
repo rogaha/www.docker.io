@@ -314,8 +314,22 @@
   /* IE6-9 */
 
 }
-.closeButton {
+#tutorialTop .closeButton {
   position: relative;
   float: right;
-  margin: 10px;
+  margin: 18px;
+}
+#progress-indicator {
+  margin-top: 18px;
+  float: right;
+}
+.progress-marker {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  float: left;
+  margin-right: 5px;
+}
+.progress-marker.active circle {
+  fill: green;
 }

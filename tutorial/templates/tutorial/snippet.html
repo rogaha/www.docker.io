@@ -12,9 +12,23 @@
         <div id="tutorialTop" class="togglesize hide-when-small">
             <img src="{% static 'img/docker-letters.png' %}" alt="Docker">
             <h1>Learn Docker</h1>
-            <a id="fullSizeClose" href="#" class="closeButton"><img src="{% static "img/fullscreen_exit_32x32.png"  %}" title="close fullscreen"> </a>
-        </div>
 
+            <a id="fullSizeClose" href="#" class="closeButton"><img src="{% static "img/fullscreen_exit_32x32.png"  %}" title="close fullscreen"> </a>
+
+
+            <div id="progress-indicator">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="progress-marker-1" class="progress-marker">
+                    <circle cx="50%" cy="50%" r="50%" fill="#008BB8" ></circle>
+                    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" fill="white">i</text>
+                </svg>
+            </div>
+
+{#            <div class="progress-markers">#}
+{#                #}
+{#            </div>#}
+
+        </div>
+`
 
         <div id="leftside" class="left togglesize hide-when-small">
             <div id="instructions">
@@ -34,11 +48,6 @@
             </div>
 
             <div id="tips">
-{#                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"#}
-{#                     style="width:40px; height:40px; position:relative; float: left; top:5; left:5; z-index:1;">#}
-{#                    <circle cx="50%" cy="50%" r="50%" fill="#008BB8" ></circle>#}
-{#                    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" fill="white">i</text>#}
-{#                </svg>#}
                 <div class="text" >
                     <h2>Tips</h2>
 {#                    <div id="tipHiddenText" class="box">#}

@@ -39,9 +39,15 @@ next = () ->
     $('#commandShownText').addClass("hidden")
     $('#commandHiddenText').removeClass("hidden").show()
 
+  # enable history navigation
   history.pushState(stateObj, "", "#" + current_question);
   data = { 'type': EVENT_TYPES.next }
   logEvent(data)
+
+  # change the progress indicator
+  $('.progress-marker').attr("class", "progress-marker")
+  $('#marker-' + current_question).attr("class", "progress-marker active")
+
 
 #  $('form *').focus(function(){ terminal.focus(false); });
 
@@ -357,7 +363,6 @@ buildfunction = (q) ->
         data = { 'type': EVENT_TYPES.command, 'command': input.join(' '), 'result': 'fail' }
 
         # Was like this:  if not input.switches.containsAllOfThese(_q.arguments)
-
         if input.containsAllOfTheseParts(_q.command_expected)
           data.result = 'success'
 
@@ -373,22 +378,28 @@ buildfunction = (q) ->
 
         # call function to submit data
         logEvent(data)
-
-      else
-
-
-
       return
+
     window.intermediateResults = (input) ->
-#      alert "itermediate received"
       results.set(_q.intermediateresults[input], intermediate=true)
     return
 
 
+statusMarker = $('#progress-marker-1')
+progressIndicator = $('#progress-indicator')#
+
+drawStatusMarker = (i) ->
+  statusMarker.clone().appendTo(progressIndicator)
+  statusMarker.attr("id", "marker-" + i)
+  statusMarker.find('text').get(0).textContent = i
+
+
+questionNumber = 0
 for question in q
   f = buildfunction(question)
   questions.push(f)
-
+  drawStatusMarker(questionNumber)
+  questionNumber++
 
 # load the first question, or if the url hash is set, use that
 

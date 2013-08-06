@@ -178,6 +178,7 @@ PREREQ_APPS = (
     'analytical',
     'mailchimp',
     'markdown_deux',
+    'south'
 )
 
 PROJECT_APPS = (

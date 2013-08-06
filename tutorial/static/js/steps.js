@@ -10,7 +10,7 @@
 
 
 (function() {
-  var EVENT_TYPES, buildfunction, current_question, currentquestion, err, f, leaveFullSizeMode, logEvent, next, previous, q, question, questions, results, stateObj, _i, _len;
+  var EVENT_TYPES, buildfunction, current_question, currentquestion, drawStatusMarker, err, f, leaveFullSizeMode, logEvent, next, previous, progressIndicator, q, question, questionNumber, questions, results, stateObj, statusMarker, _i, _len;
 
   this.webterm = $('#terminal').terminal(interpreter, basesettings);
 
@@ -52,6 +52,8 @@
       'type': EVENT_TYPES.next
     };
     logEvent(data);
+    $('.progress-marker').attr("class", "progress-marker");
+    $('#marker-' + current_question).attr("class", "progress-marker active");
   };
 
   previous = function() {
@@ -242,8 +244,6 @@
             console.debug("wrong command received");
           }
           logEvent(data);
-        } else {
-
         }
       };
       window.intermediateResults = function(input) {
@@ -254,10 +254,24 @@
     };
   };
 
+  statusMarker = $('#progress-marker-1');
+
+  progressIndicator = $('#progress-indicator');
+
+  drawStatusMarker = function(i) {
+    statusMarker.clone().appendTo(progressIndicator);
+    statusMarker.attr("id", "marker-" + i);
+    return statusMarker.find('text').get(0).textContent = i;
+  };
+
+  questionNumber = 0;
+
   for (_i = 0, _len = q.length; _i < _len; _i++) {
     question = q[_i];
     f = buildfunction(question);
     questions.push(f);
+    drawStatusMarker(questionNumber);
+    questionNumber++;
   }
 
   /*

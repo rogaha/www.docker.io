@@ -22,7 +22,7 @@ class TutorialEventInline(admin.TabularInline):
 
 class TutorialUserAdmin(admin.ModelAdmin):
     model = TutorialUser
-    list_display = ['id', 'session_key']
+    list_display = ['id', 'session_key', 'label', 'timestamp']
     inlines = [TutorialEventInline]
 admin.site.register(TutorialUser, TutorialUserAdmin)
 
