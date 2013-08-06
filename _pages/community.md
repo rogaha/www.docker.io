@@ -44,7 +44,7 @@ There are several ways to get in touch:
         target="_blank"><li>Stackoverflow<img src="{% static 'img/community/stackoverflow.png' %}"> </li></a>
 
     <a data-description="For general praise, and other chitter chatter tweet"
-        href="http://twitter.com/getdocker/"
+        href="http://twitter.com/docker/"
         target="_blank"><li>Twitter<img src="{% static 'img/community/twitter.png' %}"> </li></a>
 </ul>
 
@@ -63,7 +63,7 @@ There are several ways to get in touch:
 Sharing what you have built with Docker is a great way to help people understand the value of Docker. If you have
     a great story to tell we'll be happy to help you spread the word.
 
-* Tell your story at a company tech talk, tweet (#docker.io, @getdocker)  present at your local user group, or submit a
+* Tell your story at a company tech talk, tweet (#docker.io, @docker)  present at your local user group, or submit a
     talk proposal to a conference or event about how you are using Docker
 * If you are using Docker,  in production, become a public reference like [these](http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/)
 * Write a tutorial like [these](http://blog.docker.io/2013/06/14-great-tutorials-on-docker/)
