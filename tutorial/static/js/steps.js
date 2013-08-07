@@ -15,7 +15,7 @@
   q = [];
 
   q.push({
-    html: "<h2>Getting started</h2>\n<p>There are actually two programs, a Docker daemon, it manages al the containers, and the Docker client.\nThe client acts as a remote control on the daemon. On most systems, like in this emulation, both run on the\nsame host.</p>",
+    html: "<h2>Getting started</h2>\n<p>There are actually two programs, a Docker daemon, it manages al the containers, and the Docker client.\nThe client acts as a remote control on the daemon. On most systems, like in this emulator, both run on the\nsame host.</p>",
     assignment: "<h2>Assignment</h2>\n<p>Check which Docker version is running</p>\n<p>This will help you verify the daemon is running. If you see which version is running you know you are all set.</p>",
     tip: "try typing <code>docker</code> to see the full list of accepted arguments",
     command_expected: ['docker', 'version'],
@@ -35,7 +35,7 @@
     assignment: "<h2>Assignment</h2>\n<p>Please download the tutorial image you have just found</p>",
     command_expected: ['docker', 'pull', 'learn/tutorial'],
     result: "<p>Cool. Look at the results. You'll see that docker has downloaded a number of layers. In Docker all images (except the base image) are made up of several cumulative layers.</p>",
-    tip: "Don't forget to pull the full name of the repository e.g. 'learn/tutorial'"
+    tip: "<p>Don't forget to pull the full name of the repository e.g. 'learn/tutorial'</p>\n<p>Look under 'show expected command if you're stuck.</p>"
   });
 
   q.push({

@@ -65,7 +65,7 @@ def api(request):
     username = session.get('username', 'unknown')
     print username
 
-    return HttpResponse('hi')
+    return HttpResponse('.')
 
     # return render_to_response("tutorial/testpage.html", {
     #     "form": form,

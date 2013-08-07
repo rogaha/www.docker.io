@@ -50,7 +50,6 @@
   position: absolute;
   bottom: 0;
   margin: 20px;
-  border: 1px red dotted;
 }
 #resulttext {
   border-radius: 5px;
@@ -200,6 +199,10 @@
   padding: 15px;
   padding-top: 5px;
 }
+.circle {
+  font-size: 18px;
+  margin-top: 5px;
+}
 #terminal {
   box-sizing: border-box;
   position: absolute;
@@ -321,7 +324,7 @@
   margin: 18px;
 }
 #progress-indicator {
-  margin-top: 20px;
+  margin-top: 22px;
   float: right;
   cursor: hand;
 }
@@ -336,14 +339,20 @@
   height: 30px;
 }
 .progress-marker circle {
-  fill: #018bb8;
+  fill: #eaeaea;
 }
-.progress-marker.active circle {
-  fill: green;
+.progress-marker text {
+  fill: black;
 }
 .progress-marker.complete circle {
-  fill: #ff810a;
+  fill: green;
 }
 .progress-marker:hover circle {
   fill: #01b0ee;
+}
+.progress-marker:active circle {
+  fill: #ff810a;
+}
+.progress-marker.active circle {
+  fill: #ff810a;
 }

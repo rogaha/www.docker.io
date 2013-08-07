@@ -13,7 +13,7 @@ q.push ({
 html: """
       <h2>Getting started</h2>
       <p>There are actually two programs, a Docker daemon, it manages al the containers, and the Docker client.
-      The client acts as a remote control on the daemon. On most systems, like in this emulation, both run on the
+      The client acts as a remote control on the daemon. On most systems, like in this emulator, both run on the
       same host.</p>
       """
 assignment: """
@@ -57,7 +57,9 @@ assignment:
       """
 command_expected: ['docker', 'pull', 'learn/tutorial']
 result: """<p>Cool. Look at the results. You'll see that docker has downloaded a number of layers. In Docker all images (except the base image) are made up of several cumulative layers.</p>"""
-tip: """Don't forget to pull the full name of the repository e.g. 'learn/tutorial'"""
+tip: """<p>Don't forget to pull the full name of the repository e.g. 'learn/tutorial'</p>
+     <p>Look under 'show expected command if you're stuck.</p>
+     """
 })
 
 

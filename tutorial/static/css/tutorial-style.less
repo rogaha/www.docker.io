@@ -61,7 +61,7 @@
   position: absolute;
   bottom: 0;
   margin: 20px;
-  border: 1px red dotted;
+//  border: 1px red dotted;
 }
 
 #resulttext {
@@ -259,6 +259,11 @@
   }
 }
 
+.circle {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
 
 
 
@@ -358,7 +363,7 @@
 }
 
 #progress-indicator {
-  margin-top: 20px;
+  margin-top: 22px;
   float: right;
 //  .debug;
 //  width: 100px;
@@ -381,19 +386,27 @@
     height:30px;
   }
 
-  circle {
-    fill: #018bb8;
-  }
-
-  &.active {
-    circle { fill: green; }
-  }
+  circle { fill: #eaeaea; }
+  text { fill: black; }
 
   &.complete {
-    circle { fill: #ff810a; }
+    circle { fill: green; }
+//    text { fill: white; }
   }
 
   &:hover {
-    circle { fill: #01b0ee }
+    circle { fill: #01b0ee; }
   }
+
+  &:active {
+//    circle { fill: green; }
+    circle { fill: #ff810a; }
+  }
+
+  &.active {
+//    circle { fill: green; }
+    circle { fill: #ff810a; }
+  }
+
+
 }
