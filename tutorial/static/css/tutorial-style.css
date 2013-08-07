@@ -192,6 +192,7 @@
 #results button {
   position: relative;
   float: right;
+  margin-top: 10px;
 }
 #instructions .assignment {
   margin-top: 20px;
@@ -320,16 +321,29 @@
   margin: 18px;
 }
 #progress-indicator {
-  margin-top: 18px;
+  margin-top: 20px;
   float: right;
+  cursor: hand;
 }
 .progress-marker {
-  width: 30px;
-  height: 30px;
   position: relative;
   float: left;
   margin-right: 5px;
+  cursor: hand;
+}
+.progress-marker svg {
+  width: 30px;
+  height: 30px;
+}
+.progress-marker circle {
+  fill: #018bb8;
 }
 .progress-marker.active circle {
   fill: green;
+}
+.progress-marker.complete circle {
+  fill: #ff810a;
+}
+.progress-marker:hover circle {
+  fill: #01b0ee;
 }

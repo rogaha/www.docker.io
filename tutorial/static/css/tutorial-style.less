@@ -244,6 +244,7 @@
   button {
     position: relative;
     float: right;
+    margin-top: 10px;
 //    margin-bottom: 15px;
   }
 }
@@ -357,25 +358,42 @@
 }
 
 #progress-indicator {
-  margin-top: 18px;
+  margin-top: 20px;
   float: right;
 //  .debug;
 //  width: 100px;
 //  height: 100px;
+  cursor: hand;
 }
 
 .progress-marker {
-  width:30px;
-  height:30px;
+
   position:relative;
   float: left;
   margin-right: 5px;
+  cursor: hand;
 //  top:5;
 //  left:5;
 //  z-index:1;
 //  .debug;
+  svg {
+    width:30px;
+    height:30px;
+  }
+
+  circle {
+    fill: #018bb8;
+  }
 
   &.active {
     circle { fill: green; }
+  }
+
+  &.complete {
+    circle { fill: #ff810a; }
+  }
+
+  &:hover {
+    circle { fill: #01b0ee }
   }
 }

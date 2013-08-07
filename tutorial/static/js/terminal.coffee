@@ -262,11 +262,13 @@ do @myTerminal = ->
 
     # Command commit
     else if inputs[1] is "commit"
-      if inputs[2] and inputs[3]
+      if inputs.containsAllOfTheseParts(['docker', 'commit', '698', 'learn/ping'])
         util_slow_lines(term, commit_containerid, "", callback )
-      else if inputs[2]
-        util_slow_lines(term, commit_containerid, "", callback )
+      else if inputs.containsAllOfTheseParts(['docker', 'commit', '698'])
+        util_slow_lines(term, commit_id_does_not_exist(inputs[2]), "", callback )
         intermediateResults(0)
+      else if inputs.containsAllOfTheseParts(['docker', 'commit'])
+        echo commit_id_does_not_exist(inputs[2])
       else
         echo commit
 
@@ -496,7 +498,8 @@ should have been. Leave feedback if you find things confusing.
 
   images = \
     """
-    learn/ping                      latest              a1dbb48ce764        2 hours ago         11.57 MB (virtual 143.1 MB)
+    learn/tutorial                  latest              8dbd9e392a96        2 months ago        131.5 MB (virtual 131.5 MB)
+    learn/ping                      latest              a1dbb48ce764        10 minutes ago      11.57 MB (virtual 143.1 MB)
     """
 
   inspect = \

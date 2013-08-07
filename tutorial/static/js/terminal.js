@@ -275,11 +275,13 @@
           echo("[[b;#fff;]" + dockerCommand + "]" + description + "");
         }
       } else if (inputs[1] === "commit") {
-        if (inputs[2] && inputs[3]) {
+        if (inputs.containsAllOfTheseParts(['docker', 'commit', '698', 'learn/ping'])) {
           util_slow_lines(term, commit_containerid, "", callback);
-        } else if (inputs[2]) {
-          util_slow_lines(term, commit_containerid, "", callback);
+        } else if (inputs.containsAllOfTheseParts(['docker', 'commit', '698'])) {
+          util_slow_lines(term, commit_id_does_not_exist(inputs[2]), "", callback);
           intermediateResults(0);
+        } else if (inputs.containsAllOfTheseParts(['docker', 'commit'])) {
+          echo(commit_id_does_not_exist(inputs[2]));
         } else {
           echo(commit);
         }
@@ -443,7 +445,7 @@
     };
     commit_containerid = "effb66b31edb";
     help = "Docker tutorial \n\nThe Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard dockercommands. This terminal contains a limited docker and a limited shell emulator. Therefore some of the commandsyou would expect do not exist.\n\nJust follow the steps and questions. If you are stuck, click on the 'expected command' to see what the commandshould have been. Leave feedback if you find things confusing.    ";
-    images = "learn/ping                      latest              a1dbb48ce764        2 hours ago         11.57 MB (virtual 143.1 MB)";
+    images = "learn/tutorial                  latest              8dbd9e392a96        2 months ago        131.5 MB (virtual 131.5 MB)\nlearn/ping                      latest              a1dbb48ce764        10 minutes ago      11.57 MB (virtual 143.1 MB)";
     inspect = "\nUsage: docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]\n\nReturn low-level information on a container/image\n";
     inspect_no_such_container = function(keyword) {
       return "Error: No such image: " + keyword;

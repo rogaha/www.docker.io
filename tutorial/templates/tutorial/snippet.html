@@ -17,10 +17,12 @@
 
 
             <div id="progress-indicator">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="progress-marker-1" class="progress-marker">
+                <span id="progress-marker-0" class="progress-marker">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" >
                     <circle cx="50%" cy="50%" r="50%" fill="#008BB8" ></circle>
                     <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" fill="white">i</text>
-                </svg>
+                    </svg>
+                </span>
             </div>
 
 {#            <div class="progress-markers">#}
@@ -33,11 +35,13 @@
         <div id="leftside" class="left togglesize hide-when-small">
             <div id="instructions">
                 <div class="circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-                         style="width:40px; height:40px; position:relative; float: left; top:5; left:5; z-index:1;">
-                        <circle cx="50%" cy="50%" r="50%" stroke-width="2" fill="#FF8100" ></circle>
-                        <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" fill="white">1</text>
-                    </svg>
+                    <span id="question-number" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                             style="width:40px; height:40px; position:relative; float: left; top:5; left:5; z-index:1;">
+                            <circle cx="50%" cy="50%" r="50%" stroke-width="2" fill="#FF8100" ></circle>
+                            <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" fill="white">1</text>
+                        </svg>
+                    </span>
                 </div>
                 <div class="text">
 
@@ -94,7 +98,7 @@
             </ul>
 
             <div style="text-align: center">
-                <a  id="fullSizeOpen" href="#" class="btn btn-primary primary-action-button">Go Full Screen!</a>
+                <a  id="fullSizeOpen" href="#" class="btn btn-primary primary-action-button">Start!</a>
             </div>
         </div>
 
@@ -133,7 +137,7 @@
 <!-- temporary solution to start in fullscreen -->
 <script type="text/javascript">
 $('document').ready(function() {
-    goFullScreen();
+{#    goFullScreen();#}
 })
 
 

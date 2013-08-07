@@ -3,111 +3,12 @@
 ###
 
 
-###
-  Register the things
-###
-
-@webterm = $('#terminal').terminal(interpreter, basesettings)
-
-###
-  Start with the questions
-###
-
-# the index arr
-questions = []
-
-
-EVENT_TYPES =
-  none: "none"
-  start: "start"
-  command: "command"
-  next: "next"
-  feedback: "feedback"
-  complete: "complete"
-
-
-stateObj = { foo: "bar" };
-
-current_question = 0
-next = () ->
-  current_question++
-  questions[current_question]()
-  results.clear()
-  @webterm.focus()
-
-  if not $('#commandShownText').hasClass('hidden')
-    $('#commandShownText').addClass("hidden")
-    $('#commandHiddenText').removeClass("hidden").show()
-
-  # enable history navigation
-  history.pushState(stateObj, "", "#" + current_question);
-  data = { 'type': EVENT_TYPES.next }
-  logEvent(data)
-
-  # change the progress indicator
-  $('.progress-marker').attr("class", "progress-marker")
-  $('#marker-' + current_question).attr("class", "progress-marker active")
-
-
-#  $('form *').focus(function(){ terminal.focus(false); });
-
-  return
-
-
-previous = () ->
-  current_question--
-  questions[current_question]()
-  results.clear()
-  @webterm.focus()
-  return
-
-results = {
-  set: (htmlText, intermediate) ->
-    if intermediate
-      console.debug "intermediate text received"
-      $('#results').addClass('intermediate')
-      $('#buttonNext').hide()
-    else
-      $('#buttonNext').show()
-
-    window.setTimeout ( () ->
-      $('#resulttext').html(htmlText)
-      $('#results').fadeIn()
-      $('#buttonNext').removeAttr('disabled')
-    ), 300
-
-  clear: ->
-    $('#resulttext').html("")
-    $('#results').fadeOut('slow')
-#    $('#buttonNext').addAttr('disabled')
-}
-
-logEvent = (data, feedback) ->
-    ajax_load = "loading......";
-    loadUrl = "/tutorial/api/";
-    if not feedback
-      callback = (responseText) -> $("#ajax").html(responseText)
-    else
-      callback = (responseText) ->
-        results.set("Thank you for your feedback! We appreciate it!", true)
-        $("#ajax").html(responseText)
-
-    if not data then data = {type: EVENT_TYPES.none}
-    data.question = current_question
-
-
-    $("#ajax").html(ajax_load);
-    $.post(loadUrl, data, callback, "html")
-
-
 
 ###
   Array of question objects
 ###
 
 q = []
-
-
 q.push ({
 html: """
       <h2>Getting started</h2>
@@ -120,7 +21,7 @@ assignment: """
       <p>Check which Docker version is running</p>
       <p>This will help you verify the daemon is running. If you see which version is running you know you are all set.</p>
       """
-tip: "try typing `docker` to see the full list of accepted arguments"
+tip: "try typing <code>docker</code> to see the full list of accepted arguments"
 command_expected: ['docker', 'version']
 result: """<p>Well done! Let's move to the next assignment.</p>"""
 })
@@ -128,16 +29,17 @@ result: """<p>Well done! Let's move to the next assignment.</p>"""
 q.push ({
 html: """
       <h2>Searching for images</h2>
-      <p>The easiest way of getting started is to use a container image from someone else. Container images are
-      available on the docker index and can be found using <em>docker search</em></p>
+      <p>The easiest way to get started is to use a container image from someone else. Container images are
+      available on the docker index - a central place to store images. You can find them using the commandline
+      and online, at <a href="https://index.docker.io">index.docker.io</a></p>
       """
 assignment: """
       <h2>Assignment</h2>
-      <p>Please search for an image called tutorial</p>
+      <p>Use the commandline to search for an image called tutorial</p>
       """
 command_expected: ['docker', 'search', 'tutorial']
 result: """<p>You found it!</p>"""
-tip: "the format is `docker search &lt;string&gt;`"
+tip: "the format is <code>docker search &lt;string&gt;</code>"
 })
 
 q.push ({
@@ -162,13 +64,15 @@ tip: """Don't forget to pull the full name of the repository e.g. 'learn/tutoria
 q.push ({
 html: """
       <h2>Hello world from a container</h2>
-      <p>You should think about containers as an operating system in a box, except they do not need to be booted
+      <p>You can think about containers as an operating system in a box, except they do not need to be booted
       before you can run commands in them. Instead, they are started <em>by</em> running a process in them. They
-      also stop as soon as the process completes<p>
+      also stop as soon as the process completes.<p>
       """
 assignment: """
       <h2>Assignment</h2>
       <p>Make our freshly loaded container image output "hello world"</p>
+      <p>To do so you should run 'echo' in the container and have that say "hello world"
+
       """
 command_expected: ["docker", "run", "learn/tutorial", "echo"]
 command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"']
@@ -179,16 +83,18 @@ intermediateresults: [
   """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
   ]
 tip: """
-     <p>The command `docker run` takes two arguments. An image name, and the command you want to execute within that
-    image.</p>
+     <p>The command `docker run` takes a minimum of two arguments. An image name, and the command you want to execute
+     within that image.</p>
+     <p>Check the expected command below if it does not work as expected</p>
     """
 })
 
 q.push ({
 html: """
       <h2>Installing things in the container</h2>
-      <p>Next we are going to install a simple program in the container. The image is based upon ubuntu, so we give the command
-      “apt-get install -y ping”. Docker will run this command in the container and exit when done.</p>
+      <p>Next we are going to install a simple program (ping) in the container. The image is based upon ubuntu, so we
+      give the command “apt-get install -y ping”. Docker will run this command in the container and exit when done.</p>
+      <p>Note that even though the container stops right after a command completes the changes are not forgotten.</p>
       """
 assignment: """
       <h2>Assignment</h2>
@@ -200,27 +106,32 @@ intermediateresults: [
   """<p>Not specifieng -y on the apt-get install command will work for ping, because it has no other dependencies, but
   it will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>""",
 ]
-tip: """don't forget to use -y for noninteractive mode installation"""
+tip: """
+     <p>don't forget to use -y for noninteractive mode installation</p>
+     <p>Not specifieng -y on the apt-get install command will fail for most commands because it expects you to accept
+     (y/n) but you cannot respond.
+     </p>
+     """
 })
 
 q.push ({
 html: """
       <h2>Save your changes</h2>
       <p>After you make changes (by running a command inside a container) you probably want to save those changes.
-      This will enable you to later start from this point (savepoint) onwards.</p>
+      This will enable you to later start from this point onwards.</p>
       <p>With Docker, the process of saving the state is called <em>committing</em>. Commit basically saves the difference
       between the old image and the new state. The result is a new layer.</p>
       """
 assignment: """
       <h2>Assignment</h2>
       <p>First use <em>docker ps -l</em> to find the ID of the container you created by installing ping.</p>
-      <p>And then save (commit) this container with the repository name `learn/ping` </p>
+      <p>Then save (commit) this container with the repository name `learn/ping` </p>
       """
-command_expected: ["docker", "commit", 'learn/ping']
-command_show: ["docker", "commit", "6982a9948422", 'learn/ping']
+command_expected: ["docker", "commit", "698", "learn/ping"]
+command_show: ["docker", "commit", "698", 'learn/ping']
 result: """<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.
         You will need it next.</p>"""
-intermediateresults: ["""You have not specified a repository name. This is not wrong, but giving your images a name
+intermediateresults: ["""You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name
                       make them much easier to work with."""]
 tip: """<ul>
      <li>Giving just 'docker commit' will show you the possible arguments.</li>
@@ -259,7 +170,7 @@ q.push ({
 html: """
       <h2>Check your running image</h2>
       <p>You now have a running container. Let's see what is going on.</p>
-      <p>Using <em>docker ps</em> we can see a list of all running containers, and using <em>docker inspect</em>
+      <p>Using <code>docker ps</code> we can see a list of all running containers, and using <code>docker inspect</code>
       we can see all sorts of usefull information about this container.</p>
       """
 assignment: """
@@ -287,12 +198,12 @@ html: """
       """
 assignment: """
       <h2>Assignment</h2>
-      <p>Push your container image to the repository</p>
+      <p>Push your container image learn/ping to the index</p>
 
       """
 command_expected: ["docker", "push"]
 command_show: ["docker", "push", "learn/ping"]
-result: """<p>Yeah! You are all done!</p>"""
+result: """<p>Yes, congratulations! You are all done!</p>"""
 intermediateresults: [""" """]
 tip: """<ul>
      <li>Docker images will show you which images are currently on your host</li>
@@ -331,93 +242,52 @@ tip: """<ul>
 #
 
 
+# the index arr
+questions = []
+
+
 
 
 ###
-  Transform question objects into functions
+  Register the terminal
 ###
 
-buildfunction = (q) ->
-  _q = q
-  return ->
-    console.debug("function called")
+@webterm = $('#terminal').terminal(interpreter, basesettings)
 
-    $('#instructions').hide().fadeIn()
-    $('#instructions .text').html(_q.html)
-    $('#instructions .assignment').html(_q.assignment)
-    $('#tipShownText').html(_q.tip)
-    if _q.command_show
-      $('#commandShownText').html(_q.command_show.join(' '))
+
+
+
+EVENT_TYPES =
+  none: "none"
+  start: "start"
+  command: "command"
+  next: "next"
+  feedback: "feedback"
+  complete: "complete"
+
+
+
+###
+  Sending events to the server
+###
+
+logEvent = (data, feedback) ->
+    ajax_load = "loading......";
+    loadUrl = "/tutorial/api/";
+    if not feedback
+      callback = (responseText) -> $("#ajax").html(responseText)
     else
-      $('#commandShownText').html(_q.command_expected.join(' '))
+      callback = (responseText) ->
+        results.set("Thank you for your feedback! We appreciate it!", true)
+        $("#ajax").html(responseText)
 
-    window.immediateCallback = (input, stop) ->
-      if stop == true # prevent the next event from happening
-        doNotExecute = true
-      else
-        doNotExecute = false
-
-      if doNotExecute != true
-        console.log (input)
-
-        data = { 'type': EVENT_TYPES.command, 'command': input.join(' '), 'result': 'fail' }
-
-        # Was like this:  if not input.switches.containsAllOfThese(_q.arguments)
-        if input.containsAllOfTheseParts(_q.command_expected)
-          data.result = 'success'
-
-          setTimeout( ( ->
-            @webterm.disable()
-            $('#buttonNext').focus()
-          ), 1000)
-
-          results.set(_q.result)
-          console.debug "contains match"
-        else
-          console.debug("wrong command received")
-
-        # call function to submit data
-        logEvent(data)
-      return
-
-    window.intermediateResults = (input) ->
-      results.set(_q.intermediateresults[input], intermediate=true)
-    return
+    if not data then data = {type: EVENT_TYPES.none}
+    data.question = current_question
 
 
-statusMarker = $('#progress-marker-1')
-progressIndicator = $('#progress-indicator')#
+    $("#ajax").html(ajax_load);
+    $.post(loadUrl, data, callback, "html")
 
-drawStatusMarker = (i) ->
-  statusMarker.clone().appendTo(progressIndicator)
-  statusMarker.attr("id", "marker-" + i)
-  statusMarker.find('text').get(0).textContent = i
-
-
-questionNumber = 0
-for question in q
-  f = buildfunction(question)
-  questions.push(f)
-  drawStatusMarker(questionNumber)
-  questionNumber++
-
-# load the first question, or if the url hash is set, use that
-
-###
-  Initialization of program
-###
-
-if (window.location.hash)
-  try
-    currentquestion = window.location.hash.split('#')[1].toNumber()
-    questions[currentquestion]()
-    current_question = currentquestion
-  catch err
-    questions[0]()
-else
-  questions[0]()
-
-$('#results').hide()
 
 
 ###
@@ -488,3 +358,173 @@ $('#command').click () ->
   if not $('#commandHiddenText').hasClass('hidden')
     $('#commandHiddenText').addClass("hidden").hide()
     $('#commandShownText').hide().removeClass("hidden").fadeIn()
+
+
+
+###
+  Navigation amongst the questions
+###
+
+
+current_question = 0
+next = (which) ->
+  # before increment clear style from previous question progress indicator
+  $('#marker-' + current_question).addClass("complete").removeClass("active")
+
+  if not which and which != 0
+    current_question++
+  else
+    current_question = which
+
+  questions[current_question]()
+  results.clear()
+  @webterm.focus()
+
+  if not $('#commandShownText').hasClass('hidden')
+    $('#commandShownText').addClass("hidden")
+    $('#commandHiddenText').removeClass("hidden").show()
+
+  # enable history navigation
+  history.pushState({}, "", "#" + current_question);
+  data = { 'type': EVENT_TYPES.next }
+  logEvent(data)
+
+  # change the progress indicator
+  $('#marker-' + current_question).removeClass("complete").addClass("active")
+
+  $('#question-number').find('text').get(0).textContent = current_question
+
+  return
+
+previous = () ->
+  current_question--
+  questions[current_question]()
+  results.clear()
+  @webterm.focus()
+  return
+
+
+
+results = {
+  set: (htmlText, intermediate) ->
+    if intermediate
+      console.debug "intermediate text received"
+      $('#results').addClass('intermediate')
+      $('#buttonNext').hide()
+    else
+      $('#buttonNext').show()
+
+    window.setTimeout ( () ->
+      $('#resulttext').html(htmlText)
+      $('#results').fadeIn()
+      $('#buttonNext').removeAttr('disabled')
+    ), 300
+
+  clear: ->
+    $('#resulttext').html("")
+    $('#results').fadeOut('slow')
+#    $('#buttonNext').addAttr('disabled')
+}
+
+
+
+
+
+###
+  Transform question objects into functions
+###
+
+buildfunction = (q) ->
+  _q = q
+  return ->
+    console.debug("function called")
+
+    $('#instructions').hide().fadeIn()
+    $('#instructions .text').html(_q.html)
+    $('#instructions .assignment').html(_q.assignment)
+    $('#tipShownText').html(_q.tip)
+    if _q.command_show
+      $('#commandShownText').html(_q.command_show.join(' '))
+    else
+      $('#commandShownText').html(_q.command_expected.join(' '))
+
+    window.immediateCallback = (input, stop) ->
+      if stop == true # prevent the next event from happening
+        doNotExecute = true
+      else
+        doNotExecute = false
+
+      if doNotExecute != true
+        console.log (input)
+
+        data = { 'type': EVENT_TYPES.command, 'command': input.join(' '), 'result': 'fail' }
+
+        # Was like this:  if not input.switches.containsAllOfThese(_q.arguments)
+        if input.containsAllOfTheseParts(_q.command_expected)
+          data.result = 'success'
+
+          setTimeout( ( ->
+            @webterm.disable()
+            $('#buttonNext').focus()
+          ), 1000)
+
+          results.set(_q.result)
+          console.debug "contains match"
+        else
+          console.debug("wrong command received")
+
+        # call function to submit data
+        logEvent(data)
+      return
+
+    window.intermediateResults = (input) ->
+      results.set(_q.intermediateresults[input], intermediate=true)
+    return
+
+
+statusMarker = $('#progress-marker-0')
+progressIndicator = $('#progress-indicator')#
+
+drawStatusMarker = (i) ->
+  console.log i
+
+  if i == 0
+    marker = statusMarker
+  else
+    marker = statusMarker.clone()
+    marker.appendTo(progressIndicator)
+
+  marker.attr("id", "marker-" + i)
+  marker.find('text').get(0).textContent = i
+  marker.click( -> next(i) )
+
+
+questionNumber = 0
+for question in q
+  f = buildfunction(question)
+  questions.push(f)
+  console.log questionNumber
+  drawStatusMarker(questionNumber)
+  questionNumber++
+
+
+
+###
+  Initialization of program
+###
+
+#load the first question, or if the url hash is set, use that
+if (window.location.hash)
+  try
+    currentquestion = window.location.hash.split('#')[1].toNumber()
+#    questions[currentquestion]()
+#    current_question = currentquestion
+    next(currentquestion)
+
+  catch err
+    questions[0]()
+else
+  questions[0]()
+
+$('#results').hide()
+
