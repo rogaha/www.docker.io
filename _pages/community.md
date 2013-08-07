@@ -73,7 +73,9 @@ Sharing what you have built with Docker is a great way to help people understand
 
 <img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px;">
 
-Docker meetups are a great way to network, learn, share best practices, and have fun. These are the current active docker meetups:
+Docker meetups are a great way to network, learn, share best practices, and have fun.
+
+These are the current active docker meetups:
 
 #### USA
 * <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
