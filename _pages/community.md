@@ -80,6 +80,7 @@ These are the current active docker meetups:
 #### USA
 * <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
 * <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
+* <a href="http://www.meetup.com/Docker-NewYorkCity/">New York, NY </a>
 
 #### Europe
 * <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
