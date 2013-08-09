@@ -68,7 +68,7 @@ Sam Alba presents an article about the integration of Docker in OpenStack's clou
 
 ### Upcoming events
 #### Boston OpenStack Meetup • Aug 14
-<a href="https://twitter.com/golubbe" target="_blank">Ben Golub</a>, <a href="https://twitter.com/solomonstre" target="_blank">Solomon Hykes</a> and <a href="https://twitter.com/KenCochrane" target="_blank">Ken Cochrane</a> will be attending the next Boston OpenStak Meetup to talk about **Application Deployment on Openstack Using Containers and Docker** <a href="http://www.meetup.com/Openstack-Boston/events/131949152/" target="_blank">read more -></a>
+<a href="https://twitter.com/golubbe" target="_blank">Ben Golub</a>, <a href="https://twitter.com/solomonstre" target="_blank">Solomon Hykes</a> and <a href="https://twitter.com/KenCochrane" target="_blank">Ken Cochrane</a> will be attending the next Boston OpenStack Meetup to talk about **Application Deployment on Openstack Using Containers and Docker** <a href="http://www.meetup.com/Openstack-Boston/events/131949152/" target="_blank">read more -></a>
 
 #### CoderCamp13 in Hamilton, Canada • Aug 14
 <a href="https://twitter.com/adr" target="_blank">John Fink</a> will talk about **<a href="http://docker.io">docker</a>, a lightweight virtual machine system implemented as a wrapper around Linux containers** <a href="http://codercamp.eventbrite.com/" target="_blank">read more -></a>
