@@ -280,7 +280,7 @@
         } else if (inputs.containsAllOfTheseParts(['docker', 'commit', '698'])) {
           util_slow_lines(term, commit_id_does_not_exist(inputs[2]), "", callback);
           intermediateResults(0);
-        } else if (inputs.containsAllOfTheseParts(['docker', 'commit'])) {
+        } else if (inputs.containsAllOfTheseParts(['docker', 'commit']) && inputs[2]) {
           echo(commit_id_does_not_exist(inputs[2]));
         } else {
           echo(commit);

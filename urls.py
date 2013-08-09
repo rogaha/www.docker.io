@@ -22,7 +22,9 @@ urlpatterns = patterns('',
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
     url(r'^tutorial/', include('tutorial.urls')),
 
+    url(r'^testpage/$', TemplateView.as_view(template_name='tutorial/testpage.html'), name="testpage"),
 
+    url(r'^whats-next/$', 'base.views.whats_next', name="whats-next"),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

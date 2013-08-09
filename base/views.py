@@ -25,6 +25,18 @@ def home(request):
         "form": form,
     }, context_instance=RequestContext(request))
 
+def whats_next(request):
+    """
+    Page where people go after they complete the tutorial
+    """
+
+    form = NewsSubscribeForm()
+
+    return render_to_response("whats-next.md", {
+        "form": form,
+    }, context_instance=RequestContext(request))
+
+
 
 def email_thanks(request):
     """

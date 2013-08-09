@@ -24,11 +24,11 @@
     color: #394D54;
   }
 
-  h2 {
+  h3 {
     font-size: 24px;
   }
 
-  h3, h4 {
+  h4 {
     color: @informationblue;
   //  margin-bottom: 5px;
   }
@@ -100,13 +100,12 @@
   width: 45%;
 }
 
-
-//#tips {
-//  circle {
-//    fill: #008BB8;
-//  }
-//}
-
+.hidden {
+  display: none;
+  visibility: hidden;
+  height: 1px;
+  width: 1px;
+}
 
 
 /* styles for when it is not fullsize */
@@ -187,6 +186,7 @@
 //    margin-top: 0px;
 //    top: @topBarHeight;
   }
+
 }
 
 #leftside {
@@ -204,6 +204,7 @@
     overflow-y: scroll;
 //    .debug;
   }
+
 }
 
 #rightside {
@@ -213,8 +214,11 @@
 
 #instructions, #results, #actions, #tips, #command {
   padding: 5px 10px 0 10px;
-  .text, .assignment {
+  .text, .assignment, .tiptext {
     margin-left: 60px;
+  }
+  .text {
+    font-size: 16px;
   }
 }
 
@@ -260,12 +264,11 @@
 }
 
 .circle {
+  position: relative;
+  float: left;
   font-size: 18px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
-
-
-
 
 #terminal {
   box-sizing: border-box;
@@ -274,19 +277,44 @@
   top: 0;
   right: 0;
   bottom: 0;
-
   left: 35%;
 
   &.smallsize {
     margin: 10px;
 //    padding-bottom: 10px;
+    margin-bottom: 65px;
+  }
+
+  &.fullsize {
+    margin: 0;
+    margin-right: 15px;
+    margin-top: @topBarHeight;
+    padding-bottom: 0px;
+    margin-bottom: 65px;
+  }
+}
+
+#terminal-extenstion {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 35%;
+
+  background-color: black;
+  margin-bottom: 0px;
+
+  &.smallsize {
+    margin: 10px;
   }
 
   &.fullsize {
     margin: 0;
     margin-top: @topBarHeight;
-    padding-bottom: 65px;
   }
+
 }
 
 
@@ -391,7 +419,6 @@
 
   &.complete {
     circle { fill: green; }
-//    text { fill: white; }
   }
 
   &:hover {
@@ -399,12 +426,10 @@
   }
 
   &:active {
-//    circle { fill: green; }
     circle { fill: #ff810a; }
   }
 
   &.active {
-//    circle { fill: green; }
     circle { fill: #ff810a; }
   }
 

@@ -15,6 +15,8 @@
 # Start using Docker
 We try to make using Docker easy.
 
+Never tried Docker before? Start with the interactive tutorial.
+
 {% endblock %}
 
 {#{% block copy_install %}#}
@@ -47,7 +49,7 @@ Mac, Windows and some Linux distributions cannot natively run Docker at this tim
 {% endblock %}
 
 {% block copy_interactive_tutorial %}
-### Interactive tutorial
+## Interactive tutorial
 The quickest way to learn how Docker works is to use it! Use the following interactive tutorial to get a hands-on
     experience of using the docker commandline to package and publish your first container.
 

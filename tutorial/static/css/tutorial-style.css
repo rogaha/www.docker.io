@@ -19,10 +19,9 @@
   margin-bottom: 7px;
   color: #394D54;
 }
-.tutorial h2 {
+.tutorial h3 {
   font-size: 24px;
 }
-.tutorial h3,
 .tutorial h4 {
   color: #008bb8;
 }
@@ -79,6 +78,12 @@
 }
 #actions button {
   width: 45%;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+  height: 1px;
+  width: 1px;
 }
 /* styles for when it is not fullsize */
 #overlay {
@@ -165,8 +170,20 @@
 #results .assignment,
 #actions .assignment,
 #tips .assignment,
-#command .assignment {
+#command .assignment,
+#instructions .tiptext,
+#results .tiptext,
+#actions .tiptext,
+#tips .tiptext,
+#command .tiptext {
   margin-left: 60px;
+}
+#instructions .text,
+#results .text,
+#actions .text,
+#tips .text,
+#command .text {
+  font-size: 16px;
 }
 #instructions circle {
   fill: #FF8100;
@@ -200,8 +217,10 @@
   padding-top: 5px;
 }
 .circle {
+  position: relative;
+  float: left;
   font-size: 18px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 #terminal {
   box-sizing: border-box;
@@ -214,11 +233,32 @@
 }
 #terminal.smallsize {
   margin: 10px;
+  margin-bottom: 65px;
 }
 #terminal.fullsize {
   margin: 0;
+  margin-right: 15px;
   margin-top: 70px;
-  padding-bottom: 65px;
+  padding-bottom: 0px;
+  margin-bottom: 65px;
+}
+#terminal-extenstion {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 35%;
+  background-color: black;
+  margin-bottom: 0px;
+}
+#terminal-extenstion.smallsize {
+  margin: 10px;
+}
+#terminal-extenstion.fullsize {
+  margin: 0;
+  margin-top: 70px;
 }
 #starttext {
   width: 200px;
