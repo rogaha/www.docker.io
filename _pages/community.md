@@ -5,7 +5,7 @@
 
 
 {% block copy_headline %}
-get involved with the docker community by contributing and sharing
+get involved with the Docker community by contributing and sharing
 ==================================================================
 {% endblock %}
 
@@ -96,7 +96,7 @@ An Open Source project like Docker couldn’t exist without contributions from t
 * Consider [contributing](https://github.com/dotcloud/docker/blob/master/CONTRIBUTING.md).
 
 Like the program itself, we run the [**documentation**](http://docs.docker.io) as an open source project. The sources are
-    available from the main [docker repository](https://github.com/dotcloud/docker/tree/master/docs) on Github, and we
+    available from the main [Docker repository](https://github.com/dotcloud/docker/tree/master/docs) on Github, and we
     encourage you to make improvements, whether big or small, make a pull request.
 
 ### Work on Docker ###

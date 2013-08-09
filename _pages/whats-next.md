@@ -31,9 +31,9 @@ At irregular intervals, mostly for new releases and other important updates we s
 </form>
 
 
-## 2. Setup a machine in the cloud to run docker
+## 2. Setup a machine in the cloud to run Docker
 
-If you want to setup a machine to get up and running with docker quickly, one of the fastest ways is to setup a
+If you want to setup a machine to get up and running with Docker quickly, one of the fastest ways is to setup a
     virtual machine on one of the public clouds. Digital Ocean provides one of the cheapest options with
     virtual servers for a flat $5 / month.
 

@@ -22,7 +22,7 @@ Common use cases for Docker include:
 *   Automated testing and continuous integration/deployment
 *   Deploying and scaling web apps, databases and backend services
 
-## Learn what docker is all about
+## Learn what Docker is all about
 
 The following presentation explains what Docker is in laymen terms and then goes into more detail what makes Docker
     special and different from virtual machines.

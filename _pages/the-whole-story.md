@@ -189,7 +189,7 @@ For a more technical view of features, please see the following:
 *   Copy-on-write: root filesystems are created using copy-on-write, which makes deployment extremely fast, memory-cheap and disk-cheap.
 *   Logging: the standard streams (stdout/stderr/stdin) of each process container is collected and logged for real-time or batch retrieval.
 *   Change management: changes to a container's filesystem can be committed into a new image and re-used to create more containers. No templating or manual configuration required.
-*   Interactive shell: docker can allocate a pseudo-tty and attach to the standard input of any container, for example to run a throwaway interactive shell.
+*   Interactive shell: Docker can allocate a pseudo-tty and attach to the standard input of any container, for example to run a throwaway interactive shell.
 
 ## What are the Basic Docker Functions
 
@@ -380,7 +380,7 @@ Docker is a powerful tool for many different use cases. Here are some great earl
 
 The Docker project is hosted on GitHub. [Click here to visit the repository](https://github.com/dotcloud/docker/).
 
-### Contribute to the docker community
+### Contribute to the Docker community
 
 Head on over to our [community]({% url 'community' %}) page
 

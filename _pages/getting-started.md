@@ -1,7 +1,7 @@
 {% extends 'getting-started.html' %}
 {% load static %}
 {% block meta-description %}Start using Docker in minutes and build awesome applications with the tutorials{% endblock %}
-{% block meta-keywords %}Docker, Installation, install docker, download docker{% endblock %}
+{% block meta-keywords %}Docker, Installation, install Docker, download Docker{% endblock %}
 {% block title %}Getting Started - {% endblock %}
 
 
@@ -15,7 +15,9 @@
 # Start using Docker
 We try to make using Docker easy.
 
-Never tried Docker before? Start with the interactive tutorial.
+**Never tried Docker before?** <a href="#h_tutorial">start with the interactive tutorial.</a> **Looking to install?** <a href="#h_installation">jump to installation</a>
+
+
 
 {% endblock %}
 
@@ -27,7 +29,7 @@ Never tried Docker before? Start with the interactive tutorial.
 
 {% block copy_install %}
 
-## Installation
+## <a id="h_installation"></a>Installation
 
 There are several installation options. Our recommended installation path is for **Ubuntu linux**,
     because we develop Docker on Ubuntu and our installation package will do most of the work for you.
@@ -49,9 +51,12 @@ Mac, Windows and some Linux distributions cannot natively run Docker at this tim
 {% endblock %}
 
 {% block copy_interactive_tutorial %}
-## Interactive tutorial
-The quickest way to learn how Docker works is to use it! Use the following interactive tutorial to get a hands-on
-    experience of using the docker commandline to package and publish your first container.
+## <a id="h_tutorial"></a>Interactive tutorial
+
+The best way to learn how Docker works is to use it!
+
+This hands-on tutorial is 100% online, so you don't need to install a thing. In about 10-15 minutes you'll be familiar with the basic
+    Docker commands.
 
 {% endblock %}
 

@@ -6,17 +6,17 @@
 
 
 {% block copy_headline %}
-# Follow what is going on at the docker hack-day, live. #
+# Follow what is going on at the Docker hack-day, live. #
 {% endblock %}
 
 {% block copy_introduction %}
 ## Docker Hack Day #6
 
-The docker Hack Day #6 is over. Tomorrow we will post the edited videos of the lightning talks, including:
+The Docker Hack Day #6 is over. Tomorrow we will post the edited videos of the lightning talks, including:
 
-*   <a href="https://twitter.com/dozba">Ted Dzubia</a> on how hes uses docker at <a href="http://www.ebay.com">Ebay</a>
-*   <a href="https://twitter.com/sebp">Sebastien Pahl</a> on how he uses docker at <a href="http://www.cloudflare.com">CloudFlare</a>
-*   Sasha Klizhentas on how he uses docker at <a href="http://www.mailgun.com">MailGun</a>
+*   <a href="https://twitter.com/dozba">Ted Dzubia</a> on how he uses Docker at <a href="http://www.ebay.com">Ebay</a>
+*   <a href="https://twitter.com/sebp">Sebastien Pahl</a> on how he uses Docker at <a href="http://www.cloudflare.com">CloudFlare</a>
+*   Sasha Klizhentas on how he uses Docker at <a href="http://www.mailgun.com">MailGun</a>
 
 Stay tuned!
 

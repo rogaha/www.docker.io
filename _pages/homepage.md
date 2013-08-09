@@ -26,7 +26,7 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 <span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span>
 
 #### Jul 23 • Ben Golub Joins as CEO
-Open source veteran Ben Golub joins as CEO to drive the docker vision forward. Read more:
+Open source veteran Ben Golub joins as CEO to drive the Docker vision forward. Read more:
 
 [<img src="{% static 'img/homepage/gigaom.png' %}" alt="gigaom">](http://gigaom.com/2013/07/23/paas-pioneer-dotcloud-gets-new-ceo-in-industry-vet-ben-golub/)
 [<img src="{% static 'img/homepage/reuters.png' %}" alt="reuters">](http://www.reuters.com/article/2013/07/23/ca-dotcloud-idUSnBw235523a+100+BSW20130723)
