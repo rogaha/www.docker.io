@@ -11,7 +11,7 @@
 
 (function() {
   (this.myTerminal = function() {
-    var bash, commit, commit_containerid, commit_id_does_not_exist, docker, dockerCommands, docker_cmd, docker_logo, help, images, inspect, inspect_no_such_container, inspect_ping_container, parseInput, ps, ps_a_l, pull, pull_no_results, pull_tutorial, pull_ubuntu, push_container_learn_ping, run_apt_get, run_apt_get_install_iputils_ping, run_apt_get_install_unknown_package, run_cmd, run_image_wrong_command, run_learn_no_command, run_learn_tutorial_echo_hello_world, run_notfound, run_ping_www_google_com, run_switches, search, search_no_results, search_tutorial, search_ubuntu, util_slow_lines, version, wait;
+    var Docker, DockerCommands, Docker_cmd, Docker_logo, bash, commit, commit_containerid, commit_id_does_not_exist, help, images, inspect, inspect_no_such_container, inspect_ping_container, parseInput, ps, ps_a_l, pull, pull_no_results, pull_tutorial, pull_ubuntu, push_container_learn_ping, push_wrong_name, run_apt_get, run_apt_get_install_iputils_ping, run_apt_get_install_unknown_package, run_cmd, run_image_wrong_command, run_learn_no_command, run_learn_tutorial_echo_hello_world, run_notfound, run_ping_www_google_com, run_switches, search, search_no_results, search_tutorial, search_ubuntu, util_slow_lines, version, wait;
 
     this.basesettings = {
       prompt: 'you@tutorial:~$ ',
@@ -36,7 +36,7 @@
     */
 
     this.interpreter = function(input, term) {
-      var arrA, arrB, command, description, dockerCommand, inputs, valid;
+      var DockerCommand, arrA, arrB, command, description, inputs, valid;
 
       inputs = input.split(" ");
       command = inputs[0];
@@ -45,8 +45,7 @@
         term.push(function(command, term) {
           return term.echo(command + ' is a pretty name');
         });
-      }
-      if (command === 'shell') {
+      } else if (command === 'shell') {
         term.push(function(command, term) {
           if (command === 'cd') {
             return bash(term, inputs);
@@ -54,14 +53,11 @@
         }, {
           prompt: '> $ '
         });
-      }
-      if (command === 'r') {
+      } else if (command === 'r') {
         location.reload('forceGet');
-      }
-      if (command === '#') {
+      } else if (command === '#') {
         term.echo('which question?');
-      }
-      if (command === 'test') {
+      } else if (command === 'test') {
         term.echo('ok');
         arrA = ['aap', 'noot', 'rat'];
         arrB = ['aap', 'noot', 'mies'];
@@ -75,30 +71,26 @@
           }
         });
         term.echo(valid);
-      }
-      if (command === 'cd') {
+      } else if (command === 'cd') {
         bash(term, inputs);
-      }
-      if (command === "docker") {
-        docker(term, inputs);
-      }
-      if (command === "help") {
+      } else if (command === "docker") {
+        Docker(term, inputs);
+      } else if (command === "help") {
         term.echo(help);
-      }
-      if (command === "ls") {
+      } else if (command === "ls") {
         term.echo("This is an emulator, not a shell. Try following the instructions.");
-      }
-      if (command === "colors") {
-        for (dockerCommand in dockerCommands) {
-          description = dockerCommands[dockerCommand];
-          term.echo("[[b;#fff;]" + dockerCommand + "] - " + description + "");
+      } else if (command === "colors") {
+        for (DockerCommand in DockerCommands) {
+          description = DockerCommands[DockerCommand];
+          term.echo("[[b;#fff;]" + DockerCommand + "] - " + description + "");
         }
-      }
-      if (command === "pull") {
+      } else if (command === "pull") {
         term.echo('[[b;#fff;]some text]');
         wait(term, 5000, true);
         alert(term.get_output());
         return;
+      } else {
+        term.echo("" + inputs[0] + ": command not found");
       }
       return immediateCallback(inputs);
     };
@@ -258,8 +250,8 @@
       Docker program
     */
 
-    docker = function(term, inputs) {
-      var callback, command, commands, description, dockerCommand, echo, expected_switches, i, imagename, insert, keyword, parsed_input, result, swargs, switches;
+    Docker = function(term, inputs) {
+      var DockerCommand, callback, command, commands, description, echo, expected_switches, i, imagename, insert, keyword, parsed_input, result, swargs, switches;
 
       echo = term.echo;
       insert = term.insert;
@@ -269,10 +261,10 @@
       command = inputs[1];
       if (!inputs[1]) {
         console.debug("no args");
-        echo(docker_cmd);
-        for (dockerCommand in dockerCommands) {
-          description = dockerCommands[dockerCommand];
-          echo("[[b;#fff;]" + dockerCommand + "]" + description + "");
+        echo(Docker_cmd);
+        for (DockerCommand in DockerCommands) {
+          description = DockerCommands[DockerCommand];
+          echo("[[b;#fff;]" + DockerCommand + "]" + description + "");
         }
       } else if (inputs[1] === "commit") {
         if (inputs.containsAllOfTheseParts(['docker', 'commit', '698', 'learn/ping'])) {
@@ -290,7 +282,7 @@
           prompt: "do $ "
         });
       } else if (inputs[1] === "logo") {
-        echo(docker_logo);
+        echo(Docker_logo);
       } else if (inputs[1] === "images") {
         echo(images);
       } else if (inputs[1] === "inspect") {
@@ -311,6 +303,8 @@
         if (inputs[2] === "learn/ping") {
           util_slow_lines(term, push_container_learn_ping, "", callback);
           return;
+        } else {
+          echo(push_wrong_name);
         }
       } else if (inputs[1] === "run") {
         parsed_input = parseInput(inputs);
@@ -353,6 +347,8 @@
         } else if (imagename === "learn/ping") {
           if (commands.containsAllOfThese(["ping", "www.google.com"])) {
             util_slow_lines(term, run_ping_www_google_com, "", callback);
+          } else {
+            echo(run_learn_no_command);
           }
         } else if (imagename) {
           echo(run_notfound(inputs[2]));
@@ -386,13 +382,13 @@
         }
       } else if (inputs[1] === "version") {
         echo(version);
-      } else if (dockerCommands[inputs[1]]) {
+      } else if (DockerCommands[inputs[1]]) {
         echo("" + inputs[1] + " is a valid argument, but not implemented");
       } else {
-        echo(docker_cmd);
-        for (dockerCommand in dockerCommands) {
-          description = dockerCommands[dockerCommand];
-          echo("[[b;#fff;]" + dockerCommand + "]" + description + "");
+        echo(Docker_cmd);
+        for (DockerCommand in DockerCommands) {
+          description = DockerCommands[DockerCommand];
+          echo("[[b;#fff;]" + DockerCommand + "]" + description + "");
         }
       }
     };
@@ -402,8 +398,8 @@
       All items are sorted by alphabet
     */
 
-    docker_cmd = "Usage: docker [OPTIONS] COMMAND [arg...]\n-H=\"127.0.0.1:4243\": Host:port to bind/connect to\n\nA self-sufficient runtime for linux containers.\n\nCommands:\n";
-    dockerCommands = {
+    Docker_cmd = "Usage: Docker [OPTIONS] COMMAND [arg...]\n-H=\"127.0.0.1:4243\": Host:port to bind/connect to\n\nA self-sufficient runtime for linux containers.\n\nCommands:\n";
+    DockerCommands = {
       "attach": "    Attach to a running container",
       "build": "     Build a container from a Dockerfile",
       "commit": "    Create a new image from a container's changes",
@@ -416,21 +412,21 @@
       "insert": "    Insert a file in an image",
       "inspect": "   Return low-level information on a container",
       "kill": "      Kill a running container",
-      "login": "     Register or Login to the docker registry server",
+      "login": "     Register or Login to the Docker registry server",
       "logs": "      Fetch the logs of a container",
       "port": "      Lookup the public-facing port which is NAT-ed to PRIVATE_PORT",
       "ps": "        List containers",
-      "pull": "      Pull an image or a repository from the docker registry server",
-      "push": "      Push an image or a repository to the docker registry server",
+      "pull": "      Pull an image or a repository from the Docker registry server",
+      "push": "      Push an image or a repository to the Docker registry server",
       "restart": "   Restart a running container",
       "rm": "        Remove a container",
       "rmi": "       Remove an image",
       "run": "       Run a command in a new container",
-      "search": "    Search for an image in the docker index",
+      "search": "    Search for an image in the Docker index",
       "start": "     Start a stopped container",
       "stop": "      Stop a running container",
       "tag": "       Tag an image into a repository",
-      "version": "   Show the docker version information",
+      "version": "   Show the Docker version information",
       "wait": "      Block until a container stops, then print its exit code"
     };
     run_switches = {
@@ -439,28 +435,29 @@
       "-i": [],
       "-h": ['hostname']
     };
-    commit = "Usage: docker commit [OPTIONS] CONTAINER [REPOSITORY [TAG]]\n\nCreate a new image from a container's changes\n\n  -author=\"\": Author (eg. \"John Hannibal Smith <hannibal@a-team.com>\"\n  -m=\"\": Commit message\n  -run=\"\": Config automatically applied when the image is run. (ex: {\"Cmd\": [\"cat\", \"/world\"], \"PortSpecs\": [\"22\"]}')";
+    commit = "Usage: Docker commit [OPTIONS] CONTAINER [REPOSITORY [TAG]]\n\nCreate a new image from a container's changes\n\n  -author=\"\": Author (eg. \"John Hannibal Smith <hannibal@a-team.com>\"\n  -m=\"\": Commit message\n  -run=\"\": Config automatically applied when the image is run. (ex: {\"Cmd\": [\"cat\", \"/world\"], \"PortSpecs\": [\"22\"]}')";
     commit_id_does_not_exist = function(keyword) {
       return "2013/07/08 23:51:21 Error: No such container: " + keyword;
     };
     commit_containerid = "effb66b31edb";
-    help = "Docker tutorial \n\nThe Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard dockercommands. This terminal contains a limited docker and a limited shell emulator. Therefore some of the commandsyou would expect do not exist.\n\nJust follow the steps and questions. If you are stuck, click on the 'expected command' to see what the commandshould have been. Leave feedback if you find things confusing.    ";
+    help = "Docker tutorial \n\nThe Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard Dockercommands. This terminal contains a limited Docker and a limited shell emulator. Therefore some of the commandsyou would expect do not exist.\n\nJust follow the steps and questions. If you are stuck, click on the 'expected command' to see what the commandshould have been. Leave feedback if you find things confusing.    ";
     images = "learn/tutorial                  latest              8dbd9e392a96        2 months ago        131.5 MB (virtual 131.5 MB)\nlearn/ping                      latest              a1dbb48ce764        10 minutes ago      11.57 MB (virtual 143.1 MB)";
-    inspect = "\nUsage: docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]\n\nReturn low-level information on a container/image\n";
+    inspect = "\nUsage: Docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]\n\nReturn low-level information on a container/image\n";
     inspect_no_such_container = function(keyword) {
       return "Error: No such image: " + keyword;
     };
     inspect_ping_container = "[2013/07/30 01:52:26 GET /v1.3/containers/efef/json\n{\n  \"ID\": \"efefdc74a1d5900d7d7a74740e5261c09f5f42b6dae58ded6a1fde1cde7f4ac5\",\n  \"Created\": \"2013-07-30T00:54:12.417119736Z\",\n  \"Path\": \"ping\",\n  \"Args\": [\n      \"www.google.com\"\n  ],\n  \"Config\": {\n      \"Hostname\": \"efefdc74a1d5\",\n      \"User\": \"\",\n      \"Memory\": 0,\n      \"MemorySwap\": 0,\n      \"CpuShares\": 0,\n      \"AttachStdin\": false,\n      \"AttachStdout\": true,\n      \"AttachStderr\": true,\n      \"PortSpecs\": null,\n      \"Tty\": false,\n      \"OpenStdin\": false,\n      \"StdinOnce\": false,\n      \"Env\": null,\n      \"Cmd\": [\n          \"ping\",\n          \"www.google.com\"\n      ],\n      \"Dns\": null,\n      \"Image\": \"learn/ping\",\n      \"Volumes\": null,\n      \"VolumesFrom\": \"\",\n      \"Entrypoint\": null\n  },\n  \"State\": {\n      \"Running\": true,\n      \"Pid\": 22249,\n      \"ExitCode\": 0,\n      \"StartedAt\": \"2013-07-30T00:54:12.424817715Z\",\n      \"Ghost\": false\n  },\n  \"Image\": \"a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158\",\n  \"NetworkSettings\": {\n      \"IPAddress\": \"172.16.42.6\",\n      \"IPPrefixLen\": 24,\n      \"Gateway\": \"172.16.42.1\",\n      \"Bridge\": \"docker0\",\n      \"PortMapping\": {\n          \"Tcp\": {},\n          \"Udp\": {}\n      }\n  },\n  \"SysInitPath\": \"/usr/bin/docker\",\n  \"ResolvConfPath\": \"/etc/resolv.conf\",\n  \"Volumes\": {},\n  \"VolumesRW\": {}";
     ps = "ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS\nefefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds";
     ps_a_l = "ID                  IMAGE               COMMAND                CREATED             STATUS              PORTS\n6982a9948422        ubuntu:12.04        apt-get install ping   1 minute ago        Exit 0";
-    pull = "Usage: docker pull NAME\n\nPull an image or a repository from the registry\n\n-registry=\"\": Registry to download from. Necessary if image is pulled by ID\n-t=\"\": Download tagged image in repository";
+    pull = "Usage: Docker pull NAME\n\nPull an image or a repository from the registry\n\n-registry=\"\": Registry to download from. Necessary if image is pulled by ID\n-t=\"\": Download tagged image in repository";
     pull_no_results = function(keyword) {
       return "Pulling repository " + keyword + " from https://index.docker.io/v1\n2013/06/19 19:27:03 HTTP code: 404";
     };
     pull_ubuntu = "Pulling repository ubuntu from https://index.docker.io/v1\nPulling image 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c (precise) from ubuntu\nPulling image b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc (12.10) from ubuntu\nPulling image 27cf784147099545 () from ubuntu";
     pull_tutorial = "Pulling repository learn/tutorial from https://index.docker.io/v1\nPulling image 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c (precise) from ubuntu\nPulling image b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc (12.10) from ubuntu\nPulling image 27cf784147099545 () from tutorial";
     push_container_learn_ping = "The push refers to a repository [learn/ping] (len: 1)\nProcessing checksums\nSending image list\nPushing repository learn/ping (1 tags)\nPushing 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c\nImage 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c already pushed, skipping\nPushing tags for rev [8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c] on {https://registry-1.docker.io/v1/repositories/learn/ping/tags/latest}\nPushing a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158\nPushing  11.5 MB/11.5 MB (100%)\nPushing tags for rev [a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158] on {https://registry-1.docker.io/v1/repositories/learn/ping/tags/latest}";
-    run_cmd = "Usage: docker run [OPTIONS] IMAGE COMMAND [ARG...]\n\nRun a command in a new container\n\n-a=map[]: Attach to stdin, stdout or stderr.\n-c=0: CPU shares (relative weight)\n-d=false: Detached mode: leave the container running in the background\n-dns=[]: Set custom dns servers\n-e=[]: Set environment variables\n-h=\"\": Container host name\n-i=false: Keep stdin open even if not attached\n-m=0: Memory limit (in bytes)\n-p=[]: Expose a container's port to the host (use 'docker port' to see the actual mapping)\n-t=false: Allocate a pseudo-tty\n-u=\"\": Username or UID\n-v=map[]: Attach a data volume\n-volumes-from=\"\": Mount volumes from the specified container\n";
+    push_wrong_name = "The push refers to a repository [dhrp/fail] (len: 0)";
+    run_cmd = "Usage: Docker run [OPTIONS] IMAGE COMMAND [ARG...]\n\nRun a command in a new container\n\n-a=map[]: Attach to stdin, stdout or stderr.\n-c=0: CPU shares (relative weight)\n-d=false: Detached mode: leave the container running in the background\n-dns=[]: Set custom dns servers\n-e=[]: Set environment variables\n-h=\"\": Container host name\n-i=false: Keep stdin open even if not attached\n-m=0: Memory limit (in bytes)\n-p=[]: Expose a container's port to the host (use 'docker port' to see the actual mapping)\n-t=false: Allocate a pseudo-tty\n-u=\"\": Username or UID\n-v=map[]: Attach a data volume\n-volumes-from=\"\": Mount volumes from the specified container\n";
     run_apt_get = "apt 0.8.16~exp12ubuntu10 for amd64 compiled on Apr 20 2012 10:19:39\nUsage: apt-get [options] command\n       apt-get [options] install|remove pkg1 [pkg2 ...]\n       apt-get [options] source pkg1 [pkg2 ...]\n\napt-get is a simple command line interface for downloading and\ninstalling packages. The most frequently used commands are update\nand install.\n\nCommands:\n   update - Retrieve new lists of packages\n   upgrade - Perform an upgrade\n   install - Install new packages (pkg is libc6 not libc6.deb)\n   remove - Remove packages\n   autoremove - Remove automatically all unused packages\n   purge - Remove packages and config files\n   source - Download source archives\n   build-dep - Configure build-dependencies for source packages\n   dist-upgrade - Distribution upgrade, see apt-get(8)\n   dselect-upgrade - Follow dselect selections\n   clean - Erase downloaded archive files\n   autoclean - Erase old downloaded archive files\n   check - Verify that there are no broken dependencies\n   changelog - Download and display the changelog for the given package\n   download - Download the binary package into the current directory\n\nOptions:\n  -h  This help text.\n  -q  Loggable output - no progress indicator\n  -qq No output except for errors\n  -d  Download only - do NOT install or unpack archives\n  -s  No-act. Perform ordering simulation\n  -y  Assume Yes to all queries and do not prompt\n  -f  Attempt to correct a system with broken dependencies in place\n  -m  Attempt to continue if archives are unlocatable\n  -u  Show a list of upgraded packages as well\n  -b  Build the source package after fetching it\n  -V  Show verbose version numbers\n  -c=? Read this configuration file\n  -o=? Set an arbitrary configuration option, eg -o dir::cache=/tmp\nSee the apt-get(8), sources.list(5) and apt.conf(5) manual\npages for more information and options.\n                       This APT has Super Cow Powers.\n";
     run_apt_get_install_iputils_ping = "Reading package lists...\nBuilding dependency tree...\nThe following NEW packages will be installed:\n  iputils-ping\n0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 56.1 kB of archives.\nAfter this operation, 143 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu/ precise/main iputils-ping amd64 3:20101006-1ubuntu1 [56.1 kB]\ndebconf: delaying package configuration, since apt-utils is not installed\nFetched 56.1 kB in 1s (50.3 kB/s)\nSelecting previously unselected package iputils-ping.\n(Reading database ... 7545 files and directories currently installed.)\nUnpacking iputils-ping (from .../iputils-ping_3%3a20101006-1ubuntu1_amd64.deb) ...\nSetting up iputils-ping (3:20101006-1ubuntu1) ...";
     run_apt_get_install_unknown_package = function(keyword) {
@@ -486,14 +483,14 @@
       return "Pulling repository " + keyword + " from https://index.docker.io/v1\n2013/07/02 02:14:47 Error: No such image: " + keyword;
     };
     run_ping_www_google_com = "64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=1 ttl=55 time=2.23 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=2 ttl=55 time=2.30 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=3 ttl=55 time=2.27 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=4 ttl=55 time=2.30 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=5 ttl=55 time=2.25 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=6 ttl=55 time=2.29 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=7 ttl=55 time=2.23 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=8 ttl=55 time=2.30 ms\n64 bytes from nuq05s02-in-f20.1e100.net (74.125.239.148): icmp_req=9 ttl=55 time=2.35 ms\n-> This would normally just keep going. However, this emulator does not support Ctrl-C, so we quit here.";
-    search = "\nUsage: docker search NAME\n\nSearch the docker index for images\n";
+    search = "\nUsage: Docker search NAME\n\nSearch the Docker index for images\n";
     search_no_results = function(keyword) {
       return "Found 0 results matching your query (\"" + keyword + "\")\nNAME                DESCRIPTION";
     };
     search_tutorial = "Found 1 results matching your query (\"tutorial\")\nNAME                      DESCRIPTION\nlearn/tutorial            An image for the interactive tutorial";
     search_ubuntu = "Found 22 results matching your query (\"ubuntu\")\nNAME                DESCRIPTION\nshykes/ubuntu\nbase                Another general use Ubuntu base image. Tag...\nubuntu              General use Ubuntu base image. Tags availa...\nboxcar/raring       Ubuntu Raring 13.04 suitable for testing v...\ndhrp/ubuntu\ncreack/ubuntu       Tags:\n12.04-ssh,\n12.10-ssh,\n12.10-ssh-l...\ncrohr/ubuntu              Ubuntu base images. Only lucid (10.04) for...\nknewton/ubuntu\npallet/ubuntu2\nerikh/ubuntu\nsamalba/wget              Test container inherited from ubuntu with ...\ncreack/ubuntu-12-10-ssh\nknewton/ubuntu-12.04\ntithonium/rvm-ubuntu      The base 'ubuntu' image, with rvm installe...\ndekz/build                13.04 ubuntu with build\nooyala/test-ubuntu\nooyala/test-my-ubuntu\nooyala/test-ubuntu2\nooyala/test-ubuntu3\nooyala/test-ubuntu4\nooyala/test-ubuntu5\nsurma/go                  Simple augmentation of the standard Ubuntu...\n";
     version = "Docker Emulator version 0.1\n\nEmulating:\nClient version: 0.4.7\nServer version: 0.4.7\nGo version: go1.1";
-    return docker_logo = '\n                  ##        .\n            ## ## ##       ==\n         ## ## ## ##      ===\n     /""""""""""""""""\\\___/ ===\n~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~\n     \\\______ o          __/\n       \\\    \\\        __/\n        \\\____\\\______/\n\n        |          |\n     __ |  __   __ | _  __   _\n    /  \\\| /  \\\ /   |/  / _\\\ |\n    \\\__/| \\\__/ \\\__ |\\\_ \\\__  |\n\n';
+    return Docker_logo = '\n                  ##        .\n            ## ## ##       ==\n         ## ## ## ##      ===\n     /""""""""""""""""\\\___/ ===\n~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~\n     \\\______ o          __/\n       \\\    \\\        __/\n        \\\____\\\______/\n\n        |          |\n     __ |  __   __ | _  __   _\n    /  \\\| /  \\\ /   |/  / _\\\ |\n    \\\__/| \\\__/ \\\__ |\\\_ \\\__  |\n\n';
   })();
 
   return this;

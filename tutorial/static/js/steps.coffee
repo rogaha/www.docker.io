@@ -13,16 +13,18 @@ q = []
 q.push ({
 html: """
       <h3>Getting started</h3>
-      <p>There are actually two programs, a Docker daemon which manages al the containers, and the Docker client.
-      The client acts as a remote control on the daemon. On most systems, like in this emulator, both run on the
-      same host.</p>
+      <p>There are actually two programs: The Docker daemon, which is a server process and which manages all the
+      containers, and the Docker client, which acts as a remote control on the daemon. On most systems, like in this
+      emulator, both execute on the same host.</p>
       """
 assignment: """
       <h3>Assignment</h3>
-      <p>Check which Docker version is running</p>
-      <p>This will help you verify the daemon is running. If you see which version is running you know you are all set.</p>
+      <p>Check which Docker versions are running</p>
+      <p>This will help you verify the daemon is running and you can connect to it. If you see which version is running
+      you know you are all set.</p>
       """
-tip: "try typing <code>docker</code> to see the full list of accepted arguments"
+tip: "<p>Try typing <code>docker</code> to see the full list of accepted arguments</p>
+      <p>This emulator provides only a limited set of shell and Docker commands, so some commands may not work as expected</p>"
 command_expected: ['docker', 'version']
 result: """<p>Well done! Let's move to the next assignment.</p>"""
 })
@@ -31,8 +33,8 @@ q.push ({
 html: """
       <h3>Searching for images</h3>
       <p>The easiest way to get started is to use a container image from someone else. Container images are
-      available on the docker index - a central place to store images. You can find them using the commandline
-      and online, at <a href="https://index.docker.io">index.docker.io</a></p>
+      available on the Docker index - a central place to store images. You can find them using the commandline
+      and online, at <a href="http://index.docker.io" target="_blank" onClick="window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')";>index.docker.io</a></p>
       """
 assignment: """
       <h3>Assignment</h3>
@@ -57,7 +59,7 @@ assignment:
       <p>Please download the tutorial image you have just found</p>
       """
 command_expected: ['docker', 'pull', 'learn/tutorial']
-result: """<p>Cool. Look at the results. You'll see that docker has downloaded a number of layers. In Docker all images (except the base image) are made up of several cumulative layers.</p>"""
+result: """<p>Cool. Look at the results. You'll see that Docker has downloaded a number of layers. In Docker all images (except the base image) are made up of several cumulative layers.</p>"""
 tip: """<p>Don't forget to pull the full name of the repository e.g. 'learn/tutorial'</p>
      <p>Look under 'show expected command if you're stuck.</p>
      """
@@ -77,10 +79,11 @@ assignment: """
       <p>To do so you should run 'echo' in the container and have that say "hello world"
 
       """
-command_expected: ["docker", "run", "learn/tutorial", "echo"]
+command_expected: ["docker", "run", "learn/tutorial", "echo", "hello"]
 command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"']
 
-result: """<p>Great! Hellooooo World!</p>"""
+result: """<p>Great! Hellooooo World!</p><p>You have just started a container and executed a program inside of it, when
+        the program stopped, so did the container."""
 intermediateresults: [
   """<p>You seem to be almost there. Did you give the command `echo "hello world"` """,
   """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
@@ -95,18 +98,19 @@ tip: """
 q.push ({
 html: """
       <h3>Installing things in the container</h3>
-      <p>Next we are going to install a simple program (ping) in the container. The image is based upon ubuntu, so we
-      give the command “apt-get install -y ping”. Docker will run this command in the container and exit when done.</p>
-      <p>Note that even though the container stops right after a command completes the changes are not forgotten.</p>
+      <p>Next we are going to install a simple program (ping) in the container. The image is based upon ubuntu, so you
+      can run the command <code>apt-get install -y ping</code> on a container. </p>
+      <p>Note that even though the container stops right after a command completes, the changes are not forgotten.</p>
       """
 assignment: """
       <h3>Assignment</h3>
-      <p>Install 'ping' inside of the container.</p>
+      <p>Install 'ping' on top of the learn/tutorial image.</p>
       """
 command_expected: ["docker", "run", "learn/tutorial", "apt-get", "install", "-y", "ping"]
-result: """<p>That worked!</p>"""
+result: """<p>That worked! You have installed a program on top of a base image. Your changes to the filesystem have been
+        kept, but are not yet saved.</p>"""
 intermediateresults: [
-  """<p>Not specifieng -y on the apt-get install command will work for ping, because it has no other dependencies, but
+  """<p>Not specifying -y on the apt-get install command will work for ping, because it has no other dependencies, but
   it will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>""",
 ]
 tip: """
@@ -120,15 +124,15 @@ tip: """
 q.push ({
 html: """
       <h3>Save your changes</h3>
-      <p>After you make changes (by running a command inside a container) you probably want to save those changes.
+      <p>After you make changes (by running a command inside a container), you probably want to save those changes.
       This will enable you to later start from this point onwards.</p>
       <p>With Docker, the process of saving the state is called <em>committing</em>. Commit basically saves the difference
       between the old image and the new state. The result is a new layer.</p>
       """
 assignment: """
       <h3>Assignment</h3>
-      <p>First use <em>docker ps -l</em> to find the ID of the container you created by installing ping.</p>
-      <p>Then save (commit) this container with the repository name `learn/ping` </p>
+      <p>First use <code>docker ps -l</code> to find the ID of the container you created by installing ping.</p>
+      <p>Then save (commit) this container with the repository name 'learn/ping' </p>
       """
 command_expected: ["docker", "commit", "698", "learn/ping"]
 command_show: ["docker", "commit", "698", 'learn/ping']
@@ -138,7 +142,8 @@ intermediateresults: ["""You have not specified the correct repository name (lea
                       make them much easier to work with."""]
 tip: """<ul>
      <li>Giving just <code>docker commit</code> will show you the possible arguments.</li>
-     <li>You don't need to copy the entire ID. Three or four characters is usually enough.</li>
+     <li>You will need to specify the container to commit by the ID you found</li>
+     <li>You don't need to copy (type) the entire ID. Three or four characters are usually enough.</li>
      </ul>"""
 })
 
@@ -147,7 +152,7 @@ q.push ({
 html: """
       <h3>Run your new image</h3>
       <p>Now you have basically setup a complete, self contained environment with the 'ping' program installed. </p>
-      <p>Your image can now be run on any host that runs docker.</p>
+      <p>Your image can now be run on any host that runs Docker.</p>
       <p>Lets run this image on this machine.</p>
       """
 assignment: """
@@ -203,7 +208,7 @@ assignment: """
       <p>Push your container image learn/ping to the index</p>
 
       """
-command_expected: ["docker", "push"]
+command_expected: ["docker", "push", "learn/ping"]
 command_show: ["docker", "push", "learn/ping"]
 result: """<p>Yes, congratulations! You are all done!</p>"""
 intermediateresults: [""" """]

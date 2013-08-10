@@ -14,7 +14,9 @@ do @myTerminal = ->
 
   @basesettings = {
     prompt: 'you@tutorial:~$ ',
-    greetings: """Welcome to the interactive Docker tutorial"""
+    greetings: """
+               Welcome to the interactive Docker tutorial
+              """
 
   }
 
@@ -49,19 +51,19 @@ do @myTerminal = ->
       term.push (command, term) ->
         term.echo command + ' is a pretty name'
 
-    if command is 'shell'
+    else if command is 'shell'
       term.push (command, term) ->
         if command is 'cd'
           bash(term, inputs)
       , {prompt: '> $ '}
 
-    if command is 'r'
+    else if command is 'r'
       location.reload('forceGet')
 
-    if command is '#'
+    else if command is '#'
       term.echo 'which question?'
 
-    if command is 'test'
+    else if command is 'test'
       term.echo 'ok'
       arrA = ['aap', 'noot', 'rat']
       arrB = ['aap', 'noot', 'mies']
@@ -79,28 +81,31 @@ do @myTerminal = ->
 
       term.echo valid
 
-    if command is 'cd'
+    else if command is 'cd'
       bash(term, inputs)
 
-    if command is "docker"
-      docker(term, inputs)
+    else if command is "docker"
+      Docker(term, inputs)
 
-    if command is "help"
+    else if command is "help"
       term.echo help
 
-    if command is "ls"
+    else if command is "ls"
       term.echo "This is an emulator, not a shell. Try following the instructions."
 
-    if command is "colors"
-      for dockerCommand, description of dockerCommands
-        term.echo ("[[b;#fff;]" + dockerCommand + "] - " + description + "")
+    else if command is "colors"
+      for DockerCommand, description of DockerCommands
+        term.echo ("[[b;#fff;]" + DockerCommand + "] - " + description + "")
 
-    if command is "pull"
+    else if command is "pull"
       term.echo '[[b;#fff;]some text]'
       wait(term, 5000, true)
       alert term.get_output()
 
       return
+
+    else
+      term.echo "#{inputs[0]}: command not found"
 
   #  $('#terminal').terminal( interpreter, basesettings )
     immediateCallback(inputs)
@@ -246,7 +251,7 @@ do @myTerminal = ->
   ###
     Docker program
   ###
-  docker = (term, inputs) ->
+  Docker = (term, inputs) ->
 
     echo = term.echo
     insert = term.insert
@@ -256,9 +261,9 @@ do @myTerminal = ->
     # no command
     if not inputs[1]
       console.debug "no args"
-      echo docker_cmd
-      for dockerCommand, description of dockerCommands
-        echo "[[b;#fff;]" + dockerCommand + "]" + description + ""
+      echo Docker_cmd
+      for DockerCommand, description of DockerCommands
+        echo "[[b;#fff;]" + DockerCommand + "]" + description + ""
 
     # Command commit
     else if inputs[1] is "commit"
@@ -276,7 +281,7 @@ do @myTerminal = ->
       term.push('do', {prompt: "do $ "})
 
     else if inputs[1] is "logo"
-      echo docker_logo
+      echo Docker_logo
 
     else if inputs[1] is "images"
       echo images
@@ -300,6 +305,8 @@ do @myTerminal = ->
       if inputs[2] is "learn/ping"
         util_slow_lines(term, push_container_learn_ping, "", callback )
         return
+      else
+        echo push_wrong_name
 
 
     # Command run
@@ -364,6 +371,8 @@ do @myTerminal = ->
       else if imagename is "learn/ping"
         if commands.containsAllOfThese(["ping", "www.google.com"])
           util_slow_lines(term, run_ping_www_google_com, "", callback )
+        else
+          echo run_learn_no_command
 
 
       else if imagename
@@ -398,13 +407,13 @@ do @myTerminal = ->
       echo (version)
 
 
-    else if dockerCommands[inputs[1]]
+    else if DockerCommands[inputs[1]]
       echo "#{inputs[1]} is a valid argument, but not implemented"
 
     else
-      echo docker_cmd
-      for dockerCommand, description of dockerCommands
-        echo "[[b;#fff;]" + dockerCommand + "]" + description + ""
+      echo Docker_cmd
+      for DockerCommand, description of DockerCommands
+        echo "[[b;#fff;]" + DockerCommand + "]" + description + ""
 
     # return empty value because otherwise coffeescript will return last var
     return
@@ -415,9 +424,9 @@ do @myTerminal = ->
     All items are sorted by alphabet
   ###
 
-  docker_cmd = \
+  Docker_cmd = \
     """
-      Usage: docker [OPTIONS] COMMAND [arg...]
+      Usage: Docker [OPTIONS] COMMAND [arg...]
       -H="127.0.0.1:4243": Host:port to bind/connect to
 
       A self-sufficient runtime for linux containers.
@@ -426,7 +435,7 @@ do @myTerminal = ->
 
     """
 
-  dockerCommands =
+  DockerCommands =
     "attach": "    Attach to a running container"
     "build": "     Build a container from a Dockerfile"
     "commit": "    Create a new image from a container's changes"
@@ -439,21 +448,21 @@ do @myTerminal = ->
     "insert": "    Insert a file in an image"
     "inspect": "   Return low-level information on a container"
     "kill": "      Kill a running container"
-    "login": "     Register or Login to the docker registry server"
+    "login": "     Register or Login to the Docker registry server"
     "logs": "      Fetch the logs of a container"
     "port": "      Lookup the public-facing port which is NAT-ed to PRIVATE_PORT"
     "ps": "        List containers"
-    "pull": "      Pull an image or a repository from the docker registry server"
-    "push": "      Push an image or a repository to the docker registry server"
+    "pull": "      Pull an image or a repository from the Docker registry server"
+    "push": "      Push an image or a repository to the Docker registry server"
     "restart": "   Restart a running container"
     "rm": "        Remove a container"
     "rmi": "       Remove an image"
     "run": "       Run a command in a new container"
-    "search": "    Search for an image in the docker index"
+    "search": "    Search for an image in the Docker index"
     "start": "     Start a stopped container"
     "stop": "      Stop a running container"
     "tag": "       Tag an image into a repository"
-    "version": "   Show the docker version information"
+    "version": "   Show the Docker version information"
     "wait": "      Block until a container stops, then print its exit code"
 
   run_switches =
@@ -464,7 +473,7 @@ do @myTerminal = ->
 
   commit = \
     """
-    Usage: docker commit [OPTIONS] CONTAINER [REPOSITORY [TAG]]
+    Usage: Docker commit [OPTIONS] CONTAINER [REPOSITORY [TAG]]
 
     Create a new image from a container's changes
 
@@ -487,8 +496,8 @@ do @myTerminal = ->
     "
 Docker tutorial \n
 \n
-The Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard docker
-commands. This terminal contains a limited docker and a limited shell emulator. Therefore some of the commands
+The Docker tutorial is a Docker emulater intended to help novice users get up to spead with the standard Docker
+commands. This terminal contains a limited Docker and a limited shell emulator. Therefore some of the commands
 you would expect do not exist.\n
 \n
 Just follow the steps and questions. If you are stuck, click on the 'expected command' to see what the command
@@ -505,7 +514,7 @@ should have been. Leave feedback if you find things confusing.
   inspect = \
     """
 
-    Usage: docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]
+    Usage: Docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]
 
     Return low-level information on a container/image
 
@@ -588,7 +597,7 @@ should have been. Leave feedback if you find things confusing.
 
   pull = \
     """
-    Usage: docker pull NAME
+    Usage: Docker pull NAME
 
     Pull an image or a repository from the registry
 
@@ -632,9 +641,14 @@ should have been. Leave feedback if you find things confusing.
     Pushing tags for rev [a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158] on {https://registry-1.docker.io/v1/repositories/learn/ping/tags/latest}
     """
 
+  push_wrong_name = \
+  """
+  The push refers to a repository [dhrp/fail] (len: 0)
+  """
+
   run_cmd = \
     """
-    Usage: docker run [OPTIONS] IMAGE COMMAND [ARG...]
+    Usage: Docker run [OPTIONS] IMAGE COMMAND [ARG...]
 
     Run a command in a new container
 
@@ -768,9 +782,9 @@ should have been. Leave feedback if you find things confusing.
   search = \
     """
 
-    Usage: docker search NAME
+    Usage: Docker search NAME
 
-    Search the docker index for images
+    Search the Docker index for images
 
     """
 
@@ -830,7 +844,7 @@ should have been. Leave feedback if you find things confusing.
     """
 
 
-  docker_logo = \
+  Docker_logo = \
   '''
 
                           ##        .
