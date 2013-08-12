@@ -5,7 +5,7 @@
 
 
 (function() {
-  var COMPLETE_URL, EVENT_TYPES, buildfunction, current_question, currentquestion, drawStatusMarker, err, f, leaveFullSizeMode, logEvent, next, previous, progressIndicator, q, question, questionNumber, questions, results, statusMarker, _i, _len;
+  var COMPLETE_URL, EVENT_TYPES, buildfunction, current_question, currentquestion, drawStatusMarker, err, f, leaveFullSizeMode, logEvent, next, previous, progressIndicator, q, question, questionNumber, questions, results, staticDockerPs, statusMarker, _i, _len;
 
   COMPLETE_URL = "/whats-next/";
 
@@ -13,6 +13,8 @@
     Array of question objects
   */
 
+
+  staticDockerPs = "ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS";
 
   q = [];
 
@@ -84,7 +86,8 @@
     command_expected: ["docker", "inspect", "efe"],
     result: "<p>Success! Have a look at the output. You can see the ip-address, status and other information.</p>",
     intermediateresults: ["You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with."],
-    tip: "<ul>\n<li>Remember you can use a partial match of the image id</li>\n</ul>"
+    tip: "<ul>\n<li>Remember you can use a partial match of the image id</li>\n</ul>",
+    currentDockerPs: "ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS\nefefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds"
   });
 
   q.push({
@@ -310,6 +313,11 @@
         $('#commandShownText').html(_q.command_show.join(' '));
       } else {
         $('#commandShownText').html(_q.command_expected.join(' '));
+      }
+      if (_q.currentDockerPs != null) {
+        window.currentDockerPs = _q.currentDockerPs;
+      } else {
+        window.currentDockerPs = staticDockerPs;
       }
       window.immediateCallback = function(input, stop) {
         var data, doNotExecute;

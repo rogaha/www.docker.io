@@ -9,6 +9,11 @@ COMPLETE_URL = "/whats-next/"
   Array of question objects
 ###
 
+staticDockerPs = """
+    ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS
+    """
+
+
 q = []
 q.push ({
 html: """
@@ -192,6 +197,12 @@ intermediateresults: ["""You have not specified a repository name. This is not w
 tip: """<ul>
      <li>Remember you can use a partial match of the image id</li>
      </ul>"""
+currentDockerPs:
+    """
+    ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS
+    efefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds
+    """
+
 })
 
 
@@ -465,6 +476,11 @@ buildfunction = (q) ->
       $('#commandShownText').html(_q.command_show.join(' '))
     else
       $('#commandShownText').html(_q.command_expected.join(' '))
+
+    if _q.currentDockerPs?
+      window.currentDockerPs = _q.currentDockerPs
+    else
+      window.currentDockerPs = staticDockerPs
 
     window.immediateCallback = (input, stop) ->
       if stop == true # prevent the next event from happening

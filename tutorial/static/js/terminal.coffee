@@ -38,6 +38,8 @@ do @myTerminal = ->
     console.debug("sent #{string}")
     return
 
+  @currentDockerPs = ""
+
   ###
     Base interpreter
   ###
@@ -104,12 +106,11 @@ do @myTerminal = ->
 
       return
 
-    else
+    ## finally
+    else if command
       term.echo "#{inputs[0]}: command not found"
 
-  #  $('#terminal').terminal( interpreter, basesettings )
     immediateCallback(inputs)
-#    immediateCallback(parseInput(inputs))
 
   ###
     Common utils
@@ -299,7 +300,7 @@ do @myTerminal = ->
       if inputs.containsAllOfThese(['-l'])
         echo ps_a_l
       else
-        echo ps
+        echo currentDockerPs
 
     else if inputs[1] is "push"
       if inputs[2] is "learn/ping"

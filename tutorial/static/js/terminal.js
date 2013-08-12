@@ -31,6 +31,7 @@
     this.intermediateResults = function(string) {
       console.debug("sent " + string);
     };
+    this.currentDockerPs = "";
     /*
       Base interpreter
     */
@@ -89,7 +90,7 @@
         wait(term, 5000, true);
         alert(term.get_output());
         return;
-      } else {
+      } else if (command) {
         term.echo("" + inputs[0] + ": command not found");
       }
       return immediateCallback(inputs);
@@ -297,7 +298,7 @@
         if (inputs.containsAllOfThese(['-l'])) {
           echo(ps_a_l);
         } else {
-          echo(ps);
+          echo(currentDockerPs);
         }
       } else if (inputs[1] === "push") {
         if (inputs[2] === "learn/ping") {
