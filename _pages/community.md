@@ -32,7 +32,7 @@ There are several ways to get in touch:
        target="_blank"><li>IRC (via BotBot)<img src="{% static 'img/community/IRC.png' %}"> </li></a>
 
     <a data-description="Getting in touch and discussing features can best be done on the google group."
-       href="https://groups.google.com/forum/#!forum/docker-club"
+       href="https://groups.google.com/forum/#!forum/docker-user"
        target="_blank"><li>Google groups<img src="{% static 'img/community/google-groups.png' %}"> </li></a>
 
     <a data-description="All development goes on in Github. It is a your destination to contribute, find and commit problems"
