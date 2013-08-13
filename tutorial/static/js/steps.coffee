@@ -338,6 +338,7 @@ logEvent = (data, feedback) ->
     else
       callback = (responseText) ->
         results.set("Thank you for your feedback! We appreciate it!", true)
+        $('#feedbackInput').val("")
         $("#ajax").html(responseText)
 
     if not data then data = {type: EVENT_TYPES.none}
@@ -368,11 +369,12 @@ $('#buttonPrevious').click ->
   previous()
   $('#results').hide()
 
-## Stop mousewheel on target
-$('body').on 'mousewheel', (event) ->
-  # not used because it gives trouble when there is text-overflow on leftside
-  # return false
-
+## Stop mousewheel on left side, and manually move it.
+$('#leftside').bind('mousewheel',
+  (event, delta, deltaX, deltaY) ->
+    this.scrollTop += deltaY * -30
+    event.preventDefault()
+  )
 
 ## submit feedback
 $('#feedbackSubmit').click ->

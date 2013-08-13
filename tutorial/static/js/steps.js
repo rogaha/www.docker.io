@@ -167,6 +167,7 @@
     } else {
       callback = function(responseText) {
         results.set("Thank you for your feedback! We appreciate it!", true);
+        $('#feedbackInput').val("");
         return $("#ajax").html(responseText);
       };
     }
@@ -199,7 +200,10 @@
     return $('#results').hide();
   });
 
-  $('body').on('mousewheel', function(event) {});
+  $('#leftside').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+    this.scrollTop += deltaY * -30;
+    return event.preventDefault();
+  });
 
   $('#feedbackSubmit').click(function() {
     var data, feedback;
