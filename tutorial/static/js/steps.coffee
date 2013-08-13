@@ -38,7 +38,7 @@ q.push ({
 html: """
       <h3>Searching for images</h3>
       <p>The easiest way to get started is to use a container image from someone else. Container images are
-      available on the Docker index - a central place to store images. You can find them online at
+      available on the Docker index, a central place to store images. You can find them online at
       <a href="#1" onClick="window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')";>index.docker.io</a>
       and by using the commandline</p>
       """
@@ -55,9 +55,8 @@ q.push ({
 html: """
       <h3>Downloading container images</h3>
       <p>Container images can be downloaded just as easily, using <code>docker pull</code>.</p>
-      <p>The name you specify is made up of two parts: the <em>username</em> and the <em>repository name</em>,
-      divided by a slash `/`.</p>
-      <p>A group of special, trusted images can be retrieved by just their repository name.</p>
+      <p>For images from the central index, the name you specify is constructed as &lt;username&gt;/&lt;repository&gt;</p>
+      <p>A group of special, trusted images such as the ubuntu base image can be retrieved by just their name &lt;repository&gt;.</p>
       """
 assignment:
       """
@@ -121,7 +120,7 @@ intermediateresults: [
   it will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>""",
 ]
 tip: """
-     <p>don't forget to use -y for noninteractive mode installation</p>
+     <p>Don't forget to use -y for noninteractive mode installation</p>
      <p>Not specifieng -y on the apt-get install command will fail for most commands because it expects you to accept
      (y/n) but you cannot respond.
      </p>
@@ -150,6 +149,7 @@ tip: """<ul>
      <li>Giving just <code>docker commit</code> will show you the possible arguments.</li>
      <li>You will need to specify the container to commit by the ID you found</li>
      <li>You don't need to copy (type) the entire ID. Three or four characters are usually enough.</li>
+     <li>Giving just <code>docker commit</code> will show you the possible arguments.</li>
      </ul>"""
 })
 

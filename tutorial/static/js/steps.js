@@ -27,7 +27,7 @@
   });
 
   q.push({
-    html: "<h3>Searching for images</h3>\n<p>The easiest way to get started is to use a container image from someone else. Container images are\navailable on the Docker index - a central place to store images. You can find them online at\n<a href=\"#1\" onClick=\"window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')\";>index.docker.io</a>\nand by using the commandline</p>",
+    html: "<h3>Searching for images</h3>\n<p>The easiest way to get started is to use a container image from someone else. Container images are\navailable on the Docker index, a central place to store images. You can find them online at\n<a href=\"#1\" onClick=\"window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')\";>index.docker.io</a>\nand by using the commandline</p>",
     assignment: "<h3>Assignment</h3>\n<p>Use the commandline to search for an image called tutorial</p>",
     command_expected: ['docker', 'search', 'tutorial'],
     result: "<p>You found it!</p>",
@@ -35,7 +35,7 @@
   });
 
   q.push({
-    html: "<h3>Downloading container images</h3>\n<p>Container images can be downloaded just as easily, using <code>docker pull</code>.</p>\n<p>The name you specify is made up of two parts: the <em>username</em> and the <em>repository name</em>,\ndivided by a slash `/`.</p>\n<p>A group of special, trusted images can be retrieved by just their repository name.</p>",
+    html: "<h3>Downloading container images</h3>\n<p>Container images can be downloaded just as easily, using <code>docker pull</code>.</p>\n<p>For images from the central index, the name you specify is constructed as &lt;username&gt;/&lt;repository&gt;</p>\n<p>A group of special, trusted images such as the ubuntu base image can be retrieved by just their name &lt;repository&gt;.</p>",
     assignment: "<h3>Assignment</h3>\n<p>Please download the tutorial image you have just found</p>",
     command_expected: ['docker', 'pull', 'learn/tutorial'],
     result: "<p>Cool. Look at the results. You'll see that Docker has downloaded a number of layers. In Docker all images (except the base image) are made up of several cumulative layers.</p>",
@@ -68,7 +68,7 @@
         return "<p>Not specifying -y on the apt-get install command will work for ping, because it has no other dependencies, but\nit will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>";
       }
     ],
-    tip: "<p>don't forget to use -y for noninteractive mode installation</p>\n<p>Not specifieng -y on the apt-get install command will fail for most commands because it expects you to accept\n(y/n) but you cannot respond.\n</p>"
+    tip: "<p>Don't forget to use -y for noninteractive mode installation</p>\n<p>Not specifieng -y on the apt-get install command will fail for most commands because it expects you to accept\n(y/n) but you cannot respond.\n</p>"
   });
 
   q.push({
@@ -82,7 +82,7 @@
         return "You have not specified the correct repository name to commit to (learn/ping). This works, but giving your images a name\nmakes them much easier to work with.";
       }
     ],
-    tip: "<ul>\n<li>Giving just <code>docker commit</code> will show you the possible arguments.</li>\n<li>You will need to specify the container to commit by the ID you found</li>\n<li>You don't need to copy (type) the entire ID. Three or four characters are usually enough.</li>\n</ul>"
+    tip: "<ul>\n<li>Giving just <code>docker commit</code> will show you the possible arguments.</li>\n<li>You will need to specify the container to commit by the ID you found</li>\n<li>You don't need to copy (type) the entire ID. Three or four characters are usually enough.</li>\n<li>Giving just <code>docker commit</code> will show you the possible arguments.</li>\n</ul>"
   });
 
   q.push({

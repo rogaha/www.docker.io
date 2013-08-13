@@ -11,7 +11,7 @@
 
 (function() {
   (this.myTerminal = function() {
-    var Docker, DockerCommands, Docker_cmd, Docker_logo, bash, commit, commit_containerid, commit_id_does_not_exist, help, images, inspect, inspect_no_such_container, inspect_ping_container, parseInput, ping, ps, ps_a_l, pull, pull_no_results, pull_tutorial, pull_ubuntu, push, push_container_learn_ping, push_wrong_name, run_apt_get, run_apt_get_install_iputils_ping, run_apt_get_install_unknown_package, run_cmd, run_image_wrong_command, run_learn_no_command, run_learn_tutorial_echo_hello_world, run_notfound, run_ping_www_google_com, run_switches, search, search_no_results, search_tutorial, search_ubuntu, util_slow_lines, version, wait;
+    var Docker, DockerCommands, Docker_cmd, Docker_logo, bash, commit, commit_containerid, commit_id_does_not_exist, help, images, inspect, inspect_no_such_container, inspect_ping_container, parseInput, ping, ps, ps_a, ps_l, pull, pull_no_results, pull_tutorial, pull_ubuntu, push, push_container_learn_ping, push_wrong_name, run_apt_get, run_apt_get_install_iputils_ping, run_apt_get_install_unknown_package, run_cmd, run_image_wrong_command, run_learn_no_command, run_learn_tutorial_echo_hello_world, run_notfound, run_ping_www_google_com, run_switches, search, search_no_results, search_tutorial, search_ubuntu, util_slow_lines, version, wait;
 
     this.basesettings = {
       prompt: 'you@tutorial:~$ ',
@@ -296,7 +296,9 @@
         }
       } else if (command === "ps") {
         if (inputs.containsAllOfThese(['-l'])) {
-          echo(ps_a_l);
+          echo(ps_l);
+        } else if (inputs.containsAllOfThese(['-a'])) {
+          echo(ps_a);
         } else {
           echo(currentDockerPs);
         }
@@ -457,7 +459,8 @@
     inspect_ping_container = "[2013/07/30 01:52:26 GET /v1.3/containers/efef/json\n{\n  \"ID\": \"efefdc74a1d5900d7d7a74740e5261c09f5f42b6dae58ded6a1fde1cde7f4ac5\",\n  \"Created\": \"2013-07-30T00:54:12.417119736Z\",\n  \"Path\": \"ping\",\n  \"Args\": [\n      \"www.google.com\"\n  ],\n  \"Config\": {\n      \"Hostname\": \"efefdc74a1d5\",\n      \"User\": \"\",\n      \"Memory\": 0,\n      \"MemorySwap\": 0,\n      \"CpuShares\": 0,\n      \"AttachStdin\": false,\n      \"AttachStdout\": true,\n      \"AttachStderr\": true,\n      \"PortSpecs\": null,\n      \"Tty\": false,\n      \"OpenStdin\": false,\n      \"StdinOnce\": false,\n      \"Env\": null,\n      \"Cmd\": [\n          \"ping\",\n          \"www.google.com\"\n      ],\n      \"Dns\": null,\n      \"Image\": \"learn/ping\",\n      \"Volumes\": null,\n      \"VolumesFrom\": \"\",\n      \"Entrypoint\": null\n  },\n  \"State\": {\n      \"Running\": true,\n      \"Pid\": 22249,\n      \"ExitCode\": 0,\n      \"StartedAt\": \"2013-07-30T00:54:12.424817715Z\",\n      \"Ghost\": false\n  },\n  \"Image\": \"a1dbb48ce764c6651f5af98b46ed052a5f751233d731b645a6c57f91a4cb7158\",\n  \"NetworkSettings\": {\n      \"IPAddress\": \"172.16.42.6\",\n      \"IPPrefixLen\": 24,\n      \"Gateway\": \"172.16.42.1\",\n      \"Bridge\": \"docker0\",\n      \"PortMapping\": {\n          \"Tcp\": {},\n          \"Udp\": {}\n      }\n  },\n  \"SysInitPath\": \"/usr/bin/docker\",\n  \"ResolvConfPath\": \"/etc/resolv.conf\",\n  \"Volumes\": {},\n  \"VolumesRW\": {}";
     ping = "Usage: ping [-LRUbdfnqrvVaAD] [-c count] [-i interval] [-w deadline]\n        [-p pattern] [-s packetsize] [-t ttl] [-I interface]\n        [-M pmtudisc-hint] [-m mark] [-S sndbuf]\n        [-T tstamp-options] [-Q tos] [hop1 ...] destination";
     ps = "ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS\nefefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds";
-    ps_a_l = "ID                  IMAGE               COMMAND                CREATED             STATUS              PORTS\n6982a9948422        ubuntu:12.04        apt-get install ping   1 minute ago        Exit 0";
+    ps_a = "ID                  IMAGE               COMMAND                CREATED             STATUS              PORTS\n6982a9948422        ubuntu:12.04        apt-get install ping   1 minute ago        Exit 0\nefefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago       Up 36 seconds";
+    ps_l = "ID                  IMAGE               COMMAND                CREATED             STATUS              PORTS\n6982a9948422        ubuntu:12.04        apt-get install ping   1 minute ago        Exit 0";
     pull = "Usage: Docker pull NAME\n\nPull an image or a repository from the registry\n\n-registry=\"\": Registry to download from. Necessary if image is pulled by ID\n-t=\"\": Download tagged image in repository";
     pull_no_results = function(keyword) {
       return "Pulling repository " + keyword + " from https://index.docker.io/v1\n2013/06/19 19:27:03 HTTP code: 404";

@@ -298,10 +298,11 @@ do @myTerminal = ->
     # command ps
     else if command is "ps"
       if inputs.containsAllOfThese(['-l'])
-        echo ps_a_l
+        echo ps_l
+      else if inputs.containsAllOfThese(['-a'])
+        echo ps_a
       else
         echo currentDockerPs
-
     else if inputs[1] is "push"
       if inputs[2] is "learn/ping"
         util_slow_lines(term, push_container_learn_ping, "", callback )
@@ -606,7 +607,14 @@ should have been. Leave feedback if you find things confusing.
     efefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds
     """
 
-  ps_a_l = \
+  ps_a = \
+    """
+    ID                  IMAGE               COMMAND                CREATED             STATUS              PORTS
+    6982a9948422        ubuntu:12.04        apt-get install ping   1 minute ago        Exit 0
+    efefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago       Up 36 seconds
+    """
+
+  ps_l = \
     """
     ID                  IMAGE               COMMAND                CREATED             STATUS              PORTS
     6982a9948422        ubuntu:12.04        apt-get install ping   1 minute ago        Exit 0
