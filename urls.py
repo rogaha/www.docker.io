@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^live/$', TemplateView.as_view(template_name='live.md'), name="live"),
 
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
+    url(r'^news_signup_iframe/$', 'base.views.email_thanks', name='news_signup_iframe'),
+
     url(r'^tutorial/', include('tutorial.urls')),
 
     url(r'^testpage/$', TemplateView.as_view(template_name='tutorial/testpage.html'), name="testpage"),

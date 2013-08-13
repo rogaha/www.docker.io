@@ -5,7 +5,7 @@
 
 
 (function() {
-  var COMPLETE_URL, EVENT_TYPES, buildfunction, current_question, currentquestion, drawStatusMarker, err, f, leaveFullSizeMode, logEvent, next, previous, progressIndicator, q, question, questionNumber, questions, results, staticDockerPs, statusMarker, _i, _len;
+  var COMPLETE_URL, EVENT_TYPES, buildfunction, current_question, currentquestion, drawStatusMarker, err, f, logEvent, next, previous, progressIndicator, q, question, questionNumber, questions, results, staticDockerPs, statusMarker, _i, _len;
 
   COMPLETE_URL = "/whats-next/";
 
@@ -48,7 +48,13 @@
     command_expected: ["docker", "run", "learn/tutorial", "echo", "hello"],
     command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"'],
     result: "<p>Great! Hellooooo World!</p><p>You have just started a container and executed a program inside of it, when\nthe program stopped, so did the container.",
-    intermediateresults: ["<p>You seem to be almost there. Did you give the command `echo \"hello world\"` ", "<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"],
+    intermediateresults: [
+      function() {
+        return "<p>You seem to be almost there. Did you give the command `echo \"hello world\"` ";
+      }, function() {
+        return "<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>";
+      }
+    ],
     tip: "<p>The command <code>docker run</code> takes a minimum of two arguments. An image name, and the command you want to execute\nwithin that image.</p>\n<p>Check the expected command below if it does not work as expected</p>"
   });
 
@@ -57,7 +63,11 @@
     assignment: "<h3>Assignment</h3>\n<p>Install 'ping' on top of the learn/tutorial image.</p>",
     command_expected: ["docker", "run", "learn/tutorial", "apt-get", "install", "-y", "ping"],
     result: "<p>That worked! You have installed a program on top of a base image. Your changes to the filesystem have been\nkept, but are not yet saved.</p>",
-    intermediateresults: ["<p>Not specifying -y on the apt-get install command will work for ping, because it has no other dependencies, but\nit will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>"],
+    intermediateresults: [
+      function() {
+        return "<p>Not specifying -y on the apt-get install command will work for ping, because it has no other dependencies, but\nit will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>";
+      }
+    ],
     tip: "<p>don't forget to use -y for noninteractive mode installation</p>\n<p>Not specifieng -y on the apt-get install command will fail for most commands because it expects you to accept\n(y/n) but you cannot respond.\n</p>"
   });
 
@@ -67,7 +77,11 @@
     command_expected: ["docker", "commit", "698", "learn/ping"],
     command_show: ["docker", "commit", "698", 'learn/ping'],
     result: "<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.\nYou will need it next.</p>",
-    intermediateresults: ["You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name\nmake them much easier to work with."],
+    intermediateresults: [
+      function() {
+        return "You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name\nmake them much easier to work with.";
+      }
+    ],
     tip: "<ul>\n<li>Giving just <code>docker commit</code> will show you the possible arguments.</li>\n<li>You will need to specify the container to commit by the ID you found</li>\n<li>You don't need to copy (type) the entire ID. Three or four characters are usually enough.</li>\n</ul>"
   });
 
@@ -76,7 +90,11 @@
     assignment: "<h3>Assignment</h3>\n<p>Run the ping program to ping www.google.com</p>\n",
     command_expected: ["docker", "run", 'learn/ping', 'ping', 'www.google.com'],
     result: "<p>That worked! Note that normally you can use Ctrl-C to disconnect. The container will keep running. This\ncontainer will disconnect automatically.</p>",
-    intermediateresults: ["You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with."],
+    intermediateresults: [
+      function() {
+        return "You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with.";
+      }
+    ],
     tip: "<ul>\n<li>Make sure to use the repository name learn/ping to run ping with</li>\n</ul>"
   });
 
@@ -85,7 +103,11 @@
     assignment: "<h3>Assignment</h3>\n<p><em>Find the container id</em> of the running container, and then inspect the container using <em>docker inspect</em>.</p>\n",
     command_expected: ["docker", "inspect", "efe"],
     result: "<p>Success! Have a look at the output. You can see the ip-address, status and other information.</p>",
-    intermediateresults: ["You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with."],
+    intermediateresults: [
+      function() {
+        return "You have not specified a repository name. This is not wrong, but giving your images a name\nmake them much easier to work with.";
+      }
+    ],
     tip: "<ul>\n<li>Remember you can use a partial match of the image id</li>\n</ul>",
     currentDockerPs: "ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS\nefefdc74a1d5        learn/ping:latest   ping www.google.com   37 seconds ago      Up 36 seconds"
   });
@@ -93,11 +115,21 @@
   q.push({
     html: "<h3>Push the image to the registry</h3>\n<p>Now you have verified that your new application container works as it should, you can share it.</p>\n<p>Docker comes with a complete image sharing service, you can push your image there for yourself and others\nto retrieve.</p>",
     assignment: "<h3>Assignment</h3>\n<p>Push your container image learn/ping to the index</p>\n",
-    command_expected: ["docker", "push", "learn/ping"],
-    command_show: ["docker", "push", "learn/ping"],
-    result: "<p>Yes, congratulations! You are all done!</p>",
-    intermediateresults: [" "],
-    tip: "<ul>\n<li>Docker images will show you which images are currently on your host</li>\n<li>You can only push images to your own namespace.</li>\n<li>For this tutorial we assume you are already logged in as the 'learn' user..</li>\n</ul>"
+    command_expected: ["will_never_be_valid"],
+    result: "",
+    intermediateresults: [
+      function() {
+        $('#instructions .assignment').hide();
+        $('#tips, #command').hide();
+        $('#instructions .text').html("<h3>Congratulations!</h3>\n<p>You have mastered the basic docker commands!</p>\n<p><strong>Your next steps</strong></p>\n<ul>\n  <li><a href=\"/news_signup/\" target=\"_blank\" >Register for news and updates on Docker (opens in new window)</a></li>\n  <li><a href=\"http://twitter.com/docker\" target=\"_blank\" >Follow us on twitter (opens in new window)</a></li>\n  <li><a href=\"#\" onClick=\"leaveFullSizeMode()\">Close this tutorial, and continue with the rest of the getting started.</a></li>\n</ul>");
+        return "<p>All done!. You are now pushing a container image to the index. You can see that push, just like pull, happens layer by layer.</p>";
+      }
+    ],
+    tip: "<ul>\n<li>Docker images will show you which images are currently on your host</li>\n<li>You can only push images to your own namespace.</li>\n<li>For this tutorial we assume you are already logged in as the 'learn' user..</li>\n</ul>",
+    finishedCallback: function() {
+      webterm.clear();
+      return webterm.echo(myTerminal());
+    }
   });
 
   questions = [];
@@ -207,7 +239,7 @@
     return leaveFullSizeMode();
   });
 
-  leaveFullSizeMode = function() {
+  this.leaveFullSizeMode = function() {
     console.debug("leaving full-size mode");
     $('.togglesize').removeClass('fullsize').addClass('startsize');
     $('.hide-when-small').css({
@@ -234,7 +266,7 @@
   current_question = 0;
 
   next = function(which) {
-    var data, length;
+    var data;
 
     $('#marker-' + current_question).addClass("complete").removeClass("active");
     if (!which && which !== 0) {
@@ -256,14 +288,8 @@
     logEvent(data);
     $('#marker-' + current_question).removeClass("complete").addClass("active");
     $('#question-number').find('text').get(0).textContent = current_question;
-    length = questions.length;
-    if (current_question === length - 1) {
-      $('#buttonNext').addClass("hidden");
-      $('#buttonFinish').removeClass("hidden");
-    } else {
-      $('#buttonFinish').addClass("hidden");
-      $('#buttonNext').removeClass("hidden");
-    }
+    $('#instructions .assignment').show();
+    $('#tips, #command').show();
   };
 
   previous = function() {
@@ -319,6 +345,13 @@
       } else {
         window.currentDockerPs = staticDockerPs;
       }
+      if (_q.finishedCallback != null) {
+        window.finishedCallback = q.finishedCallback;
+      } else {
+        window.finishedCallback = function() {
+          return "";
+        };
+      }
       window.immediateCallback = function(input, stop) {
         var data, doNotExecute;
 
@@ -351,7 +384,9 @@
       window.intermediateResults = function(input) {
         var intermediate;
 
-        return results.set(_q.intermediateresults[input], intermediate = true);
+        if (_q.intermediateresults) {
+          return results.set(_q.intermediateresults[input](), intermediate = true);
+        }
       };
     };
   };
@@ -363,7 +398,6 @@
   drawStatusMarker = function(i) {
     var marker;
 
-    console.log(i);
     if (i === 0) {
       marker = statusMarker;
     } else {
@@ -383,7 +417,6 @@
     question = q[_i];
     f = buildfunction(question);
     questions.push(f);
-    console.log(questionNumber);
     drawStatusMarker(questionNumber);
     questionNumber++;
   }

@@ -42,16 +42,16 @@ Also make sure to follow us on twitter -
 Docker can run in many places and in a couple of different ways. Our experience is that one of the fastest ways to
     get up and running is to spin up a Ubuntu 12.04 or 13.04 virtual machine with one of the public cloud providers.
 
-Here are some popular options.
-
-<ul class="option-chooser-blocks">
-    <a href="https:///www.rackspace.com" target="_blank"><li>Rackspace<img src="{% static 'img/platform-logos/platform-logo_rackspace.png' %}"> </li></a>
-    <a href="https://www.digitalocean.com/?refcode=9152ecbd91ab" target="_blank"><li>Digital Ocean<img src="{% static 'img/platform-logos/platform-logo_digital-ocean.png' %}"> </li></a>
-    <a href="http://www.aws.amazon.com/" target="_blank"><li>Amazon EC2 <img src="{% static 'img/platform-logos/amazonaws.png' %}"> </li></a>
-    <a href="https://www.linode.com/" target="_blank"><li>Linode<img src="{% static 'img/platform-logos/platform-logo_linode.png' %}"> </li></a>
-    <a href="http://www.softlayer.com/" target="_blank"><li>Softlayer<img src="{% static 'img/platform-logos/platform-logo_softlayer.png' %}"> </li></a>
-    <br style="clear: both">
-</ul>
+{#Here are some popular options.#}
+{##}
+{#<ul class="option-chooser-blocks">#}
+{#    <a href="https:///www.rackspace.com" target="_blank"><li>Rackspace<img src="{% static 'img/platform-logos/platform-logo_rackspace.png' %}"> </li></a>#}
+{#    <a href="https://www.digitalocean.com/?refcode=9152ecbd91ab" target="_blank"><li>Digital Ocean<img src="{% static 'img/platform-logos/platform-logo_digital-ocean.png' %}"> </li></a>#}
+{#    <a href="http://www.aws.amazon.com/" target="_blank"><li>Amazon EC2 <img src="{% static 'img/platform-logos/amazonaws.png' %}"> </li></a>#}
+{#    <a href="https://www.linode.com/" target="_blank"><li>Linode<img src="{% static 'img/platform-logos/platform-logo_linode.png' %}"> </li></a>#}
+{#    <a href="http://www.softlayer.com/" target="_blank"><li>Softlayer<img src="{% static 'img/platform-logos/platform-logo_softlayer.png' %}"> </li></a>#}
+{#    <br style="clear: both">#}
+{#</ul>#}
 
 
 ## 3. Install Docker

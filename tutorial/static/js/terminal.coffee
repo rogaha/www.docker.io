@@ -304,7 +304,9 @@ do @myTerminal = ->
 
     else if inputs[1] is "push"
       if inputs[2] is "learn/ping"
+
         util_slow_lines(term, push_container_learn_ping, "", callback )
+        intermediateResults(0)
         return
       else
         echo push_wrong_name
@@ -847,6 +849,14 @@ should have been. Leave feedback if you find things confusing.
 
   Docker_logo = \
   '''
+                _ _       _                    _
+  __      _____| | |   __| | ___  _ __   ___  | |
+  \\\ \\\ /\\\ / / _ \\\ | |  / _` |/ _ \\\| '_ \\\ / _ \\\ | |
+   \\\ V  V /  __/ | | | (_| | (_) | | | |  __/ |_|
+    \\\_/\\\_/ \\\___|_|_|  \\\__,_|\\\___/|_| |_|\\\___| (_)
+                                                
+  
+  
 
                           ##        .
                     ## ## ##       ==

@@ -43,6 +43,11 @@ def email_thanks(request):
     Page for thanking the user for signup
     """
 
+    if request.path == "/news_signup_iframe/":
+        template = 'base/email_form_iframe.html'
+    else:
+        template = 'base/email_form.html'
+
     if request.method == "POST":
         form = NewsSubscribeForm(request.POST)
         if form.is_valid():
@@ -81,14 +86,17 @@ def email_thanks(request):
         else:
             # form = NewsSubscribeForm()
 
-            return render_to_response('base/email_form.html',
+            return render_to_response(template,
                 {
                     'form': form,
                 },
                 context_instance=RequestContext(request))
 
+    else:
+        form = NewsSubscribeForm()
 
-    return render_to_response("homepage.md", {
+
+    return render_to_response(template, {
         "form": form,
         }, context_instance=RequestContext(request))
 

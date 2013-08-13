@@ -303,6 +303,7 @@
       } else if (inputs[1] === "push") {
         if (inputs[2] === "learn/ping") {
           util_slow_lines(term, push_container_learn_ping, "", callback);
+          intermediateResults(0);
           return;
         } else {
           echo(push_wrong_name);
@@ -491,7 +492,7 @@
     search_tutorial = "Found 1 results matching your query (\"tutorial\")\nNAME                      DESCRIPTION\nlearn/tutorial            An image for the interactive tutorial";
     search_ubuntu = "Found 22 results matching your query (\"ubuntu\")\nNAME                DESCRIPTION\nshykes/ubuntu\nbase                Another general use Ubuntu base image. Tag...\nubuntu              General use Ubuntu base image. Tags availa...\nboxcar/raring       Ubuntu Raring 13.04 suitable for testing v...\ndhrp/ubuntu\ncreack/ubuntu       Tags:\n12.04-ssh,\n12.10-ssh,\n12.10-ssh-l...\ncrohr/ubuntu              Ubuntu base images. Only lucid (10.04) for...\nknewton/ubuntu\npallet/ubuntu2\nerikh/ubuntu\nsamalba/wget              Test container inherited from ubuntu with ...\ncreack/ubuntu-12-10-ssh\nknewton/ubuntu-12.04\ntithonium/rvm-ubuntu      The base 'ubuntu' image, with rvm installe...\ndekz/build                13.04 ubuntu with build\nooyala/test-ubuntu\nooyala/test-my-ubuntu\nooyala/test-ubuntu2\nooyala/test-ubuntu3\nooyala/test-ubuntu4\nooyala/test-ubuntu5\nsurma/go                  Simple augmentation of the standard Ubuntu...\n";
     version = "Docker Emulator version 0.1\n\nEmulating:\nClient version: 0.4.7\nServer version: 0.4.7\nGo version: go1.1";
-    return Docker_logo = '\n                  ##        .\n            ## ## ##       ==\n         ## ## ## ##      ===\n     /""""""""""""""""\\\___/ ===\n~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~\n     \\\______ o          __/\n       \\\    \\\        __/\n        \\\____\\\______/\n\n        |          |\n     __ |  __   __ | _  __   _\n    /  \\\| /  \\\ /   |/  / _\\\ |\n    \\\__/| \\\__/ \\\__ |\\\_ \\\__  |\n\n';
+    return Docker_logo = '              _ _       _                    _\n__      _____| | |   __| | ___  _ __   ___  | |\n\\\ \\\ /\\\ / / _ \\\ | |  / _` |/ _ \\\| \'_ \\\ / _ \\\ | |\n \\\ V  V /  __/ | | | (_| | (_) | | | |  __/ |_|\n  \\\_/\\\_/ \\\___|_|_|  \\\__,_|\\\___/|_| |_|\\\___| (_)\n                                              \n\n\n\n                        ##        .\n                  ## ## ##       ==\n               ## ## ## ##      ===\n           /""""""""""""""""\\\___/ ===\n      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~\n           \\\______ o          __/\n             \\\    \\\        __/\n              \\\____\\\______/\n\n              |          |\n           __ |  __   __ | _  __   _\n          /  \\\| /  \\\ /   |/  / _\\\ |\n          \\\__/| \\\__/ \\\__ |\\\_ \\\__  |\n\n';
   })();
 
   return this;

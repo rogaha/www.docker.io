@@ -2,6 +2,10 @@
 
 {% block copy_main %}
 
+<h2>Sign up for email</h2>
+<p>At irregular intervals, mostly for new releases and other important updates we send out an email. If you'd like to
+    keep updated, please sign up.</p>
+
     <form method="post">
         {% csrf_token %}
         {{ form }}

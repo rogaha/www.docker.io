@@ -260,6 +260,11 @@
   margin: 0;
   margin-top: 70px;
 }
+#terminal a {
+  color: #AAA;
+  text-decoration: none;
+  font-weight: normal;
+}
 #starttext {
   width: 200px;
   margin: 10px;

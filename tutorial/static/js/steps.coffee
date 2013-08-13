@@ -90,8 +90,8 @@ command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"']
 result: """<p>Great! Hellooooo World!</p><p>You have just started a container and executed a program inside of it, when
         the program stopped, so did the container."""
 intermediateresults: [
-  """<p>You seem to be almost there. Did you give the command `echo "hello world"` """,
-  """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
+  () -> """<p>You seem to be almost there. Did you give the command `echo "hello world"` """,
+  () -> """<p>You've got the arguments right. Did you get the command? Try <em>/bin/bash </em>?</p>"""
   ]
 tip: """
      <p>The command <code>docker run</code> takes a minimum of two arguments. An image name, and the command you want to execute
@@ -115,7 +115,7 @@ command_expected: ["docker", "run", "learn/tutorial", "apt-get", "install", "-y"
 result: """<p>That worked! You have installed a program on top of a base image. Your changes to the filesystem have been
         kept, but are not yet saved.</p>"""
 intermediateresults: [
-  """<p>Not specifying -y on the apt-get install command will work for ping, because it has no other dependencies, but
+  () -> """<p>Not specifying -y on the apt-get install command will work for ping, because it has no other dependencies, but
   it will fail when apt-get wants to install dependencies. To get into the habit, please add -y after apt-get.</p>""",
 ]
 tip: """
@@ -143,7 +143,7 @@ command_expected: ["docker", "commit", "698", "learn/ping"]
 command_show: ["docker", "commit", "698", 'learn/ping']
 result: """<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.
         You will need it next.</p>"""
-intermediateresults: ["""You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name
+intermediateresults: [ () -> """You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name
                       make them much easier to work with."""]
 tip: """<ul>
      <li>Giving just <code>docker commit</code> will show you the possible arguments.</li>
@@ -168,7 +168,7 @@ assignment: """
 command_expected: ["docker", "run", 'learn/ping', 'ping', 'www.google.com' ]
 result: """<p>That worked! Note that normally you can use Ctrl-C to disconnect. The container will keep running. This
         container will disconnect automatically.</p>"""
-intermediateresults: ["""You have not specified a repository name. This is not wrong, but giving your images a name
+intermediateresults: [ () -> """You have not specified a repository name. This is not wrong, but giving your images a name
                       make them much easier to work with."""]
 tip: """<ul>
      <li>Make sure to use the repository name learn/ping to run ping with</li>
@@ -192,7 +192,7 @@ assignment: """
       """
 command_expected: ["docker", "inspect", "efe" ]
 result: """<p>Success! Have a look at the output. You can see the ip-address, status and other information.</p>"""
-intermediateresults: ["""You have not specified a repository name. This is not wrong, but giving your images a name
+intermediateresults: [ () -> """You have not specified a repository name. This is not wrong, but giving your images a name
                       make them much easier to work with."""]
 tip: """<ul>
      <li>Remember you can use a partial match of the image id</li>
@@ -219,16 +219,57 @@ assignment: """
       <p>Push your container image learn/ping to the index</p>
 
       """
-command_expected: ["docker", "push", "learn/ping"]
-command_show: ["docker", "push", "learn/ping"]
-result: """<p>Yes, congratulations! You are all done!</p>"""
-intermediateresults: [""" """]
+#command_expected: ["docker", "push", "learn/ping"]
+command_expected: ["will_never_be_valid"]
+#command_show: ["docker", "push", "learn/ping"]
+result: """"""
+intermediateresults:
+  [
+    () ->
+      $('#instructions .assignment').hide()
+      $('#tips, #command').hide()
+
+      $('#instructions .text').html("""
+        <h3>Congratulations!</h3>
+        <p>You have mastered the basic docker commands!</p>
+        <p><strong>Your next steps</strong></p>
+        <ul>
+          <li><a href="/news_signup/" target="_blank" >Register for news and updates on Docker (opens in new window)</a></li>
+          <li><a href="http://twitter.com/docker" target="_blank" >Follow us on twitter (opens in new window)</a></li>
+          <li><a href="#" onClick="leaveFullSizeMode()">Close this tutorial, and continue with the rest of the getting started.</a></li>
+        </ul>""")
+      return """<p>All done!. You are now pushing a container image to the index. You can see that push, just like pull, happens layer by layer.</p>"""
+  ]
 tip: """<ul>
      <li>Docker images will show you which images are currently on your host</li>
      <li>You can only push images to your own namespace.</li>
      <li>For this tutorial we assume you are already logged in as the 'learn' user..</li>
      </ul>"""
+finishedCallback: () ->
+  webterm.clear()
+  webterm.echo( myTerminal() )
+
 })
+
+#
+#q.push ({
+#html: """
+#      <h3>You are all done</h3>
+#      <p>You have mastered the basic docker commands.</p>
+#      """
+#assignment: """
+#      <h3>Sign up</h3>
+#      <p></p>
+#
+#      """
+#command_expected: ["docker", "push", "learn/ping"]
+#command_show: ["docker", "push", "learn/ping"]
+#result: """<p>Congratulations! Now let's get back to the getting started and the installation</p>"""
+#intermediateresults: [""" """]
+#tip: """
+#
+#     """
+#})
 
 
 
@@ -359,7 +400,7 @@ $('#fullSizeOpen').click ->
 $('#fullSizeClose').click ->
   leaveFullSizeMode()
 
-leaveFullSizeMode = () ->
+@leaveFullSizeMode = () ->
   console.debug "leaving full-size mode"
 
   $('.togglesize').removeClass('fullsize').addClass('startsize')
@@ -410,17 +451,9 @@ next = (which) ->
 
   $('#question-number').find('text').get(0).textContent = current_question
 
-  ## When the last question comes up change the next button to complete
-  length = questions.length
-  if current_question == length-1
-    # last question
-    $('#buttonNext').addClass("hidden")
-    $('#buttonFinish').removeClass("hidden")
-  else
-    $('#buttonFinish').addClass("hidden")
-    $('#buttonNext').removeClass("hidden")
-
-
+  # show in the case they were hidden by the complete step.
+  $('#instructions .assignment').show()
+  $('#tips, #command').show()
 
 
   return
@@ -482,6 +515,11 @@ buildfunction = (q) ->
     else
       window.currentDockerPs = staticDockerPs
 
+    if _q.finishedCallback?
+      window.finishedCallback = q.finishedCallback
+    else
+      window.finishedCallback = () -> return ""
+
     window.immediateCallback = (input, stop) ->
       if stop == true # prevent the next event from happening
         doNotExecute = true
@@ -512,7 +550,8 @@ buildfunction = (q) ->
       return
 
     window.intermediateResults = (input) ->
-      results.set(_q.intermediateresults[input], intermediate=true)
+      if _q.intermediateresults
+        results.set(_q.intermediateresults[input](), intermediate=true)
     return
 
 
@@ -520,8 +559,6 @@ statusMarker = $('#progress-marker-0')
 progressIndicator = $('#progress-indicator')#
 
 drawStatusMarker = (i) ->
-  console.log i
-
   if i == 0
     marker = statusMarker
   else
@@ -537,10 +574,8 @@ questionNumber = 0
 for question in q
   f = buildfunction(question)
   questions.push(f)
-  console.log questionNumber
   drawStatusMarker(questionNumber)
   questionNumber++
-
 
 
 ###
