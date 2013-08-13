@@ -38,8 +38,9 @@ q.push ({
 html: """
       <h3>Searching for images</h3>
       <p>The easiest way to get started is to use a container image from someone else. Container images are
-      available on the Docker index - a central place to store images. You can find them using the commandline
-      and online, at <a href="http://index.docker.io" target="_blank" onClick="window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')";>index.docker.io</a></p>
+      available on the Docker index - a central place to store images. You can find them online at
+      <a href="#1" onClick="window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')";>index.docker.io</a>
+      and by using the commandline</p>
       """
 assignment: """
       <h3>Assignment</h3>
@@ -74,9 +75,10 @@ tip: """<p>Don't forget to pull the full name of the repository e.g. 'learn/tuto
 q.push ({
 html: """
       <h3>Hello world from a container</h3>
-      <p>You can think about containers as an operating system in a box, except they do not need to be booted
-      before you can run commands in them. Instead, they are started <em>by</em> running a process in them. They
-      also stop as soon as the process completes.<p>
+      <p>You can think about containers as a process in a box. The box contains everything the process might need, so
+      it has the filesystem, system libraries, shell and such, but by default none of it is started or run.<p>
+      <p>You 'start' a container <em>by</em> running a process in it. This process is the only process run, so when
+      it completes the container is fully stopped.
       """
 assignment: """
       <h3>Assignment</h3>
@@ -104,7 +106,7 @@ q.push ({
 html: """
       <h3>Installing things in the container</h3>
       <p>Next we are going to install a simple program (ping) in the container. The image is based upon ubuntu, so you
-      can run the command <code>apt-get install -y ping</code> on a container. </p>
+      can run the command <code>apt-get install -y ping</code> in the container. </p>
       <p>Note that even though the container stops right after a command completes, the changes are not forgotten.</p>
       """
 assignment: """
@@ -141,10 +143,9 @@ assignment: """
       """
 command_expected: ["docker", "commit", "698", "learn/ping"]
 command_show: ["docker", "commit", "698", 'learn/ping']
-result: """<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.
-        You will need it next.</p>"""
-intermediateresults: [ () -> """You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name
-                      make them much easier to work with."""]
+result: """<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.</p>"""
+intermediateresults: [ () -> """You have not specified the correct repository name to commit to (learn/ping). This works, but giving your images a name
+                      makes them much easier to work with."""]
 tip: """<ul>
      <li>Giving just <code>docker commit</code> will show you the possible arguments.</li>
      <li>You will need to specify the container to commit by the ID you found</li>
@@ -165,7 +166,7 @@ assignment: """
       <p>Run the ping program to ping www.google.com</p>
 
       """
-command_expected: ["docker", "run", 'learn/ping', 'ping', 'www.google.com' ]
+command_expected: ["docker", "run", 'learn/ping', 'ping', 'google.com' ]
 result: """<p>That worked! Note that normally you can use Ctrl-C to disconnect. The container will keep running. This
         container will disconnect automatically.</p>"""
 intermediateresults: [ () -> """You have not specified a repository name. This is not wrong, but giving your images a name
@@ -209,10 +210,11 @@ currentDockerPs:
 
 q.push ({
 html: """
-      <h3>Push the image to the registry</h3>
-      <p>Now you have verified that your new application container works as it should, you can share it.</p>
-      <p>Docker comes with a complete image sharing service, you can push your image there for yourself and others
-      to retrieve.</p>
+      <h3>Push your image to the index</h3>
+      <p>Now you have verified that your application container works, you can share it.</p>
+      <p>Remember you pulled (downloaded) the learn/tutorial image from the index? You can also share your built images
+      to the index by pushing (uploading) them to there. That way you can easily retrieve them for re-use and share them
+      with others. </p>
       """
 assignment: """
       <h3>Assignment</h3>
@@ -221,7 +223,7 @@ assignment: """
       """
 #command_expected: ["docker", "push", "learn/ping"]
 command_expected: ["will_never_be_valid"]
-#command_show: ["docker", "push", "learn/ping"]
+command_show: ["docker", "push", "learn/ping"]
 result: """"""
 intermediateresults:
   [
@@ -241,9 +243,10 @@ intermediateresults:
       return """<p>All done!. You are now pushing a container image to the index. You can see that push, just like pull, happens layer by layer.</p>"""
   ]
 tip: """<ul>
-     <li>Docker images will show you which images are currently on your host</li>
-     <li>You can only push images to your own namespace.</li>
-     <li>For this tutorial we assume you are already logged in as the 'learn' user..</li>
+     <li><code>docker images</code> will show you which images are currently on your host</li>
+     <li><code>docker push</code>is the command to push images</li>
+     <li>You can only push images to your own namespace, this emulator is logged in as user 'learn'</li>
+
      </ul>"""
 finishedCallback: () ->
   webterm.clear()

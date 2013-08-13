@@ -27,7 +27,7 @@
   });
 
   q.push({
-    html: "<h3>Searching for images</h3>\n<p>The easiest way to get started is to use a container image from someone else. Container images are\navailable on the Docker index - a central place to store images. You can find them using the commandline\nand online, at <a href=\"http://index.docker.io\" target=\"_blank\" onClick=\"window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')\";>index.docker.io</a></p>",
+    html: "<h3>Searching for images</h3>\n<p>The easiest way to get started is to use a container image from someone else. Container images are\navailable on the Docker index - a central place to store images. You can find them online at\n<a href=\"#1\" onClick=\"window.open('http://index.docker.io','Docker Index','width=1000,height=900,left=50,top=50,menubar=0')\";>index.docker.io</a>\nand by using the commandline</p>",
     assignment: "<h3>Assignment</h3>\n<p>Use the commandline to search for an image called tutorial</p>",
     command_expected: ['docker', 'search', 'tutorial'],
     result: "<p>You found it!</p>",
@@ -43,7 +43,7 @@
   });
 
   q.push({
-    html: "<h3>Hello world from a container</h3>\n<p>You can think about containers as an operating system in a box, except they do not need to be booted\nbefore you can run commands in them. Instead, they are started <em>by</em> running a process in them. They\nalso stop as soon as the process completes.<p>",
+    html: "<h3>Hello world from a container</h3>\n<p>You can think about containers as a process in a box. The box contains everything the process might need, so\nit has the filesystem, system libraries, shell and such, but by default none of it is started or run.<p>\n<p>You 'start' a container <em>by</em> running a process in it. This process is the only process run, so when\nit completes the container is fully stopped.",
     assignment: "<h3>Assignment</h3>\n<p>Make our freshly loaded container image output \"hello world\"</p>\n<p>To do so you should run 'echo' in the container and have that say \"hello world\"\n",
     command_expected: ["docker", "run", "learn/tutorial", "echo", "hello"],
     command_show: ["docker", "run", "learn/tutorial", 'echo "hello world"'],
@@ -59,7 +59,7 @@
   });
 
   q.push({
-    html: "<h3>Installing things in the container</h3>\n<p>Next we are going to install a simple program (ping) in the container. The image is based upon ubuntu, so you\ncan run the command <code>apt-get install -y ping</code> on a container. </p>\n<p>Note that even though the container stops right after a command completes, the changes are not forgotten.</p>",
+    html: "<h3>Installing things in the container</h3>\n<p>Next we are going to install a simple program (ping) in the container. The image is based upon ubuntu, so you\ncan run the command <code>apt-get install -y ping</code> in the container. </p>\n<p>Note that even though the container stops right after a command completes, the changes are not forgotten.</p>",
     assignment: "<h3>Assignment</h3>\n<p>Install 'ping' on top of the learn/tutorial image.</p>",
     command_expected: ["docker", "run", "learn/tutorial", "apt-get", "install", "-y", "ping"],
     result: "<p>That worked! You have installed a program on top of a base image. Your changes to the filesystem have been\nkept, but are not yet saved.</p>",
@@ -76,10 +76,10 @@
     assignment: "<h3>Assignment</h3>\n<p>First use <code>docker ps -l</code> to find the ID of the container you created by installing ping.</p>\n<p>Then save (commit) this container with the repository name 'learn/ping' </p>",
     command_expected: ["docker", "commit", "698", "learn/ping"],
     command_show: ["docker", "commit", "698", 'learn/ping'],
-    result: "<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.\nYou will need it next.</p>",
+    result: "<p>That worked! Please take note that Docker has returned a new ID. This id is the <em>image id</em>.</p>",
     intermediateresults: [
       function() {
-        return "You have not specified the correct repository name (learn/ping). This is not wrong, but giving your images a name\nmake them much easier to work with.";
+        return "You have not specified the correct repository name to commit to (learn/ping). This works, but giving your images a name\nmakes them much easier to work with.";
       }
     ],
     tip: "<ul>\n<li>Giving just <code>docker commit</code> will show you the possible arguments.</li>\n<li>You will need to specify the container to commit by the ID you found</li>\n<li>You don't need to copy (type) the entire ID. Three or four characters are usually enough.</li>\n</ul>"
@@ -88,7 +88,7 @@
   q.push({
     html: "<h3>Run your new image</h3>\n<p>Now you have basically setup a complete, self contained environment with the 'ping' program installed. </p>\n<p>Your image can now be run on any host that runs Docker.</p>\n<p>Lets run this image on this machine.</p>",
     assignment: "<h3>Assignment</h3>\n<p>Run the ping program to ping www.google.com</p>\n",
-    command_expected: ["docker", "run", 'learn/ping', 'ping', 'www.google.com'],
+    command_expected: ["docker", "run", 'learn/ping', 'ping', 'google.com'],
     result: "<p>That worked! Note that normally you can use Ctrl-C to disconnect. The container will keep running. This\ncontainer will disconnect automatically.</p>",
     intermediateresults: [
       function() {
@@ -113,9 +113,10 @@
   });
 
   q.push({
-    html: "<h3>Push the image to the registry</h3>\n<p>Now you have verified that your new application container works as it should, you can share it.</p>\n<p>Docker comes with a complete image sharing service, you can push your image there for yourself and others\nto retrieve.</p>",
+    html: "<h3>Push your image to the index</h3>\n<p>Now you have verified that your application container works, you can share it.</p>\n<p>Remember you pulled (downloaded) the learn/tutorial image from the index? You can also share your built images\nto the index by pushing (uploading) them to there. That way you can easily retrieve them for re-use and share them\nwith others. </p>",
     assignment: "<h3>Assignment</h3>\n<p>Push your container image learn/ping to the index</p>\n",
     command_expected: ["will_never_be_valid"],
+    command_show: ["docker", "push", "learn/ping"],
     result: "",
     intermediateresults: [
       function() {
@@ -125,7 +126,7 @@
         return "<p>All done!. You are now pushing a container image to the index. You can see that push, just like pull, happens layer by layer.</p>";
       }
     ],
-    tip: "<ul>\n<li>Docker images will show you which images are currently on your host</li>\n<li>You can only push images to your own namespace.</li>\n<li>For this tutorial we assume you are already logged in as the 'learn' user..</li>\n</ul>",
+    tip: "<ul>\n<li><code>docker images</code> will show you which images are currently on your host</li>\n<li><code>docker push</code>is the command to push images</li>\n<li>You can only push images to your own namespace, this emulator is logged in as user 'learn'</li>\n\n</ul>",
     finishedCallback: function() {
       webterm.clear();
       return webterm.echo(myTerminal());

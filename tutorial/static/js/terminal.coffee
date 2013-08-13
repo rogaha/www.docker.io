@@ -271,7 +271,7 @@ do @myTerminal = ->
       if inputs.containsAllOfTheseParts(['docker', 'commit', '698', 'learn/ping'])
         util_slow_lines(term, commit_containerid, "", callback )
       else if inputs.containsAllOfTheseParts(['docker', 'commit', '698'])
-        util_slow_lines(term, commit_id_does_not_exist(inputs[2]), "", callback )
+        util_slow_lines(term, commit_containerid, "", callback )
         intermediateResults(0)
       else if inputs.containsAllOfTheseParts(['docker', 'commit']) and inputs[2]
         echo commit_id_does_not_exist(inputs[2])
@@ -304,12 +304,13 @@ do @myTerminal = ->
 
     else if inputs[1] is "push"
       if inputs[2] is "learn/ping"
-
         util_slow_lines(term, push_container_learn_ping, "", callback )
         intermediateResults(0)
         return
-      else
+      else if inputs[2]
         echo push_wrong_name
+      else
+        echo push
 
 
     # Command run
@@ -372,8 +373,12 @@ do @myTerminal = ->
           echo run_learn_no_command
 
       else if imagename is "learn/ping"
-        if commands.containsAllOfThese(["ping", "www.google.com"])
+        if commands.containsAllOfTheseParts(["ping", "google.com"])
           util_slow_lines(term, run_ping_www_google_com, "", callback )
+        else if commands[0] is "ping"
+          echo ping
+        else if commands[0]
+          echo "#{commands[0]}: command not found"
         else
           echo run_learn_no_command
 
@@ -510,8 +515,9 @@ should have been. Leave feedback if you find things confusing.
 
   images = \
     """
-    learn/tutorial                  latest              8dbd9e392a96        2 months ago        131.5 MB (virtual 131.5 MB)
-    learn/ping                      latest              a1dbb48ce764        10 minutes ago      11.57 MB (virtual 143.1 MB)
+    ubuntu                latest              8dbd9e392a96        4 months ago        131.5 MB (virtual 131.5 MB)
+    learn/tutorial        latest              8dbd9e392a96        2 months ago        131.5 MB (virtual 131.5 MB)
+    learn/ping            latest              effb66b31edb        10 minutes ago      11.57 MB (virtual 143.1 MB)
     """
 
   inspect = \
@@ -586,6 +592,14 @@ should have been. Leave feedback if you find things confusing.
     "VolumesRW": {}
   """
 
+  ping = \
+    """
+    Usage: ping [-LRUbdfnqrvVaAD] [-c count] [-i interval] [-w deadline]
+            [-p pattern] [-s packetsize] [-t ttl] [-I interface]
+            [-M pmtudisc-hint] [-m mark] [-S sndbuf]
+            [-T tstamp-options] [-Q tos] [hop1 ...] destination
+    """
+
   ps = \
     """
     ID                  IMAGE               COMMAND               CREATED             STATUS              PORTS
@@ -629,6 +643,15 @@ should have been. Leave feedback if you find things confusing.
     Pulling image b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc (12.10) from ubuntu
     Pulling image 27cf784147099545 () from tutorial
     """
+
+  push = \
+    """
+
+    Usage: docker push NAME
+
+    Push an image or a repository to the registry
+    """
+
 
   push_container_learn_ping = \
     """
