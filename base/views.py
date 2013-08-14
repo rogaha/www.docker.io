@@ -36,12 +36,24 @@ def email_thanks(request):
         if form.is_valid():
             email = form.cleaned_data["email"]
 
-            list = mailchimputils.get_connection().get_list_by_id('c0995b6e8f')
+            list_id = 'c0995b6e8f'
+            CACHE_TIMEOUT = 3600 * 24 * 3
 
-            results = list.subscribe(
-                'thatcher@koffiedik.net',
+            mailchimp_list = cache.get(list_id)
+
+            if mailchimp_list:
+                pass
+            else:
+                connection = mailchimputils.get_connection()
+                mailchimp_list = connection.get_list_by_id(list_id)
+
+                cache.set(list_id, mailchimp_list, CACHE_TIMEOUT)
+
+
+            results = mailchimp_list.subscribe(
+                email,
                 {
-                    'EMAIL': 'thatcher@peskens.nl',
+                    'EMAIL': email,
                     'FNAME': '',
                     'LNAME': '',
                     'MMERGE3': '',
@@ -53,10 +65,9 @@ def email_thanks(request):
             )
 
             intercom_extra = {
-                'email': "thatcher+intercom@dotcloud.com",
+                'email': email,
                 'news_signup_at': datetime.now().strftime("%Y-%m-%d"),
-                #        'created_at': datetime.now().strftime("%s"),
-                #        'github_name': 'dhrp2',
+                'signup_location': "www.docker.io",
             }
 
             return render_to_response('base/email_thanks.html',
@@ -74,6 +85,14 @@ def email_thanks(request):
                     'form': form,
                 },
                 context_instance=RequestContext(request))
+
+    else:
+        form = NewsSubscribeForm()
+        return render_to_response('base/email_form.html',
+            {
+                'form': form,
+            },
+            context_instance=RequestContext(request))
 
 
     return render_to_response("homepage.md", {
