@@ -25,28 +25,11 @@ def home(request):
         "form": form,
     }, context_instance=RequestContext(request))
 
-def whats_next(request):
-    """
-    Page where people go after they complete the tutorial
-    """
-
-    form = NewsSubscribeForm()
-
-    return render_to_response("whats-next.md", {
-        "form": form,
-    }, context_instance=RequestContext(request))
-
-
 
 def email_thanks(request):
     """
     Page for thanking the user for signup
     """
-
-    if request.path == "/news_signup_iframe/":
-        template = 'base/email_form_iframe.html'
-    else:
-        template = 'base/email_form.html'
 
     if request.method == "POST":
         form = NewsSubscribeForm(request.POST)
@@ -86,17 +69,14 @@ def email_thanks(request):
         else:
             # form = NewsSubscribeForm()
 
-            return render_to_response(template,
+            return render_to_response('base/email_form.html',
                 {
                     'form': form,
                 },
                 context_instance=RequestContext(request))
 
-    else:
-        form = NewsSubscribeForm()
 
-
-    return render_to_response(template, {
+    return render_to_response("homepage.md", {
         "form": form,
         }, context_instance=RequestContext(request))
 

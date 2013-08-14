@@ -20,13 +20,6 @@ urlpatterns = patterns('',
     url(r'^live/$', TemplateView.as_view(template_name='live.md'), name="live"),
 
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
-    url(r'^news_signup_iframe/$', 'base.views.email_thanks', name='news_signup_iframe'),
-
-    url(r'^tutorial/', include('tutorial.urls')),
-
-    url(r'^testpage/$', TemplateView.as_view(template_name='tutorial/testpage.html'), name="testpage"),
-
-    url(r'^whats-next/$', 'base.views.whats_next', name="whats-next"),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
