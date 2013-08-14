@@ -172,18 +172,17 @@ PREREQ_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    # 'south',
     'django_extensions',
     'intercom',
     'analytical',
     'mailchimp',
     'markdown_deux',
-    'south'
+    'south',
+    'docker_tutorial',
 )
 
 PROJECT_APPS = (
     'base',
-    'tutorial'
 )
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
