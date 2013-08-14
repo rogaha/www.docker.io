@@ -32,7 +32,7 @@ There are several ways to get in touch:
        target="_blank"><li>IRC (via BotBot)<img src="{% static 'img/community/IRC.png' %}"> </li></a>
 
     <a data-description="Getting in touch and discussing features can best be done on the google group."
-       href="https://groups.google.com/forum/#!forum/docker-club"
+       href="https://groups.google.com/forum/#!forum/docker-user"
        target="_blank"><li>Google groups<img src="{% static 'img/community/google-groups.png' %}"> </li></a>
 
     <a data-description="All development goes on in Github. It is a your destination to contribute, find and commit problems"
@@ -44,7 +44,7 @@ There are several ways to get in touch:
         target="_blank"><li>Stackoverflow<img src="{% static 'img/community/stackoverflow.png' %}"> </li></a>
 
     <a data-description="For general praise, and other chitter chatter tweet"
-        href="http://twitter.com/getdocker/"
+        href="http://twitter.com/docker/"
         target="_blank"><li>Twitter<img src="{% static 'img/community/twitter.png' %}"> </li></a>
 </ul>
 
@@ -63,20 +63,30 @@ There are several ways to get in touch:
 Sharing what you have built with Docker is a great way to help people understand the value of Docker. If you have
     a great story to tell we'll be happy to help you spread the word.
 
-* Tell your story at a company tech talk, tweet (#docker.io, @getdocker)  present at your local user group, or submit a
+* Tell your story at a company tech talk, tweet (#docker.io, @docker)  present at your local user group, or submit a
     talk proposal to a conference or event about how you are using Docker
 * If you are using Docker,  in production, become a public reference like [these](http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/)
 * Write a tutorial like [these](http://blog.docker.io/2013/06/14-great-tutorials-on-docker/)
-
 
 
 ### Come to (or organize) a meetup ###
 
 <img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px;">
 
-Docker meetups  are a great way to network, learn, share best practices, and have fun.
+Docker meetups are a great way to network, learn, share best practices, and have fun.
 
-* Find or organize a [meetup](http://www.meetup.com/Docker-meetups/)
+These are the current active docker meetups:
+
+#### USA
+* <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
+* <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
+* <a href="http://www.meetup.com/Docker-NewYorkCity/">New York, NY </a>
+
+#### Europe
+* <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
+* <a href="http://www.meetup.com/Docker-London/">London, UK</a>
+
+If you would like to organize a meetup in your city, <a href="https://twitter.com/docker/">contact us</a>. We will be happy to help.
 
 ### Share or Create New Dockerized Apps ###
 There are over 1,000 cool, containerized applications in our public Index.

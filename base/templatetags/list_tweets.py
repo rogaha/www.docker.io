@@ -58,18 +58,9 @@ class TweetNode(template.Node):
 
                 cache.set(item, tweet, TWITTER_TIMEOUT)
 
+
             data = json.loads(tweet)
-            # print data['user']['screen_name']
-                # print data.user.name
-                # print data.user.url
-                # print data.user.profile_image_url
-                #
-                # print data['text']
-                # print data.created_at
 
-                # tweets.append(tweet)
-
-            # for tweet in tweets:
             html += """
             <div class="tweet" onClick="window.open('http://twitter.com/{2}/status/{4}/')" >
                 <img src="{0}">
@@ -79,11 +70,10 @@ class TweetNode(template.Node):
             </div>
 
             """.format(
-                data['user']['profile_image_url'].encode('utf-8').strip(),
+                data['user']['profile_image_url'].replace("http://a0", "https://si0"),
                 data['user']['name'].encode('utf-8').strip(),
                 data['user']['screen_name'].encode('utf-8').strip(),
                 data['text'].encode('utf-8').strip(),
                 data['id']
-                # "text"
             )
         return html
