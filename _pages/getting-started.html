@@ -11,8 +11,10 @@ function addAnchors(){
         $(this).html('<span id="anchor-'+index+'">'+$(this).html()+'</span>');
     });
 }
-{#$(document).ready(addAnchors);#}
+$(document).ready(addAnchors);
+
 </script>
+
 {% endblock page_js %}
 
 {% block content %}
@@ -34,13 +36,11 @@ function addAnchors(){
             {% endblock %}{% endmarkdown %}
 
             {# This is where the table of contents will show up#}
-{#            <ul id="box-anchors" class="table-of-contents">#}
-{#            </ul>#}
+            <ul id="box-anchors" class="table-of-contents">
+            </ul>
 
             {% markdown %}{% block copy_interactive_tutorial %}
             {% endblock %}{% endmarkdown %}
-
-            {% include 'tutorial/snippet.html' %}
 
             {% markdown %}{% block copy_install %}
             {% endblock %}{% endmarkdown %}

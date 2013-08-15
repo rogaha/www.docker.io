@@ -15,21 +15,30 @@
 # Start using Docker
 We try to make using Docker easy.
 
-**Never tried Docker before?** <a href="#h_tutorial">start with the interactive tutorial.</a> **Looking to install?** <a href="#h_installation">jump to installation</a>
-
-
+{#**Never tried Docker before?** <a href="#h_tutorial">start with the interactive tutorial.</a> **Looking to install?** <a href="#h_installation">jump to installation</a>#}
 
 {% endblock %}
 
-{#{% block copy_install %}#}
+{#{% block copy_interactive_tutorial %}#}
+{### <a id="h_tutorial"></a>Interactive tutorial#}
 {##}
+{#The best way to learn how Docker works is to use it!#}
+{##}
+{#This hands-on tutorial is 100% online, so you don't need to install a thing. In about 10-15 minutes you'll be familiar with the basic#}
+{#    Docker commands.#}
+{##}
+{##}
+{#{% include 'tutorial/snippet.html' %}#}
 {##}
 {#{% endblock %}#}
 
 
+
+
 {% block copy_install %}
 
-## <a id="h_installation"></a>Installation
+{### <a id="h_installation"></a>Installation#}
+## Installation
 
 There are several installation options. Our recommended installation path is for **Ubuntu linux**,
     because we develop Docker on Ubuntu and our installation package will do most of the work for you.
@@ -47,16 +56,6 @@ Mac, Windows and some Linux distributions cannot natively run Docker at this tim
     <a href="http://docs.docker.io/en/latest/installation/archlinux/" target="_blank"><li>Arch Linux <img src="{% static 'img/platform-logos/archlinux.png' %}"> </li></a>
     <br style="clear: both">
 </ul>
-
-{% endblock %}
-
-{% block copy_interactive_tutorial %}
-## <a id="h_tutorial"></a>Interactive tutorial
-
-The best way to learn how Docker works is to use it!
-
-This hands-on tutorial is 100% online, so you don't need to install a thing. In about 10-15 minutes you'll be familiar with the basic
-    Docker commands.
 
 {% endblock %}
 
