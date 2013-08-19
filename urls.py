@@ -18,6 +18,11 @@ urlpatterns = patterns('',
 
     url(r'^the-whole-story/$', TemplateView.as_view(template_name='the-whole-story.md'), name="the-whole-story"),
     url(r'^live/$', TemplateView.as_view(template_name='live.md'), name="live"),
+    url(r'^team/$', TemplateView.as_view(template_name='team.md'), name="team"),
+    url(r'^press/$', TemplateView.as_view(template_name='press.md'), name="press"),
+    url(r'^news/$', TemplateView.as_view(template_name='news.md'), name="news"),
+    url(r'^events/$', TemplateView.as_view(template_name='events.md'), name="events"),
+
 
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
 

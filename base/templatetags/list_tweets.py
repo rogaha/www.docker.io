@@ -46,34 +46,38 @@ class TweetNode(template.Node):
         tweets = []
         html = ""
 
-        for item in items:
-            tweet = cache.get(item)
+        try:
 
-            if tweet:
-                pass
-            else:
-                twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
-                print item
-                tweet = twitter_client.request('https://api.twitter.com/1.1/statuses/show.json?id={0}'.format(item))
+            for item in items:
+                tweet = cache.get(item)
 
-                cache.set(item, tweet, TWITTER_TIMEOUT)
+                if tweet:
+                    pass
+                else:
+                    twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
+                    print item
 
+                    tweet = twitter_client.request('https://api.twitter.com/1.1/statuses/show.json?id={0}'.format(item))
+                    cache.set(item, tweet, TWITTER_TIMEOUT)
 
-            data = json.loads(tweet)
+                data = json.loads(tweet)
 
-            html += """
-            <div class="tweet" onClick="window.open('http://twitter.com/{2}/status/{4}/')" >
-                <img src="{0}">
-                <span class="username">{1}</span>
-                <span class="handle" ><a onClick="window.open('http://twitter.com/{2}'); event.preventDefault();" href="https://twitter.com/{2}/" title="users twitter page">@{2}</a></span>
-                <p><span class="text">{3}</span></p>
-            </div>
+                html += """
+                <div class="tweet" onClick="window.open('http://twitter.com/{2}/status/{4}/')" >
+                    <img src="{0}">
+                    <span class="username">{1}</span>
+                    <span class="handle" ><a onClick="window.open('http://twitter.com/{2}'); event.preventDefault();" href="https://twitter.com/{2}/" title="users twitter page">@{2}</a></span>
+                    <p><span class="text">{3}</span></p>
+                </div>
 
-            """.format(
-                data['user']['profile_image_url'].replace("http://a0", "https://si0"),
-                data['user']['name'].encode('utf-8').strip(),
-                data['user']['screen_name'].encode('utf-8').strip(),
-                data['text'].encode('utf-8').strip(),
-                data['id']
-            )
+                """.format(
+                    data['user']['profile_image_url'].replace("http://a0", "https://si0"),
+                    data['user']['name'].encode('utf-8').strip(),
+                    data['user']['screen_name'].encode('utf-8').strip(),
+                    data['text'].encode('utf-8').strip(),
+                    data['id']
+                )
+        except:
+            html = "oops.. we failed to get some tweets from the api, but believe us, it's all good. :-)"
+
         return html
