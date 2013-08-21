@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
-import django_filepicker
 from pytz import all_timezones, timezone
 # Create your models here.
 
@@ -45,12 +44,3 @@ class Event(models.Model):
 
     def __unicode__(self):
         return u"{}".format(self.title)
-
-class Image(models.Model):
-
-    # name = models.CharField(max_length=80, blank=True)
-    # image = models.ImageField(upload_to="images/%Y/%m/%d")
-    fpfile = django_filepicker.models.FPFileField(upload_to='uploads')
-
-    def __unicode__(self):
-        return u"{}".format(self.name)

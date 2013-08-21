@@ -257,9 +257,3 @@ except KeyError:
     # Mailchimp will output a warning that it is not set.
     print "warning: MAILCHIMP API KEY NOT SET IN ENVIRONMENT"
     MAILCHIMP_API_KEY = "dummy-api-key"
-
-try:
-    FILEPICKER_API_KEY = os.environ['FILEPICKER_API_KEY']
-except KeyError:
-    print "warning FILEPICKER_API_KEY not set in ENVIRONMENT"
-    FILEPICKER_API_KEY = "dummy-api-key"

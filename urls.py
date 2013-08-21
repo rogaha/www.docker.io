@@ -11,7 +11,7 @@ from django.conf.urls.static import static
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'base.views.home', name='home'),
-    url(r'^about/$', TemplateView.as_view(template_name='about.md'), name="about"),
+    url(r'^about/$', TemplateView.as_view(template_name='about/docker.md'), name="about"),
 
     url(r'^community/$', TemplateView.as_view(template_name='community.md'), name="community"),
     url(r'^gettingstarted/$', TemplateView.as_view(template_name='getting-started.md'), name="getting_started"),
@@ -20,7 +20,7 @@ urlpatterns = patterns('',
 
     url(r'^the-whole-story/$', TemplateView.as_view(template_name='the-whole-story.md'), name="the-whole-story"),
     url(r'^live/$', TemplateView.as_view(template_name='live.md'), name="live"),
-    url(r'^team/$', TemplateView.as_view(template_name='team.md'), name="team"),
+    url(r'^team/$', 'base.views.team', name="team"),
     url(r'^press/$', TemplateView.as_view(template_name='press.md'), name="press"),
     url(r'^news/$', TemplateView.as_view(template_name='news.md'), name="news"),
     url(r'^events/$', TemplateView.as_view(template_name='events.md'), name="events"),
@@ -35,8 +35,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^filepicker', 'base.views.filepicker')
 
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,12 +5,13 @@ from django.template import RequestContext
 from django.http import request
 from mailchimp import utils as mailchimputils
 from datetime import datetime
-from forms import NewsSubscribeForm, FilePickerForm
+from forms import NewsSubscribeForm
 from django.http import HttpResponseRedirect
 # from .utils import get_app_auth_twitter
 from utils import TwitterClient
 import json
 from django.core.cache import cache
+from base.models import TeamMember
 
 #We are not using the intercom plugin because we use js instead
 #from intercom import Intercom
@@ -23,6 +24,17 @@ def home(request):
 
     return render_to_response("homepage.md", {
         "form": form,
+    }, context_instance=RequestContext(request))
+
+def team(request):
+    """
+    Team page
+    """
+
+    core_team = TeamMember.objects.all()
+
+    return render_to_response("about/team.md", {
+        "core_team": core_team,
     }, context_instance=RequestContext(request))
 
 
@@ -93,17 +105,3 @@ def email_thanks(request):
                 'form': form,
             },
             context_instance=RequestContext(request))
-
-
-    return render_to_response("homepage.md", {
-        "form": form,
-        }, context_instance=RequestContext(request))
-
-
-def filepicker(request):
-
-    form = FilePickerForm()
-
-    return render_to_response("base/filepicker.html", {
-        "form": form,
-    }, context_instance=RequestContext(request))

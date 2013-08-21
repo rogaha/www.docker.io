@@ -1,4 +1,4 @@
-{% extends 'about.html' %}
+{% extends 'about/docker.html' %}
 {% load static %}
 {% block title %}About Docker - {% endblock %}
 {% block meta-description %}Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application. The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal, OpenStack clusters, public clouds and more.{% endblock %}

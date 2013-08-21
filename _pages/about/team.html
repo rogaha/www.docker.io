@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load navactive %}{% load markdown_deux_tags %}{% load gravatar %}
+{% block page_js %}{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+<div class="row" >
+    <div class="span3">
+        {% include 'about/_menu.html' %}
+
+    </div>
+    <div id="" class="span9 main-copy">
+        {% markdown %}{% block copy_introduction %}
+        {% endblock %}{% endmarkdown %}
+
+        {% markdown %}{% block top_contributors %}
+        {% endblock top_contributors %}{% endmarkdown %}
+
+
+        {% markdown %}{% block teammembers %}
+        {% endblock teammembers %}{% endmarkdown %}
+
+        {% for team_member in core_team %}
+        <div class="team core-team">
+            <div class="team-member">
+                <img src="{% gravatar_url team_member.gravatar_email %}" alt="profile picture">
+                <span class="name">{{ team_member.full_name }}</span>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+
+</div>
+
+
+</div>
+
+{% endblock %}
