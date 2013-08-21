@@ -58,12 +58,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = PROJECT_ROOT + "/media/"
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -179,6 +179,7 @@ PREREQ_APPS = (
     'markdown_deux',
     'south',
     'docker_tutorial',
+    'pytz'
 )
 
 PROJECT_APPS = (
@@ -252,7 +253,13 @@ ALLOWED_HOSTS = ['.docker.io', '.dotcloud.com'] # need to set to real prod value
 
 try:
     MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
-except:
+except KeyError:
     # Mailchimp will output a warning that it is not set.
     print "warning: MAILCHIMP API KEY NOT SET IN ENVIRONMENT"
     MAILCHIMP_API_KEY = "dummy-api-key"
+
+try:
+    FILEPICKER_API_KEY = os.environ['FILEPICKER_API_KEY']
+except KeyError:
+    print "warning FILEPICKER_API_KEY not set in ENVIRONMENT"
+    FILEPICKER_API_KEY = "dummy-api-key"

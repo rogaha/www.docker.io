@@ -58,7 +58,8 @@ div[class*='span'] {
   padding-bottom: 30px;
 }
 .copy-headline {
-  margin-top: 20px;
+  margin-top: 0px;
+  border-bottom: 1.2px solid #394d54;
 }
 .box h1,
 .box h2,

@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.http import request
 from mailchimp import utils as mailchimputils
 from datetime import datetime
-from forms import NewsSubscribeForm
+from forms import NewsSubscribeForm, FilePickerForm
 from django.http import HttpResponseRedirect
 # from .utils import get_app_auth_twitter
 from utils import TwitterClient
@@ -100,3 +100,10 @@ def email_thanks(request):
         }, context_instance=RequestContext(request))
 
 
+def filepicker(request):
+
+    form = FilePickerForm()
+
+    return render_to_response("base/filepicker.html", {
+        "form": form,
+    }, context_instance=RequestContext(request))
