@@ -58,6 +58,10 @@
             <div class="brand logo"><img src="{% static 'img/docker-top-logo.png' %}"> </div>
 
             <ul class="nav pull-right">
+                {% if request.user.is_staff %}
+                    <li><a href="{% url 'admin:index' %}">•</a></li>
+                {% endif %}
+
                 <li class="{%navactive request "/" %}"><a href="{% url 'home' %}" title="Homepage">Home</a></li>
                 <li class="{%navactive request "about" %}"><a href="{% url 'about' %}" title="About Docker">About</a></li>
                 <li class="{%navactive request "getting_started" %}"><a href="{% url 'getting_started' %}" title="Get Started">Getting started</a></li>

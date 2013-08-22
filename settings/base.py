@@ -179,8 +179,7 @@ PREREQ_APPS = (
     'markdown_deux',
     'south',
     'docker_tutorial',
-    'dockerfile_tutorial',
-    'pytz'
+    'dockerfile_tutorial'
 )
 
 PROJECT_APPS = (
