@@ -179,6 +179,8 @@ PREREQ_APPS = (
     'markdown_deux',
     'south',
     'docker_tutorial',
+    'dockerfile_tutorial',
+    'pytz'
 )
 
 PROJECT_APPS = (
@@ -252,7 +254,7 @@ ALLOWED_HOSTS = ['.docker.io', '.dotcloud.com'] # need to set to real prod value
 
 try:
     MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
-except:
+except KeyError:
     # Mailchimp will output a warning that it is not set.
     print "warning: MAILCHIMP API KEY NOT SET IN ENVIRONMENT"
     MAILCHIMP_API_KEY = "dummy-api-key"
