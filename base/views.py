@@ -31,7 +31,7 @@ def team(request):
     Team page
     """
 
-    core_team = TeamMember.objects.all()
+    core_team = TeamMember.objects.all().filter(show_as_team=True).order_by('full_name')
 
     return render_to_response("about/team.md", {
         "core_team": core_team,

@@ -626,11 +626,15 @@ button:hover {
 @pagemenuborder: 1.6px solid #595959;
 
 .pagemenu {
+  margin-top: 35px;
+
+
   ul > li {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-bottom: @pagemenuborder;
     padding-left: 20px;
+    font-size: @baseFontSize + 2px;
 
     &:last-child {
       border-bottom: none;
@@ -639,7 +643,8 @@ button:hover {
     &.active {
       border-right: @pagemenuborder;
       border-left: @pagemenuborder;
-      border-bottom: @pagemenuborder
+      border-bottom: @pagemenuborder;
+      color: @linkBlue;
     }
 
     &:hover {
@@ -650,7 +655,7 @@ button:hover {
 }
 
 .team {
-  .team-member {
+  .team-member{
     position: relative;
     float: left;
     margin: 0px 10px 10px 0;
@@ -662,11 +667,31 @@ button:hover {
 
   .name {
     position: absolute;
-    float: left;
-    bottom: 20px;
-    left: 20px;
+    float: center;
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+    margin-right: auto;
+    margin-left: auto;
+
     color: white;
     text-shadow: black;
     font-size: 22px;
+    text-align: center;
+    padding: 6px;
+    background-color: rgba(0, 0, 0, 0.24);
+//    .debug;
+  }
+  .bio {
+    position: relative;
+    float: left;
+    margin: 0px 10px 10px 0;
+    width: 330px;
+    height: 160px;
+//    border: 1px solid black;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: clip;
+//    .debug;
   }
 }
