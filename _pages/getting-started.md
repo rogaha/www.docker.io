@@ -57,6 +57,8 @@ Mac, Windows and some Linux distributions cannot natively run Docker at this tim
     <br style="clear: both">
 </ul>
 
+Please note that Docker is currently under heavy developement. It should not be used production (yet).
+
 {% endblock %}
 
 

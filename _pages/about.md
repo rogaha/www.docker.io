@@ -11,9 +11,12 @@
 {% block copy_introduction %}
 ## About Docker
 
-Docker  is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere.
+Docker  is an open-source engine that automates the deployment of any application as a lightweight, portable,
+    self-sufficient container that will run virtually anywhere.
 
-Docker containers can encapsulate any payload, and will run consistently on and between virtually any server. The same container that a developer builds and tests on a laptop will run at scale, in production, on VMs, bare-metal servers, OpenStack clusters, public instances, or combinations of the above.
+Docker containers can encapsulate any payload, and will run consistently on and between virtually any server. The same
+    container that a developer builds and tests on a laptop will run at scale, in production*, on VMs,
+    bare-metal servers, OpenStack clusters, public instances, or combinations of the above.
 
 Common use cases for Docker include:
 
@@ -21,6 +24,8 @@ Common use cases for Docker include:
 *   Creation of lightweight, private PAAS environments
 *   Automated testing and continuous integration/deployment
 *   Deploying and scaling web apps, databases and backend services
+
+\* Please note Docker is currently under heavy developement. It should not be used production (yet).
 
 ## Learn what Docker is all about
 
