@@ -18,22 +18,26 @@ This project uses a simplified Django structure, and has the notable feature tha
  website can be maintained by changing the markdown files contained in /_pages/. There is a good chance this will
  be the only part you need to touch.
 
-Files which can be edited have the .jmd extension. This is a concatenation between jinja2 and markdown.
+Files which can be easily be edited are in the _pages directory and have the .md extension.
 
 
 Simple installation
 -------------------
 
 * Clone this repository
-* pip install -r requirements.txt
+* ``pip install -r requirements.txt``
+* run ``./local_setup.sh`` to setup everything related to the database.
 * Done!
 
-To preview the website run: `` ./manage.py runserver``. It will pick the local settings by default, which require no
-database.
+To preview the website run: `` ./manage.py runserver``. It will pick the local settings by default, which are
+based on a local mysqlite database. Please note the tweets are now cached in the Database.
+
+To load some data into the news, team page and events
+``python manage.py loaddata base/migrations/[datafiles]``
 
 
-Structure changes
------------------
+Secrets
+-------
 
 Because this repository is in a public repository, we keep our secrets in environment variables. If you do not
 set these keys, running the app might fail.
@@ -44,13 +48,11 @@ Most notable:
 * MAILCHIMP_API_KEY
 
 
-About the .jmd files
+About the .md files
 --------------------
 
-Using markdown-formatted text allows separation of content (tekst) and markup (html). The extension
-.jmd is a concatenation of jinja and markdown, and does not really exist elsewhere. Depending on your setup
+Using markdown-formatted text allows separation of content (tekst) and markup (html). Depending on your setup
 you might want to setup your editor to show the content with either markdown highlighting or jinja shortcuts.
-
 
 
 Building CSS from LESS

@@ -21,6 +21,11 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 {% block copy_news %}
 ### Latest updates
 
+#### Aug 23 • Docker 0.6 Released
+Today we've released Docker version 0.6. It comes with an Events API, build and registry improvements, expert mode,
+    security updates and more.
+    <span class="read-more"><a href="http://blog.docker.io/2013/08/websockets-dockerfile-upgrade-better-registry-support-expert-mode-and-more/">read more -></a></span>
+
 #### Aug 6 • now @docker on Twitter
 This morning we changed our Twitter handle from getdocker to docker on twitter. So please tweet @docker now!
 
@@ -64,19 +69,24 @@ Sam Alba presents an article about the integration of Docker in OpenStack's clou
 
 
 {% block copy_community %}
-### Community events
-
 ### Upcoming events
-#### Boston OpenStack Meetup • Aug 14
-<a href="https://twitter.com/golubbe" target="_blank">Ben Golub</a>, <a href="https://twitter.com/solomonstre" target="_blank">Solomon Hykes</a> and <a href="https://twitter.com/KenCochrane" target="_blank">Ken Cochrane</a> will be attending the next Boston OpenStack Meetup to talk about **Application Deployment on Openstack Using Containers and Docker** <a href="http://www.meetup.com/Openstack-Boston/events/131949152/" target="_blank">read more -></a>
-
-#### CoderCamp13 in Hamilton, Canada • Aug 14
-<a href="https://twitter.com/adr" target="_blank">John Fink</a> will talk about **<a href="http://docker.io">docker</a>, a lightweight virtual machine system implemented as a wrapper around Linux containers** <a href="http://codercamp.eventbrite.com/" target="_blank">read more -></a>
 
 #### New York Docker Meetup • Aug 21
-Join us for the first Docker Meetup in NYC <a href="http://www.meetup.com/Docker-meetups/events/131005192/" target="_blank">read more -></a>
+Join us for the first Docker Meetup in NYC <span class="read-more"><a href="http://www.meetup.com/Docker-meetups/events/131005192/" target="_blank">read more -></a></span>
 
-#### Our previous Hack Day • Jul 30 (past):
+#### Docker hackday #7 San Francisco • Oct 1st
+Block your calendar for the next Hackday at Docker HQ in San Francisco. <span class="read-more"><a href="http://www.meetup.com/Docker-meetups/events/136193992/" target="_blank">read more -></a></span>
+
+
+### Past events
+
+#### Boston OpenStack Meetup • Aug 14
+<a href="https://twitter.com/golubbe" target="_blank">Ben Golub</a>, <a href="https://twitter.com/solomonstre" target="_blank">Solomon Hykes</a> and <a href="https://twitter.com/KenCochrane" target="_blank">Ken Cochrane</a> will be attending the next Boston OpenStack Meetup to talk about **Application Deployment on Openstack Using Containers and Docker** <span class="read-more"><a href="http://www.meetup.com/Openstack-Boston/events/131949152/" target="_blank">read more -></a></span>
+
+#### CoderCamp13 in Hamilton, Canada • Aug 14
+<a href="https://twitter.com/adr" target="_blank">John Fink</a> will talk about **<a href="http://docker.io">docker</a>, a lightweight virtual machine system implemented as a wrapper around Linux containers** <span class="read-more"><a href="http://codercamp.eventbrite.com/" target="_blank">read more -></a></span>
+
+#### Hack Day #6 • Jul 30:
 Our hackday #6 was a success, with over 60 participants and, amongst others, great talks about how how people are using
     it in **EBay**, **Mailgun (Rackspace)** and **CloudFlare**.
     <span class="read-more disabled"><a href="{% url 'live' %}">watch sessions -></a></span>
@@ -151,12 +161,12 @@ Our hackday #6 was a success, with over 60 participants and, amongst others, gre
 {#355756267224047616#}
 355955060607430656
 354829574980378624
-354411184524500992
+{#354411184524500992#}
 {#354715613337354241#}
-355705492087119875
+{#355705492087119875#}
 {#355792575988371456#}
-357972314660405249
-356280542892802050
+{#357972314660405249#}
+{#356280542892802050#}
 {#356763917625724928#}
 
 {% end_list_tweets %}

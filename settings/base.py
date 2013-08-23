@@ -141,8 +141,14 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': PROJECT_ROOT.child('cache'),
     }
-}
+    # In the progress of setting this up for the tweet-caching (and such)
+    ,
+    'database_cache': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cachetable',
+    }
 
+}
 
 
 # CACHE_MIDDLEWARE_ALIAS = default
