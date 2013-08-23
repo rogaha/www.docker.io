@@ -35,15 +35,15 @@ There are several ways to get in touch:
        href="https://groups.google.com/forum/#!forum/docker-user"
        target="_blank"><li>Google groups<img src="{% static 'img/community/google-groups.png' %}"> </li></a>
 
-    <a data-description="All development goes on in Github. It is a your destination to contribute, find and commit problems"
+    <a data-description="All development goes on in Github. Your destination to contribute code and find or submit problems."
         href="http://github.com/dotcloud/docker"
         target="_blank"><li>Github<img src="{% static 'img/community/github.png' %}"> </li></a>
 
-    <a data-description="Ask questions about how to use Docker on Stack Overflow, so anyone can benefit from the answers"
+    <a data-description="Ask questions about how to use Docker on Stack Overflow, so anyone can benefit from the answers."
         href="http://stackoverflow.com/search?q=docker"
         target="_blank"><li>Stackoverflow<img src="{% static 'img/community/stackoverflow.png' %}"> </li></a>
 
-    <a data-description="For general praise, and other chitter chatter tweet"
+    <a data-description="For general praise, and other chitter chatter tweet."
         href="http://twitter.com/docker/"
         target="_blank"><li>Twitter<img src="{% static 'img/community/twitter.png' %}"> </li></a>
 </ul>
