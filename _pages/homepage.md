@@ -15,7 +15,7 @@
 {% block copy_introduction %}
 Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application.
     The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal,
-    OpenStack clusters, public clouds and more. <span class="read-more"><a href="{% url 'about' %}" title="About Docker">Read more -></a></span>
+    OpenStack clusters, public clouds and more. <span class="read-more"><a href="{% url 'learn_more' %}" title="About Docker">Read more -></a></span>
 {% endblock %}
 
 {% block copy_news %}

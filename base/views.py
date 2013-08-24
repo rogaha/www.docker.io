@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 from utils import TwitterClient
 import json
 from django.core.cache import cache
-from base.models import TeamMember
+from base.models import TeamMember, NewsItem
 
 #We are not using the intercom plugin because we use js instead
 #from intercom import Intercom
@@ -26,6 +26,20 @@ def home(request):
         "form": form,
     }, context_instance=RequestContext(request))
 
+
+def news(request):
+    """
+    News page
+    """
+
+    news_items = NewsItem.objects.all()
+
+
+    return render_to_response("about/news.md", {
+        "news_items": news_items,
+    }, context_instance=RequestContext(request))
+
+
 def team(request):
     """
     Team page
@@ -36,6 +50,8 @@ def team(request):
     return render_to_response("about/team.md", {
         "core_team": core_team,
     }, context_instance=RequestContext(request))
+
+
 
 
 def email_thanks(request):

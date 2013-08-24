@@ -1,8 +1,9 @@
+{% load navactive %}
+
 <div class="pagemenu" >
     <ul class="unstyled">
-        <li>About Docker</li>
-        <li>Press</li>
-        <li>News</li>
-        <li class="active">Team</li>
+        <li class="{% navactive request 'news' %}"><a href="{% url 'news' %}">News</a></li>
+        <li class="{% navactive request 'press'%}"><a href="{% url 'press' %}">Press</a></li>
+        <li class="{% navactive request 'team' %}"><a href="{% url 'team' %}">Team</a></li>
     </ul>
 </div>

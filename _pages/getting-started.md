@@ -33,8 +33,6 @@ We try to make using Docker easy.
 {#{% endblock %}#}
 
 
-
-
 {% block copy_install %}
 
 {### <a id="h_installation"></a>Installation#}

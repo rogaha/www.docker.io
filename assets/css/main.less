@@ -623,29 +623,45 @@ button:hover {
 }
 
 //@pagemenugrey: #595959;
-@pagemenuborder: 1.6px solid #595959;
+@pagemenuborder: 1.5px solid #595959;
 
 .pagemenu {
-  margin-top: 35px;
+  margin-top: 10px;
 
 
   ul > li {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-bottom: @pagemenuborder;
-    padding-left: 20px;
-    font-size: @baseFontSize + 2px;
 
-    &:last-child {
+    & > a {
+      width: 200px;
+      display:inline-block;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 20px;
+      font-size: @baseFontSize + 2px;
+      border-bottom: @pagemenuborder;
+    }
+
+    &:first-child.active > a {
+      border-top: @pagemenuborder;
+    }
+
+    &:last-child > a {
       border-bottom: none;
     }
 
-    &.active {
+    &:last-child.active > a {
+      border-bottom: @pagemenuborder;
+    }
+
+
+    &.active > a {
       border-right: @pagemenuborder;
       border-left: @pagemenuborder;
-      border-bottom: @pagemenuborder;
+//      border-bottom: @pagemenuborder;
+//      border-top: @pagemenuborder;
       color: @linkBlue;
     }
+
 
     &:hover {
       background-color: #e8e8e8;

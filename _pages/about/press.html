@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load navactive %}{% load markdown_deux_tags %}{% load gravatar %}
+{% block page_js %}{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+<div class="row" >
+    <div class="span3">
+        {% include 'about/_menu.html' %}
+
+    </div>
+    <div id="" class="span9 main-copy">
+        {% markdown %}{% block copy_introduction %}
+        {% endblock %}{% endmarkdown %}
+
+        <div class="">
+        {% for news_tem in news_items %}
+
+            <div class="news-item">
+            </div>
+
+        {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}

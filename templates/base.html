@@ -57,7 +57,7 @@
 
             <ul class="nav pull-right">
                 <li class="{%navactive request "/" %}"><a href="{% url 'home' %}" title="Homepage">Home</a></li>
-                <li class="{%navactive request "about" %}"><a href="{% url 'about' %}" title="About Docker">About</a></li>
+                <li class="{%navactive request "learn_more" %}"><a href="{% url 'learn_more' %}" title="Learm more">Learn More</a></li>
                 <li class="{%navactive request "getting_started" %}"><a href="{% url 'getting_started' %}" title="Get Started">Getting started</a></li>
                 <li class="{%navactive request "community" %}"><a href="{% url 'community' %}" title="The Docker Community">Community</a></li>
                 <li><a href="https://docs.docker.io" title="Documentation">Documentation</a></li>
@@ -91,11 +91,13 @@
                 </div>
 
                 <div class="span2 tbox textright">
+                    About:
                     <ul class="unstyled">
-                        <li><a href="{% url 'press' %}" title="Docker in the media">Docker in the media</a></li>
-                        <li><a href="{% url 'events' %}" title="Events and meetups">Events and meetups</a></li>
-                        <li><a href="{% url 'news' %}" title="News and updates">News and updates</a></li>
-                        <li><a href="{% url 'team' %}" title="The team behind">The team behind</a></li>
+                        <li><a href="{% url 'press' %}" title="Docker in the media">Project</a></li>
+                        <li><a href="{% url 'press' %}" title="Docker in the media">Press</a></li>
+                        <li><a href="{% url 'events' %}" title="Events and meetups">Events</a></li>
+                        <li><a href="{% url 'news' %}" title="News and updates">News</a></li>
+                        <li><a href="{% url 'team' %}" title="The team behind">Team</a></li>
                     </ul>
                 </div>
 

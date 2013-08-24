@@ -51,7 +51,7 @@
     "gravatar_email": "", 
     "show_as_team": true, 
     "full_name": "John Costa", 
-    "email": "john.costa@gmail.com", 
+    "email": "john.costa@dotcloud.com", 
     "github_handle": ""
   }
 },
@@ -76,7 +76,7 @@
     "bio": "Yannis is the Operations Manager at dotCloud, unofficially the Director of Awesome, wearing the many hats needed to run the back office from bookkeeper to salesperson to office manager. His obsession lies in automation, replacing ever menial task he's told to do with an army of small shell scripts -- thus the \"Manager\" portion in his title. Yannis graduated from the USC Marshall School of Business with emphasis in Corporate Finance and Entrepreneurship.", 
     "sort_weight": 10, 
     "index_name": "yannis", 
-    "gravatar_email": "yannis.peyret@dotcloud.com", 
+    "gravatar_email": "ypeyret@gmail.com", 
     "show_as_team": true, 
     "full_name": "Yannis Peyret", 
     "email": "", 
@@ -146,7 +146,7 @@
     "bio": "J\u00e9r\u00f4me is a senior engineer at dotCloud, where he rotates between Ops, Support and Evangelist duties and has earned the nickname of \u201cmaster Yoda\u201d. In a previous life he built and operated large scale Xen hosting back when EC2 was just the name of a plane, supervised the deployment of fiber interconnects through the French subway, built a specialized GIS to visualize fiber infrastructure, specialized in commando deployments of large-scale video streaming systems in bandwidth-constrained environments such as conference centers, and various other feats of technical wizardry. When he's annoyed, he threatens to replace things with a very small shell script. His left hand cares for the servers powering the dotCloud PAAS, while his right hand builds cool hacks around Docker. ", 
     "sort_weight": 10, 
     "index_name": "jpetazzo", 
-    "gravatar_email": "jerome@dotcloud.com", 
+    "gravatar_email": "jerome.petazzoni@dotcloud.com", 
     "show_as_team": true, 
     "full_name": "J\u00e9r\u00f4me Petazoni", 
     "email": "", 
@@ -221,6 +221,97 @@
     "full_name": "Julien Barbier", 
     "email": "", 
     "github_handle": ""
+  }
+},
+{
+  "pk": 1, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": true, 
+    "text": "Today we've released Docker version 0.6. It comes with an Events API, build and registry improvements, expert mode, security updates and more.", 
+    "author": 1, 
+    "creation_date": "2013-08-24T00:39:01.030Z", 
+    "link": "http://blog.docker.io/2013/08/websockets-dockerfile-upgrade-better-registry-support-expert-mode-and-more/", 
+    "title": "Docker 0.6 released!", 
+    "publication_date": "2013-08-23"
+  }
+},
+{
+  "pk": 2, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": true, 
+    "text": "This morning we changed our Twitter handle from getdocker to docker on twitter. So please tweet @docker now!", 
+    "author": 1, 
+    "creation_date": "2013-08-24T00:39:01.030Z", 
+    "link": "", 
+    "title": "now @docker on Twitter", 
+    "publication_date": "2013-08-06"
+  }
+},
+{
+  "pk": 3, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": true, 
+    "text": "Open source veteran Ben Golub joins as CEO to drive the Docker vision forward. Read more:\r\n\r\n<a href=\"http://gigaom.com/2013/07/23/paas-pioneer-dotcloud-gets-new-ceo-in-industry-vet-ben-golub/\"><img src=\"/static/img/homepage/gigaom.png\" alt=\"gigaom\"></a>\r\n<a href=\"http://www.reuters.com/article/2013/07/23/ca-dotcloud-idUSnBw235523a+100+BSW20130723\"><img src=\"/static/img/homepage/reuters.png\" alt=\"reuters\"></a>\r\n<a href=\"http://finance.yahoo.com/news/dotcloud-appoints-ben-golub-chief-133000939.html\"><img src=\"/static/img/homepage/yahoo.png\" alt=\"yahoo finance\"></a>", 
+    "author": 12, 
+    "creation_date": "2013-08-24T00:39:01.030Z", 
+    "link": "", 
+    "title": "Ben Golub Joins as CEO", 
+    "publication_date": "2013-07-23"
+  }
+},
+{
+  "pk": 4, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": true, 
+    "text": "We've released version 0.5. Amongst other things, this release containes External Volumes, Advanced Networking and support for an Self Hosted Registry, ", 
+    "author": 1, 
+    "creation_date": "2013-08-24T00:56:23.707Z", 
+    "link": "http://blog.docker.io/2013/07/docker-0-5-0-external-volumes-advanced-networking-self-hosted-registry/", 
+    "title": "Docker 0.5 Released", 
+    "publication_date": "2013-07-18"
+  }
+},
+{
+  "pk": 5, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": false, 
+    "text": "Everyday the Docker community is building awesome tools and projects with and for Docker. We want to share some of these with you.", 
+    "author": 1, 
+    "creation_date": "2013-08-24T00:56:23.707Z", 
+    "link": "http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/", 
+    "title": "Featuring awesome projects", 
+    "publication_date": "2013-07-11"
+  }
+},
+{
+  "pk": 6, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": true, 
+    "text": "By joining the foundation, we are excited to support the amazing open source contributions that have come before us, and support those yet to come! ", 
+    "author": 1, 
+    "creation_date": "2013-08-24T00:56:23.707Z", 
+    "link": "http://blog.docker.io/2013/06/dotcloud-and-docker-join-the-linux-foundation/", 
+    "title": "dotCloud and Docker join the Linux Foundation", 
+    "publication_date": "2013-06-25"
+  }
+},
+{
+  "pk": 7, 
+  "model": "base.newsitem", 
+  "fields": {
+    "show": false, 
+    "text": "Sam Alba presents an article about the integration of Docker in OpenStack's cloud computing platform: NOVA. This integration allows users of OpenStack to seamlessly create Docker containers from the interface they are already using. ", 
+    "author": 1, 
+    "creation_date": "2013-08-24T00:56:23.707Z", 
+    "link": "http://blog.docker.io/2013/06/openstack-docker-manage-linux-containers-with-nova/", 
+    "title": "Docker in Openstack", 
+    "publication_date": "2013-06-06"
   }
 },
 {

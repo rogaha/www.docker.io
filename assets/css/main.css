@@ -378,22 +378,29 @@ button:hover {
   color: white;
 }
 .pagemenu {
-  margin-top: 35px;
+  margin-top: 10px;
 }
-.pagemenu ul > li {
+.pagemenu ul > li > a {
+  width: 200px;
+  display: inline-block;
   padding-top: 8px;
   padding-bottom: 8px;
-  border-bottom: 1.6px solid #595959;
   padding-left: 20px;
   font-size: 16px;
+  border-bottom: 1.5px solid #595959;
 }
-.pagemenu ul > li:last-child {
+.pagemenu ul > li:first-child.active > a {
+  border-top: 1.5px solid #595959;
+}
+.pagemenu ul > li:last-child > a {
   border-bottom: none;
 }
-.pagemenu ul > li.active {
-  border-right: 1.6px solid #595959;
-  border-left: 1.6px solid #595959;
-  border-bottom: 1.6px solid #595959;
+.pagemenu ul > li:last-child.active > a {
+  border-bottom: 1.5px solid #595959;
+}
+.pagemenu ul > li.active > a {
+  border-right: 1.5px solid #595959;
+  border-left: 1.5px solid #595959;
   color: #213b8f;
 }
 .pagemenu ul > li:hover {

@@ -1,4 +1,4 @@
-{% extends 'about/docker.html' %}
+{% extends 'learn-more.html' %}
 {% load static %}
 {% block title %}About Docker - {% endblock %}
 {% block meta-description %}Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application. The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal, OpenStack clusters, public clouds and more.{% endblock %}
@@ -29,7 +29,7 @@ The following presentation explains what Docker is in laymen terms and then goes
 
 <iframe class="slideshare-presentation" src="https://www.slideshare.net/slideshow/embed_code/24441742" width="630" height="393" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
-<a href="{% url 'the-whole-story' %}" title="Read the whole story in html format">Read the full story</a>
+<a href="{% url 'the_whole_story' %}" title="Read the whole story in html format">Read the full story</a>
 
 Or, if you want to give it a spin:
 

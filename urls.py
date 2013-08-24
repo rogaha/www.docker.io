@@ -6,24 +6,30 @@ from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import RedirectView
+
 
 
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'base.views.home', name='home'),
-    url(r'^about/$', TemplateView.as_view(template_name='about/docker.md'), name="about"),
-
-    url(r'^community/$', TemplateView.as_view(template_name='community.md'), name="community"),
+    url(r'^learn_more/$', TemplateView.as_view(template_name='learn-more.md'), name="learn_more"),
     url(r'^gettingstarted/$', TemplateView.as_view(template_name='getting-started.md'), name="getting_started"),
+    url(r'^community/$', TemplateView.as_view(template_name='community.md'), name="community"),
+
 
     # url(r'^gettingstarted/$', 'base.views.gettingstarted', name="getting_started"),
 
-    url(r'^the-whole-story/$', TemplateView.as_view(template_name='the-whole-story.md'), name="the-whole-story"),
+    url(r'^the_whole_story/$', TemplateView.as_view(template_name='the-whole-story.md'), name="the_whole_story"),
+    url(r'^the-whole-story/$', RedirectView.as_view(url=reverse_lazy('the_whole_story'))),
+
     url(r'^live/$', TemplateView.as_view(template_name='live.md'), name="live"),
+
+    url(r'^news/$', 'base.views.news', name="news"),
     url(r'^team/$', 'base.views.team', name="team"),
-    url(r'^press/$', TemplateView.as_view(template_name='press.md'), name="press"),
-    url(r'^news/$', TemplateView.as_view(template_name='news.md'), name="news"),
-    url(r'^events/$', TemplateView.as_view(template_name='events.md'), name="events"),
+    url(r'^press/$', TemplateView.as_view(template_name='about/press.md'), name="press"),
+    url(r'^events/$', TemplateView.as_view(template_name='about/events.md'), name="events"),
 
 
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
