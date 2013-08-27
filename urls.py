@@ -30,7 +30,11 @@ urlpatterns = patterns('',
     url(r'^team/$', 'base.views.team', name="team"),
     url(r'^events/$', 'base.views.events', name="events"),
     # url(r'^about/$', TemplateView.as_view(template_name='about/about.md'), name="about"),
+    url(r'^about/$', RedirectView.as_view(url=reverse_lazy('learn_more')), name='about'),
+
     url(r'^press/$', TemplateView.as_view(template_name='about/press.md'), name="press"),
+
+
 
 
     url(r'^news_signup/$', 'base.views.email_thanks', name='email_thanks'),
@@ -44,5 +48,4 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
