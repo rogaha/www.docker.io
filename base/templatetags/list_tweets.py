@@ -6,7 +6,7 @@ import json
 from django.core.cache import get_cache
 
 
-cache = get_cache('disk_cache')
+cache = get_cache('database_cache')
 
 # from django.core.urlresolvers import reverse
 # import re

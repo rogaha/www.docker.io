@@ -42,15 +42,20 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
     <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/vendor/jquery.scrollTo-min.js' %}"></script>
+    <script src="{% static 'js/utils.js' %}"></script>
+
     {% endblock js %} {% block page_js %}{% endblock page_js %}
     {% google_analytics %}
 </head>
 
 <body>
 
-<!-- Part 1: Wrap all page content here -->
-<div id="wrap">
 
+<!-- navigation -->
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner navbar-fixed-top ">
+        <div class="container" >
+            <div class="brand logo"><img src="{% static 'img/docker-top-logo.png' %}"> </div>
 
     <!-- navigation -->
     <div class="navbar navbar-static-top">
@@ -59,6 +64,9 @@
                 <a href="{% url 'home' %}" title="Homepage"><div class="brand logo"><img src="{% static 'img/docker-top-logo.png' %}"> </div></a>
 
                 <ul class="nav pull-right">
+                    {% if request.user.is_staff %}
+                    <li><a href="{% url 'admin:index' %}">•</a></li>
+                    {% endif %}
                     <li class="{%navactive request "/" %}"><a href="{% url 'home' %}" title="Homepage">Home</a></li>
                     <li class="{%navactive request "learn_more" %}"><a href="{% url 'learn_more' %}" title="Learm more">Learn More</a></li>
                     <li class="{%navactive request "getting_started" %}"><a href="{% url 'getting_started' %}" title="Get Started">Getting started</a></li>
@@ -72,6 +80,7 @@
     {#        <div class="nav-underline" ></div>#}
         </div>
     </div>
+</div>
 
 <!-- end of navigation -->
 
