@@ -9,24 +9,27 @@
 <div class="container">
 
 <div class="row" >
+    <div class="span12 text-center">
+        <div class="copy-headline">
+            {% markdown %}{% block copy_headline %}
+                <h1>Placeholder for content</h1>
+            {% endblock %}{% endmarkdown %}
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="span12 paper">
     <div class="span3">
         {% include 'about/_menu.html' %}
 
     </div>
-    <div id="" class="span9 main-copy">
+    <div id="" class="span8 main-copy">
         {% markdown %}{% block copy_introduction %}
         {% endblock %}{% endmarkdown %}
 
-        <div class="">
-        {% for news_tem in news_items %}
-
-            <div class="news-item">
-            </div>
-
-        {% endfor %}
-        </div>
-
     </div>
+    </div> <!-- end span12 -->
 
 </div>
 

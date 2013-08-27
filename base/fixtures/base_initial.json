@@ -48,7 +48,7 @@
     "bio": "John Costa is a developer support engineer at dotCloud.  He brings with him a background in web technologies and systems engineering.", 
     "sort_weight": 10, 
     "index_name": "", 
-    "gravatar_email": "", 
+    "gravatar_email": "john.costa@gmail.com", 
     "show_as_team": true, 
     "full_name": "John Costa", 
     "email": "john.costa@dotcloud.com", 
@@ -318,22 +318,77 @@
   "pk": 1, 
   "model": "base.event", 
   "fields": {
-    "text": "next Docker meetup at the office", 
-    "date_and_time": "2013-09-17T23:01:56Z", 
-    "link": "", 
-    "location": "Dotcloud - San Francisco", 
-    "title": "Docker meetup"
+    "text": "We'd like you to join us for the first Docker Meetup in Boston. We'll be going over Docker basics in order to familiarize those new to the software, as well as exploring how people are utilizing Docker in their development and production environments. Ken Cochrane, a site reliability engineer at dotCloud, will be giving a Docker 101 walk-through. ", 
+    "date_and_time": "2013-09-25T02:00:00Z", 
+    "link": "http://www.meetup.com/Docker-Boston/events/133343702/", 
+    "location": "Brightcove Office, Boston", 
+    "title": "Docker Meetup in Boston"
   }
 },
 {
   "pk": 2, 
   "model": "base.event", 
   "fields": {
-    "text": "London!", 
-    "date_and_time": "2013-08-20T23:00:03Z", 
+    "text": "Join us for the first Docker Meetup in London. Make sure to check back for more informations about the talks we'll have on that day.", 
+    "date_and_time": "2013-09-06T02:00:00Z", 
+    "link": "http://www.meetup.com/Docker-London/events/132541952/", 
+    "location": "London - Google campus", 
+    "title": "Docker London Meetup"
+  }
+},
+{
+  "pk": 3, 
+  "model": "base.event", 
+  "fields": {
+    "text": "Block your calendar for the next Hackday at Docker HQ in San Francisco.", 
+    "date_and_time": "2013-10-01T20:00:00Z", 
+    "link": "http://www.meetup.com/Docker-meetups/events/136193992/", 
+    "location": "Docker HQ, San Francisco", 
+    "title": "Docker hackday #7"
+  }
+},
+{
+  "pk": 4, 
+  "model": "base.event", 
+  "fields": {
+    "text": "<a href=\"https://twitter.com/golubbe\" target=\"_blank\">Ben Golub</a>, \r\n<a href=\"https://twitter.com/solomonstre\" target=\"_blank\">Solomon Hykes</a> and \r\n<a href=\"https://twitter.com/KenCochrane\" target=\"_blank\">Ken Cochrane</a> \r\nwill be attending the next Boston OpenStack Meetup to talk about **Application Deployment on Openstack Using Containers and Docker**", 
+    "date_and_time": "2013-08-15T01:57:52Z", 
+    "link": "http://www.meetup.com/Openstack-Boston/events/131949152/", 
+    "location": "Microsoft NERD Center, Boston", 
+    "title": "Boston OpenStack Meetup"
+  }
+},
+{
+  "pk": 5, 
+  "model": "base.event", 
+  "fields": {
+    "text": "<a href=\"https://twitter.com/adr\" target=\"_blank\">John Fink</a> will talk about **<a href=\"http://docker.io\">docker</a>, a lightweight virtual machine system implemented as a wrapper around Linux containers** ", 
+    "date_and_time": "2013-08-15T01:57:52Z", 
+    "link": "http://codercamp.eventbrite.com/", 
+    "location": "Hamilton, Canada", 
+    "title": "CoderCamp13"
+  }
+},
+{
+  "pk": 6, 
+  "model": "base.event", 
+  "fields": {
+    "text": "Join us for the first Docker Meetup in NYC", 
+    "date_and_time": "2013-08-22T01:57:52Z", 
+    "link": "http://www.meetup.com/Docker-meetups/events/131005192/", 
+    "location": "New York", 
+    "title": "New York Docker"
+  }
+},
+{
+  "pk": 7, 
+  "model": "base.event", 
+  "fields": {
+    "text": "Our hackday #6 was a success, with over 60 participants and, amongst others, great talks about how how people are using it in **EBay**, **Mailgun (Rackspace)** and **CloudFlare**.\r\n    <span class=\"read-more disabled\"><a href=\"/live/\">watch sessions -></a></span>\r\n\r\n<img src=\"/static/img/homepage/ebay.png\" title=\"logo's of EBay, Mailgun and CloudFlare\">\r\n<img src=\"/static/img/homepage/mailgun.png\" title=\"logo's of EBay, Mailgun and CloudFlare\">\r\n<img src=\"/static/img/homepage/cloudflare.png\" title=\"logo's of EBay, Mailgun and CloudFlare\">\r\n\r\n<a href=\"/live\"><img src=\"https://farm4.staticflickr.com/3763/9409768665_966d0c08d9.jpg\" width=\"500\" height=\"375\" alt=\"Docker Hck Day #6\"></a>", 
+    "date_and_time": "2013-07-30T20:00:00Z", 
     "link": "", 
-    "location": "London", 
-    "title": "London Meetup"
+    "location": "Docker HQ, San Francisco", 
+    "title": "Docker Hackday #6"
   }
 }
 ]

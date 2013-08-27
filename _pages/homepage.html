@@ -79,6 +79,17 @@
         <div class="span6 block_updates copy_news">
             {% markdown %}{% block copy_news %}Placeholder for content
             {% endblock %}{% endmarkdown %}
+        {% for news_item in news_items %}
+            <div class="news-item">
+                <h4>{{ news_item.publication_date }} • {{ news_item.title }}</h4>
+            {% if news_item.link %}
+                {{ news_item.text|add:'<span class="read-more"><a href="'|add:news_item.link|add:'"> Read more -></a></span>'|markdown }}
+            {% else %}
+                {{ news_item.text|markdown }}
+            {% endif %}
+            </div>
+
+        {% endfor %}
 
 {# ToDo: Re-enable form #}
 {#            <h3>Stay up to date, join our mailinglist</h3>#}
@@ -96,9 +107,33 @@
             {% markdown %}{% block copy_community %}Placeholder for content
             {% endblock %}{% endmarkdown %}
 
+        {% for event in upcoming_events %}
+            <div class="event">
+                <h4>{{ event.date_and_time|date:"D M  d" }} • {{ event.title }} - {{ event.location }}</h4>
+
+                {% if event.link %}
+                    {{ event.text|truncatewords:20|add:'<span class="read-more"><a href="'|add:event.link|add:'"> Read more -></a></span>'|markdown }}
+                {% else %}
+                    {{ event.text|truncatewords:20|markdown }}
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <a href="/live"><img src="https://farm4.staticflickr.com/3763/9409768665_966d0c08d9.jpg" width="500" height="375" alt="Docker Hck Day #6"></a>
 
         </div>
     </div>
+
+{#    <div class="span12 row press" >#}
+{#        <hr>#}
+{#        <h4></h4>#}
+{#        <a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">#}
+{#            <img width="180px" style="float:left;margin-right:10px;margin-top: -15px;;" src="{% static 'img/homepage/linux.com.jpg' %}" alt="Linux.com: Docker: A 'Shipping Container' for Linux Code">#}
+{#        </a>#}
+{#        <a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">#}
+{#            <img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud">#}
+{#        </a>#}
+{#    </div>#}
 
 
 </div> <!-- end container -->

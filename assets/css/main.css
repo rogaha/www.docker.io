@@ -3,6 +3,7 @@
 }
 body {
   margin-top: 70px;
+  background-color: #f2f2f2;
 }
 p a {
   text-decoration: underline;
@@ -26,7 +27,7 @@ p a.btn {
   color: white;
 }
 .navbar .nav li a {
-  padding: 25px 20px 25px;
+  padding: 25px 17px 25px;
 }
 .nav-underline {
   height: 6px;
@@ -59,7 +60,6 @@ div[class*='span'] {
 }
 .copy-headline {
   margin-top: 0px;
-  border-bottom: 1.2px solid #394d54;
 }
 .box h1,
 .box h2,
@@ -103,13 +103,58 @@ span.read-more {
 }
 /* generic page copy styles */
 .copy-headline h1 {
-  font-size: 24px;
+  font-size: 21px;
+}
+/* =======================
+   Sticky footer
+======================= */
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+
+  margin: 0 auto -350px;
+}
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 350px;
+}
+footer,
+.footer {
+  margin-top: 160px;
+}
+footer .ligaturesymbols,
+.footer .ligaturesymbols {
+  font-size: 30px;
+  color: black;
+}
+footer .ligaturesymbols a,
+.footer .ligaturesymbols a {
+  color: black;
+}
+.footer-landscape-image {
+  position: absolute:
+  bottom: 0;
+  margin-bottom: 0;
+  background-image: url('../img/website-footer_clean.svg');
+  background-repeat: repeat-x;
+  height: 350px;
 }
 /* =======================
    Social footer
 ======================= */
 .social {
   margin-left: 0px;
+  margin-top: 15px;
 }
 .social .twitter,
 .social .github,
@@ -151,41 +196,6 @@ form [type=submit] {
   margin-top: -8px;
 }
 div.alert.alert-block {
-  margin-bottom: 15px;
-}
-footer,
-.footer {
-  margin-top: 160px;
-  margin-bottom: 10px;
-}
-footer .ligaturesymbols,
-.footer .ligaturesymbols {
-  font-size: 30px;
-  color: black;
-}
-footer .ligaturesymbols a,
-.footer .ligaturesymbols a {
-  color: black;
-}
-.footer-landscape {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.footer-landscape-image {
-  background-image: url('../img/website-footer_clean.svg');
-  background-repeat: repeat-x;
-  height: 250px;
-}
-.float-left {
-  float: left;
-  margin-right: 15px;
-  margin-bottom: 15px;
-}
-.float-right {
-  float: right;
-  margin-left: 15px;
   margin-bottom: 15px;
 }
 /* ******************************
@@ -302,6 +312,10 @@ button:hover {
 .copy_news img:hover {
   opacity: 0.7;
 }
+.press {
+  text-align: center;
+  margin: 0;
+}
 /* ******************************
  For the about page
 ****************************** */
@@ -346,13 +360,12 @@ button:hover {
 }
 .option-chooser-blocks li {
   list-style-type: none;
-  display: block;
   float: left;
   height: 115px;
   width: 115px;
   background-color: #eaeaea;
   border: 2px solid #b0c0bf;
-  margin: 6px;
+  margin: 5px;
   text-align: center;
   padding: 5px;
   box-sizing: border-box;
@@ -360,6 +373,13 @@ button:hover {
 }
 .option-chooser-blocks li:hover {
   background-color: #d1d1d1;
+}
+option-chooser-blocks,
+chooser-description {
+  display: block;
+  float: left;
+  width: 100%;
+  clear: both;
 }
 /* ******************************
  For the community page
@@ -378,10 +398,12 @@ button:hover {
   color: white;
 }
 .pagemenu {
-  margin-top: 10px;
+  margin-top: 18px;
+  width: 180px;
+  margin-left: 20px;
 }
 .pagemenu ul > li > a {
-  width: 200px;
+  width: 160px;
   display: inline-block;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -401,7 +423,7 @@ button:hover {
 .pagemenu ul > li.active > a {
   border-right: 1.5px solid #595959;
   border-left: 1.5px solid #595959;
-  color: #213b8f;
+  color: #394d54;
 }
 .pagemenu ul > li:hover {
   background-color: #e8e8e8;
@@ -437,6 +459,7 @@ button:hover {
   width: 330px;
   height: 160px;
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
   overflow: hidden;
   text-overflow: clip;
 }

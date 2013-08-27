@@ -1,4 +1,4 @@
-{% extends 'community.html' %}{% load staticfiles %}
+{% extends 'community/community.html' %}{% load staticfiles %}
 {% block title %}Community - {% endblock %}
 {% block meta-description %}Join the thousands of developers who are helping to lead the Docker revolution!{% endblock %}
 {% block meta-keywords %}Docker, community, cobntribute{% endblock %}
@@ -25,6 +25,7 @@ improve your skills, or give back.
 
 There are several ways to get in touch:
 
+<div class="option-chooser-blocks-wrapper">
 <ul id="chooser-blocks" class="option-chooser-blocks">
 
     <a id="block-irc" data-description="A lot of our talk goes on on our IRC channel. You can find us as #docker on irc.freenode.net"
@@ -47,8 +48,9 @@ There are several ways to get in touch:
         href="http://twitter.com/docker/"
         target="_blank"><li>Twitter<img src="{% static 'img/community/twitter.png' %}"> </li></a>
 </ul>
+</div>
 
-<strong><span id="description" class="">So many options!</span></strong>
+<strong><span id="description" class="chooser-description">So many options!</span></strong>
 
 {#<iframe id="bbme" src="http://botbot.me/freenode/docker/" width="615" height="400"></iframe>#}
 {#<iframe src="https://kiwiirc.com/client/irc.freenode.net/#docker" style="border:0; width:100%; height:450px;"></iframe>#}
@@ -71,12 +73,10 @@ Sharing what you have built with Docker is a great way to help people understand
 
 ### Come to (or organize) a meetup ###
 
-<img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px;">
+Docker meetups are a great way to network, learn, share best practices, and have fun. See a full list of events
+    [here]({% url 'events' %}).
 
-Docker meetups are a great way to network, learn, share best practices, and have fun.
-
-These are the current active docker meetups:
-
+<img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px; float:left; margin-right:40px;">
 #### USA
 * <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
 * <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
@@ -86,15 +86,7 @@ These are the current active docker meetups:
 * <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
 * <a href="http://www.meetup.com/Docker-London/">London, UK</a>
 
-If you would like to organize a meetup in your city, <a href="https://twitter.com/docker/">contact us</a>. We will be happy to help.
-
-### Share or Create New Dockerized Apps ###
-There are over 1,000 cool, containerized applications in our public Index.
-
-* Search for containers in the [Index](https://index.docker.io/)
-* Publish containers at the Index
-* Better yet, create a Dockerfile and put it in your repository, to make creation of new containers automatic
-
+<br style="clear:left;">
 
 ## Contribute
 

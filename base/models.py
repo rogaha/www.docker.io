@@ -24,7 +24,7 @@ class TeamMember(models.Model):
 class NewsItem(models.Model):
 
     title = models.CharField(max_length=80, blank=False)
-    text = models.TextField(blank=True)
+    text = models.TextField(blank=True, help_text="Markdown format accepted")
     link = models.URLField(blank=True)
     publication_date = models.DateField(default=datetime.now())
     show = models.BooleanField(default=False)
@@ -39,7 +39,7 @@ class Event(models.Model):
     title = models.CharField(max_length=80, blank=True)
     location = models.CharField(max_length=80, blank=True)
     date_and_time = models.DateTimeField(default=datetime.utcnow(), help_text="Time local to the event")
-    text = models.TextField(blank=True)
+    text = models.TextField(blank=True, help_text="Markdown format accepted")
     link = models.URLField(blank=True)
 
     def __unicode__(self):

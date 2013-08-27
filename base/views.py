@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 from utils import TwitterClient
 import json
 from django.core.cache import cache
-from base.models import TeamMember, NewsItem
+from base.models import TeamMember, NewsItem, Event
 
 #We are not using the intercom plugin because we use js instead
 #from intercom import Intercom
@@ -22,8 +22,19 @@ def home(request):
     """
     form = NewsSubscribeForm()
 
+    ## The events
+    events = Event.objects.all().order_by('date_and_time')
+    upcoming_events = events.filter(date_and_time__gt=datetime.today())
+
+    ## The news
+    news_items = NewsItem.objects.all().order_by('-publication_date')[0:4]
+
     return render_to_response("homepage.md", {
         "form": form,
+        "events": events,
+        "news_items": news_items,
+        "upcoming_events": upcoming_events,
+
     }, context_instance=RequestContext(request))
 
 
@@ -32,8 +43,7 @@ def news(request):
     News page
     """
 
-    news_items = NewsItem.objects.all()
-
+    news_items = NewsItem.objects.all().order_by('-publication_date')
 
     return render_to_response("about/news.md", {
         "news_items": news_items,
@@ -51,6 +61,21 @@ def team(request):
         "core_team": core_team,
     }, context_instance=RequestContext(request))
 
+
+def events(request):
+    """
+    events page
+    """
+
+    events = Event.objects.all().order_by('date_and_time')
+    upcoming_events = events.filter(date_and_time__gt=datetime.today())
+    past_events = events.filter(date_and_time__lt=datetime.today())
+
+    return render_to_response("community/events.md", {
+        "events": events,
+        "upcoming_events": upcoming_events,
+        "past_events": past_events
+    }, context_instance=RequestContext(request))
 
 
 
