@@ -19,7 +19,7 @@ Docker is an open source project that relies on the support of a great community
 
     Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span>
 
-    <img width="160px" src="{% static 'img/press-logos/linux.com.jpg' %}" alt="Linux.com">
+    <img width="160px" src="{% static 'img/press-logos/linux.com_150.png' %}" alt="Linux.com">
 
 * #### Jul 28 • Techcrunch on Docker and "The Matrix of Hell"
 
@@ -82,7 +82,7 @@ Docker is an open source project that relies on the support of a great community
 {#   - http://thechangelog.com/docker-from-dotcloud-is-now-open-source-the-future-of-linux-containers/#}
 
 
-**If you find an interesting article is missing.. Please make a pull request to [this page](https://github.com/dotcloud/www.docker.io/blob/master/_pages/press.md)**
+**If you find an interesting article is missing.. Please make a pull request to [this page](https://github.com/dotcloud/www.docker.io/blob/master/_pages/about/press.md)**
 
 {% endblock %}
 
