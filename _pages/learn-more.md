@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block copy_introduction %}
-## About Docker
+## Docker
 
 Docker  is an open-source engine that automates the deployment of any application as a lightweight, portable,
     self-sufficient container that will run virtually anywhere.

@@ -19,8 +19,7 @@ Docker is an open source project that relies on the support of a great community
 
     Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span>
 
-    <img width="160px" src="{% static 'img/homepage/linux.com.jpg' %}" alt="Linux.com">
-{#(http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/) #}
+    <img width="160px" src="{% static 'img/press-logos/linux.com.jpg' %}" alt="Linux.com">
 
 * #### Jul 28 • Techcrunch on Docker and "The Matrix of Hell"
 
@@ -28,8 +27,6 @@ Docker is an open source project that relies on the support of a great community
     <span class="read-more"><a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">read more -></a></span>
 
     <img width="80px" style="margin:15px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="techcrunch">
-
-{# (http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/) #}
 
 
 {### Projects using Docker#}
@@ -56,6 +53,11 @@ Docker is an open source project that relies on the support of a great community
    - [John Costa        - Installing redis on Docker                                    - Apr 7, 2013   ](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
    - [Slideshare        - Building a SaaS using Docker                                  - Arp 14, 2013  ](http://www.slideshare.net/julienbarbier42/building-a-saas-using-docker)
    - [Flavio Castelli   - Docker and OpenSuse                                           - Arp 12, 2013  ](http://flavio.castelli.name/2013/04/12/docker-and-opensuse/)
+   - [Atlassion:        - Deploy Java Apps With Docker = Awesome                        - June 13, 2013 ](http://blogs.atlassian.com/2013/06/deploy-java-apps-with-docker-awesome/)
+
+
+{#    http://www.rackspace.com/blog/get-faster-more-affordable-cloud-applications-with-os-virtualization-containers/#}
+
 
 {#2. podcasts, and videos#}
 {##}

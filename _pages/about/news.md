@@ -5,7 +5,7 @@
 {% block meta-keywords %}Docker, linux containers, lxc, PaaS, dotCloud, introduction, about, how it works{% endblock %}
 
 {% block copy_headline %}
-# News #
+# So, what is new? #
 {% endblock %}
 
 {% block copy_introduction %}

@@ -62,7 +62,9 @@
 
     <div class="row" >
 
-        <h3>What people are saying about us:</h3>
+        <div class="span12">
+            <h3>What people are saying about us:</h3>
+        </div>
 
         <div id="tweets-block" class="span12 tweets-block">
             <div id="" class="tweet-navigator tweet-navigator-left" ><img src="{% static 'img/arrow left.svg' %}" class="vertical-middle"></div>
@@ -91,18 +93,19 @@
 
         {% endfor %}
 
-{# ToDo: Re-enable form #}
-{#            <h3>Stay up to date, join our mailinglist</h3>#}
-{#            <p>If you leave your email address here we will add you to our mailing list and send you low-frequency updates#}
-{#            about new releases and other important updates.</p>#}
-{##}
-{#            <form name="email_subscribe" action="{% url 'email_thanks' %}" method="POST">#}
-{#                {% csrf_token %}#}
-{#                {{ form.email }}#}
-{##}
-{#            <input type="submit">#}
-{#        </form>#}
+            <hr>
+            <h3>Stay up to date, join our mailinglist</h3>
+            <p>If you leave your email address here we will add you to our mailing list and send you low-frequency updates
+            about new releases and other important updates.</p>
+
+            <form name="email_subscribe" action="{% url 'email_thanks' %}" method="POST">
+                {% csrf_token %}
+                {{ form.email }}
+
+            <input type="submit">
+            </form>
         </div>
+
         <div class="span6 block_updates copy_community">
             {% markdown %}{% block copy_community %}Placeholder for content
             {% endblock %}{% endmarkdown %}
@@ -124,16 +127,10 @@
         </div>
     </div>
 
-{#    <div class="span12 row press" >#}
-{#        <hr>#}
-{#        <h4></h4>#}
-{#        <a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">#}
-{#            <img width="180px" style="float:left;margin-right:10px;margin-top: -15px;;" src="{% static 'img/homepage/linux.com.jpg' %}" alt="Linux.com: Docker: A 'Shipping Container' for Linux Code">#}
-{#        </a>#}
-{#        <a href="http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/" target="_blank">#}
-{#            <img width="80px" style="float:left;margin-right:10px;" src="{% static 'img/homepage/techcrunch.png' %}" alt="The Matrix Of Hell And Two Open-Source Projects For The Emerging Agnostic Cloud">#}
-{#        </a>#}
-{#    </div>#}
+    <h3>As seen on:</h3>
+    <div class="span12 row press" >
+        {% markdown %}{% block press %}{% endblock %}{% endmarkdown %}
+    </div>
 
 
 </div> <!-- end container -->

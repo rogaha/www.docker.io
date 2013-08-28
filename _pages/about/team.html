@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% load navactive %}{% load markdown_deux_tags %}{% load gravatar %}
+{% load navactive %}{% load markdown_deux_tags %}{% load gravatar %}{% load static %}
 {% block page_js %}{{ block.super }}
 <script>
     function createBioBlock(element) {
         var itemsPerRow = 4;
-        var teamMembers = $('.team-member')
+        var teamMembers = $('.core-team > .team-member')
         var insertPosition;
 
         var position = teamMembers.index(element) + 1;
@@ -32,7 +32,7 @@
     $(document).ready(function() {
       console.log ("ready");
 
-      $('.team-member').mousedown( function() {
+        $('.core-team > .team-member').mousedown( function() {
             createBioBlock(this);
         });
     });
@@ -45,18 +45,51 @@
 
 <div class="container">
 
+
 <div class="row" >
+    <div class="span12 text-center">
+        <div class="copy-headline">
+            {% markdown %}{% block copy_headline %}
+                <h1>Placeholder for content</h1>
+            {% endblock %}{% endmarkdown %}
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="span12 paper">
     <div class="span3">
         {% include 'about/_menu.html' %}
 
     </div>
-    <div id="" class="span9 main-copy">
+    <div id="" class="span8 main-copy ">
         {% markdown %}{% block copy_introduction %}
         {% endblock %}{% endmarkdown %}
 
         {% markdown %}{% block top_contributors %}
         {% endblock top_contributors %}{% endmarkdown %}
 
+        <div class="team contributor-team">
+            <div class="team-member">
+                <img src="{% static 'img/community/top_contributors_temp/philips.jpeg' %}" alt="profile picture">
+                <span class="name">Brandon Philips</span>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'img/community/top_contributors_temp/KSid.png' %}" alt="profile picture">
+                <span class="name">Kawsar Saiyeed</span>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'img/community/top_contributors_temp/calavera.jpeg' %}" alt="profile picture">
+                <span class="name">David Calavera</span>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'img/community/top_contributors_temp/drewcsillag.png' %}" alt="profile picture">
+                <span class="name">Drew Csillag</span>
+            </div>
+
+            <a href="https://github.com/dotcloud/docker/pulse/monthly">See all stats on the Github page -></a>
+        </div>
+        <br style="clear:both;">
 
         {% markdown %}{% block teammembers %}
         {% endblock teammembers %}{% endmarkdown %}
@@ -74,7 +107,7 @@
         </div>
 
     </div>
-
+    </div>
 
 
 </div>
