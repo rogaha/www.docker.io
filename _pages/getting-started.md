@@ -32,6 +32,18 @@ This hands-on tutorial is 100% online, so you don't need to install a thing. In 
 
 {% endblock %}
 
+{% block dockerfile_tutorial %}
+
+## <a id="h_dockerfile_tutorial"></a>Dockerfile Tutorial
+
+Dockerfiles provide a simple syntax for building images and they are a great way to automate and script the images creation. If you are really serious about Docker, you should master the Dockerfile syntax.
+
+ <a href="/learn/dockerfile">Start the Dockerfile Tutorial.</a>
+
+
+
+
+{% endblock %}
 
 {% block copy_install %}
 
