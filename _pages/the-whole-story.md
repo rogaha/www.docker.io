@@ -173,7 +173,7 @@ It is useful to compare the main features of Docker to those of shipping contain
 				Shipper worries about inside of box, carrier worries about outside of box
 			</td>
 			<td>
-				Developper worries about code, Ops worries about infrastructure.
+				Developer worries about code, Ops worries about infrastructure.
 			</td>
 		</tr>
 	</tbody>
