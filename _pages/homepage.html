@@ -98,11 +98,11 @@
             <p>If you leave your email address here we will add you to our mailing list and send you low-frequency updates
             about new releases and other important updates.</p>
 
-            <form name="email_subscribe" action="{% url 'email_thanks' %}" method="POST">
+            <form name="email_subscribe" class="form-inline" action="{% url 'email_thanks' %}" method="POST">
                 {% csrf_token %}
                 {{ form.email }}
 
-            <input type="submit">
+            <input type="submit" class="btn btn-default">
             </form>
         </div>
 

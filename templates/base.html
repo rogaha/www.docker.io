@@ -45,37 +45,29 @@
     <script src="{% static 'js/utils.js' %}"></script>
 
     {% endblock js %} {% block page_js %}{% endblock page_js %}
-    {% google_analytics %}
 </head>
 
 <body>
 
 <div id="wrap">
 <!-- navigation -->
-<div class="navbar navbar-static-top">
-    <!-- navigation -->
-    <div class="navbar navbar-static-top">
-        <div class="navbar-inner navbar-fixed-top ">
-            <div class="container" >
-                <a href="{% url 'home' %}" title="Homepage"><div class="brand logo"><img src="{% static 'img/docker-top-logo.png' %}"> </div></a>
+    <div class="navbar navbar-static-top navbar-inner navbar-fixed-top ">
+        <div class="container" >
+            <a href="{% url 'home' %}" title="Homepage"><div class="brand logo"><img src="{% static 'img/docker-top-logo.png' %}"> </div></a>
 
-                <ul class="nav pull-right">
-                    {% if request.user.is_staff %}
-                    <li><a href="{% url 'admin:index' %}">•</a></li>
-                    {% endif %}
-                    <li class="{%navactive request "/" %}"><a href="{% url 'home' %}" title="Homepage">Home</a></li>
-                    <li class="{%navactive request "learn_more" %}"><a href="{% url 'learn_more' %}" title="Learm more">Learn More</a></li>
-                    <li class="{%navactive request "getting_started" %}"><a href="{% url 'getting_started' %}" title="Get Started">Getting started</a></li>
-                    <li class="{%navactive request "community" %}"><a href="{% url 'community' %}" title="The Docker Community">Community</a></li>
-                    <li><a href="https://docs.docker.io" title="Documentation">Documentation</a></li>
-                    <li><a href="http://blog.docker.io" title="Blog">Blog</a></li>
-                    <li><a href="https://index.docker.io" title="Docker Image Index, find images here">INDEX <img class="inline-icon" src="{% static 'img/external-link-icon.png' %}" title="external link"> </a></li>
-                </ul>
-            </div>
-
-    {#        <div class="nav-underline" ></div>#}
+            <ul class="nav pull-right">
+                {% if request.user.is_staff %}
+                <li><a href="{% url 'admin:index' %}">•</a></li>
+                {% endif %}
+                <li class="{%navactive request "/" %}"><a href="{% url 'home' %}" title="Homepage">Home</a></li>
+                <li class="{%navactive request "learn_more" %}"><a href="{% url 'learn_more' %}" title="Learm more">Learn More</a></li>
+                <li class="{%navactive request "getting_started" %}"><a href="{% url 'getting_started' %}" title="Get Started">Getting started</a></li>
+                <li class="{%navactive request "community" %}"><a href="{% url 'community' %}" title="The Docker Community">Community</a></li>
+                <li><a href="https://docs.docker.io" title="Documentation">Documentation</a></li>
+                <li><a href="http://blog.docker.io" title="Blog">Blog</a></li>
+                <li><a href="https://index.docker.io" title="Docker Image Index, find images here">INDEX <img class="inline-icon" src="{% static 'img/external-link-icon.png' %}" title="external link"> </a></li>
+            </ul>
         </div>
-    </div>
 </div>
 
 <!-- end of navigation -->
@@ -94,11 +86,19 @@
             <div class="container">
                 <div class="row footer" >
                     <div class="span8 tbox">
-                        Docker is an open source project, sponsored by  <a href="https://dotcloud.com">dotCloud</a>, under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE" title="Docker licence, hosted in the Github repository">apache 2.0 licence</a>
-                        <div class="textleft social links">
+                        <p>Docker is an open source project, sponsored by  <a href="https://dotcloud.com">dotCloud</a>, under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE" title="Docker licence, hosted in the Github repository">apache 2.0 licence</a></p>
+                        <p>
+                            <form class="form-inline">
+                                <input type="text" id="st-search-input" class="st-search-input input-large" placeholder="Keywords"/>
+                                <input type="submit" name="" value="Search all sites" class="btn btn-default"><div style="display: inline-block;"></div>
+                                <span class="press"> <img src="http://swiftype.com/assets/media/swiftype-logo-lightbg-small.png" alt="Search by Swiftype" class="press-img" style="height: auto; width: 150px;" /></span>
+                                <div id="st-results-container"></div>
+                            </form>
+                        </p>
+                        <p><div class="textleft social links">
                             <a class="twitter" href="http://twitter.com/docker">Twitter</a>
                             <a class="github" href="https://github.com/dotcloud/docker/">GitHub</a>
-                        </div>
+                        </div></p>
                     </div>
 
                     <div class="span2 tbox footerlist">
@@ -111,12 +111,14 @@
 
                     <div class="span2 tbox footerlist">
                         <h4>About</h4>
+{#                        {% include 'about/_menu.html' %}#}
+
                         <ul class="unstyled">
 {#                            <li><a href="{% url 'about' %}" title="About the project">Project</a></li>#}
                             <li><a href="{% url 'news' %}" title="News and updates">News</a></li>
                             <li><a href="{% url 'press' %}" title="Docker in the media">Press</a></li>
                             <li><a href="{% url 'team' %}" title="The team behind">Team</a></li>
-
+                            <li><a href="{% url 'jobs' %}" title="The team behind">Jobs</a></li>
                         </ul>
                     </div>
 
@@ -129,6 +131,24 @@
 
 
 
+<script type="text/javascript">
+    // Function to setup the search.
+    var Swiftype = window.Swiftype || {};
+    (function() {
+        Swiftype.key = 'pWPnnyvwcfpcrw1o51Sz';
+        Swiftype.inputElement = '#st-search-input';
+        Swiftype.resultContainingElement = '#st-results-container';
+        Swiftype.attachElement = '#st-search-input';
+        Swiftype.renderStyle = "overlay";
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = "//swiftype.com/embed.js";
+        var entry = document.getElementsByTagName('script')[0];
+        entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
 
 <script type="text/javascript">
 

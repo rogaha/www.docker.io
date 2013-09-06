@@ -17,9 +17,6 @@ from base.models import TeamMember, NewsItem, Event
 #from intercom import Intercom
 
 def home(request):
-    """
-    homepage
-    """
     form = NewsSubscribeForm()
 
     ## The events
@@ -78,7 +75,6 @@ def events(request):
     }, context_instance=RequestContext(request))
 
 
-
 def email_thanks(request):
     """
     Page for thanking the user for signup
@@ -102,7 +98,6 @@ def email_thanks(request):
 
                 cache.set(list_id, mailchimp_list, CACHE_TIMEOUT)
 
-
             results = mailchimp_list.subscribe(
                 email,
                 {
@@ -112,7 +107,7 @@ def email_thanks(request):
                     'MMERGE3': '',
                     'MMERGE4': '',
                     'MMERGE5': 'www.docker.io/',
-                    },
+                },
                 'html',
                 'true'
             )
@@ -124,25 +119,25 @@ def email_thanks(request):
             }
 
             return render_to_response('base/email_thanks.html',
-                {
-                    'form': form,
-                    'intercom_extra': intercom_extra
-                },
-                context_instance=RequestContext(request))
+                                      {
+                                          'form': form,
+                                          'intercom_extra': intercom_extra
+                                      },
+                                      context_instance=RequestContext(request))
 
         else:
             # form = NewsSubscribeForm()
 
             return render_to_response('base/email_form.html',
-                {
-                    'form': form,
-                },
-                context_instance=RequestContext(request))
+                                      {
+                                          'form': form,
+                                      },
+                                      context_instance=RequestContext(request))
 
     else:
         form = NewsSubscribeForm()
         return render_to_response('base/email_form.html',
-            {
-                'form': form,
-            },
-            context_instance=RequestContext(request))
+                                  {
+                                      'form': form,
+                                  },
+                                  context_instance=RequestContext(request))

@@ -1,5 +1,5 @@
 {% extends 'community/community.html' %}{% load staticfiles %}
-{% block title %}Community - {% endblock %}
+{% block title %}Projects - {% endblock %}
 {% block meta-description %}Join the thousands of developers who are helping to lead the Docker revolution!{% endblock %}
 {% block meta-keywords %}Docker, community, cobntribute{% endblock %}
 
