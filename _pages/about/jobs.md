@@ -17,14 +17,13 @@ We are a team of developers, building tools for developers --and Gordon. Yes, th
 
 <img src="{% static 'img/about/team_picture.jpg' %}" alt="team picture">
 
-### Some of the perks:
+### Just some of the perks:
 
 * Work on open source -- collaborate with people in and outside of the company
 * Work from the greenest office you've seen - we've got a real jungle here
 * Office downtown San Francisco
 * Monthly hackday: Work on the things you'd otherwise find no time for
 
-dot
 ### We're currently hiring for the following positions:
 
 {% endblock %}

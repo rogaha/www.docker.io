@@ -20,7 +20,7 @@ We try to make using Docker easy.
 {% endblock %}
 
 {% block copy_interactive_tutorial %}
-## <a id="h_tutorial"></a>Interactive tutorial
+## <a id="h_tutorial"></a>Interactive commandline tutorial
 
 The best way to learn how Docker works is to use it!
 
@@ -38,7 +38,7 @@ This hands-on tutorial is 100% online, so you don't need to install a thing. In 
 
 Dockerfiles provide a simple syntax for building images and they are a great way to automate and script the images creation. If you are really serious about Docker, you should master the Dockerfile syntax.
 
- <a href="/learn/dockerfile">Start the Dockerfile Tutorial.</a>
+ <a href="/learn/dockerfile" class="btn btn-primary secondary-action-button">Start the Dockerfile Tutorial.</a>
 
 
 
