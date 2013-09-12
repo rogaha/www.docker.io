@@ -94,9 +94,8 @@
         {% endfor %}
 
             <hr>
-            <h3>Stay up to date, join our mailinglist</h3>
-            <p>If you leave your email address here we will add you to our mailing list and send you low-frequency updates
-            about new releases and other important updates.</p>
+            <h3>Stay up to date, sign up for Docker Weekly</h3>
+            <p>Docker Weekly will keep you informed each week about new releases and other important updates from the Docker Community.</p>
 
             <form name="email_subscribe" class="form-inline" action="{% url 'email_thanks' %}" method="POST">
                 {% csrf_token %}
