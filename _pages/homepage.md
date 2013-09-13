@@ -100,10 +100,10 @@ Docker is an open-source project to easily create lightweight, portable, self-su
 
 {% block press %}
 
+[<img src="{% static 'img/press-logos/hackernews_logo.png' %}" title="Hacker News, Y-combinator" class="press-img">](https://www.hnsearch.com/search#request/all&q=docker/)
 [<img src="{% static 'img/press-logos/linux.com_150.png' %}" title="Linux.com: Docker: A 'Shipping Container' for Linux Code" class="press-img">](http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/)
 [<img src="{% static 'img/press-logos/techcrunch_wide_150.png' %}" title="Techcrunch" class="press-img">](http://techcrunch.com/2013/07/28/the-matrix-of-hell-and-two-open-source-projects-for-the-emerging-agnostic-cloud/)
 [<img src="{% static 'img/press-logos/admin_magazine_150.png' %}" title="Admin Magazine" class="press-img">](http://www.admin-magazine.com/Archive/2013/16)
-{#[<img src="{% static 'img/press-logos/gigaom.png' %}" title="GigaOm" class="press-img">](http://gigaom.com/2013/07/23/paas-pioneer-dotcloud-gets-new-ceo-in-industry-vet-ben-golub/)#}
 {% endblock %}
 
 {% block index_introduction %}
