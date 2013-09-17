@@ -15,7 +15,9 @@
 # Start using Docker
 We try to make using Docker easy.
 
-**Never tried Docker before?** <a href="#h_tutorial">start with the interactive tutorial.</a> **Looking to install?** <a href="#h_installation">jump to installation</a>
+* **Never tried Docker before?** <a href="#h_tutorial">start with the interactive tutorial.</a>
+* **Want to know more about Dockerfiles?** <a href="#h_tutorial">We have a tutorial for that!.</a>
+* **Looking to install?** <a href="#h_installation">jump to installation</a>
 
 {% endblock %}
 
