@@ -66,6 +66,7 @@ Mac, Windows and some Linux distributions cannot natively run Docker at this tim
     <a href="http://docs.docker.io/en/latest/installation/amazon/" target="_blank"><li>Amazon EC2 <img src="{% static 'img/platform-logos/amazonaws.png' %}"> </li></a>
     <a href="http://docs.docker.io/en/latest/installation/rackspace/" target="_blank"><li>Rackspace <img src="{% static 'img/platform-logos/rackspace.png' %}"> </li></a>
     <a href="http://docs.docker.io/en/latest/installation/archlinux/" target="_blank"><li>Arch Linux <img src="{% static 'img/platform-logos/archlinux.png' %}"> </li></a>
+    <a href="http://docs.docker.io/en/latest/installation/gentoolinux/" target="_blank"><li>Gentoo Linux <img src="{% static 'img/platform-logos/gentoolinux.png' %}"> </li></a>
     <br style="clear: both">
 </ul>
 
