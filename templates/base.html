@@ -85,47 +85,62 @@
             <!-- footer -->
             <div class="container">
                 <div class="row footer" >
-                    <div class="span8 tbox">
-                        <p>Docker is an open source project, sponsored by  <a href="https://dotcloud.com">dotCloud</a>, under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE" title="Docker licence, hosted in the Github repository">apache 2.0 licence</a></p>
-                        <p>
-                            <form class="form-inline">
-                                <input type="text" id="st-search-input" class="st-search-input input-large" placeholder="Keywords"/>
-                                <input type="submit" name="" value="Search all sites" class="btn btn-default"><div style="display: inline-block;"></div>
-                                <div id="st-results-container"></div>
-                            </form>
-                        </p>
-                        <p><div class="textleft social links">
-                            <a class="twitter" href="http://twitter.com/docker">Twitter</a>
-                            <a class="github" href="https://github.com/dotcloud/docker/">GitHub</a>
-                        </div></p>
-                    </div>
-
-                    <div class="span2 tbox footerlist">
-                        <h4>Community</h4>
-                        <ul class="unstyled">
-                            <li><a href="{% url 'community' %}" title="Community">Community</a></li>
-                            <li><a href="{% url 'events' %}" title="Events and meetups">Events</a></li>
-                        </ul>
-
-                        <h4>Get started</h4>
-                        <ul class="unstyled">
-                            <li><a href="{% url 'getting_started' %}" title="getting started">Getting started</a></li>
-                            <li><a href="{% url 'dockerfile' %}" title="Events and meetups">Dockerfile tutorial</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="span2 tbox footerlist">
-                        <h4>About</h4>
-                        <ul class="unstyled">
-                            <li><a href="{% url 'news' %}" title="News and updates">News</a></li>
-                            <li><a href="{% url 'press' %}" title="Docker in the media">Press</a></li>
-                            <li><a href="{% url 'team' %}" title="The team behind">Team</a></li>
-                            <li><a href="{% url 'jobs' %}" title="Docker jobs">Jobs</a></li>
-                        </ul>
+                    <div class="span12 tbox">
+                        <div class="tbox pull-left">
+                            <p>Docker is an open source project, sponsored by  <a href="https://dotcloud.com">dotCloud</a>, under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE" title="Docker licence, hosted in the Github repository">apache 2.0 licence</a></p>
                         </div>
 
-                    </div>
+                        <div class="tbox footer-items-right">
+                            <p>
+                                <form class="form-inline">
+                                    <input type="text" id="st-search-input" class="st-search-input input-large" placeholder="Keywords"/>
+                                    <input type="submit" name="" value="Search all sites" class="btn btn-default"><div style="display: inline-block;"></div>
+                                    <div id="st-results-container"></div>
+                                </form>
+                            </p>
+                            <p><div class="textright social links">
+                                <a class="twitter" href="http://twitter.com/docker">Twitter</a>
+                                <a class="github" href="https://github.com/dotcloud/docker/">GitHub</a>
+                            </div></p>
+                        </div>
 
+                        <div class="tbox footerlist ">
+                            <h4>About</h4>
+                            <ul class="unstyled">
+                                <li><a href="{% url 'news' %}" title="News and updates">News</a></li>
+                                <li><a href="{% url 'press' %}" title="Docker in the media">Press</a></li>
+                                <li><a href="{% url 'team' %}" title="The team behind">Team</a></li>
+                                <li><a href="{% url 'jobs' %}" title="Docker jobs">Jobs</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tbox footerlist">
+                            <h4>Get started</h4>
+                            <ul class="unstyled">
+                                <li><a href="{% url 'getting_started' %}" title="getting started">Getting started</a></li>
+                                <li><a href="{% url 'dockerfile' %}" title="Events and meetups">Dockerfile tutorial</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tbox footerlist">
+                            <h4>Community</h4>
+                            <ul class="unstyled">
+                                <li><a href="{% url 'community' %}" title="Community">Community</a></li>
+                                <li><a href="{% url 'events' %}" title="Events and meetups">Events</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tbox footerlist">
+                            <h4>Legal</h4>
+                            <ul class="unstyled">
+                                <li><a href="https://www.dotcloud.com/terms.html" title="Terms of service">Terms of service</a></li>
+                                <li><a href="https://www.dotcloud.com/privacy.html" title="Privacy policy">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- end of footer -->
