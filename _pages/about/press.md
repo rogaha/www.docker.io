@@ -50,9 +50,9 @@ Docker is an open source project that relies on the support of a great community
    - [Rob Knight        - Drupal on Docker                                              - May 13        ](http://robknight.org.uk/blog/2013/05/drupal-on-docker/)
    - [Puppet forge      - Puppet module for installing Docker from the official PPA.    - May 12, 2013  ](http://forge.puppetlabs.com/garethr/docker)
    - [Ken Cochrane      - Running docker on Rackspace cloud                             - May 2013      ](http://kencochrane.net/blog/2013/05/running-docker-on-rackspace-cloud/)
-   - [John Costa        - Installing redis on Docker                                    - Apr 7, 2013   ](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
-   - [Slideshare        - Building a SaaS using Docker                                  - Arp 14, 2013  ](http://www.slideshare.net/julienbarbier42/building-a-saas-using-docker)
-   - [Flavio Castelli   - Docker and OpenSuse                                           - Arp 12, 2013  ](http://flavio.castelli.name/2013/04/12/docker-and-opensuse/)
+   - [John Costa        - Installing redis on Docker                                    - April 7, 2013   ](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
+   - [Slideshare        - Building a SaaS using Docker                                  - April 14, 2013  ](http://www.slideshare.net/julienbarbier42/building-a-saas-using-docker)
+   - [Flavio Castelli   - Docker and OpenSuse                                           - April 12, 2013  ](http://flavio.castelli.name/2013/04/12/docker-and-opensuse/)
    - [Atlassion:        - Deploy Java Apps With Docker = Awesome                        - June 13, 2013 ](http://blogs.atlassian.com/2013/06/deploy-java-apps-with-docker-awesome/)
 
 
