@@ -14,6 +14,20 @@
 
 Docker is an open source project that relies on the support of a great community of contributors worldwide.
 
+* #### Sep 26 • Docker on Techcrunch
+
+    Mesosphere Adds Docker Support To Its Mesos-Based Operating System For The Data Center
+    <span class="read-more"><a href="http://techcrunch.com/2013/09/26/mesosphere-adds-docker-support-to-its-mesos-based-operating-system-for-the-data-center/" target="_blank">read more -></a></span>
+
+    <a href="http://techcrunch.com/2013/09/26/mesosphere-adds-docker-support-to-its-mesos-based-operating-system-for-the-data-center/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="techcrunch"></a>
+
+* ####  Sep 26 • Docker on InfoQ
+
+    Docker: Docker Using Linux Containers to Support Portable Application Deployment
+    <span class="read-more"><a href="http://www.infoq.com/articles/docker-containers" target="_blank">read more -></a></span>
+
+    <a href="http://www.infoq.com/articles/docker-containers" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/logo_infoq.jpg' %}" alt="InfoQ"></a>
+
 * #### Sep 20 • Docker on eWEEK
 
     Red Hat Expands Virtualization Options With Open-Source Docker <span class="read more"><a href="http://www.eweek.com/developer/red-hat-expands-virtualization-options-with-open-source-docker.html/" target="_blank"> read more -></a></span>
@@ -88,6 +102,9 @@ Docker is an open source project that relies on the support of a great community
 
 ## Blogposts on Docker
 
+   - [Mesosphere:        Docker on Mesos          - Sep 26, 2013 ](http://mesosphere.io/2013/09/26/docker-on-mesos/)
+   - [Marek Goldmann:        Docker and Fedora          - Sep 25, 2013 ](http://goldmann.pl/blog/2013/09/25/docker-and-fedora/)
+   - [Openshift:        Technical Thoughts on OpenShift and Docker          - Sep 25, 2013 ](https://www.openshift.com/blogs/technical-thoughts-on-openshift-and-docker)
    - [How are you:        Continuous deliverey with Docker and Jenkins part 1           - Sep 24, 2013 ](http://blog.howareyou.com/post/62157486858/continuous-delivery-with-docker-and-jenkins-part-i)
    - [Three of coins:     Flat Docker images - Sept 22, 2013](http://3ofcoins.net/2013/09/22/flat-docker-images/)
    - [Shrikar Archak:     Machine Learning Playground Using Docker  - Sept 19, 2013](http://shrikar.com/blog/2013/09/19/machine-learning-playground-using-docker/)
