@@ -60,6 +60,12 @@ Docker is an open source project that relies on the support of a great community
 
     <a href="http://www.theregister.co.uk/2013/09/19/wtf_is_containerisation_and_why_are_red_hat_and_dotcloud_doing_it/" target="_blank"><img  style="margin:15px;" src="{% static 'img/press-logos/logo_theregister.png' %}" alt=theregister.co.uk></a>
 
+* #### Sep 19 • Docker on RedHat
+
+    Red Hat and dotCloud Collaborate on Docker to Bring Next Generation Linux Container Enhancements to OpenShift Platform-as-a-Service <span class="read more"><a href="http://www.redhat.com/about/news/press-archive/2013/9/red-hat-and-dotcloud-collaborate-on-docker-to-bring-next-generation-linux-container-enhancements-to-openshift" target="_blank"> read more -></a></span>
+
+    <a href="http://www.redhat.com/about/news/press-archive/2013/9/red-hat-and-dotcloud-collaborate-on-docker-to-bring-next-generation-linux-container-enhancements-to-openshift" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/redhat-logo.png' %}" alt="RedHat"></a>
+
 * #### Sep 09 • Docker on Wired
 
     The man who would built a computer the size of the entire internet <span class="read more"><a href="http://www.wired.com/wiredenterprise/2013/09/docker/" target="_blank"> read more -></a></span>
@@ -133,7 +139,9 @@ Docker is an open source project that relies on the support of a great community
    - [Building a SaaS using Docker                                  - Apr 14, 2013  ](http://www.slideshare.net/julienbarbier42/building-a-saas-using-docker)
    - [Flavio Castelli:     Docker and OpenSuse                                           - Apr 12, 2013  ](http://flavio.castelli.name/2013/04/12/docker-and-opensuse/)
    - [John Costa:          Installing redis on Docker                                    - Apr 7, 2013   ](http://www.johnmcostaiii.net/2013/installing-redis-on-docker/)
- 
+
+## Docker on Hacker News
+   Read [last Hacker News submissions on Docker](https://www.hnsearch.com/search#request/submissions&q=docker&sortby=create_ts+desc&start=0)
   
 {#    http://www.rackspace.com/blog/get-faster-more-affordable-cloud-applications-with-os-virtualization-containers/#}
 -{#2. podcasts, and videos#}
