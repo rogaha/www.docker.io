@@ -4,7 +4,13 @@
 
     <h2>Almost done!</h2>
 
-    <p>Please check your email to confirm your email address.</p>
+    {% if extra_text %}
+        <p>{{ extra_text }}</p>
+    {% else %}
+        <p>Please check your email to confirm your email address.</p>
+    {% endif %}
+
+
     <p>Thanks!</p>
 
 
