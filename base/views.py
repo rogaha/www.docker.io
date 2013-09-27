@@ -25,7 +25,7 @@ def home(request):
     upcoming_events = events.filter(date_and_time__gt=datetime.today())
 
     ## The news
-    news_items = NewsItem.objects.all().order_by('-publication_date')[0:4]
+    news_items = NewsItem.objects.filter(show=True).order_by('-publication_date')[0:6]
 
     return render_to_response("homepage.md", {
         "form": form,
