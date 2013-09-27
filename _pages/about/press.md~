@@ -28,6 +28,13 @@ Docker is an open source project that relies on the support of a great community
 
     <a href="http://www.infoq.com/articles/docker-containers" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/logo_infoq.jpg' %}" alt="InfoQ"></a>
 
+* #### Sep 23 • Docker on Sys-Con
+
+    Red Hat Takes a Fancy to dotCloud & Docker
+    <span class="read-more"><a href="/static/documents/press/Sys-Con_Media_Client_Server_Newsletter_dotCloud.pdf" target="_blank">read more -></a> (PDF)</span>
+
+    <a href="/static/documents/press/Sys-Con_Media_Client_Server_Newsletter_dotCloud.pdf" target="_blank"><img style="margin:15px;height:40px;" src="{% static 'img/press-logos/sys-con-media.png' %}" alt="Sys-Con Media"></a>
+
 * #### Sep 20 • Docker on eWEEK
 
     Red Hat Expands Virtualization Options With Open-Source Docker <span class="read more"><a href="http://www.eweek.com/developer/red-hat-expands-virtualization-options-with-open-source-docker.html/" target="_blank"> read more -></a></span>

@@ -66,6 +66,12 @@ Docker is an open source project that relies on the support of a great community
 
     <a href="http://www.wired.com/wiredenterprise/2013/09/docker/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/wired_logo.gif' %}" alt="Wired.com"></a>
 
+* #### Aug 19 • Docker on Admin Magazine
+
+    Docker: Create portable containers that run in the cloud - or even on bare metal <span class="read more"><a href="http://www.admin-magazine.com/Archive/2013/16" target="_blank"> read more -></a></span>
+
+    <a href="http://www.admin-magazine.com/Archive/2013/16" target="_blank"><img style="margin:15px;height:40px;" src="{% static 'img/press-logos/admin-magazine-logo.png' %}" alt="Admin magazine"></a>
+
 * #### Jul 31 • Docker on Linux.com 
 
     Docker: A 'Shipping Container' for Linux Code <span class="read-more"><a href="http://www.linux.com/news/enterprise/cloud-computing/731454-docker-a-shipping-container-for-linux-code/" target="_blank">read more -></a></span>
