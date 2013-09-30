@@ -14,6 +14,13 @@
 
 Docker is an open source project that relies on the support of a great community of contributors worldwide.
 
+* ####  Sep 27 • Docker on InfoQ
+
+    Securing Docker and Containers
+    <span class="read-more"><a href="http://www.infoq.com/news/2013/09/docker-container-security" target="_blank">read more -></a></span>
+
+    <a href="http://www.infoq.com/news/2013/09/docker-container-security" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/logo_infoq.jpg' %}" alt="InfoQ"></a>
+
 * #### Sep 26 • Docker on Techcrunch
 
     Mesosphere Adds Docker Support To Its Mesos-Based Operating System For The Data Center
@@ -28,10 +35,15 @@ Docker is an open source project that relies on the support of a great community
 
     <a href="http://www.infoq.com/articles/docker-containers" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/logo_infoq.jpg' %}" alt="InfoQ"></a>
 
+* #### Sep 25 • Docker on siliconANGLE
+
+    Red Hat Eyeing 'Open Hybrid Cloud' with New JBoss PaaS Lineup <span class="read more"><a href="http://siliconangle.com/blog/2013/09/25/red-hat-eyeing-open-hybrid-cloud-with-new-jboss-paas-lineup/" target="_blank"> read more -></a></span>
+
+    <a href="http://siliconangle.com/blog/2013/09/25/red-hat-eyeing-open-hybrid-cloud-with-new-jboss-paas-lineup/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/siliconangle-logo2.jpg' %}" alt="siliconANGLE.com"></a>
+
 * #### Sep 23 • Docker on Sys-Con
 
-    Red Hat Takes a Fancy to dotCloud & Docker
-    <span class="read-more"><a href="/static/documents/press/Sys-Con_Media_Client_Server_Newsletter_dotCloud.pdf" target="_blank">read more -></a> (PDF)</span>
+    Red Hat Takes a Fancy to dotCloud & Docker <span class="read-more"><a href="/static/documents/press/Sys-Con_Media_Client_Server_Newsletter_dotCloud.pdf" target="_blank">read more -></a> (PDF)</span>
 
     <a href="/static/documents/press/Sys-Con_Media_Client_Server_Newsletter_dotCloud.pdf" target="_blank"><img style="margin:15px;height:40px;" src="{% static 'img/press-logos/sys-con-media.png' %}" alt="Sys-Con Media"></a>
 
@@ -121,6 +133,11 @@ Docker is an open source project that relies on the support of a great community
 
 ## Blogposts on Docker
 
+
+   - [ITBusinessEdge:        - Sep 30, 2013 ](http://www.itbusinessedge.com/blogs/it-unmasked/red-hat-throws-support-behind-portable-app-container.html)
+   - [First Buildbot run with Docker        - Sep 30, 2013 ](http://buildbot.readthedocs.org/en/latest/tutorial/docker.html)
+   - [Production Quality MongoDB setup with Docker        - Sep 29, 2013 ](https://medium.com/on-coding/65136a4a9d8)
+   - [Docker containers memory troubleshooting        - Sep 28, 2013 ](http://devashish.co.in/2013/09/28/docker-containers-memory-troubleshooting/)
    - [Mesosphere:        Docker on Mesos          - Sep 26, 2013 ](http://mesosphere.io/2013/09/26/docker-on-mesos/)
    - [Marek Goldmann:        Docker and Fedora          - Sep 25, 2013 ](http://goldmann.pl/blog/2013/09/25/docker-and-fedora/)
    - [Openshift:        Technical Thoughts on OpenShift and Docker          - Sep 25, 2013 ](https://www.openshift.com/blogs/technical-thoughts-on-openshift-and-docker)
