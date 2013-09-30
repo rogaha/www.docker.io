@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import request
 from mailchimp import utils as mailchimputils
+from mailchimp.chimpy.chimpy import ChimpyException
 from datetime import datetime
 from forms import NewsSubscribeForm
 from django.http import HttpResponseRedirect
@@ -24,7 +25,7 @@ def home(request):
     upcoming_events = events.filter(date_and_time__gt=datetime.today())
 
     ## The news
-    news_items = NewsItem.objects.all().order_by('-publication_date')[0:4]
+    news_items = NewsItem.objects.filter(show=True).order_by('-publication_date')[0:6]
 
     return render_to_response("homepage.md", {
         "form": form,
@@ -98,19 +99,25 @@ def email_thanks(request):
 
                 cache.set(list_id, mailchimp_list, CACHE_TIMEOUT)
 
-            results = mailchimp_list.subscribe(
-                email,
-                {
-                    'EMAIL': email,
-                    'FNAME': '',
-                    'LNAME': '',
-                    'MMERGE3': '',
-                    'MMERGE4': '',
-                    'MMERGE5': 'www.docker.io/',
-                },
-                'html',
-                'true'
-            )
+            extra_text = None
+            try:
+                results = mailchimp_list.subscribe(
+                    email,
+                    {
+                        'EMAIL': email,
+                        'FNAME': '',
+                        'LNAME': '',
+                        'MMERGE3': '',
+                        'MMERGE4': '',
+                        'MMERGE5': 'www.docker.io/',
+                    },
+                    'html',
+                    'true'
+                )
+            except ChimpyException as error:
+                extra_text = "You are already subscribed to this list"
+                print error
+                pass
 
             intercom_extra = {
                 'email': email,
@@ -121,7 +128,8 @@ def email_thanks(request):
             return render_to_response('base/email_thanks.html',
                                       {
                                           'form': form,
-                                          'intercom_extra': intercom_extra
+                                          'intercom_extra': intercom_extra,
+                                          'extra_text': extra_text
                                       },
                                       context_instance=RequestContext(request))
 

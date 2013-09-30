@@ -1,52 +1,39 @@
 {% extends 'live.html' %}
 {% load static %}
-{% block title %}Docker Hack Day #6 - {% endblock %}
+{% block title %}Docker Hack Day #7 - {% endblock %}
 {% block meta-description %}Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application. The same container that a developer builds and tests on a laptop can run at scale, in production, on VMs, bare metal, OpenStack clusters, public clouds and more.{% endblock %}
 {% block meta-keywords %}Docker, linux containers, lxc, PaaS, dotCloud, introduction, about, how it works{% endblock %}
 
 
 {% block copy_headline %}
-# Follow what is going on at the docker hack-day, live. #
+# Docker hack-day 7 - Oct. 1st - LIVE #
 {% endblock %}
 
 {% block copy_introduction %}
-## Docker Hack Day #6 Lightning talks
 
-The docker Hack Day #6 is over. Tomorrow we will post the edited videos of the lightning talks, including:
+## 101 online sessions & lightning talks
 
-*   <a href="https://twitter.com/dozba">Ted Dzubia</a> on how hes uses docker at <a href="http://www.ebay.com">Ebay</a>
-*   <a href="https://twitter.com/sebp">Sebastien Pahl</a> on how he uses docker at <a href="http://www.cloudflare.com">CloudFlare</a>
-*   Sasha Klizhentas on how he uses docker at <a href="http://www.mailgun.com">MailGun</a>
+During this hack day we are going to have two 101 online sessions (10am PST and 5pm PST).
+Please <a href="http://www.meetup.com/Docker-meetups/events/142621692/" target="_blank">register here</a> if you want a reminder. The broadcast will be available on this page. In addition, we have a special IRC channel: <strong>docker-hackday</strong>, where you'll be able to ask questions during the 101 sessions. If you do not have an IRC client you can use <a href="https://kiwiirc.com/client/irc.freenode.net" target="_blank">this one</a>.
 
-<iframe width="640" height="360" src="//www.youtube.com/embed/0Hi0W4gX--4" frameborder="0" allowfullscreen></iframe>
+We start the lightning talks broadcast at 6pm PST.
 
-<script async class="speakerdeck-embed" data-id="522c48c0dc310130e6ec0220d862d5bd" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>
+The 101 online sessions and the ligthning talks are going to be available from this page (Live section).
 
+## Schedule
 
-### Sasha Klizhentas on how he uses docker at <a href="http://www.mailgun.com">MailGun</a>
+* 10am PST: Docker 101 online session 1
+* 5pm PST: Docker 101 online session 2
+* 6pm PST: Lightning talks
 
-<iframe width="640" height="360" src="//www.youtube.com/embed/CMC3xdAo9RI" frameborder="0" allowfullscreen></iframe>
+The lightning talks are going to be recorded and we will post them later this week.
 
+## Live
 
-### <a href="http://www.linkedin.com/in/kstaken">Kimbro Staken</a> from Jumpbox on <a href="https://github.com/toscanini/maestro">Maestro</a>
-Orchestration for Multi-container Docker environment
+<img src="{% static 'img/live/docker-hackday-7-waiting-pi.jpg' %}" title="LIVE">
 
-<iframe width="640" height="360" src="//www.youtube.com/embed/OM3UbMgHYfQ" frameborder="0" allowfullscreen></iframe>
+Back channel: IRC #docker-hackday
 
-
-### <a href="https://twitter.com/sebp">Sebastien Pahl</a> on how he uses docker at <a href="http://www.cloudflare.com">CloudFlare</a>
-
-<iframe width="640" height="360" src="//www.youtube.com/embed/-Lj3jt_-3r0" frameborder="0" allowfullscreen></iframe>
-
-
-### <a href="https://twitter.com/ffkiv">Frederick F. Kautz</a> on <a href="http://coreos.com/">CoreOS</a> and more
-
-<iframe width="640" height="360" src="//www.youtube.com/embed/zXC-8lD2WNg" frameborder="0" allowfullscreen></iframe>
-
-### Photos
-
-Photos of the Hack Day #6 can be found on <a href="http://www.flickr.com/photos/99741659@N08/sets/72157634875601997/">flickr</a>.
-
-<a href="http://www.flickr.com/photos/99741659@N08/9409767597/" title="IMG_3989 de dockerfile, sur Flickr"><img src="http://farm3.staticflickr.com/2807/9409767597_16010b239f_z.jpg" width="640" height="480" alt="IMG_3989"></a>
+Twitter: #dockerhackday
 
 {% endblock %}
