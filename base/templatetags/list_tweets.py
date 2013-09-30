@@ -71,7 +71,7 @@ class TweetNode(template.Node):
                 </div>
 
                 """.format(
-                    data['user']['profile_image_url'].replace("http://a0", "https://si0"),
+                    data['user']['profile_image_url'].replace("http://a0", "https://si0").replace("http://abs", "https://abs"),
                     data['user']['name'].encode('utf-8').strip(),
                     data['user']['screen_name'].encode('utf-8').strip(),
                     data['text'].encode('utf-8').strip(),

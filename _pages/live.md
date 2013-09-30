@@ -6,15 +6,25 @@
 
 
 {% block copy_headline %}
-# Docker hack-day 7 - Oct. 1st - LIVE #
+# Docker hack-day #7 - Oct. 1st - LIVE #
 {% endblock %}
 
 {% block copy_introduction %}
 
 ## 101 online sessions & lightning talks
 
-During this hack day we are going to have two 101 online sessions (10am PST and 5pm PST).
-Please <a href="http://www.meetup.com/Docker-meetups/events/142621692/" target="_blank">register here</a> if you want a reminder. The broadcast will be available on this page. In addition, we have a special IRC channel: <strong>docker-hackday</strong>, where you'll be able to ask questions during the 101 sessions. If you do not have an IRC client you can use <a href="https://kiwiirc.com/client/irc.freenode.net" target="_blank">this one</a>.
+During this hack day we are going to have two 101 online sessions **(10am PST and 5pm PST)**. Both of which will be available on this page.
+
+Please <a href="http://www.meetup.com/Docker-meetups/events/142621692/" target="_blank">register here</a> if you want a reminder.
+
+### Backchannel
+
+In addition, we have a special IRC channel: <strong>#docker-hackday</strong>, where you'll be able to ask questions during the 101 sessions.
+{% endblock copy_introduction %}
+
+    {# NOTE: Link to online chat here, cannot be in markdown #}
+
+{% block copy_1 %}
 
 We start the lightning talks broadcast at 6pm PST.
 

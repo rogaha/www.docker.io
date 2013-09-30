@@ -1,6 +1,41 @@
 {% extends 'base.html' %}
 {% load navactive %}{% load markdown_deux_tags %}
-{% block page_js %}{% endblock %}
+
+{% block page_js %}
+{{ block.super }}
+
+<script type="text/javascript">
+var windowObjectReference = null; // global variable
+
+function openInPopup(uri, windowName) {
+
+    // see https://developer.mozilla.org/en-US/docs/Web/API/window.open#Best_practices for reference
+    if(windowObjectReference == null || windowObjectReference.closed)
+    {
+        /* then create it. The new window will be created and
+        will be brought on top of any other window. */
+        var width = 800;
+        var height = 600;
+        var left = (window.screen.width.valueOf() - width) / 2;
+        var top = (window.screen.height.valueOf() - height) / 2;
+
+        var options = ['resizable','scrollbars','status', 'width='+width, 'height='+height, 'left='+left, 'top='+top].join(',');
+        windowObjectReference = window.open(
+            uri,
+            windowName,
+            options
+            );
+    }
+    else
+    {
+        windowObjectReference.focus();
+    }
+    // prevent default behavior on link
+    return false;
+
+}
+</script>
+{% endblock %}
 
 
 {% block title %}
@@ -26,6 +61,12 @@
         <div id="" class="span8 offset2">
 
             {% markdown %}{% block copy_introduction %}
+            {% endblock %}{% endmarkdown %}
+
+            <p></p><a class="btn btn-primary secondary-action-button" href="https://kiwiirc.com/client/chat.freenode.net/?nick=guest|?#docker-hackday" onClick="openInPopup('https://kiwiirc.com/client/chat.freenode.net/?nick=guest|?#docker-hackday', 'dockerHackday'); return false;"
+               title="opens in popup" target="_blank">start online chat</a></p>
+
+            {% markdown %}{% block copy_1 %}
             {% endblock %}{% endmarkdown %}
 
         </div>
