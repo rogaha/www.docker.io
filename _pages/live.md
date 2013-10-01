@@ -13,6 +13,8 @@
 
 ## 101 online sessions & lightning talks
 
+<iframe width="642" height="400" src="http://www.youtube.com/embed/izaolRP_fFc" frameborder="0" allowfullscreen></iframe>
+
 During this hack day we are going to have two 101 online sessions **(10am PST and 5pm PST)**. Both of which will be available on this page.
 
 Please <a href="http://www.meetup.com/Docker-meetups/events/142621692/" target="_blank">register here</a> if you want a reminder.
@@ -39,8 +41,6 @@ The 101 online sessions and the ligthning talks are going to be available from t
 The lightning talks are going to be recorded and we will post them later this week.
 
 ## Live
-
-<img src="{% static 'img/live/docker-hackday-7-waiting-pi.jpg' %}" title="LIVE">
 
 Back channel: IRC #docker-hackday
 
