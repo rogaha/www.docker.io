@@ -11,9 +11,15 @@
 
 {% block copy_introduction %}
 
+## Schedule
+
+* 10am PST: Docker 101 online session 1
+* 5pm PST: Docker 101 online session 2
+* 6pm PST: Lightning talks
+
 ## 101 online sessions & lightning talks
 
-<iframe width="642" height="400" src="http://www.youtube.com/embed/izaolRP_fFc" frameborder="0" allowfullscreen></iframe>
+<img src="{% static 'img/live/docker-hackday-7-waiting-pi.jpg' %}" title="LIVE">
 
 During this hack day we are going to have two 101 online sessions **(10am PST and 5pm PST)**. Both of which will be available on this page.
 
@@ -30,17 +36,9 @@ In addition, we have a special IRC channel: <strong>#docker-hackday</strong>, wh
 
 We start the lightning talks broadcast at 6pm PST.
 
-The 101 online sessions and the ligthning talks are going to be available from this page (Live section).
+## First 101 online session (10am PST)
 
-## Schedule
-
-* 10am PST: Docker 101 online session 1
-* 5pm PST: Docker 101 online session 2
-* 6pm PST: Lightning talks
-
-The lightning talks are going to be recorded and we will post them later this week.
-
-## Live
+<iframe width="642" height="400" src="http://www.youtube.com/embed/izaolRP_fFc" frameborder="0" allowfullscreen></iframe>
 
 Back channel: IRC #docker-hackday
 
