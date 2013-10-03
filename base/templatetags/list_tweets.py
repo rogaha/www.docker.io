@@ -35,8 +35,11 @@ def list_tweets(parser, token):
     return tweets
 
 class TweetNode(template.Node):
+
     def __init__(self, nodelist):
         self.nodelist = nodelist
+        self.twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
+
     def render(self, context):
         output = self.nodelist.render(context)
 
@@ -54,10 +57,9 @@ class TweetNode(template.Node):
                 if tweet:
                     pass
                 else:
-                    twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
                     print item
 
-                    tweet = twitter_client.request('https://api.twitter.com/1.1/statuses/show.json?id={0}'.format(item))
+                    tweet = self.twitter_client.request('https://api.twitter.com/1.1/statuses/show.json?id={0}'.format(item))
                     cache.set(item, tweet, TWITTER_TIMEOUT)
 
                 data = json.loads(tweet)

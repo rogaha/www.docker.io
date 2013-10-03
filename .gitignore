@@ -19,6 +19,9 @@ cache
 # the packages required to build bootstrap
 assets/css/sources/node_modules/
 
+# emacs stuff
+*~
 
 # mysql db
 wwwdocker.db
+wwwdocker.db*
