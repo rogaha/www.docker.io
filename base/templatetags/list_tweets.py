@@ -15,7 +15,13 @@ register = template.Library()
 
 CONSUMER_KEY = 'aEtFq69wvzUAjlzwh9Tw'
 CONSUMER_SECRET = 'o6mcmOLtp35loXfUbRBOVpyfzenFdOSwBV3jd4MMFSM'
-TWITTER_TIMEOUT = 3600 * 24 * 3
+TWEETS_LIST_TIMEOUT = 300  # Caching timeout in seconds
+NUM_TWEETS = 60  # Total number of the tweets_list
+USERS_LIST = ['rhashioka',  # List of users considered during the fetching process
+              'docker',
+              'julienbarbier42',
+              'dhr_p',
+              'golubbe']
 
 
 
@@ -24,46 +30,40 @@ TWITTER_TIMEOUT = 3600 * 24 * 3
 @register.tag
 def list_tweets(parser, token):
     """
-    Tag written to fetch the tweets from tweet id's. expects a plain list of tweet id's newline separated.
+    Fetch tweets from favorites list from the 'USERS_LIST'. The number of tweets from each user is split evenly among
+    all the users -> int(NUM_TWEETS / len(USERS_LIST))
 
-    ~tp
+    ~rogaha
     """
-
     nodelist = parser.parse(('end_list_tweets',))
     parser.delete_first_token()
     tweets = TweetNode(nodelist)
     return tweets
 
 class TweetNode(template.Node):
-
     def __init__(self, nodelist):
-        self.nodelist = nodelist
         self.twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
 
     def render(self, context):
-        output = self.nodelist.render(context)
 
-        items = output.split()
-
-        tweet = {}
-        tweets = []
         html = ""
+        num_tweets_per_user = int(NUM_TWEETS / len(USERS_LIST))
 
         try:
 
-            for item in items:
-                tweet = cache.get(item)
+            tweets_list = cache.get(CONSUMER_KEY)
 
-                if tweet:
-                    pass
-                else:
-                    print item
+            if tweets_list is None:
+                tweets_list = []
+                for screen_name in USERS_LIST:
+                    user_tweets_list = json.loads(self.twitter_client.request(
+                    'https://api.twitter.com/1.1/favorites/list.json?count={0}&screen_name={1}'.format(
+                        num_tweets_per_user,
+                        screen_name)))
+                    tweets_list.extend(user_tweets_list)
+                cache.set(CONSUMER_KEY, tweets_list, TWEETS_LIST_TIMEOUT)
 
-                    tweet = self.twitter_client.request('https://api.twitter.com/1.1/statuses/show.json?id={0}'.format(item))
-                    cache.set(item, tweet, TWITTER_TIMEOUT)
-
-                data = json.loads(tweet)
-
+            for data in tweets_list:
                 html += """
                 <div class="tweet" onClick="window.open('http://twitter.com/{2}/status/{4}/')" >
                     <img src="{0}">
