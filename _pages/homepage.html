@@ -63,7 +63,7 @@
     <div class="row" >
         <div class="span12">
             <h4>latest news:</h4>
-            <a href="http://blog.docker.io/2013/09/red-hat-and-docker-collaborate/" alt="RedHat and Docker collaborate"><img style="border: 1px solid #ddd;" src="{% static 'img/homepage/banner_docker_redhat.jpg' %}" alt="RedHat and Docker collaborate banner"></a>
+            <a href="http://blog.docker.io/2013/09/red-hat-and-docker-collaborate/" title="RedHat and Docker collaborate"><img style="border: 1px solid #ddd;" src="{% static 'img/homepage/banner_docker_redhat.jpg' %}" alt="RedHat and Docker collaborate banner"></a>
         </div>
     </div>
 
@@ -78,7 +78,18 @@
             <div id="" class="tweet-navigator tweet-navigator-right" ><img src="{% static 'img/arrow right.svg' %}" class="vertical-middle"> </div>
             <div id="tweets-container" class="tweets-container">
                 <div id="tweet-surface" class="tweet-surface">
-                    {% autoescape off %}{{ tweets_list }}{% endautoescape %}
+                {% if tweets %}
+                {% for tweet in tweets %}
+                     <div class="tweet" onClick="window.open('http://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}/')" >
+                        <img src="{{ tweet.user.profile_image_url_https }}">
+                        <span class="username">{{ tweet.user.name }}</span>
+                        <span class="handle" ><a onClick="window.open('http://twitter.com/{{ tweet.user.screen_name }}'); event.preventDefault();" href="https://twitter.com/{{ tweet.user.screen_name }}/" title="users twitter page">@{{ tweet.user.screen_name }}</a></span>
+                        <p><span class="text">{{ tweet.text }}</span></p>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    oops.. we failed to get some tweets from the api, but believe us, it's all good. :-)
+                {% endif %}
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ from datetime import datetime
 from forms import NewsSubscribeForm
 from django.http import HttpResponseRedirect
 # from .utils import get_app_auth_twitter
-from utils import TwitterClient
+from utils import TwitterClient, ClientException
 import json
 from django.core.cache import cache
 from base.models import TeamMember, NewsItem, Event
@@ -19,6 +19,7 @@ CONSUMER_SECRET = 'o6mcmOLtp35loXfUbRBOVpyfzenFdOSwBV3jd4MMFSM'
 
 #We are not using the intercom plugin because we use js instead
 #from intercom import Intercom
+
 
 def home(request):
     form = NewsSubscribeForm()
@@ -32,14 +33,19 @@ def home(request):
 
     ## The tweets
     twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
-    tweets_list = twitter_client.render_tweets_list()
+    try:
+        favorite_tweets = twitter_client.get_favorite_tweets()
+    except ClientException:
+        favorite_tweets = None  # temporary error
+    except Exception:
+        favorite_tweets = None  # twitter client not set.
 
     return render_to_response("homepage.md", {
         "form": form,
         "events": events,
         "news_items": news_items,
         "upcoming_events": upcoming_events,
-        "tweets_list": tweets_list,
+        "tweets": favorite_tweets
 
     }, context_instance=RequestContext(request))
 
