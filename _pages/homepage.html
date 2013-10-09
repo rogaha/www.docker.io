@@ -78,7 +78,7 @@
             <div id="" class="tweet-navigator tweet-navigator-right" ><img src="{% static 'img/arrow right.svg' %}" class="vertical-middle"> </div>
             <div id="tweets-container" class="tweets-container">
                 <div id="tweet-surface" class="tweet-surface">
-                    {% block tweets %}{% endblock %}
+                    {% autoescape off %}{{ tweets_list }}{% endautoescape %}
                 </div>
             </div>
         </div>

@@ -14,6 +14,9 @@ import json
 from django.core.cache import cache
 from base.models import TeamMember, NewsItem, Event
 
+CONSUMER_KEY = 'aEtFq69wvzUAjlzwh9Tw'
+CONSUMER_SECRET = 'o6mcmOLtp35loXfUbRBOVpyfzenFdOSwBV3jd4MMFSM'
+
 #We are not using the intercom plugin because we use js instead
 #from intercom import Intercom
 
@@ -27,11 +30,16 @@ def home(request):
     ## The news
     news_items = NewsItem.objects.filter(show=True).order_by('-publication_date')[0:6]
 
+    ## The tweets
+    twitter_client = TwitterClient(CONSUMER_KEY, CONSUMER_SECRET)
+    tweets_list = twitter_client.render_tweets_list()
+
     return render_to_response("homepage.md", {
         "form": form,
         "events": events,
         "news_items": news_items,
         "upcoming_events": upcoming_events,
+        "tweets_list": tweets_list,
 
     }, context_instance=RequestContext(request))
 
