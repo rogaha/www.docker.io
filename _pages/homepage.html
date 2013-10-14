@@ -79,7 +79,7 @@
             <div id="tweets-container" class="tweets-container">
                 <div id="tweet-surface" class="tweet-surface">
                 {% if tweets %}
-                {% for tweet in tweets %}
+                {% for tweet in tweets|slice:":36" %}
                      <div class="tweet" onClick="window.open('http://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}/')" >
                         <img src="{{ tweet.user.profile_image_url_https }}">
                         <span class="username">{{ tweet.user.name }}</span>
