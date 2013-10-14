@@ -30,7 +30,7 @@ Docker is an open source project that relies on the support of a great community
 
 * ####  Sep 26 • Docker on InfoQ
 
-    Docker: Docker Using Linux Containers to Support Portable Application Deployment
+    Docker Using Linux Containers to Support Portable Application Deployment
     <span class="read-more"><a href="http://www.infoq.com/articles/docker-containers" target="_blank">read more -></a></span>
 
     <a href="http://www.infoq.com/articles/docker-containers" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/logo_infoq.jpg' %}" alt="InfoQ"></a>
@@ -111,7 +111,7 @@ Docker is an open source project that relies on the support of a great community
 
 * ####  Mar 27 • Docker on InfoQ
 
-    Docker: Automated and COnsistent Software Deployments
+    Docker: Automated and Consistent Software Deployments
     <span class="read-more"><a href="http://www.infoq.com/news/2013/03/Docker" target="_blank">read more -></a></span>
 
     <a href="http://www.infoq.com/news/2013/03/Docker" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/logo_infoq.jpg' %}" alt="InfoQ"></a>
@@ -134,10 +134,21 @@ Docker is an open source project that relies on the support of a great community
 ## Blogposts on Docker
 
 
-   - [ITBusinessEdge:        - Sep 30, 2013 ](http://www.itbusinessedge.com/blogs/it-unmasked/red-hat-throws-support-behind-portable-app-container.html)
-   - [First Buildbot run with Docker        - Sep 30, 2013 ](http://buildbot.readthedocs.org/en/latest/tutorial/docker.html)
-   - [Production Quality MongoDB setup with Docker        - Sep 29, 2013 ](https://medium.com/on-coding/65136a4a9d8)
-   - [Docker containers memory troubleshooting        - Sep 28, 2013 ](http://devashish.co.in/2013/09/28/docker-containers-memory-troubleshooting/)
+   - [Rackspace: How Mailgun Uses Docker and Contributes Back  - Oct 14, 2013 ](http://www.rackspace.com/blog/how-mailgun-uses-docker-and-contributes-back/)
+   - [Ijonas: Building a Docker-based MySQL Server   - Oct 14, 2013 ](http://ijonas.com/devops-2/building-a-docker-based-mysql-server/)
+   - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
+   - [Ijonas: A Docker Container folder structure that's flexible and scales   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
+   - [IbuildtheCloud: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://ibuildthecloud.tumblr.com/post/63895248725/docker-is-lxcs-ajax)
+   - [Tero Parviainen: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://teropa.info/blog/2013/10/13/rupy-2013-stack-a-platform-with-linux-containers.html)
+   - [Noah White: Docker + Glassfish4    - Oct 11, 2013 ](http://www.noahwhite.net/soc/2013/10/docker-glassfish4.html)
+   - [Marek Goldmann: WildFly cluster using Docker on Fedora    - Oct 7, 2013 ](http://goldmann.pl/blog/2013/10/07/wildfly-cluster-using-docker-on-fedora/)
+   - [Ijonas: Building a MongoDB Cluster using DOcker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
+   - [Codeaholics.org: Giving Docker/LXC containers a routable IP address       - Oct 2, 2013 ](http://blog.codeaholics.org/2013/giving-dockerlxc-containers-a-routable-ip-address/)
+   - [ITBusinessEdge: Red Hat Throws Support Behind Portable App Container       - Sep 30, 2013 ](http://www.itbusinessedge.com/blogs/it-unmasked/red-hat-throws-support-behind-portable-app-container.html)
+   - [Buildbot: First Buildbot run with Docker    - Sep 30, 2013 ](http://buildbot.readthedocs.org/en/latest/tutorial/docker.html)
+   - [Medium: Production Quality MongoDB Setup with Docker      - Sep 29, 2013 ](https://medium.com/on-coding/65136a4a9d8)
+   - [Devashish: Docker containers memory troubleshooting       - Sep 28, 2013 ](http://devashish.co.in/2013/09/28/docker-containers-memory-troubleshooting/)
+   - [Themiddlewareman:        Docker + Red Hat OpenShift = The Tipping Point for Open PaaS          - Sep 27, 2013 ](http://www.themiddlewareman.org/2013/09/27/docker-red-hat-openshift-tiping-point-open-paas/)
    - [Mesosphere:        Docker on Mesos          - Sep 26, 2013 ](http://mesosphere.io/2013/09/26/docker-on-mesos/)
    - [Marek Goldmann:        Docker and Fedora          - Sep 25, 2013 ](http://goldmann.pl/blog/2013/09/25/docker-and-fedora/)
    - [Openshift:        Technical Thoughts on OpenShift and Docker          - Sep 25, 2013 ](https://www.openshift.com/blogs/technical-thoughts-on-openshift-and-docker)
@@ -145,9 +156,10 @@ Docker is an open source project that relies on the support of a great community
    - [Three of coins:     Flat Docker images - Sept 22, 2013](http://3ofcoins.net/2013/09/22/flat-docker-images/)
    - [Shrikar Archak:     Machine Learning Playground Using Docker  - Sept 19, 2013](http://shrikar.com/blog/2013/09/19/machine-learning-playground-using-docker/)
    - [Thinkcube: How to put your development environment on docker - Sep 18, 2013, 2013 ](http://blog.codiez.co.za/2013/09/setup-a-docker-container-with-mongodb/)
-   - [Barton George:      Talking to the Docker dudes                                   - June 12, 2013 ](http://bartongeorge.net/2013/09/12/talking-to-the-docker-dudes/)
+   - [Barton George:      Talking to the Docker dudes                                   - Sept 12, 2013 ](http://bartongeorge.net/2013/09/12/talking-to-the-docker-dudes/)
    - [Wercker:            Building and testing a cluster of RethinkDB DOcker containers - Sept 10, 2013](http://blog.wercker.com/2013/09/10/Building-and-testing-a-cluster-of-RethinkDB-Docker-containers.html)
    - [Codiez:             Setup a Docker Container With MongoDB - Sep 4, 2013 ](http://play.thinkcube.com/development-environment-on-docker)
+   - [Matt Whiteley:          Docker on i386 ](http://mwhiteley.com/linux-containers/2013/08/31/docker-on-i386.html)
    - [Rackspace:          Get Faster, More Affordable Cloud Applications With OS Virtualization Containers - Aug 26, 2013 ](http://www.rackspace.com/blog/get-faster-more-affordable-cloud-applications-with-os-virtualization-containers/)
    - [Atlassion:          Deploy Java Apps With Docker = Awesome                        - June 13, 2013 ](http://blogs.atlassian.com/2013/06/deploy-java-apps-with-docker-awesome/)
    - [Rob Knight:          Drupal on Docker                                              - May 13 , 2013       ](http://robknight.org.uk/blog/2013/05/drupal-on-docker/)
