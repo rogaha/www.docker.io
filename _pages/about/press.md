@@ -142,7 +142,7 @@ Docker is an open source project that relies on the support of a great community
    - [Tero Parviainen: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://teropa.info/blog/2013/10/13/rupy-2013-stack-a-platform-with-linux-containers.html)
    - [Noah White: Docker + Glassfish4    - Oct 11, 2013 ](http://www.noahwhite.net/soc/2013/10/docker-glassfish4.html)
    - [Marek Goldmann: WildFly cluster using Docker on Fedora    - Oct 7, 2013 ](http://goldmann.pl/blog/2013/10/07/wildfly-cluster-using-docker-on-fedora/)
-   - [Ijonas: Building a MongoDB Cluster using DOcker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
+   - [Ijonas: Building a MongoDB Cluster using Docker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
    - [Codeaholics.org: Giving Docker/LXC containers a routable IP address       - Oct 2, 2013 ](http://blog.codeaholics.org/2013/giving-dockerlxc-containers-a-routable-ip-address/)
    - [ITBusinessEdge: Red Hat Throws Support Behind Portable App Container       - Sep 30, 2013 ](http://www.itbusinessedge.com/blogs/it-unmasked/red-hat-throws-support-behind-portable-app-container.html)
    - [Buildbot: First Buildbot run with Docker    - Sep 30, 2013 ](http://buildbot.readthedocs.org/en/latest/tutorial/docker.html)

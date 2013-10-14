@@ -1,5 +1,5 @@
 ﻿{% extends 'homepage.html' %}
-{% load list_tweets %}{% load static %}
+{% load static %}
 
 {% block title %}Homepage - {% endblock %}
 {% block meta-description %}Docker: An open source project to pack, ship and run any application as a lightweight container{% endblock %}
