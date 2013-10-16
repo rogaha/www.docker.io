@@ -14,6 +14,13 @@
 
 Docker is an open source project that relies on the support of a great community of contributors worldwide.
 
+* ####  Oct 15 • Docker on TechCrunch
+
+    The Cloud Washers Will Loose
+    <span class="read-more"><a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank">read more -></a></span>
+
+    <a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="TechCrunch"></a>
+
 * ####  Sep 27 • Docker on InfoQ
 
     Securing Docker and Containers
