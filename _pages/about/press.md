@@ -14,12 +14,32 @@
 
 Docker is an open source project that relies on the support of a great community of contributors worldwide.
 
+
 * ####  Oct 15 • Docker on TechCrunch
 
     The Cloud Washers Will Loose
     <span class="read-more"><a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank">read more -></a></span>
 
     <a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="TechCrunch"></a>
+    
+* #### Oct 17 • Docker on The register
+
+    Free Cocaine giveaway from Russian search engine Yandex <span class="read more"><a href="http://www.theregister.co.uk/2013/10/17/free_cocaine_giveaway_from_russian_search_engine_yandex/" target="_blank"> read more -></a></span>
+
+    <a href="http://www.theregister.co.uk/2013/10/17/free_cocaine_giveaway_from_russian_search_engine_yandex/" target="_blank"><img  style="margin:15px;" src="{% static 'img/press-logos/logo_theregister.png' %}" alt=theregister.co.uk></a>
+
+* #### Oct 17 • Docker on siliconANGLE
+
+    Yandex, Russia's Biggest Search Engine, Offers Cocaine to Deveopers <span class="read more"><a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"> read more -></a></span>
+
+    <a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/siliconangle-logo2.jpg' %}" alt="siliconANGLE.com"></a>
+
+* ####  Oct 17 • Docker on Techcrunch
+
+    Search Engine Giant Yandex Launches Cocaine, A Cloud Service to Compete With Google App Engine
+    <span class="read-more"><a href="http://techcrunch.com/2013/10/16/search-engine-giant-yandex-launches-cocaine-a-cloud-service-to-compete-with-google-app-engine/">read more -></a></span>
+
+    <a href="http://techcrunch.com/2013/10/16/search-engine-giant-yandex-launches-cocaine-a-cloud-service-to-compete-with-google-app-engine/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="techcrunch"></a>
 
 * ####  Sep 27 • Docker on InfoQ
 
@@ -149,7 +169,7 @@ Docker is an open source project that relies on the support of a great community
    - [Tero Parviainen: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://teropa.info/blog/2013/10/13/rupy-2013-stack-a-platform-with-linux-containers.html)
    - [Noah White: Docker + Glassfish4    - Oct 11, 2013 ](http://www.noahwhite.net/soc/2013/10/docker-glassfish4.html)
    - [Marek Goldmann: WildFly cluster using Docker on Fedora    - Oct 7, 2013 ](http://goldmann.pl/blog/2013/10/07/wildfly-cluster-using-docker-on-fedora/)
-   - [Ijonas: Building a MongoDB Cluster using Docker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
+   - [Ijonas: Building a MongoDB Cluster using DOcker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
    - [Codeaholics.org: Giving Docker/LXC containers a routable IP address       - Oct 2, 2013 ](http://blog.codeaholics.org/2013/giving-dockerlxc-containers-a-routable-ip-address/)
    - [ITBusinessEdge: Red Hat Throws Support Behind Portable App Container       - Sep 30, 2013 ](http://www.itbusinessedge.com/blogs/it-unmasked/red-hat-throws-support-behind-portable-app-container.html)
    - [Buildbot: First Buildbot run with Docker    - Sep 30, 2013 ](http://buildbot.readthedocs.org/en/latest/tutorial/docker.html)
