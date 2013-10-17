@@ -14,6 +14,26 @@
 
 Docker is an open source project that relies on the support of a great community of contributors worldwide.
 
+
+* #### Oct 17 • Docker on The register
+
+    Free Cocaine giveaway from Russian search engine Yandex <span class="read more"><a href="http://www.theregister.co.uk/2013/10/17/free_cocaine_giveaway_from_russian_search_engine_yandex/" target="_blank"> read more -></a></span>
+
+    <a href="http://www.theregister.co.uk/2013/10/17/free_cocaine_giveaway_from_russian_search_engine_yandex/" target="_blank"><img  style="margin:15px;" src="{% static 'img/press-logos/logo_theregister.png' %}" alt=theregister.co.uk></a>
+
+* #### Oct 17 • Docker on siliconANGLE
+
+    Yandex, Russia's Biggest Search Engine, Offers Cocaine to Deveopers <span class="read more"><a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"> read more -></a></span>
+
+    <a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/siliconangle-logo2.jpg' %}" alt="siliconANGLE.com"></a>
+
+* ####  Oct 17 • Docker on Techcrunch
+
+    Search Engine Giant Yandex Launches Cocaine, A Cloud Service to Compete With Google App Engine
+    <span class="read-more"><a href="http://techcrunch.com/2013/10/16/search-engine-giant-yandex-launches-cocaine-a-cloud-service-to-compete-with-google-app-engine/">read more -></a></span>
+
+    <a href="http://techcrunch.com/2013/10/16/search-engine-giant-yandex-launches-cocaine-a-cloud-service-to-compete-with-google-app-engine/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="techcrunch"></a>
+
 * ####  Sep 27 • Docker on InfoQ
 
     Securing Docker and Containers
