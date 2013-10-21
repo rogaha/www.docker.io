@@ -166,6 +166,9 @@ Docker is an open source project that relies on the support of a great community
 ## Blogposts on Docker
 
 
+   - [BaseSpace Blog: Introducing the Native App Engine  - Oct 21, 2013 ](http://blog.basespace.illumina.com/2013/10/21/introducing-the-native-app-engine/)
+   - [Paul Czarkowski: Managing Docker Services With This One Easy Trick  - Oct 20, 2013 ](http://tech.paulcz.net/2013/10/managing-docker-services-with-this-one-easy-trick.html#/index)
+   - [RelateIQ: Why Docker? Why not Chef?  - Oct 17, 2013 ](http://blog.relateiq.com/why-docker-why-not-chef/)
    - [Rackspace: How Mailgun Uses Docker and Contributes Back  - Oct 14, 2013 ](http://www.rackspace.com/blog/how-mailgun-uses-docker-and-contributes-back/)
    - [Ijonas: Building a Docker-based MySQL Server   - Oct 14, 2013 ](http://ijonas.com/devops-2/building-a-docker-based-mysql-server/)
    - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
@@ -173,6 +176,7 @@ Docker is an open source project that relies on the support of a great community
    - [IbuildtheCloud: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://ibuildthecloud.tumblr.com/post/63895248725/docker-is-lxcs-ajax)
    - [Tero Parviainen: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://teropa.info/blog/2013/10/13/rupy-2013-stack-a-platform-with-linux-containers.html)
    - [Noah White: Docker + Glassfish4    - Oct 11, 2013 ](http://www.noahwhite.net/soc/2013/10/docker-glassfish4.html)
+   - [Hendrik Volkmer    - Oct 11, 2013 ](http://blog.hendrikvolkmer.de/2013/10/11/the-missing-piece-operating-systems-for-web-scale-cloud-apps/)
    - [Marek Goldmann: WildFly cluster using Docker on Fedora    - Oct 7, 2013 ](http://goldmann.pl/blog/2013/10/07/wildfly-cluster-using-docker-on-fedora/)
    - [Ijonas: Building a MongoDB Cluster using DOcker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
    - [Codeaholics.org: Giving Docker/LXC containers a routable IP address       - Oct 2, 2013 ](http://blog.codeaholics.org/2013/giving-dockerlxc-containers-a-routable-ip-address/)
@@ -227,7 +231,7 @@ Docker is an open source project that relies on the support of a great community
 {#   - http://thechangelog.com/docker-from-dotcloud-is-now-open-source-the-future-of-linux-containers/#}
 
 
-**If you find an interesting article is missing.. Please make a pull request to [this page](https://github.com/dotcloud/www.docker.io/blob/master/_pages/about/press.md)**
+**If you find an interesting article is missing. Please make a pull request to [this page](https://github.com/dotcloud/www.docker.io/blob/master/_pages/about/press.md)**
 
 {% endblock %}
 
