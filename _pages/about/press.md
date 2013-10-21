@@ -169,6 +169,7 @@ Docker is an open source project that relies on the support of a great community
    - [BaseSpace Blog: Introducing the Native App Engine  - Oct 21, 2013 ](http://blog.basespace.illumina.com/2013/10/21/introducing-the-native-app-engine/)
    - [Paul Czarkowski: Managing Docker Services With This One Easy Trick  - Oct 20, 2013 ](http://tech.paulcz.net/2013/10/managing-docker-services-with-this-one-easy-trick.html#/index)
    - [RelateIQ: Why Docker? Why not Chef?  - Oct 17, 2013 ](http://blog.relateiq.com/why-docker-why-not-chef/)
+   - [Harry Marr: CodeCube: Docker-powered Runnable Gists  - Oct 16, 2013 ](http://hmarr.com/2013/oct/16/codecube-runnable-gists/)
    - [Rackspace: How Mailgun Uses Docker and Contributes Back  - Oct 14, 2013 ](http://www.rackspace.com/blog/how-mailgun-uses-docker-and-contributes-back/)
    - [Ijonas: Building a Docker-based MySQL Server   - Oct 14, 2013 ](http://ijonas.com/devops-2/building-a-docker-based-mysql-server/)
    - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
