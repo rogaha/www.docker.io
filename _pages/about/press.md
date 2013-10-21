@@ -172,7 +172,7 @@ Docker is an open source project that relies on the support of a great community
    - [Harry Marr: CodeCube: Docker-powered Runnable Gists  - Oct 16, 2013 ](http://hmarr.com/2013/oct/16/codecube-runnable-gists/)
    - [Rackspace: How Mailgun Uses Docker and Contributes Back  - Oct 14, 2013 ](http://www.rackspace.com/blog/how-mailgun-uses-docker-and-contributes-back/)
    - [Ijonas: Building a Docker-based MySQL Server   - Oct 14, 2013 ](http://ijonas.com/devops-2/building-a-docker-based-mysql-server/)
-   - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
+   - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://zargony.com/2013/10/13/ipv6-in-docker-containers)
    - [Ijonas: A Docker Container folder structure that's flexible and scales   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
    - [IbuildtheCloud: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://ibuildthecloud.tumblr.com/post/63895248725/docker-is-lxcs-ajax)
    - [Tero Parviainen: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://teropa.info/blog/2013/10/13/rupy-2013-stack-a-platform-with-linux-containers.html)
