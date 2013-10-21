@@ -65,28 +65,17 @@ There are several ways to get in touch:
 Sharing what you have built with Docker is a great way to help people understand the value of Docker. If you have
     a great story to tell we'll be happy to help you spread the word.
 
-* Tell your story at a company tech talk, tweet (#docker.io, @docker)  present at your local user group, or submit a
+* Tell your story at a company tech talk, tweet (<a href="https://twitter.com/search?q=%23docker&src=typd&f=realtime" target="_blank">#docker</a>, <a href="https://twitter.com/docker" target="_blank">@docker</a>)  present at your local user group, or submit a
     talk proposal to a conference or event about how you are using Docker
 * If you are using Docker,  in production, become a public reference like [these](http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/)
 * Write a tutorial like [these](http://blog.docker.io/2013/06/14-great-tutorials-on-docker/)
 
+## Docker Meetups ###
 
-### Come to (or organize) a meetup ###
+<a href="{% url 'events' %}">Docker meetups</a> are a great way to network, learn, share best practices, and have fun. 
+See the full list of Docker meetups and events and how to create yours [here]({% url 'events' %}).
 
-Docker meetups are a great way to network, learn, share best practices, and have fun. See a full list of events
-    [here]({% url 'events' %}).
-
-<img src="{% static 'img/community/hackday_demo.jpg' %}" alt="Demo at Docker Hackday" class="float-right" style="width: 250px; float:left; margin-right:40px;">
-#### USA
-* <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
-* <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
-* <a href="http://www.meetup.com/Docker-NewYorkCity/">New York, NY </a>
-
-#### Europe
-* <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
-* <a href="http://www.meetup.com/Docker-London/">London, UK</a>
-
-<br style="clear:left;">
+<iframe width="620" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=202534187356482762121.0004e943a350c59ab3ca5&amp;ie=UTF8&amp;t=m&amp;ll=46.073231,-48.515625&amp;spn=94.495552,217.617187&amp;z=2&amp;output=embed"></iframe><br />
 
 ## Contribute
 
