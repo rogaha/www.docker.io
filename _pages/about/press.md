@@ -14,13 +14,17 @@
 
 Docker is an open source project that relies on the support of a great community of contributors worldwide.
 
+* #### Oct 18 • Docker on The register
 
-* ####  Oct 15 • Docker on TechCrunch
+    Havana see your bare metal: New OpenStack v8 clinches containerization <span class="read more"><a href="http://www.theregister.co.uk/2013/10/18/openstack_havana/" target="_blank"> read more -></a></span>
 
-    The Cloud Washers Will Loose
-    <span class="read-more"><a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank">read more -></a></span>
+    <a href="http://www.theregister.co.uk/2013/10/18/openstack_havana/" target="_blank"><img  style="margin:15px;" src="{% static 'img/press-logos/logo_theregister.png' %}" alt=theregister.co.uk></a>
 
-    <a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="TechCrunch"></a>
+* #### Oct 17 • Docker on siliconANGLE
+
+    Yandex, Russia's Biggest Search Engine, Offers Cocaine to Deveopers <span class="read more"><a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"> read more -></a></span>
+
+    <a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/siliconangle-logo2.jpg' %}" alt="siliconANGLE.com"></a>
     
 * #### Oct 17 • Docker on The register
 
@@ -28,18 +32,19 @@ Docker is an open source project that relies on the support of a great community
 
     <a href="http://www.theregister.co.uk/2013/10/17/free_cocaine_giveaway_from_russian_search_engine_yandex/" target="_blank"><img  style="margin:15px;" src="{% static 'img/press-logos/logo_theregister.png' %}" alt=theregister.co.uk></a>
 
-* #### Oct 17 • Docker on siliconANGLE
-
-    Yandex, Russia's Biggest Search Engine, Offers Cocaine to Deveopers <span class="read more"><a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"> read more -></a></span>
-
-    <a href="http://siliconangle.com/blog/2013/10/17/yandex-russias-biggest-search-engine-offers-cocaine-to-developers/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/siliconangle-logo2.jpg' %}" alt="siliconANGLE.com"></a>
-
-* ####  Oct 17 • Docker on Techcrunch
+* ####  Oct 16 • Docker on Techcrunch
 
     Search Engine Giant Yandex Launches Cocaine, A Cloud Service to Compete With Google App Engine
     <span class="read-more"><a href="http://techcrunch.com/2013/10/16/search-engine-giant-yandex-launches-cocaine-a-cloud-service-to-compete-with-google-app-engine/">read more -></a></span>
 
     <a href="http://techcrunch.com/2013/10/16/search-engine-giant-yandex-launches-cocaine-a-cloud-service-to-compete-with-google-app-engine/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="techcrunch"></a>
+
+* ####  Oct 15 • Docker on TechCrunch
+
+    The Cloud Washers Will Loose
+    <span class="read-more"><a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank">read more -></a></span>
+
+    <a href="http://techcrunch.com/2013/10/15/the-cloud-washers-will-lose/" target="_blank"><img style="margin:15px;" src="{% static 'img/press-logos/techcrunch_logo.jpg' %}" alt="TechCrunch"></a>
 
 * ####  Sep 27 • Docker on InfoQ
 
@@ -161,13 +166,18 @@ Docker is an open source project that relies on the support of a great community
 ## Blogposts on Docker
 
 
+   - [BaseSpace Blog: Introducing the Native App Engine  - Oct 21, 2013 ](http://blog.basespace.illumina.com/2013/10/21/introducing-the-native-app-engine/)
+   - [Paul Czarkowski: Managing Docker Services With This One Easy Trick  - Oct 20, 2013 ](http://tech.paulcz.net/2013/10/managing-docker-services-with-this-one-easy-trick.html#/index)
+   - [RelateIQ: Why Docker? Why not Chef?  - Oct 17, 2013 ](http://blog.relateiq.com/why-docker-why-not-chef/)
+   - [Harry Marr: CodeCube: Docker-powered Runnable Gists  - Oct 16, 2013 ](http://hmarr.com/2013/oct/16/codecube-runnable-gists/)
    - [Rackspace: How Mailgun Uses Docker and Contributes Back  - Oct 14, 2013 ](http://www.rackspace.com/blog/how-mailgun-uses-docker-and-contributes-back/)
    - [Ijonas: Building a Docker-based MySQL Server   - Oct 14, 2013 ](http://ijonas.com/devops-2/building-a-docker-based-mysql-server/)
-   - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
+   - [Zargony: IPv6 in Docker   - Oct 13, 2013 ](http://zargony.com/2013/10/13/ipv6-in-docker-containers)
    - [Ijonas: A Docker Container folder structure that's flexible and scales   - Oct 13, 2013 ](http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/)
    - [IbuildtheCloud: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://ibuildthecloud.tumblr.com/post/63895248725/docker-is-lxcs-ajax)
    - [Tero Parviainen: RuPy 2013: Stack A Plateform With Linux Containers    - Oct 13, 2013 ](http://teropa.info/blog/2013/10/13/rupy-2013-stack-a-platform-with-linux-containers.html)
    - [Noah White: Docker + Glassfish4    - Oct 11, 2013 ](http://www.noahwhite.net/soc/2013/10/docker-glassfish4.html)
+   - [Hendrik Volkmer    - Oct 11, 2013 ](http://blog.hendrikvolkmer.de/2013/10/11/the-missing-piece-operating-systems-for-web-scale-cloud-apps/)
    - [Marek Goldmann: WildFly cluster using Docker on Fedora    - Oct 7, 2013 ](http://goldmann.pl/blog/2013/10/07/wildfly-cluster-using-docker-on-fedora/)
    - [Ijonas: Building a MongoDB Cluster using DOcker Containers    - Oct 6, 2013 ](http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/)
    - [Codeaholics.org: Giving Docker/LXC containers a routable IP address       - Oct 2, 2013 ](http://blog.codeaholics.org/2013/giving-dockerlxc-containers-a-routable-ip-address/)
@@ -222,7 +232,7 @@ Docker is an open source project that relies on the support of a great community
 {#   - http://thechangelog.com/docker-from-dotcloud-is-now-open-source-the-future-of-linux-containers/#}
 
 
-**If you find an interesting article is missing.. Please make a pull request to [this page](https://github.com/dotcloud/www.docker.io/blob/master/_pages/about/press.md)**
+**If you find an interesting article is missing. Please make a pull request to [this page](https://github.com/dotcloud/www.docker.io/blob/master/_pages/about/press.md)**
 
 {% endblock %}
 
