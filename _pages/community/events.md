@@ -20,7 +20,7 @@ Do you want to be listed here? Email us at <strong>meetup@docker.io</strong> or 
 
 These are the Docker meetup groups that are currently active
 
-#### USA
+#### North America
 * <a href="http://www.meetup.com/Docker-Atlanta/">Atlanta, GA</a>
 * <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
 * <a href="http://www.meetup.com/Docker-Boulder/">Boulder, CO</a>
@@ -30,6 +30,7 @@ These are the Docker meetup groups that are currently active
 * <a href="http://www.meetup.com/Docker-Portland-OR/">Portland, OR</a>
 * <a href="http://www.meetup.com/Docker-San-Mateo-CA/">San Mateo, CA</a>
 * <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
+* <a href="http://www.meetup.com/Docker-Toronto/">Toronto, ON</a>
 
 #### Europe
 * <a href="http://www.meetup.com/Docker-London/">London, UK</a>
