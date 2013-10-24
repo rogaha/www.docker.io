@@ -10,77 +10,41 @@
 
 
 
+{% block copy_sidebar %}
+{% endblock %}
+
 
 {% block copy_introduction %}
 
+# Docker meetups
+Anyone can join or start a Docker Meetup. Simply click on the closest city to join the group and meet developers and
+    ops engineers using Docker. If you want to create a new Docker Meetup in your city, we will are happy to help:
+    <a href="{% url 'meetups-organize' %}">follow the guide</a>.
 
-## Starting a Docker Meetup Group
+<iframe width="620" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=202534187356482762121.0004e943a350c59ab3ca5&amp;ie=UTF8&amp;t=m&amp;ll=46.073231,-48.515625&amp;spn=94.495552,217.617187&amp;z=2&amp;output=embed"></iframe><br />
+    <small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=202534187356482762121.0004e943a350c59ab3ca5&amp;ie=UTF8&amp;t=m&amp;ll=46.073231,-48.515625&amp;spn=94.495552,217.617187&amp;z=2&amp;source=embed" style="color:#0000FF;text-align:left">Docker Meetup Groups</a> in a larger map</small>
 
-Anyone interested in Docker can become an active member of the Docker community by becoming co-organizer of a Docker Meetup group.
+Do you want to be listed here? Email us at <strong>meetup@docker.io</strong> or ping us on <a href="https://twitter.com/docker/">twitter</a>.
 
-If a Meetup group does not already exist in your area and you are willing to start a new one, the best way to proceed is to contact us so that we can create it for you. We will always agree to create a new Docker Meetup group as long as it makes sense geographically speaking.  
+### Currently active meetup groups:
 
-If you have already created a Docker Meetup group that is fine, we will simply ask you to add us as a co-organizer so that we can ensure a consistent support to the group in terms of community and Meetup management. 
+#### North America
+* <a href="http://www.meetup.com/Docker-Atlanta/">Atlanta, GA</a>
+* <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
+* <a href="http://www.meetup.com/Docker-Boulder/">Boulder, CO</a>
+* <a href="http://www.meetup.com/Docker-Los-Angeles/">Los Angeles, CA</a>
+* <a href="http://www.meetup.com/Docker-NewYorkCity/">New York, NY</a>
+* <a href="http://www.meetup.com/Docker-Palo-Alto/">Palo Alto, CA</a>
+* <a href="http://www.meetup.com/Docker-Portland-OR/">Portland, OR</a>
+* <a href="http://www.meetup.com/Docker-San-Mateo-CA/">San Mateo, CA</a>
+* <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
+* <a href="http://www.meetup.com/Docker-Toronto/">Toronto, ON</a>
 
-Before contacting us to create a new Docker Meetup Group, take a look at our <span class="Meetup Groups page"><a href="http://www.docker.io/events" target="_blank"> Meetup Groups page </a></span> to make sure a group does not already exist in the area 
+#### Europe
+* <a href="http://www.meetup.com/Docker-London/">London, UK</a>
+* <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
 
-<center> <img src="{% static 'img/community/Docker-meetup.jpg' %}"> </center>
-
-## Organizing a Docker Meetup event
-
-Now that you are co-organizer of a Docker Meetup Group, here are a few tips and suggestions to help you get started: 
-
-*	Attend similar DevOps or Developers Meetups to gain experience and gauge interest in Docker
-
-*	Contact other people interested in Docker to help you organize and promote future Meetups  
-
-*	Research High-Tech companies in your area willing to host a Docker Meetup event
-
-*	Research what would be the best date(s) to schedule the Meetups based on availabilities with regard to competing events in the area and other calendar imperative
-
-*	Research what are the topic of interest to your audience prior to set an agenda for the meetup
-
-*	Pay attention to the Meetup page aesthetics, add logos and pictures, invite members to leave comments and reply to these comments
-
-*	Promote the event on social medias and make sure that the list of keywords is well define if you have created the Docker Meetup Group on your own
-
-
-&nbsp;
-
-## How Docker helps you 
-
-We can support the co-organizers of the Docker Meetup Groups based on their specific needs. For instance, we might / will be able to:
-
-*	Put you in contact with other people interested in being a co-organizer of the same Docker Meetup Group than you and based in the same place
-
-*	Put you in contact with companies willing to host a Docker Meetup in your area
-
-*	Introduce you to people willing to give a lightning talk about Docker 
-
-*	Send you Docker tee shirts and stickers
-
-*	Promote your Docker Group on Docker.io, Docker Weekly and Social Medias.
-
-<img src="{% static 'img/community/Edmodo.jpg' %}">
-
-&nbsp;
-
-## Host a Docker Meetup
-
-### Want to host a Docker Meetup?
-
-We are always looking for new office space to host Docker Meetups. If your company is willing to host a Docker Meetup, please contact us by email at meetup@docker.io. Previous Docker Meetups have been hosted by
-[LOGOs of] Rackspace, Twitter, MongoDB, BrightCove, DigitlOcean, Viadeo, Edmodo
-
-### How many attendees?
-
-The company hosting the event fixes the number of attendees depending on their office size and availability. This number usually varies between 30 and 200.
-
-### How long is a Docker Meetup?
-
-Once again, each company hosting the event decides when does the meetup start, and how long it lasts. Usual meetups tend to last 2 hours, and start between 4pm and 6pm.
-
-<img src="{% static 'img/community/hackday.jpg' %}">
 
 {% endblock %}
+
 
