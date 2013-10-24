@@ -30,7 +30,8 @@ urlpatterns = patterns('',
     url(r'^team/$', 'base.views.team', name="team"),
     url(r'^jobs/$', TemplateView.as_view(template_name='about/jobs.md'), name="jobs"),
     url(r'^events/$', 'base.views.events', name="events"),
-    # url(r'^about/$', TemplateView.as_view(template_name='about/about.md'), name="about"),
+    url(r'^meetups/$', TemplateView.as_view(template_name='community/meetups.md'), name="meetup"),
+    
     url(r'^about/$', RedirectView.as_view(url=reverse_lazy('learn_more')), name='about'),
 
     url(r'^press/$', TemplateView.as_view(template_name='about/press.md'), name="press"),
