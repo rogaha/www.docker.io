@@ -10,23 +10,12 @@
 
 {% block copy_introduction %}
 
-## Active groups
+## Events
 
-These Docker meetup groups are currently active
+We have a ton of events going on (see below), in many places around the world, in some occasions also via live streaming. Here
+    is an overview of the events we know that are going on.
 
-#### USA
-* <a href="http://www.meetup.com/Docker-meetups/">San Francisco, CA</a>
-* <a href="http://www.meetup.com/Docker-Boston/">Boston, MA</a>
-* <a href="http://www.meetup.com/Docker-NewYorkCity/">New York, NY </a>
-
-#### Europe
-* <a href="http://www.meetup.com/Docker-Paris">Paris, France</a>
-* <a href="http://www.meetup.com/Docker-London/">London, UK</a>
-
-If you would like to organize a meetup in your city, <a href="https://twitter.com/docker/">contact us</a>. We will be happy to help.
-
-
-
+Many of our events happen in the form of a <a href="{% url 'meetups' %}">meetup</a>. These meetups are organized by people from the community to learn
+    more about Docker and to share their experiences.
 
 {% endblock %}
-
